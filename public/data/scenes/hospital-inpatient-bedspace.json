@@ -234,103 +234,49 @@
       "height": 42.082891
     },
     {
-      "id": "hospital-inpatient-bedspace-region-inpatient-bed-mattress",
-      "description": "Inpatient bed mattress visible in Bed and linens",
-      "kind": "object",
-      "x": 1117.703349,
-      "y": 461.955367,
-      "width": 42.105263,
-      "height": 42.082891
-    },
-    {
-      "id": "hospital-inpatient-bedspace-region-bedspace-mattress-seam",
-      "description": "Bedspace mattress seam visible in Bed and linens",
-      "kind": "object",
-      "x": 1222.966507,
-      "y": 476.301807,
-      "width": 42.105263,
-      "height": 42.082891
-    },
-    {
       "id": "hospital-inpatient-bedspace-region-bedspace-white-pillow",
-      "description": "Bedspace white pillow visible in Bed and linens",
+      "description": "White pillow face between the two raised rails.",
       "kind": "object",
-      "x": 993.301435,
-      "y": 342.4017,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 982,
+      "y": 344,
+      "width": 64,
+      "height": 38
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-pillowcase-edge",
-      "description": "Bedspace pillowcase edge visible in Bed and linens",
+      "description": "Thin lower lip of the pillowcase against the sheet.",
       "kind": "object",
-      "x": 974.162679,
-      "y": 351.965994,
-      "width": 42.105263,
-      "height": 42.082891
-    },
-    {
-      "id": "hospital-inpatient-bedspace-region-bedspace-fitted-sheet",
-      "description": "Bedspace fitted sheet visible in Bed and linens",
-      "kind": "object",
-      "x": 1146.411483,
-      "y": 423.698193,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 980,
+      "y": 401,
+      "width": 24,
+      "height": 2
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-top-sheet",
-      "description": "Bedspace top sheet visible in Bed and linens",
+      "description": "Flat white sheet exposed between the pillow and overbed tabletop.",
       "kind": "object",
-      "x": 1184.688995,
-      "y": 533.687566,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 986,
+      "y": 410,
+      "width": 60,
+      "height": 12
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-blue-blanket",
-      "description": "Bedspace blue blanket visible in Bed and linens",
+      "description": "Pale blue blanket beneath the tabletop and left of the footboard.",
       "kind": "object",
-      "x": 1270.813397,
-      "y": 576.726886,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 957,
+      "y": 481,
+      "width": 68,
+      "height": 22
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-blanket-fold",
-      "description": "Bedspace blanket fold visible in Bed and linens",
+      "description": "Raised fold where the blue blanket turns down over the near bed side.",
       "kind": "object",
-      "x": 1203.827751,
-      "y": 571.94474,
-      "width": 42.105263,
-      "height": 42.082891
-    },
-    {
-      "id": "hospital-inpatient-bedspace-region-bedspace-blanket-hem",
-      "description": "Bedspace blanket hem visible in Bed and linens",
-      "kind": "object",
-      "x": 1356.937799,
-      "y": 610.201913,
-      "width": 42.105263,
-      "height": 42.082891
-    },
-    {
-      "id": "hospital-inpatient-bedspace-region-bedspace-mattress-corner",
-      "description": "Bedspace mattress corner visible in Bed and linens",
-      "kind": "object",
-      "x": 1395.215311,
-      "y": 495.430393,
-      "width": 42.105263,
-      "height": 42.082891
-    },
-    {
-      "id": "hospital-inpatient-bedspace-region-bedspace-mattress-cover",
-      "description": "Bedspace mattress cover visible in Bed and linens",
-      "kind": "object",
-      "x": 1108.133971,
-      "y": 495.430393,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 1012,
+      "y": 512,
+      "width": 10,
+      "height": 8
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-upper-bed-rail",
@@ -351,31 +297,22 @@
       "height": 42.082891
     },
     {
-      "id": "hospital-inpatient-bedspace-region-bedspace-upper-rail-release",
-      "description": "Bedspace upper rail release visible in Bed and linens",
-      "kind": "object",
-      "x": 907.177033,
-      "y": 457.17322,
-      "width": 42.105263,
-      "height": 42.082891
-    },
-    {
       "id": "hospital-inpatient-bedspace-region-bedspace-lower-bed-rail",
-      "description": "Bedspace lower bed rail visible in Bed and linens",
+      "description": "Pale near-side rail immediately left of the hanging blue blanket.",
       "kind": "object",
-      "x": 1376.076555,
-      "y": 457.17322,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 945,
+      "y": 590,
+      "width": 8,
+      "height": 14
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-lower-rail-opening",
-      "description": "Bedspace lower rail opening visible in Bed and linens",
+      "description": "Narrow upper slot in the near-side rail beside the blanket.",
       "kind": "object",
-      "x": 1385.645933,
-      "y": 476.301807,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 942,
+      "y": 550,
+      "width": 4,
+      "height": 6
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-headboard-panel",
@@ -388,21 +325,12 @@
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-footboard-panel",
-      "description": "Bedspace footboard panel visible in Bed and linens",
+      "description": "Solid footboard panel below the long opening and above the blue inset.",
       "kind": "object",
-      "x": 1222.966507,
-      "y": 509.776833,
-      "width": 42.105263,
-      "height": 42.082891
-    },
-    {
-      "id": "hospital-inpatient-bedspace-region-bedspace-bedding-tuck",
-      "description": "Bedspace bedding tuck visible in Bed and linens",
-      "kind": "object",
-      "x": 1088.995215,
-      "y": 552.816153,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 1227,
+      "y": 525,
+      "width": 34,
+      "height": 12
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-pillow-crease",
@@ -415,39 +343,30 @@
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-sheet-drape",
-      "description": "Bedspace sheet drape visible in Bed and linens",
+      "description": "White sheet hanging below the table and left of the blue blanket.",
       "kind": "object",
-      "x": 1050.717703,
-      "y": 591.073326,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 919,
+      "y": 479,
+      "width": 12,
+      "height": 12
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-bed-corner-protector",
-      "description": "Bedspace bed-corner protector visible in Bed and linens",
+      "description": "Pale projecting bumper on the outside corner of the bed frame.",
       "kind": "object",
-      "x": 1414.354067,
-      "y": 519.341126,
-      "width": 42.105263,
-      "height": 42.082891
-    },
-    {
-      "id": "hospital-inpatient-bedspace-region-bedspace-mattress-piping",
-      "description": "Bedspace mattress piping visible in Bed and linens",
-      "kind": "object",
-      "x": 1337.799043,
-      "y": 423.698193,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 1445,
+      "y": 632,
+      "width": 8,
+      "height": 24
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-blanket-surface",
-      "description": "Bedspace blanket surface visible in Bed and linens",
+      "description": "Exposed blue fabric inside the long opening across the footboard.",
       "kind": "object",
-      "x": 1289.952153,
-      "y": 543.25186,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 1208,
+      "y": 491,
+      "width": 84,
+      "height": 12
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-bed-linen-fold",
@@ -460,30 +379,30 @@
     },
     {
       "id": "hospital-inpatient-bedspace-region-inpatient-bed-frame",
-      "description": "Inpatient bed frame visible in Bed frame and controls",
+      "description": "Front frame rail immediately below the footboard.",
       "kind": "object",
-      "x": 1155.980861,
-      "y": 638.894793,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 1157,
+      "y": 648,
+      "width": 40,
+      "height": 14
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-frame-side-beam",
-      "description": "Bedspace frame side beam visible in Bed frame and controls",
+      "description": "Near-side frame beam running diagonally beneath the side rail.",
       "kind": "object",
-      "x": 1213.397129,
-      "y": 667.587673,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 956.5,
+      "y": 643,
+      "width": 7,
+      "height": 6
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-frame-crossbar",
-      "description": "Bedspace frame crossbar visible in Bed frame and controls",
+      "description": "Light crossbar running between the two foot-end bumpers.",
       "kind": "object",
-      "x": 1069.856459,
-      "y": 701.062699,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 1236,
+      "y": 639,
+      "width": 48,
+      "height": 12
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-bed-base",
@@ -495,193 +414,85 @@
       "height": 42.082891
     },
     {
-      "id": "hospital-inpatient-bedspace-region-bedspace-hydraulic-lift-column",
-      "description": "Bedspace hydraulic lift column visible in Bed frame and controls",
-      "kind": "object",
-      "x": 1098.564593,
-      "y": 701.062699,
-      "width": 42.105263,
-      "height": 42.082891
-    },
-    {
-      "id": "hospital-inpatient-bedspace-region-bedspace-lift-linkage",
-      "description": "Bedspace lift linkage visible in Bed frame and controls",
-      "kind": "object",
-      "x": 1175.119617,
-      "y": 715.409139,
-      "width": 42.105263,
-      "height": 42.082891
-    },
-    {
       "id": "hospital-inpatient-bedspace-region-bedspace-frame-support",
-      "description": "Bedspace frame support visible in Bed frame and controls",
+      "description": "Short upright bracket attached to the lower bed-frame rail.",
       "kind": "object",
-      "x": 1251.674641,
-      "y": 720.191286,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 1109,
+      "y": 709,
+      "width": 12,
+      "height": 18
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-head-end-caster",
-      "description": "Bedspace head-end caster visible in Bed frame and controls",
+      "description": "Small bed wheel below the head end of the near-side rail, behind the table column.",
       "kind": "object",
-      "x": 916.746411,
-      "y": 758.448459,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 898,
+      "y": 604,
+      "width": 14,
+      "height": 26
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-caster-fork",
-      "description": "Bedspace caster fork visible in Bed frame and controls",
+      "description": "Light fork descending in front of the left foot-end wheel.",
       "kind": "object",
-      "x": 916.746411,
-      "y": 744.102019,
-      "width": 42.105263,
-      "height": 42.082891
-    },
-    {
-      "id": "hospital-inpatient-bedspace-region-bedspace-caster-brake-pedal",
-      "description": "Bedspace caster brake pedal visible in Bed frame and controls",
-      "kind": "object",
-      "x": 926.315789,
-      "y": 772.794899,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 1018,
+      "y": 749,
+      "width": 12,
+      "height": 12
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-foot-end-caster",
-      "description": "Bedspace foot-end caster visible in Bed frame and controls",
+      "description": "Right foot-end caster below the lower chassis, including its fork and black wheel.",
       "kind": "object",
-      "x": 1423.923445,
-      "y": 763.230606,
-      "width": 42.105263,
-      "height": 42.082891
-    },
-    {
-      "id": "hospital-inpatient-bedspace-region-bedspace-rear-caster-wheel",
-      "description": "Bedspace rear caster wheel visible in Bed frame and controls",
-      "kind": "object",
-      "x": 983.732057,
-      "y": 791.923486,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 1334,
+      "y": 734,
+      "width": 24,
+      "height": 42
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-wheel-hub",
-      "description": "Bedspace wheel hub visible in Bed frame and controls",
+      "description": "Dark axle cap on the near face of the left foot-end caster.",
       "kind": "object",
-      "x": 983.732057,
-      "y": 791.923486,
-      "width": 42.105263,
-      "height": 42.082891
-    },
-    {
-      "id": "hospital-inpatient-bedspace-region-bedspace-brake-linkage",
-      "description": "Bedspace brake linkage visible in Bed frame and controls",
-      "kind": "object",
-      "x": 935.885167,
-      "y": 777.577046,
-      "width": 42.105263,
-      "height": 42.082891
-    },
-    {
-      "id": "hospital-inpatient-bedspace-region-bedspace-bed-height-control",
-      "description": "Bedspace bed-height control visible in Bed frame and controls",
-      "kind": "object",
-      "x": 1055.502392,
-      "y": 653.241233,
-      "width": 42.105263,
-      "height": 42.082891
-    },
-    {
-      "id": "hospital-inpatient-bedspace-region-bedspace-hand-control",
-      "description": "Bedspace hand control visible in Bed frame and controls",
-      "kind": "object",
-      "x": 964.593301,
-      "y": 595.855473,
-      "width": 42.105263,
-      "height": 42.082891
-    },
-    {
-      "id": "hospital-inpatient-bedspace-region-bedspace-control-cable",
-      "description": "Bedspace control cable visible in Bed frame and controls",
-      "kind": "object",
-      "x": 983.732057,
-      "y": 638.894793,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 1015,
+      "y": 775,
+      "width": 6,
+      "height": 10
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-frame-end-bracket",
-      "description": "Bedspace frame end bracket visible in Bed frame and controls",
+      "description": "Upright bracket where the front crossbar meets the right corner bumper.",
       "kind": "object",
-      "x": 1395.215311,
-      "y": 686.716259,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 1425,
+      "y": 637,
+      "width": 10,
+      "height": 20
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-lower-chassis",
-      "description": "Bedspace lower chassis visible in Bed frame and controls",
+      "description": "Long grey lower chassis spanning the two foot-end caster assemblies.",
       "kind": "object",
-      "x": 1222.966507,
-      "y": 744.102019,
-      "width": 42.105263,
-      "height": 42.082891
-    },
-    {
-      "id": "hospital-inpatient-bedspace-region-bedspace-chassis-guard",
-      "description": "Bedspace chassis guard visible in Bed frame and controls",
-      "kind": "object",
-      "x": 1318.660287,
-      "y": 748.884166,
-      "width": 42.105263,
-      "height": 42.082891
-    },
-    {
-      "id": "hospital-inpatient-bedspace-region-bedspace-central-brake-bar",
-      "description": "Bedspace central brake bar visible in Bed frame and controls",
-      "kind": "object",
-      "x": 1127.272727,
-      "y": 782.359192,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 1155,
+      "y": 704,
+      "width": 84,
+      "height": 14
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-caster-tread",
-      "description": "Bedspace caster tread visible in Bed frame and controls",
+      "description": "Outer black tread along the right edge of the left foot-end wheel.",
       "kind": "object",
-      "x": 1423.923445,
-      "y": 768.012752,
-      "width": 42.105263,
-      "height": 42.082891
-    },
-    {
-      "id": "hospital-inpatient-bedspace-region-bedspace-bed-support-foot",
-      "description": "Bedspace bed-support foot visible in Bed frame and controls",
-      "kind": "object",
-      "x": 1069.856459,
-      "y": 763.230606,
-      "width": 42.105263,
-      "height": 42.082891
-    },
-    {
-      "id": "hospital-inpatient-bedspace-region-bedspace-actuator-housing",
-      "description": "Bedspace actuator housing visible in Bed frame and controls",
-      "kind": "object",
-      "x": 1280.382775,
-      "y": 696.280553,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 1048,
+      "y": 778,
+      "width": 4,
+      "height": 12
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-chassis-tube-joint",
-      "description": "Bedspace chassis tube joint visible in Bed frame and controls",
+      "description": "Short metal sleeve joining the lower chassis rail to the right caster assembly.",
       "kind": "object",
-      "x": 1184.688995,
-      "y": 791.923486,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 1281,
+      "y": 700,
+      "width": 12,
+      "height": 18
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-patient-monitor",
@@ -937,12 +748,12 @@
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-lower-drawer",
-      "description": "Bedspace lower drawer visible in Bedside cabinet and supplies",
+      "description": "Wooden lower drawer face below the metal pull and above the footboard.",
       "kind": "object",
-      "x": 1203.827751,
-      "y": 442.82678,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 1254,
+      "y": 441,
+      "width": 42,
+      "height": 12
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-drawer-pull",
@@ -959,15 +770,6 @@
       "kind": "object",
       "x": 1270.813397,
       "y": 423.698193,
-      "width": 42.105263,
-      "height": 42.082891
-    },
-    {
-      "id": "hospital-inpatient-bedspace-region-bedspace-cabinet-plinth",
-      "description": "Bedspace cabinet plinth visible in Bedside cabinet and supplies",
-      "kind": "object",
-      "x": 1203.827751,
-      "y": 481.083953,
       "width": 42.105263,
       "height": 42.082891
     },
@@ -1054,21 +856,12 @@
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-table-support-leg",
-      "description": "Bedspace table support leg visible in Bedside cabinet and supplies",
+      "description": "Single grey upright between the wooden overbed tabletop and its separate wheeled foot.",
       "kind": "object",
-      "x": 1270.813397,
-      "y": 476.301807,
-      "width": 42.105263,
-      "height": 42.082891
-    },
-    {
-      "id": "hospital-inpatient-bedspace-region-bedspace-cabinet-handle-recess",
-      "description": "Bedspace cabinet handle recess visible in Bedside cabinet and supplies",
-      "kind": "object",
-      "x": 1203.827751,
-      "y": 447.608927,
-      "width": 42.105263,
-      "height": 42.082891
+      "x": 855,
+      "y": 593,
+      "width": 18,
+      "height": 118
     },
     {
       "id": "hospital-inpatient-bedspace-region-bedspace-cupboard-seam",
@@ -1076,15 +869,6 @@
       "kind": "object",
       "x": 1261.244019,
       "y": 409.351753,
-      "width": 42.105263,
-      "height": 42.082891
-    },
-    {
-      "id": "hospital-inpatient-bedspace-region-bedspace-bedside-wheel",
-      "description": "Bedspace bedside wheel visible in Bedside cabinet and supplies",
-      "kind": "object",
-      "x": 1270.813397,
-      "y": 481.083953,
       "width": 42.105263,
       "height": 42.082891
     },
@@ -1409,29 +1193,20 @@
       "height": 430.393199,
       "targetScale": 2.65,
       "labelIds": [
-        "hospital-inpatient-bedspace-inpatient-bed-mattress",
-        "hospital-inpatient-bedspace-bedspace-mattress-seam",
         "hospital-inpatient-bedspace-bedspace-white-pillow",
         "hospital-inpatient-bedspace-bedspace-pillowcase-edge",
-        "hospital-inpatient-bedspace-bedspace-fitted-sheet",
         "hospital-inpatient-bedspace-bedspace-top-sheet",
         "hospital-inpatient-bedspace-bedspace-blue-blanket",
         "hospital-inpatient-bedspace-bedspace-blanket-fold",
-        "hospital-inpatient-bedspace-bedspace-blanket-hem",
-        "hospital-inpatient-bedspace-bedspace-mattress-corner",
-        "hospital-inpatient-bedspace-bedspace-mattress-cover",
         "hospital-inpatient-bedspace-bedspace-upper-bed-rail",
         "hospital-inpatient-bedspace-bedspace-upper-rail-grip",
-        "hospital-inpatient-bedspace-bedspace-upper-rail-release",
         "hospital-inpatient-bedspace-bedspace-lower-bed-rail",
         "hospital-inpatient-bedspace-bedspace-lower-rail-opening",
         "hospital-inpatient-bedspace-bedspace-headboard-panel",
         "hospital-inpatient-bedspace-bedspace-footboard-panel",
-        "hospital-inpatient-bedspace-bedspace-bedding-tuck",
         "hospital-inpatient-bedspace-bedspace-pillow-crease",
         "hospital-inpatient-bedspace-bedspace-sheet-drape",
         "hospital-inpatient-bedspace-bedspace-bed-corner-protector",
-        "hospital-inpatient-bedspace-bedspace-mattress-piping",
         "hospital-inpatient-bedspace-bedspace-blanket-surface",
         "hospital-inpatient-bedspace-bedspace-bed-linen-fold"
       ]
@@ -1451,26 +1226,14 @@
         "hospital-inpatient-bedspace-bedspace-frame-side-beam",
         "hospital-inpatient-bedspace-bedspace-frame-crossbar",
         "hospital-inpatient-bedspace-bedspace-bed-base",
-        "hospital-inpatient-bedspace-bedspace-hydraulic-lift-column",
-        "hospital-inpatient-bedspace-bedspace-lift-linkage",
         "hospital-inpatient-bedspace-bedspace-frame-support",
         "hospital-inpatient-bedspace-bedspace-head-end-caster",
         "hospital-inpatient-bedspace-bedspace-caster-fork",
-        "hospital-inpatient-bedspace-bedspace-caster-brake-pedal",
         "hospital-inpatient-bedspace-bedspace-foot-end-caster",
-        "hospital-inpatient-bedspace-bedspace-rear-caster-wheel",
         "hospital-inpatient-bedspace-bedspace-wheel-hub",
-        "hospital-inpatient-bedspace-bedspace-brake-linkage",
-        "hospital-inpatient-bedspace-bedspace-bed-height-control",
-        "hospital-inpatient-bedspace-bedspace-hand-control",
-        "hospital-inpatient-bedspace-bedspace-control-cable",
         "hospital-inpatient-bedspace-bedspace-frame-end-bracket",
         "hospital-inpatient-bedspace-bedspace-lower-chassis",
-        "hospital-inpatient-bedspace-bedspace-chassis-guard",
-        "hospital-inpatient-bedspace-bedspace-central-brake-bar",
         "hospital-inpatient-bedspace-bedspace-caster-tread",
-        "hospital-inpatient-bedspace-bedspace-bed-support-foot",
-        "hospital-inpatient-bedspace-bedspace-actuator-housing",
         "hospital-inpatient-bedspace-bedspace-chassis-tube-joint"
       ]
     },
@@ -1516,11 +1279,11 @@
       "id": "hospital-inpatient-bedspace-zone-bedside-cabinet",
       "title": "Bedside cabinet and supplies",
       "translation": "床旁柜与用品",
-      "description": "Identify the bedside cabinet, drawers, drinking glass, water jug, tissues and adjacent surfaces.",
-      "x": 1129.186603,
+      "description": "Identify the bedside cabinet, drinking vessels and the single support column beneath the overbed table.",
+      "x": 837.320574,
       "y": 286.928799,
-      "width": 449.760766,
-      "height": 411.264612,
+      "width": 741.626794,
+      "height": 439.957492,
       "targetScale": 2.65,
       "labelIds": [
         "hospital-inpatient-bedspace-bedspace-bedside-cabinet",
@@ -1529,7 +1292,6 @@
         "hospital-inpatient-bedspace-bedspace-lower-drawer",
         "hospital-inpatient-bedspace-bedspace-drawer-pull",
         "hospital-inpatient-bedspace-bedspace-cabinet-side-panel",
-        "hospital-inpatient-bedspace-bedspace-cabinet-plinth",
         "hospital-inpatient-bedspace-bedspace-bedside-water-jug",
         "hospital-inpatient-bedspace-bedspace-jug-handle",
         "hospital-inpatient-bedspace-bedspace-drinking-tumbler",
@@ -1540,9 +1302,7 @@
         "hospital-inpatient-bedspace-bedspace-bedside-carafe",
         "hospital-inpatient-bedspace-bedspace-bedside-table-edge",
         "hospital-inpatient-bedspace-bedspace-table-support-leg",
-        "hospital-inpatient-bedspace-bedspace-cabinet-handle-recess",
         "hospital-inpatient-bedspace-bedspace-cupboard-seam",
-        "hospital-inpatient-bedspace-bedspace-bedside-wheel",
         "hospital-inpatient-bedspace-bedspace-wall-shelf",
         "hospital-inpatient-bedspace-bedspace-shelf-bracket",
         "hospital-inpatient-bedspace-bedspace-bedside-cup-base",
@@ -1589,16 +1349,25 @@
       ]
     }
   ],
+  "portraitOverviewLabelIds": [
+    "hospital-inpatient-bedspace-bedspace-table-support-leg",
+    "hospital-inpatient-bedspace-bedspace-foot-end-caster",
+    "hospital-inpatient-bedspace-bedspace-white-pillow",
+    "hospital-inpatient-bedspace-bedspace-blue-blanket"
+  ],
   "anchorAudit": {
-    "status": "human-verified",
+    "status": "image-reviewed",
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/hospital-inpatient-bedspace-premium-v1.jpg",
     "reviewedAssetSha256": "237730a426a5b8406f6b152f1fd719e98c619685e28616eac4731c71fb4df54f",
-    "rationale": "The generated source and final JPEG were inspected at native and final pixels. This scene retains 150 independently pointable objects and visible parts across 6 bounded zones. People, identity, readable text, brands, hidden contents, inferred processes and unsupported states were excluded.",
+    "rationale": "The single grey overbed-table column, the small wheel under the head-end side rail and the right foot-end caster are distinct in the final photograph. The blue blanket hangs above the near-side rail. Hidden mechanisms, covered fittings and fabric details without a separate visible edge remain searchable.",
     "previousLabelCount": 158,
-    "retainedLabelCount": 150,
-    "removedLabelCount": 8,
+    "retainedLabelCount": 126,
+    "removedLabelCount": 32,
     "removedExamples": [
+      "Inpatient bed mattress",
+      "Bedspace mattress seam",
+      "Bedspace fitted sheet",
       "patient identity",
       "diagnosis",
       "vital signs",
@@ -1886,34 +1655,12 @@
       "semanticRealmId": "body-daily-life"
     },
     {
-      "id": "hospital-inpatient-bedspace-inpatient-bed-mattress",
-      "word": "Inpatient bed mattress",
-      "translation": "住院病床床垫",
-      "x": 1138.755981,
-      "y": 482.996812,
-      "priority": 1.025,
-      "minLevel": 0,
-      "sourceVisualRegion": "hospital-inpatient-bedspace-region-inpatient-bed-mattress",
-      "semanticRealmId": "body-daily-life"
-    },
-    {
-      "id": "hospital-inpatient-bedspace-bedspace-mattress-seam",
-      "word": "Bedspace mattress seam",
-      "translation": "床位区床垫缝线",
-      "x": 1244.019139,
-      "y": 497.343252,
-      "priority": 1.026,
-      "minLevel": 3,
-      "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-mattress-seam",
-      "semanticRealmId": "body-daily-life"
-    },
-    {
       "id": "hospital-inpatient-bedspace-bedspace-white-pillow",
       "word": "Bedspace white pillow",
       "translation": "床位区白色枕头",
-      "x": 1014.354067,
-      "y": 363.443146,
-      "priority": 1.027,
+      "x": 1014,
+      "y": 363,
+      "priority": 0.3,
       "minLevel": 0,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-white-pillow",
       "semanticRealmId": "body-daily-life"
@@ -1922,30 +1669,19 @@
       "id": "hospital-inpatient-bedspace-bedspace-pillowcase-edge",
       "word": "Bedspace pillowcase edge",
       "translation": "床位区枕套边缘",
-      "x": 995.215311,
-      "y": 373.007439,
+      "x": 992,
+      "y": 402,
       "priority": 1.028,
       "minLevel": 3,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-pillowcase-edge",
       "semanticRealmId": "body-daily-life"
     },
     {
-      "id": "hospital-inpatient-bedspace-bedspace-fitted-sheet",
-      "word": "Bedspace fitted sheet",
-      "translation": "床位区床笠",
-      "x": 1167.464115,
-      "y": 444.739639,
-      "priority": 1.029,
-      "minLevel": 1,
-      "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-fitted-sheet",
-      "semanticRealmId": "body-daily-life"
-    },
-    {
       "id": "hospital-inpatient-bedspace-bedspace-top-sheet",
       "word": "Bedspace top sheet",
       "translation": "床位区床单",
-      "x": 1205.741627,
-      "y": 554.729012,
+      "x": 1016,
+      "y": 416,
       "priority": 1.03,
       "minLevel": 0,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-top-sheet",
@@ -1955,9 +1691,9 @@
       "id": "hospital-inpatient-bedspace-bedspace-blue-blanket",
       "word": "Bedspace blue blanket",
       "translation": "床位区蓝色毯子",
-      "x": 1291.866029,
-      "y": 597.768332,
-      "priority": 1.031,
+      "x": 991,
+      "y": 492,
+      "priority": 0.4,
       "minLevel": 0,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-blue-blanket",
       "semanticRealmId": "body-daily-life"
@@ -1966,44 +1702,11 @@
       "id": "hospital-inpatient-bedspace-bedspace-blanket-fold",
       "word": "Bedspace blanket fold",
       "translation": "床位区毯子折边",
-      "x": 1224.880383,
-      "y": 592.986185,
+      "x": 1017,
+      "y": 516,
       "priority": 1.032,
       "minLevel": 2,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-blanket-fold",
-      "semanticRealmId": "body-daily-life"
-    },
-    {
-      "id": "hospital-inpatient-bedspace-bedspace-blanket-hem",
-      "word": "Bedspace blanket hem",
-      "translation": "床位区毯子下摆",
-      "x": 1377.990431,
-      "y": 631.243358,
-      "priority": 1.033,
-      "minLevel": 3,
-      "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-blanket-hem",
-      "semanticRealmId": "body-daily-life"
-    },
-    {
-      "id": "hospital-inpatient-bedspace-bedspace-mattress-corner",
-      "word": "Bedspace mattress corner",
-      "translation": "床位区床垫角",
-      "x": 1416.267943,
-      "y": 516.471838,
-      "priority": 1.034,
-      "minLevel": 2,
-      "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-mattress-corner",
-      "semanticRealmId": "body-daily-life"
-    },
-    {
-      "id": "hospital-inpatient-bedspace-bedspace-mattress-cover",
-      "word": "Bedspace mattress cover",
-      "translation": "床位区床垫外罩",
-      "x": 1129.186603,
-      "y": 516.471838,
-      "priority": 1.035,
-      "minLevel": 1,
-      "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-mattress-cover",
       "semanticRealmId": "body-daily-life"
     },
     {
@@ -2029,22 +1732,11 @@
       "semanticRealmId": "body-daily-life"
     },
     {
-      "id": "hospital-inpatient-bedspace-bedspace-upper-rail-release",
-      "word": "Bedspace upper rail release",
-      "translation": "床位区上侧护栏释放扣",
-      "x": 928.229665,
-      "y": 478.214665,
-      "priority": 1.038,
-      "minLevel": 3,
-      "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-upper-rail-release",
-      "semanticRealmId": "body-daily-life"
-    },
-    {
       "id": "hospital-inpatient-bedspace-bedspace-lower-bed-rail",
       "word": "Bedspace lower bed rail",
       "translation": "床位区下侧护栏",
-      "x": 1397.129187,
-      "y": 478.214665,
+      "x": 949,
+      "y": 597,
       "priority": 1.039,
       "minLevel": 0,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-lower-bed-rail",
@@ -2054,8 +1746,8 @@
       "id": "hospital-inpatient-bedspace-bedspace-lower-rail-opening",
       "word": "Bedspace lower rail opening",
       "translation": "床位区下侧护栏开口",
-      "x": 1406.698565,
-      "y": 497.343252,
+      "x": 944,
+      "y": 553,
       "priority": 1.04,
       "minLevel": 2,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-lower-rail-opening",
@@ -2076,22 +1768,11 @@
       "id": "hospital-inpatient-bedspace-bedspace-footboard-panel",
       "word": "Bedspace footboard panel",
       "translation": "床位区床尾板",
-      "x": 1244.019139,
-      "y": 530.818278,
+      "x": 1244,
+      "y": 531,
       "priority": 1.042,
       "minLevel": 2,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-footboard-panel",
-      "semanticRealmId": "body-daily-life"
-    },
-    {
-      "id": "hospital-inpatient-bedspace-bedspace-bedding-tuck",
-      "word": "Bedspace bedding tuck",
-      "translation": "床位区床单收边",
-      "x": 1110.047847,
-      "y": 573.857598,
-      "priority": 1.043,
-      "minLevel": 3,
-      "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-bedding-tuck",
       "semanticRealmId": "body-daily-life"
     },
     {
@@ -2109,8 +1790,8 @@
       "id": "hospital-inpatient-bedspace-bedspace-sheet-drape",
       "word": "Bedspace sheet drape",
       "translation": "床位区床单垂边",
-      "x": 1071.770335,
-      "y": 612.114772,
+      "x": 925,
+      "y": 485,
       "priority": 1.045,
       "minLevel": 2,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-sheet-drape",
@@ -2120,30 +1801,19 @@
       "id": "hospital-inpatient-bedspace-bedspace-bed-corner-protector",
       "word": "Bedspace bed-corner protector",
       "translation": "床位区床角防护套",
-      "x": 1435.406699,
-      "y": 540.382572,
+      "x": 1449,
+      "y": 644,
       "priority": 1.046,
       "minLevel": 3,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-bed-corner-protector",
       "semanticRealmId": "body-daily-life"
     },
     {
-      "id": "hospital-inpatient-bedspace-bedspace-mattress-piping",
-      "word": "Bedspace mattress piping",
-      "translation": "床位区床垫滚边",
-      "x": 1358.851675,
-      "y": 444.739639,
-      "priority": 1.047,
-      "minLevel": 4,
-      "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-mattress-piping",
-      "semanticRealmId": "body-daily-life"
-    },
-    {
       "id": "hospital-inpatient-bedspace-bedspace-blanket-surface",
       "word": "Bedspace blanket surface",
       "translation": "床位区毯面",
-      "x": 1311.004785,
-      "y": 564.293305,
+      "x": 1250,
+      "y": 497,
       "priority": 1.048,
       "minLevel": 1,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-blanket-surface",
@@ -2164,8 +1834,8 @@
       "id": "hospital-inpatient-bedspace-inpatient-bed-frame",
       "word": "Inpatient bed frame",
       "translation": "住院病床床架",
-      "x": 1177.033493,
-      "y": 659.936238,
+      "x": 1177,
+      "y": 655,
       "priority": 1.05,
       "minLevel": 0,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-inpatient-bed-frame",
@@ -2175,8 +1845,8 @@
       "id": "hospital-inpatient-bedspace-bedspace-frame-side-beam",
       "word": "Bedspace frame side beam",
       "translation": "床位区床架侧梁",
-      "x": 1234.449761,
-      "y": 688.629118,
+      "x": 960,
+      "y": 646,
       "priority": 1.051,
       "minLevel": 1,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-frame-side-beam",
@@ -2186,8 +1856,8 @@
       "id": "hospital-inpatient-bedspace-bedspace-frame-crossbar",
       "word": "Bedspace frame crossbar",
       "translation": "床位区床架横梁",
-      "x": 1090.909091,
-      "y": 722.104145,
+      "x": 1260,
+      "y": 645,
       "priority": 1.052,
       "minLevel": 2,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-frame-crossbar",
@@ -2205,33 +1875,11 @@
       "semanticRealmId": "body-daily-life"
     },
     {
-      "id": "hospital-inpatient-bedspace-bedspace-hydraulic-lift-column",
-      "word": "Bedspace hydraulic lift column",
-      "translation": "床位区液压升降柱",
-      "x": 1119.617225,
-      "y": 722.104145,
-      "priority": 1.054,
-      "minLevel": 2,
-      "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-hydraulic-lift-column",
-      "semanticRealmId": "body-daily-life"
-    },
-    {
-      "id": "hospital-inpatient-bedspace-bedspace-lift-linkage",
-      "word": "Bedspace lift linkage",
-      "translation": "床位区升降连杆",
-      "x": 1196.172249,
-      "y": 736.450584,
-      "priority": 1.055,
-      "minLevel": 3,
-      "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-lift-linkage",
-      "semanticRealmId": "body-daily-life"
-    },
-    {
       "id": "hospital-inpatient-bedspace-bedspace-frame-support",
       "word": "Bedspace frame support",
       "translation": "床位区床架支撑杆",
-      "x": 1272.727273,
-      "y": 741.232731,
+      "x": 1115,
+      "y": 718,
       "priority": 1.056,
       "minLevel": 2,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-frame-support",
@@ -2241,8 +1889,8 @@
       "id": "hospital-inpatient-bedspace-bedspace-head-end-caster",
       "word": "Bedspace head-end caster",
       "translation": "床位区床头脚轮",
-      "x": 937.799043,
-      "y": 779.489904,
+      "x": 905,
+      "y": 617,
       "priority": 1.057,
       "minLevel": 0,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-head-end-caster",
@@ -2252,107 +1900,41 @@
       "id": "hospital-inpatient-bedspace-bedspace-caster-fork",
       "word": "Bedspace caster fork",
       "translation": "床位区脚轮叉架",
-      "x": 937.799043,
-      "y": 765.143464,
+      "x": 1024,
+      "y": 755,
       "priority": 1.058,
       "minLevel": 3,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-caster-fork",
       "semanticRealmId": "body-daily-life"
     },
     {
-      "id": "hospital-inpatient-bedspace-bedspace-caster-brake-pedal",
-      "word": "Bedspace caster brake pedal",
-      "translation": "床位区脚轮刹车踏板",
-      "x": 947.368421,
-      "y": 793.836344,
-      "priority": 1.059,
-      "minLevel": 2,
-      "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-caster-brake-pedal",
-      "semanticRealmId": "body-daily-life"
-    },
-    {
       "id": "hospital-inpatient-bedspace-bedspace-foot-end-caster",
       "word": "Bedspace foot-end caster",
       "translation": "床位区床尾脚轮",
-      "x": 1444.976077,
-      "y": 784.272051,
-      "priority": 1.06,
+      "x": 1346,
+      "y": 755,
+      "priority": 0.2,
       "minLevel": 0,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-foot-end-caster",
-      "semanticRealmId": "body-daily-life"
-    },
-    {
-      "id": "hospital-inpatient-bedspace-bedspace-rear-caster-wheel",
-      "word": "Bedspace rear caster wheel",
-      "translation": "床位区后侧脚轮",
-      "x": 1004.784689,
-      "y": 812.964931,
-      "priority": 1.061,
-      "minLevel": 2,
-      "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-rear-caster-wheel",
       "semanticRealmId": "body-daily-life"
     },
     {
       "id": "hospital-inpatient-bedspace-bedspace-wheel-hub",
       "word": "Bedspace wheel hub",
       "translation": "床位区车轮轮毂",
-      "x": 1004.784689,
-      "y": 812.964931,
+      "x": 1018,
+      "y": 780,
       "priority": 1.062,
       "minLevel": 3,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-wheel-hub",
       "semanticRealmId": "body-daily-life"
     },
     {
-      "id": "hospital-inpatient-bedspace-bedspace-brake-linkage",
-      "word": "Bedspace brake linkage",
-      "translation": "床位区制动连杆",
-      "x": 956.937799,
-      "y": 798.618491,
-      "priority": 1.063,
-      "minLevel": 3,
-      "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-brake-linkage",
-      "semanticRealmId": "body-daily-life"
-    },
-    {
-      "id": "hospital-inpatient-bedspace-bedspace-bed-height-control",
-      "word": "Bedspace bed-height control",
-      "translation": "床位区床高调节器",
-      "x": 1076.555024,
-      "y": 674.282678,
-      "priority": 1.064,
-      "minLevel": 2,
-      "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-bed-height-control",
-      "semanticRealmId": "body-daily-life"
-    },
-    {
-      "id": "hospital-inpatient-bedspace-bedspace-hand-control",
-      "word": "Bedspace hand control",
-      "translation": "床位区手持调节器",
-      "x": 985.645933,
-      "y": 616.896918,
-      "priority": 1.065,
-      "minLevel": 1,
-      "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-hand-control",
-      "semanticRealmId": "body-daily-life"
-    },
-    {
-      "id": "hospital-inpatient-bedspace-bedspace-control-cable",
-      "word": "Bedspace control cable",
-      "translation": "床位区控制线缆",
-      "x": 1004.784689,
-      "y": 659.936238,
-      "priority": 1.066,
-      "minLevel": 3,
-      "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-control-cable",
-      "semanticRealmId": "body-daily-life"
-    },
-    {
       "id": "hospital-inpatient-bedspace-bedspace-frame-end-bracket",
       "word": "Bedspace frame end bracket",
       "translation": "床位区床架端支架",
-      "x": 1416.267943,
-      "y": 707.757705,
+      "x": 1430,
+      "y": 647,
       "priority": 1.067,
       "minLevel": 3,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-frame-end-bracket",
@@ -2362,74 +1944,30 @@
       "id": "hospital-inpatient-bedspace-bedspace-lower-chassis",
       "word": "Bedspace lower chassis",
       "translation": "床位区底盘",
-      "x": 1244.019139,
-      "y": 765.143464,
+      "x": 1197,
+      "y": 711,
       "priority": 1.068,
       "minLevel": 1,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-lower-chassis",
       "semanticRealmId": "body-daily-life"
     },
     {
-      "id": "hospital-inpatient-bedspace-bedspace-chassis-guard",
-      "word": "Bedspace chassis guard",
-      "translation": "床位区底盘护板",
-      "x": 1339.712919,
-      "y": 769.925611,
-      "priority": 1.069,
-      "minLevel": 2,
-      "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-chassis-guard",
-      "semanticRealmId": "body-daily-life"
-    },
-    {
-      "id": "hospital-inpatient-bedspace-bedspace-central-brake-bar",
-      "word": "Bedspace central brake bar",
-      "translation": "床位区中央刹车杆",
-      "x": 1148.325359,
-      "y": 803.400638,
-      "priority": 1.07,
-      "minLevel": 2,
-      "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-central-brake-bar",
-      "semanticRealmId": "body-daily-life"
-    },
-    {
       "id": "hospital-inpatient-bedspace-bedspace-caster-tread",
       "word": "Bedspace caster tread",
       "translation": "床位区脚轮胎面",
-      "x": 1444.976077,
-      "y": 789.054198,
+      "x": 1050,
+      "y": 784,
       "priority": 1.071,
       "minLevel": 3,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-caster-tread",
       "semanticRealmId": "body-daily-life"
     },
     {
-      "id": "hospital-inpatient-bedspace-bedspace-bed-support-foot",
-      "word": "Bedspace bed-support foot",
-      "translation": "床位区床架支脚",
-      "x": 1090.909091,
-      "y": 784.272051,
-      "priority": 1.072,
-      "minLevel": 3,
-      "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-bed-support-foot",
-      "semanticRealmId": "body-daily-life"
-    },
-    {
-      "id": "hospital-inpatient-bedspace-bedspace-actuator-housing",
-      "word": "Bedspace actuator housing",
-      "translation": "床位区驱动器外壳",
-      "x": 1301.435407,
-      "y": 717.321998,
-      "priority": 1.073,
-      "minLevel": 3,
-      "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-actuator-housing",
-      "semanticRealmId": "body-daily-life"
-    },
-    {
       "id": "hospital-inpatient-bedspace-bedspace-chassis-tube-joint",
       "word": "Bedspace chassis tube joint",
       "translation": "床位区床架管接头",
-      "x": 1205.741627,
-      "y": 812.964931,
+      "x": 1287,
+      "y": 709,
       "priority": 1.074,
       "minLevel": 1,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-chassis-tube-joint",
@@ -2747,8 +2285,8 @@
       "id": "hospital-inpatient-bedspace-bedspace-lower-drawer",
       "word": "Bedspace lower drawer",
       "translation": "床位区床旁柜下抽屉",
-      "x": 1224.880383,
-      "y": 463.868225,
+      "x": 1275,
+      "y": 447,
       "priority": 1.103,
       "minLevel": 1,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-lower-drawer",
@@ -2774,17 +2312,6 @@
       "priority": 1.105,
       "minLevel": 2,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-cabinet-side-panel",
-      "semanticRealmId": "body-daily-life"
-    },
-    {
-      "id": "hospital-inpatient-bedspace-bedspace-cabinet-plinth",
-      "word": "Bedspace cabinet plinth",
-      "translation": "床位区床旁柜底座",
-      "x": 1224.880383,
-      "y": 502.125399,
-      "priority": 1.106,
-      "minLevel": 2,
-      "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-cabinet-plinth",
       "semanticRealmId": "body-daily-life"
     },
     {
@@ -2890,22 +2417,11 @@
       "id": "hospital-inpatient-bedspace-bedspace-table-support-leg",
       "word": "Bedspace table support leg",
       "translation": "床位区床旁桌支腿",
-      "x": 1291.866029,
-      "y": 497.343252,
-      "priority": 1.116,
-      "minLevel": 3,
+      "x": 864,
+      "y": 652,
+      "priority": 0.1,
+      "minLevel": 0,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-table-support-leg",
-      "semanticRealmId": "body-daily-life"
-    },
-    {
-      "id": "hospital-inpatient-bedspace-bedspace-cabinet-handle-recess",
-      "word": "Bedspace cabinet handle recess",
-      "translation": "床位区柜门凹槽拉手",
-      "x": 1224.880383,
-      "y": 468.650372,
-      "priority": 1.117,
-      "minLevel": 4,
-      "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-cabinet-handle-recess",
       "semanticRealmId": "body-daily-life"
     },
     {
@@ -2917,17 +2433,6 @@
       "priority": 1.118,
       "minLevel": 4,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-cupboard-seam",
-      "semanticRealmId": "body-daily-life"
-    },
-    {
-      "id": "hospital-inpatient-bedspace-bedspace-bedside-wheel",
-      "word": "Bedspace bedside wheel",
-      "translation": "床位区床旁柜脚轮",
-      "x": 1291.866029,
-      "y": 502.125399,
-      "priority": 1.119,
-      "minLevel": 3,
-      "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-bedside-wheel",
       "semanticRealmId": "body-daily-life"
     },
     {
@@ -3259,6 +2764,128 @@
       "minLevel": 1,
       "sourceVisualRegion": "hospital-inpatient-bedspace-region-bedspace-floor-tile",
       "semanticRealmId": "body-daily-life"
+    }
+  ],
+  "relatedWords": [
+    {
+      "id": "hospital-inpatient-bedspace-inpatient-bed-mattress",
+      "word": "Inpatient bed mattress",
+      "translation": "住院病床床垫"
+    },
+    {
+      "id": "hospital-inpatient-bedspace-bedspace-mattress-seam",
+      "word": "Bedspace mattress seam",
+      "translation": "床位区床垫缝线"
+    },
+    {
+      "id": "hospital-inpatient-bedspace-bedspace-fitted-sheet",
+      "word": "Bedspace fitted sheet",
+      "translation": "床位区床笠"
+    },
+    {
+      "id": "hospital-inpatient-bedspace-bedspace-blanket-hem",
+      "word": "Bedspace blanket hem",
+      "translation": "床位区毯子下摆"
+    },
+    {
+      "id": "hospital-inpatient-bedspace-bedspace-mattress-corner",
+      "word": "Bedspace mattress corner",
+      "translation": "床位区床垫角"
+    },
+    {
+      "id": "hospital-inpatient-bedspace-bedspace-mattress-cover",
+      "word": "Bedspace mattress cover",
+      "translation": "床位区床垫外罩"
+    },
+    {
+      "id": "hospital-inpatient-bedspace-bedspace-upper-rail-release",
+      "word": "Bedspace upper rail release",
+      "translation": "床位区上侧护栏释放扣"
+    },
+    {
+      "id": "hospital-inpatient-bedspace-bedspace-bedding-tuck",
+      "word": "Bedspace bedding tuck",
+      "translation": "床位区床单收边"
+    },
+    {
+      "id": "hospital-inpatient-bedspace-bedspace-mattress-piping",
+      "word": "Bedspace mattress piping",
+      "translation": "床位区床垫滚边"
+    },
+    {
+      "id": "hospital-inpatient-bedspace-bedspace-hydraulic-lift-column",
+      "word": "Bedspace hydraulic lift column",
+      "translation": "床位区液压升降柱"
+    },
+    {
+      "id": "hospital-inpatient-bedspace-bedspace-lift-linkage",
+      "word": "Bedspace lift linkage",
+      "translation": "床位区升降连杆"
+    },
+    {
+      "id": "hospital-inpatient-bedspace-bedspace-caster-brake-pedal",
+      "word": "Bedspace caster brake pedal",
+      "translation": "床位区脚轮刹车踏板"
+    },
+    {
+      "id": "hospital-inpatient-bedspace-bedspace-rear-caster-wheel",
+      "word": "Bedspace rear caster wheel",
+      "translation": "床位区后侧脚轮"
+    },
+    {
+      "id": "hospital-inpatient-bedspace-bedspace-brake-linkage",
+      "word": "Bedspace brake linkage",
+      "translation": "床位区制动连杆"
+    },
+    {
+      "id": "hospital-inpatient-bedspace-bedspace-bed-height-control",
+      "word": "Bedspace bed-height control",
+      "translation": "床位区床高调节器"
+    },
+    {
+      "id": "hospital-inpatient-bedspace-bedspace-hand-control",
+      "word": "Bedspace hand control",
+      "translation": "床位区手持调节器"
+    },
+    {
+      "id": "hospital-inpatient-bedspace-bedspace-control-cable",
+      "word": "Bedspace control cable",
+      "translation": "床位区控制线缆"
+    },
+    {
+      "id": "hospital-inpatient-bedspace-bedspace-chassis-guard",
+      "word": "Bedspace chassis guard",
+      "translation": "床位区底盘护板"
+    },
+    {
+      "id": "hospital-inpatient-bedspace-bedspace-central-brake-bar",
+      "word": "Bedspace central brake bar",
+      "translation": "床位区中央刹车杆"
+    },
+    {
+      "id": "hospital-inpatient-bedspace-bedspace-bed-support-foot",
+      "word": "Bedspace bed-support foot",
+      "translation": "床位区床架支脚"
+    },
+    {
+      "id": "hospital-inpatient-bedspace-bedspace-actuator-housing",
+      "word": "Bedspace actuator housing",
+      "translation": "床位区驱动器外壳"
+    },
+    {
+      "id": "hospital-inpatient-bedspace-bedspace-cabinet-plinth",
+      "word": "Bedspace cabinet plinth",
+      "translation": "床位区床旁柜底座"
+    },
+    {
+      "id": "hospital-inpatient-bedspace-bedspace-cabinet-handle-recess",
+      "word": "Bedspace cabinet handle recess",
+      "translation": "床位区柜门凹槽拉手"
+    },
+    {
+      "id": "hospital-inpatient-bedspace-bedspace-bedside-wheel",
+      "word": "Bedspace bedside wheel",
+      "translation": "床位区床旁柜脚轮"
     }
   ],
   "portals": []

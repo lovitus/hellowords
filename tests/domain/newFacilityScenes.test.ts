@@ -181,8 +181,10 @@ const contracts = [
     parentId: "emergency-department",
     asset: "/scenes/hospital-inpatient-bedspace-premium-v1.jpg",
     sha256: "237730a426a5b8406f6b152f1fd719e98c619685e28616eac4731c71fb4df54f",
-    labels: 150,
-    zoneSizes: [25, 25, 25, 25, 25, 25],
+    labels: 126,
+    related: 24,
+    audit: "image-reviewed",
+    zoneSizes: [25, 16, 13, 25, 22, 25],
   },
   {
     id: "emergency-triage-reception",

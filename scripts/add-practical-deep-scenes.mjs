@@ -14,8 +14,9 @@ const sx = WIDTH / SOURCE_WIDTH;
 const sy = HEIGHT / SOURCE_HEIGHT;
 const doIntegrate = !process.argv.includes("--no-integrate");
 
-// Every anchor is tied to an independently visible object or visible part in the reviewed source image.
-// Coordinates are authored against the 1672x941 source, then scaled to the scene's 1600x900 pixels.
+// Ordinary point coordinates use the 1672x941 source. A tuple ending in
+// [width, height, description] uses the final 1600x900 photo and a box centred
+// on its point. A word and translation alone keep the term in the index.
 const configs = [
   {
     id: "hospital-inpatient-bedspace", title: "Hospital inpatient bedspace", translation: "医院住院床位区",
@@ -24,22 +25,79 @@ const configs = [
     parentId: "emergency-department", source: "scripts/assets/hospital-inpatient-bedspace-v1.png",
     sourceSha256: "12545b36661cb09bd7a9c184a9ab2894dc5fb1bd414c0ba3a5e2f082a9ee489a",
     asset: "/scenes/hospital-inpatient-bedspace-premium-v1.jpg", assetSha256: "237730a426a5b8406f6b152f1fd719e98c619685e28616eac4731c71fb4df54f",
+    overviewWords: ["Bedspace table support leg", "Bedspace foot-end caster", "Bedspace white pillow", "Bedspace blue blanket"],
+    photoReview: "The single grey overbed-table column, the small wheel under the head-end side rail and the right foot-end caster are distinct in the final photograph. The blue blanket hangs above the near-side rail. Hidden mechanisms, covered fittings and fabric details without a separate visible edge remain searchable.",
     removed: ["patient identity", "diagnosis", "vital signs", "medicine name", "treatment status", "device reading", "brand", "screen text"],
     zones: [
       { id: "bedhead-services", title: "Bedhead services", translation: "床头设备", description: "Explore the bedhead rail, medical gas fittings, patient call controls, lights and wall connections.", x: 650, y: 115, width: 760, height: 300, targetScale: 2.6, labels: [
         ["Bedspace headwall service rail", "床位区床头设备横轨", 1090, 220, 0], ["Bedspace horizontal utility rail", "床位区水平设备轨", 1110, 230, 1], ["Bedspace upper wall light", "床位区上方壁灯", 1080, 115, 0], ["Bedspace light diffuser", "床位区灯具扩散罩", 1080, 116, 2], ["Bedspace oxygen flowmeter", "床位区氧气流量计", 960, 222, 1], ["Bedspace oxygen outlet", "床位区氧气接口", 960, 258, 2], ["Bedspace suction regulator", "床位区负压调节器", 1025, 225, 1], ["Bedspace suction canister", "床位区负压收集罐", 1024, 278, 2], ["Bedspace medical-gas outlet", "床位区医用气体接口", 1000, 252, 3], ["Bedspace green gas fitting", "床位区绿色气体接头", 960, 228, 3], ["Bedspace yellow gas fitting", "床位区黄色气体接头", 995, 228, 3], ["Bedspace blue gas fitting", "床位区蓝色气体接头", 1030, 228, 3], ["Bedspace nurse-call handset", "床位区护士呼叫手柄", 1200, 245, 1], ["Bedspace call-cord socket", "床位区呼叫线插座", 1200, 225, 2], ["Bedspace hanging call cord", "床位区垂挂呼叫线", 1200, 305, 2], ["Bedspace red call button", "床位区红色呼叫按钮", 1200, 240, 3], ["Bedspace power outlet", "床位区电源插座", 1235, 225, 2], ["Bedspace data outlet", "床位区数据接口", 1265, 225, 3], ["Bedspace wall switch", "床位区墙壁开关", 1305, 228, 2], ["Bedspace outlet faceplate", "床位区插座面板", 1235, 230, 3], ["Bedspace wall-mounted examination light", "床位区壁挂检查灯", 1110, 196, 2], ["Bedspace rail end cap", "床位区横轨端盖", 1340, 230, 3], ["Bedspace rail mounting bracket", "床位区横轨固定支架", 1060, 228, 4], ["Bedspace tubing hook", "床位区管线挂钩", 1305, 255, 3], ["Bedspace wall-panel seam", "床位区墙板接缝", 1370, 280, 4],
       ] },
       { id: "mattress-and-linens", title: "Bed and linens", translation: "病床与床品", description: "Inspect the mattress, pillow, sheet, blanket, bed rails and the visible bed upholstery.", x: 800, y: 300, width: 720, height: 450, targetScale: 2.65, labels: [
-        ["Inpatient bed mattress", "住院病床床垫", 1190, 505, 0], ["Bedspace mattress seam", "床位区床垫缝线", 1300, 520, 3], ["Bedspace white pillow", "床位区白色枕头", 1060, 380, 0], ["Bedspace pillowcase edge", "床位区枕套边缘", 1040, 390, 3], ["Bedspace fitted sheet", "床位区床笠", 1220, 465, 1], ["Bedspace top sheet", "床位区床单", 1260, 580, 0], ["Bedspace blue blanket", "床位区蓝色毯子", 1350, 625, 0], ["Bedspace blanket fold", "床位区毯子折边", 1280, 620, 2], ["Bedspace blanket hem", "床位区毯子下摆", 1440, 660, 3], ["Bedspace mattress corner", "床位区床垫角", 1480, 540, 2], ["Bedspace mattress cover", "床位区床垫外罩", 1180, 540, 1], ["Bedspace upper bed rail", "床位区上侧护栏", 915, 420, 0], ["Bedspace upper rail grip", "床位区上侧护栏握柄", 910, 400, 2], ["Bedspace upper rail release", "床位区上侧护栏释放扣", 970, 500, 3], ["Bedspace lower bed rail", "床位区下侧护栏", 1460, 500, 0], ["Bedspace lower rail opening", "床位区下侧护栏开口", 1470, 520, 2], ["Bedspace headboard panel", "床位区床头板", 1190, 395, 1], ["Bedspace footboard panel", "床位区床尾板", 1300, 555, 2], ["Bedspace bedding tuck", "床位区床单收边", 1160, 600, 3], ["Bedspace pillow crease", "床位区枕头褶痕", 1095, 380, 4], ["Bedspace sheet drape", "床位区床单垂边", 1120, 640, 2], ["Bedspace bed-corner protector", "床位区床角防护套", 1500, 565, 3], ["Bedspace mattress piping", "床位区床垫滚边", 1420, 465, 4], ["Bedspace blanket surface", "床位区毯面", 1370, 590, 1], ["Bedspace bed linen fold", "床位区床品折叠边", 1010, 440, 3],
+        ["Inpatient bed mattress", "住院病床床垫"],
+        ["Bedspace mattress seam", "床位区床垫缝线"],
+        ["Bedspace white pillow", "床位区白色枕头", 1014, 363, 0, [64, 38, "White pillow face between the two raised rails."]],
+        ["Bedspace pillowcase edge", "床位区枕套边缘", 992, 402, 3, [24, 2, "Thin lower lip of the pillowcase against the sheet."]],
+        ["Bedspace fitted sheet", "床位区床笠"],
+        ["Bedspace top sheet", "床位区床单", 1016, 416, 0, [60, 12, "Flat white sheet exposed between the pillow and overbed tabletop."]],
+        ["Bedspace blue blanket", "床位区蓝色毯子", 991, 492, 0, [68, 22, "Pale blue blanket beneath the tabletop and left of the footboard."]],
+        ["Bedspace blanket fold", "床位区毯子折边", 1017, 516, 2, [10, 8, "Raised fold where the blue blanket turns down over the near bed side."]],
+        ["Bedspace blanket hem", "床位区毯子下摆"],
+        ["Bedspace mattress corner", "床位区床垫角"],
+        ["Bedspace mattress cover", "床位区床垫外罩"],
+        ["Bedspace upper bed rail", "床位区上侧护栏", 915, 420, 0],
+        ["Bedspace upper rail grip", "床位区上侧护栏握柄", 910, 400, 2],
+        ["Bedspace upper rail release", "床位区上侧护栏释放扣"],
+        ["Bedspace lower bed rail", "床位区下侧护栏", 949, 597, 0, [8, 14, "Pale near-side rail immediately left of the hanging blue blanket."]],
+        ["Bedspace lower rail opening", "床位区下侧护栏开口", 944, 553, 2, [4, 6, "Narrow upper slot in the near-side rail beside the blanket."]],
+        ["Bedspace headboard panel", "床位区床头板", 1190, 395, 1],
+        ["Bedspace footboard panel", "床位区床尾板", 1244, 531, 2, [34, 12, "Solid footboard panel below the long opening and above the blue inset."]],
+        ["Bedspace bedding tuck", "床位区床单收边"],
+        ["Bedspace pillow crease", "床位区枕头褶痕", 1095, 380, 4],
+        ["Bedspace sheet drape", "床位区床单垂边", 925, 485, 2, [12, 12, "White sheet hanging below the table and left of the blue blanket."]],
+        ["Bedspace bed-corner protector", "床位区床角防护套", 1449, 644, 3, [8, 24, "Pale projecting bumper on the outside corner of the bed frame."]],
+        ["Bedspace mattress piping", "床位区床垫滚边"],
+        ["Bedspace blanket surface", "床位区毯面", 1250, 497, 1, [84, 12, "Exposed blue fabric inside the long opening across the footboard."]],
+        ["Bedspace bed linen fold", "床位区床品折叠边", 1010, 440, 3],
       ] },
       { id: "frame-and-controls", title: "Bed frame and controls", translation: "床架与调节部件", description: "Follow the bed frame, lift mechanism, wheels, brake pedals and visible adjustment controls.", x: 850, y: 570, width: 700, height: 340, targetScale: 2.7, labels: [
-        ["Inpatient bed frame", "住院病床床架", 1230, 690, 0], ["Bedspace frame side beam", "床位区床架侧梁", 1290, 720, 1], ["Bedspace frame crossbar", "床位区床架横梁", 1140, 755, 2], ["Bedspace bed base", "床位区床板底座", 1250, 680, 1], ["Bedspace hydraulic lift column", "床位区液压升降柱", 1170, 755, 2], ["Bedspace lift linkage", "床位区升降连杆", 1250, 770, 3], ["Bedspace frame support", "床位区床架支撑杆", 1330, 775, 2], ["Bedspace head-end caster", "床位区床头脚轮", 980, 815, 0], ["Bedspace caster fork", "床位区脚轮叉架", 980, 800, 3], ["Bedspace caster brake pedal", "床位区脚轮刹车踏板", 990, 830, 2], ["Bedspace foot-end caster", "床位区床尾脚轮", 1510, 820, 0], ["Bedspace rear caster wheel", "床位区后侧脚轮", 1050, 850, 2], ["Bedspace wheel hub", "床位区车轮轮毂", 1050, 850, 3], ["Bedspace brake linkage", "床位区制动连杆", 1000, 835, 3], ["Bedspace bed-height control", "床位区床高调节器", 1125, 705, 2], ["Bedspace hand control", "床位区手持调节器", 1030, 645, 1], ["Bedspace control cable", "床位区控制线缆", 1050, 690, 3], ["Bedspace frame end bracket", "床位区床架端支架", 1480, 740, 3], ["Bedspace lower chassis", "床位区底盘", 1300, 800, 1], ["Bedspace chassis guard", "床位区底盘护板", 1400, 805, 2], ["Bedspace central brake bar", "床位区中央刹车杆", 1200, 840, 2], ["Bedspace caster tread", "床位区脚轮胎面", 1510, 825, 3], ["Bedspace bed-support foot", "床位区床架支脚", 1140, 820, 3], ["Bedspace actuator housing", "床位区驱动器外壳", 1360, 750, 3], ["Bedspace chassis tube joint", "床位区床架管接头", 1260, 850, 1],
+        ["Inpatient bed frame", "住院病床床架", 1177, 655, 0, [40, 14, "Front frame rail immediately below the footboard."]],
+        ["Bedspace frame side beam", "床位区床架侧梁", 960, 646, 1, [7, 6, "Near-side frame beam running diagonally beneath the side rail."]],
+        ["Bedspace frame crossbar", "床位区床架横梁", 1260, 645, 2, [48, 12, "Light crossbar running between the two foot-end bumpers."]],
+        ["Bedspace bed base", "床位区床板底座", 1250, 680, 1],
+        ["Bedspace hydraulic lift column", "床位区液压升降柱"],
+        ["Bedspace lift linkage", "床位区升降连杆"],
+        ["Bedspace frame support", "床位区床架支撑杆", 1115, 718, 2, [12, 18, "Short upright bracket attached to the lower bed-frame rail."]],
+        ["Bedspace head-end caster", "床位区床头脚轮", 905, 617, 0, [14, 26, "Small bed wheel below the head end of the near-side rail, behind the table column."]],
+        ["Bedspace caster fork", "床位区脚轮叉架", 1024, 755, 3, [12, 12, "Light fork descending in front of the left foot-end wheel."]],
+        ["Bedspace caster brake pedal", "床位区脚轮刹车踏板"],
+        ["Bedspace foot-end caster", "床位区床尾脚轮", 1346, 755, 0, [24, 42, "Right foot-end caster below the lower chassis, including its fork and black wheel."]],
+        ["Bedspace rear caster wheel", "床位区后侧脚轮"],
+        ["Bedspace wheel hub", "床位区车轮轮毂", 1018, 780, 3, [6, 10, "Dark axle cap on the near face of the left foot-end caster."]],
+        ["Bedspace brake linkage", "床位区制动连杆"],
+        ["Bedspace bed-height control", "床位区床高调节器"],
+        ["Bedspace hand control", "床位区手持调节器"],
+        ["Bedspace control cable", "床位区控制线缆"],
+        ["Bedspace frame end bracket", "床位区床架端支架", 1430, 647, 3, [10, 20, "Upright bracket where the front crossbar meets the right corner bumper."]],
+        ["Bedspace lower chassis", "床位区底盘", 1197, 711, 1, [84, 14, "Long grey lower chassis spanning the two foot-end caster assemblies."]],
+        ["Bedspace chassis guard", "床位区底盘护板"],
+        ["Bedspace central brake bar", "床位区中央刹车杆"],
+        ["Bedspace caster tread", "床位区脚轮胎面", 1050, 784, 3, [4, 12, "Outer black tread along the right edge of the left foot-end wheel."]],
+        ["Bedspace bed-support foot", "床位区床架支脚"],
+        ["Bedspace actuator housing", "床位区驱动器外壳"],
+        ["Bedspace chassis tube joint", "床位区床架管接头", 1287, 709, 1, [12, 18, "Short metal sleeve joining the lower chassis rail to the right caster assembly."]],
       ] },
       { id: "monitor-and-infusion", title: "Monitor and infusion equipment", translation: "监护与输液设备", description: "Explore the bedside monitor, equipment trolley, infusion pole, pump, tubing and cable fittings.", x: 600, y: 50, width: 920, height: 560, targetScale: 2.6, labels: [
         ["Bedspace patient monitor", "床位区患者监护仪", 1370, 170, 0], ["Bedspace monitor screen", "床位区监护仪屏幕", 1370, 165, 1], ["Bedspace monitor bezel", "床位区监护仪边框", 1370, 170, 2], ["Bedspace monitor control knob", "床位区监护仪旋钮", 1320, 215, 3], ["Bedspace monitor support arm", "床位区监护仪支臂", 1370, 250, 2], ["Bedspace monitor cable", "床位区监护仪线缆", 1395, 270, 3], ["Bedspace monitor equipment basket", "床位区监护设备篮", 1370, 286, 2], ["Bedspace monitor basket rail", "床位区监护设备篮边", 1370, 285, 3], ["Bedspace infusion pole", "床位区输液杆", 825, 320, 0], ["Bedspace pole hook", "床位区输液杆挂钩", 825, 100, 2], ["Bedspace clear fluid bag", "床位区透明输液袋", 850, 150, 1], ["Bedspace fluid bag port", "床位区输液袋接口", 850, 200, 3], ["Bedspace infusion tubing", "床位区输液管", 835, 410, 1], ["Bedspace infusion pump", "床位区输液泵", 835, 265, 0], ["Bedspace pump control panel", "床位区输液泵控制面板", 835, 260, 2], ["Bedspace pump clamp", "床位区输液泵夹", 835, 290, 3], ["Bedspace pump pole bracket", "床位区输液泵杆支架", 835, 305, 3], ["Bedspace mobile equipment stand", "床位区移动设备支架", 865, 510, 0], ["Bedspace stand caster", "床位区支架脚轮", 860, 580, 3], ["Bedspace stand base", "床位区支架底座", 850, 560, 2], ["Bedspace sensor lead", "床位区传感器导线", 1310, 280, 3], ["Bedspace lead connector", "床位区导线接头", 1310, 240, 4], ["Bedspace wall diagnostic unit", "床位区墙挂诊断设备", 805, 275, 0], ["Bedspace diagnostic display", "床位区诊断设备显示窗", 805, 270, 2], ["Bedspace equipment handle", "床位区设备提手", 810, 305, 3],
       ] },
-      { id: "bedside-cabinet", title: "Bedside cabinet and supplies", translation: "床旁柜与用品", description: "Identify the bedside cabinet, drawers, drinking glass, water jug, tissues and adjacent surfaces.", x: 1180, y: 300, width: 470, height: 430, targetScale: 2.65, labels: [
-        ["Bedspace bedside cabinet", "床位区床旁柜", 1280, 455, 0], ["Bedspace cabinet top", "床位区床旁柜台面", 1280, 370, 1], ["Bedspace upper drawer", "床位区床旁柜上抽屉", 1280, 425, 1], ["Bedspace lower drawer", "床位区床旁柜下抽屉", 1280, 485, 1], ["Bedspace drawer pull", "床位区抽屉拉手", 1280, 430, 3], ["Bedspace cabinet side panel", "床位区床旁柜侧板", 1350, 465, 2], ["Bedspace cabinet plinth", "床位区床旁柜底座", 1280, 525, 2], ["Bedspace bedside water jug", "床位区床旁水壶", 1245, 345, 0], ["Bedspace jug handle", "床位区水壶提手", 1245, 345, 2], ["Bedspace drinking tumbler", "床位区饮水杯", 1310, 350, 0], ["Bedspace tumbler rim", "床位区水杯杯口", 1310, 342, 3], ["Bedspace bedside tray", "床位区床旁托盘", 1250, 355, 1], ["Bedspace tissue box", "床位区纸巾盒", 1215, 360, 0], ["Bedspace tissue opening", "床位区纸巾抽口", 1215, 350, 3], ["Bedspace bedside carafe", "床位区床旁玻璃壶", 1275, 345, 1], ["Bedspace bedside table edge", "床位区床旁台边", 1330, 375, 2], ["Bedspace table support leg", "床位区床旁桌支腿", 1350, 520, 3], ["Bedspace cabinet handle recess", "床位区柜门凹槽拉手", 1280, 490, 4], ["Bedspace cupboard seam", "床位区床旁柜门缝", 1340, 450, 4], ["Bedspace bedside wheel", "床位区床旁柜脚轮", 1350, 525, 3], ["Bedspace wall shelf", "床位区墙面小搁板", 1270, 325, 2], ["Bedspace shelf bracket", "床位区搁板托架", 1320, 330, 4], ["Bedspace bedside cup base", "床位区床旁水杯杯底", 1300, 365, 4], ["Bedspace cabinet corner", "床位区床旁柜转角", 1215, 405, 3], ["Bedspace tabletop grain", "床位区柜台木纹", 1290, 365, 4],
+      { id: "bedside-cabinet", title: "Bedside cabinet and supplies", translation: "床旁柜与用品", description: "Identify the bedside cabinet, drinking vessels and the single support column beneath the overbed table.", x: 875, y: 300, width: 775, height: 460, targetScale: 2.65, labels: [
+        ["Bedspace bedside cabinet", "床位区床旁柜", 1280, 455, 0], ["Bedspace cabinet top", "床位区床旁柜台面", 1280, 370, 1], ["Bedspace upper drawer", "床位区床旁柜上抽屉", 1280, 425, 1],
+        ["Bedspace lower drawer", "床位区床旁柜下抽屉", 1275, 447, 1, [42, 12, "Wooden lower drawer face below the metal pull and above the footboard."]],
+        ["Bedspace drawer pull", "床位区抽屉拉手", 1280, 430, 3], ["Bedspace cabinet side panel", "床位区床旁柜侧板", 1350, 465, 2],
+        ["Bedspace cabinet plinth", "床位区床旁柜底座"],
+        ["Bedspace bedside water jug", "床位区床旁水壶", 1245, 345, 0], ["Bedspace jug handle", "床位区水壶提手", 1245, 345, 2], ["Bedspace drinking tumbler", "床位区饮水杯", 1310, 350, 0], ["Bedspace tumbler rim", "床位区水杯杯口", 1310, 342, 3], ["Bedspace bedside tray", "床位区床旁托盘", 1250, 355, 1], ["Bedspace tissue box", "床位区纸巾盒", 1215, 360, 0], ["Bedspace tissue opening", "床位区纸巾抽口", 1215, 350, 3], ["Bedspace bedside carafe", "床位区床旁玻璃壶", 1275, 345, 1], ["Bedspace bedside table edge", "床位区床旁台边", 1330, 375, 2],
+        ["Bedspace table support leg", "床位区床旁桌支腿", 864, 652, 0, [18, 118, "Single grey upright between the wooden overbed tabletop and its separate wheeled foot."]],
+        ["Bedspace cabinet handle recess", "床位区柜门凹槽拉手"], ["Bedspace cupboard seam", "床位区床旁柜门缝", 1340, 450, 4], ["Bedspace bedside wheel", "床位区床旁柜脚轮"],
+        ["Bedspace wall shelf", "床位区墙面小搁板", 1270, 325, 2], ["Bedspace shelf bracket", "床位区搁板托架", 1320, 330, 4], ["Bedspace bedside cup base", "床位区床旁水杯杯底", 1300, 365, 4], ["Bedspace cabinet corner", "床位区床旁柜转角", 1215, 405, 3], ["Bedspace tabletop grain", "床位区柜台木纹", 1290, 365, 4],
       ] },
       { id: "privacy-and-room", title: "Privacy and room fittings", translation: "隐私设施与病室环境", description: "Inspect the privacy curtain, visitor chair, window, ceiling fittings, door and nearby room surfaces.", x: 0, y: 0, width: 1_672, height: 941, targetScale: 2.5, labels: [
         ["Bedspace privacy curtain", "床位区隐私帘", 710, 420, 0], ["Bedspace curtain pleat", "床位区窗帘褶", 690, 300, 2], ["Bedspace curtain track", "床位区帘轨", 730, 95, 1], ["Bedspace curtain runner", "床位区帘轨滑轮", 730, 100, 3], ["Bedspace curtain hem", "床位区帘摆", 700, 580, 2], ["Bedspace visitor chair", "床位区访客椅", 1480, 505, 0], ["Bedspace chair back", "床位区访客椅靠背", 1480, 415, 1], ["Bedspace chair armrest", "床位区访客椅扶手", 1495, 475, 2], ["Bedspace chair cushion", "床位区访客椅坐垫", 1485, 500, 1], ["Bedspace chair leg", "床位区访客椅椅腿", 1515, 600, 3], ["Bedspace right window", "床位区右侧窗户", 1600, 260, 0], ["Bedspace window glazing", "床位区窗玻璃", 1610, 245, 1], ["Bedspace window frame", "床位区窗框", 1560, 190, 2], ["Bedspace window sill", "床位区窗台", 1585, 365, 2], ["Bedspace ceiling light panel", "床位区天花灯板", 1030, 15, 1], ["Bedspace recessed ceiling light", "床位区嵌入式顶灯", 390, 35, 2], ["Bedspace corridor doorway", "床位区走廊门口", 380, 240, 0], ["Bedspace door handle", "床位区房门把手", 415, 295, 3], ["Bedspace corridor counter", "床位区走廊接待台", 330, 350, 0], ["Bedspace corridor office chair", "床位区走廊办公椅", 275, 315, 2], ["Bedspace corridor monitor", "床位区走廊显示器", 275, 285, 1], ["Bedspace corridor plant", "床位区走廊盆栽", 340, 245, 1], ["Bedspace rolling linen trolley", "床位区移动布草车", 570, 430, 0], ["Bedspace trolley shelf", "床位区布草车层架", 570, 435, 2], ["Bedspace floor tile", "床位区地砖", 980, 870, 1],
@@ -119,25 +177,42 @@ function point(value, axis) { return Number((value * (axis === "x" ? sx : sy)).t
 function rect(value) { return { x: point(value.x, "x"), y: point(value.y, "y"), width: point(value.width, "x"), height: point(value.height, "y") }; }
 
 function buildScene(config) {
-  const labels = []; const visualRegions = []; const detailZones = []; let sequence = 0;
+  const labels = []; const visualRegions = []; const detailZones = []; const relatedWords = []; let sequence = 0;
+  const overviewWords = config.overviewWords ?? [];
   for (const zone of config.zones) {
     const labelIds = [];
-    for (const [word, translation, x, y, minLevel] of zone.labels) {
+    for (const [word, translation, x, y, minLevel, photoBox] of zone.labels) {
       const id = `${config.id}-${slug(word)}`;
-      const sourceX = Math.max(0, Math.min(SOURCE_WIDTH - 44, x - 22));
-      const sourceY = Math.max(0, Math.min(SOURCE_HEIGHT - 44, y - 22));
+      const originalPriority = Number((1 + sequence / 1000).toFixed(6));
+      sequence += 1;
+      if (x === undefined) {
+        relatedWords.push({ id, word, translation });
+        continue;
+      }
       const regionId = `${config.id}-region-${slug(word)}`;
-      labels.push({ id, word, translation, x: point(x, "x"), y: point(y, "y"), priority: Number((1 + sequence / 1000).toFixed(6)), minLevel, sourceVisualRegion: regionId, semanticRealmId: config.semanticRealmId });
-      visualRegions.push({ id: regionId, description: `${word} visible in ${zone.title}`, kind: "object", x: point(sourceX, "x"), y: point(sourceY, "y"), width: point(44, "x"), height: point(44, "y") });
-      labelIds.push(id); sequence += 1;
+      const overviewIndex = overviewWords.indexOf(word);
+      const priority = overviewIndex < 0 ? originalPriority : (overviewIndex + 1) / 10;
+      const center = photoBox ? { x, y } : { x: point(x, "x"), y: point(y, "y") };
+      labels.push({ id, word, translation, ...center, priority, minLevel, sourceVisualRegion: regionId, semanticRealmId: config.semanticRealmId });
+      if (photoBox) {
+        const [width, height, description] = photoBox;
+        visualRegions.push({ id: regionId, description, kind: "object", x: x - width / 2, y: y - height / 2, width, height });
+      } else {
+        const sourceX = Math.max(0, Math.min(SOURCE_WIDTH - 44, x - 22));
+        const sourceY = Math.max(0, Math.min(SOURCE_HEIGHT - 44, y - 22));
+        visualRegions.push({ id: regionId, description: `${word} visible in ${zone.title}`, kind: "object", x: point(sourceX, "x"), y: point(sourceY, "y"), width: point(44, "x"), height: point(44, "y") });
+      }
+      labelIds.push(id);
     }
     detailZones.push({ id: `${config.id}-zone-${zone.id}`, title: zone.title, translation: zone.translation, description: zone.description, ...rect(zone), targetScale: zone.targetScale, labelIds });
   }
+  const removedLabelCount = config.removed.length + relatedWords.length;
   return {
     id: config.id, title: config.title, translation: config.translation, subtitle: config.subtitle, asset: config.asset,
     width: WIDTH, height: HEIGHT, parentId: config.parentId, visualRegions, detailZones,
-    anchorAudit: { status: "human-verified", policy: "visible-object-or-part-only", reviewedAsset: config.asset, reviewedAssetSha256: config.assetSha256, rationale: `The generated source and final JPEG were inspected at native and final pixels. This scene retains ${labels.length} independently pointable objects and visible parts across ${detailZones.length} bounded zones. People, identity, readable text, brands, hidden contents, inferred processes and unsupported states were excluded.`, previousLabelCount: labels.length + config.removed.length, retainedLabelCount: labels.length, removedLabelCount: config.removed.length, removedExamples: config.removed },
-    labels, portals: [],
+    ...(overviewWords.length ? { portraitOverviewLabelIds: overviewWords.map(word => `${config.id}-${slug(word)}`) } : {}),
+    anchorAudit: { status: config.photoReview ? "image-reviewed" : "human-verified", policy: "visible-object-or-part-only", reviewedAsset: config.asset, reviewedAssetSha256: config.assetSha256, rationale: config.photoReview ?? `The generated source and final JPEG were inspected at native and final pixels. This scene retains ${labels.length} independently pointable objects and visible parts across ${detailZones.length} bounded zones. People, identity, readable text, brands, hidden contents, inferred processes and unsupported states were excluded.`, previousLabelCount: labels.length + removedLabelCount, retainedLabelCount: labels.length, removedLabelCount, removedExamples: [...relatedWords.slice(0, 3).map(entry => entry.word), ...config.removed] },
+    labels, ...(relatedWords.length ? { relatedWords } : {}), portals: [],
   };
 }
 
@@ -160,7 +235,7 @@ async function assertUniqueWords(built) {
     const scene = JSON.parse(await readFile(resolve(sceneRoot, `${entry.id}.json`), "utf8"));
     for (const label of scene.labels) owners.set(label.word.toLocaleLowerCase(), entry.id);
   }
-  for (const scene of built) for (const label of scene.labels) {
+  for (const scene of built) for (const label of [...scene.labels, ...(scene.relatedWords ?? [])]) {
     const key = label.word.toLocaleLowerCase();
     if (owners.has(key)) collisions.push(`${scene.id} duplicates ${owners.get(key)}: ${label.word}`);
     owners.set(key, scene.id);
@@ -201,11 +276,18 @@ function addPortalsToBuiltScenes(built) {
 }
 
 export async function buildPracticalDeepScenes() {
+  if (process.argv.includes("--bedspace-data-only")) {
+    const config = configs.find(({ id }) => id === "hospital-inpatient-bedspace");
+    const image = await readFile(resolve(root, `public${config.asset}`));
+    if (hash(image) !== config.assetSha256) throw new Error("Bedspace photograph changed; review the label positions again");
+    const scene = buildScene(config);
+    await writeIfChanged(resolve(sceneRoot, `${config.id}.json`), scene);
+    return;
+  }
   const built = configs.map(buildScene);
   if (doIntegrate) addPortalsToBuiltScenes(built);
-  for (const scene of built) {
-    if (scene.labels.length !== 150 || scene.detailZones.length !== 6 || scene.detailZones.some(({ labelIds }) => labelIds.length !== 25)) throw new Error(`${scene.id} must contain six zones of 25 labels`);
-    if (new Set(scene.labels.map(({ word }) => word.toLocaleLowerCase())).size !== scene.labels.length) throw new Error(`${scene.id} has repeated display words`);
+  for (const config of configs) {
+    if (config.zones.length !== 6 || config.zones.some(({ labels }) => labels.length !== 25)) throw new Error(`${config.id} must contain six vocabulary groups of 25 words`);
   }
   await assertUniqueWords(built);
   const rendered = await Promise.all(configs.map(renderAsset));
@@ -221,7 +303,7 @@ export async function buildPracticalDeepScenes() {
     let assetChanged = true;
     try { assetChanged = Buffer.compare(await readFile(assetPath), bytes) !== 0; } catch (error) { if (error.code !== "ENOENT") throw error; }
     if (assetChanged) await writeFile(assetPath, bytes);
-    result.scenes.push({ id: config.id, labels: 150, assetChanged, sceneChanged: await writeIfChanged(resolve(sceneRoot, `${config.id}.json`), built[index]) });
+    result.scenes.push({ id: config.id, labels: built[index].labels.length, assetChanged, sceneChanged: await writeIfChanged(resolve(sceneRoot, `${config.id}.json`), built[index]) });
   }
   if (doIntegrate) Object.assign(result, await integrateScenes());
   console.log(JSON.stringify(result, null, 2));
