@@ -249,8 +249,10 @@ const contracts = [
     parentId: "office-building",
     asset: "/scenes/office-break-room-premium-v1.jpg",
     sha256: "1fe63b2f3ca69e6a33f655c583c01655118ad4400b8b0d95342f04ab75f0f53d",
-    labels: 150,
-    zoneSizes: [25, 25, 25, 25, 25, 25],
+    labels: 138,
+    related: 12,
+    audit: "image-reviewed",
+    zoneSizes: [25, 21, 23, 22, 24, 23],
   },
   {
     id: "airport-conveyor-drive-unit",

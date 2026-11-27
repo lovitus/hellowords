@@ -141,6 +141,8 @@ const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
   // All five areas share one atrium photograph. Finer equipment stays searchable.
   "office-building": 87,
   "office-elevator-car": 120,
+  "office-break-room": 138,
+  "office-refrigerator-interior": 100,
   "open-plan-workstation": 111,
   "desktop-workstation-equipment": 91,
   "conference-room": 87,
@@ -264,6 +266,8 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   "aircraft-lavatory": 138,
   "office-building": 87,
   "office-elevator-car": 150,
+  "office-break-room": 138,
+  "office-refrigerator-interior": 100,
   // The other 39 workstation terms stay searchable without a pin.
   "open-plan-workstation": 111,
   "desktop-workstation-equipment": 91,

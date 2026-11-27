@@ -143,7 +143,7 @@ test("mature world has six subject branches and fully reachable practical paths"
     ["world-map", "city-street", "transit-hub", "urban-services", "office-building", "conference-room", "video-conferencing-console"],
     ["world-map", "city-street", "transit-hub", "urban-services", "office-building", "office-reception-lobby"],
     ["world-map", "city-street", "transit-hub", "urban-services", "office-building", "office-reception-lobby", "office-elevator-car"],
-    ["world-map", "city-street", "transit-hub", "urban-services", "office-building", "office-break-room"],
+    ["world-map", "city-street", "transit-hub", "urban-services", "office-building", "office-break-room", "office-refrigerator-interior"],
     ["world-map", "city-street", "transit-hub", "urban-services", "airport", "baggage-claim", "airport-customs-hall"],
     ["world-map", "city-street", "transit-hub", "urban-services", "airport", "baggage-claim", "airport-customs-hall", "customs-baggage-examination"],
     ["world-map", "city-street", "hotel-exterior", "hotel-lobby-rooms"],
@@ -3178,7 +3178,8 @@ test("urban services adds hospital, airport and office vocabulary without breaki
     ["customs-baggage-examination", 150, 6, "airport-customs-hall", ["Customs inspection workbench", "Curtain-lined scanner tunnel", "Open carry-on case", "Navy roller carry-on", "Baggage-inspection workstation", "Customs tray-storage rack"]],
     ["school-locker-bank", 75, 5, "school-corridor", ["School locker bank", "Open locker compartment", "Combination-lock dial", "Navy school backpack", "White lunch container", "Closed exercise book"]],
     ["office-building", 87, 5, "urban-services", ["reception counter", "planter", "monitor", "open plan office", "conference room", "glass wall", "meeting table", "refrigerator", "dining table", "stairwell", "elevator door", "server rack", "air duct"]],
-    ["office-break-room", 150, 6, "office-building", ["Office break-room open refrigerator", "Office break-room green apple", "Office break-room drip coffee maker", "Office break-room electric kettle", "Office break-room sink", "Office break-room countertop microwave", "Office break-room blue recycling bin"]],
+    ["office-break-room", 138, 6, "office-building", ["open refrigerator", "green-skinned apple", "drip coffee maker", "electric kettle", "kitchenette sink", "countertop microwave", "open recycling bin"]],
+    ["office-refrigerator-interior", 100, 12, "office-break-room", ["red bell pepper", "cucumber", "egg", "carrot sticks", "grain salad", "pasta", "pickle", "fridge light"]],
     ["service-core", 90, 5, "office-building", ["switchboard door", "breaker handle", "filter pleat", "valve wheel", "utility sink basin", "dock plate", "pallet jack handle", "freight elevator seam"]],
     ["office-network-rack", 150, 6, "service-core", ["Network cabinet shell", "Network upper fiber patch panel", "Network lower Ethernet switch", "Network upper server chassis", "Network vertical power strip", "Network UPS chassis", "Network centre equipment blanking panel", "Network blank-panel right edge"]],
   ] as const) {
@@ -3242,10 +3243,10 @@ test("office break-room refrigerator anchors sit on the visible rail, bottle, ja
   assert.ok(scene);
   const labels = new Map(scene.labels.map((label) => [label.word.toLocaleLowerCase(), label] as const));
   const anchors = [
-    ["office break-room upper door-shelf front rail", 239, 124],
-    ["office break-room orange drink bottle", 239, 143],
-    ["office break-room clear food jar", 340, 145],
-    ["office break-room food-jar lid", 340, 130],
+    ["upper door-shelf front rail", 258, 129],
+    ["bottled orange drink", 323, 145],
+    ["clear food jar", 393, 149],
+    ["food-jar lid", 393, 122],
   ] as const;
   for (const [word, x, y] of anchors) {
     const label = labels.get(word);

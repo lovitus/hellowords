@@ -258,6 +258,11 @@
       "parentId": "office-building"
     },
     {
+      "id": "office-refrigerator-interior",
+      "title": "Office refrigerator interior",
+      "parentId": "office-break-room"
+    },
+    {
       "id": "desktop-workstation-equipment",
       "title": "Desktop workstation equipment",
       "parentId": "open-plan-workstation"

@@ -132,6 +132,42 @@ export const SCENE_CONVERSATIONS: Readonly<Record<string, readonly SceneConversa
       ["Yes, thank you. That's everything.", "好的，谢谢。其余的都可以收了。"],
     ] },
   ],
+  "office-break-room": [
+    { title: "第一次用茶水间", roles: ["新同事", "同事"], lines: [
+      ["Where can I put my lunch?", "我的午饭可以放哪儿？"],
+      ["There's room in the fridge beside the coffee maker.", "咖啡机旁边的冰箱里有地方。"],
+      ["Should I put my name on the lid?", "我要在盖子上写名字吗？"],
+      ["Yes, so nobody takes it by mistake.", "对，这样就没人会拿错了。"],
+      ["Can I heat it up here later?", "待会儿我可以在这儿加热吗？"],
+      ["Sure. The microwave is next to the dish rack.", "可以。微波炉就在沥水架旁边。"],
+    ] },
+    { title: "午饭后收拾", roles: ["同事甲", "同事乙"], lines: [
+      ["Are you finished with this mug?", "这个杯子你用完了吗？"],
+      ["Yes, I'll give it a rinse.", "用完了，我冲一下。"],
+      ["Where do the clean plates go?", "洗好的盘子放哪儿？"],
+      ["Stand them up in the rack by the sink.", "竖着放在水槽旁的沥水架上。"],
+      ["And where can I put this empty can?", "这个空罐子放哪里？"],
+      ["The blue recycling bin is by the round table.", "蓝色回收桶在圆桌旁边。"],
+    ] },
+  ],
+  "office-refrigerator-interior": [
+    { title: "找自己的午餐", roles: ["同事甲", "同事乙"], lines: [
+      ["Have you seen my sandwich?", "你看到我的三明治了吗？"],
+      ["There's one on the top shelf, beside the salad.", "最上层有一个，就在沙拉旁边。"],
+      ["Is it in the box with the white clip?", "是在带白色卡扣的盒子里吗？"],
+      ["Yes. The box with the blue clip is mine.", "对。蓝色卡扣的盒子是我的。"],
+      ["Got it. Can I move your salad over a little?", "找到了。我能把你的沙拉往旁边挪一点吗？"],
+      ["Of course. Just leave the lid on.", "当然，盖好盖子就行。"],
+    ] },
+    { title: "分享水果", roles: ["同事甲", "同事乙"], lines: [
+      ["Would you like an apple with your lunch?", "午饭时想吃个苹果吗？"],
+      ["Yes, please. Where are they?", "好呀，谢谢。苹果在哪儿？"],
+      ["Pull out the clear drawer at the bottom.", "把底部的透明抽屉拉出来。"],
+      ["I see red ones and green ones.", "我看到有红的，也有绿的。"],
+      ["Take whichever one you like.", "选一个你喜欢的吧。"],
+      ["Thanks. I'll have a green one.", "谢谢，我拿个青苹果。"],
+    ] },
+  ],
   "airport-customs-hall": [
     { title: "确认入境通道", roles: ["旅客", "海关工作人员"], lines: [
       ["I am not sure which arrivals channel I should use.", "我不确定应该走哪条入境通道。"],

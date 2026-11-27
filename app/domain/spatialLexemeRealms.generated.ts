@@ -2,7 +2,7 @@
 import type { LabelSemanticRealm } from "./labelSemanticStyle";
 
 /** Number of authored spatial label references covered by this compact index. */
-export const SPATIAL_LEXEME_LINK_COUNT = 332;
+export const SPATIAL_LEXEME_LINK_COUNT = 354;
 
 /** Bundled realm lookup for spatial labels; it never causes a runtime shard request. */
 export const SPATIAL_LEXEME_REALMS = Object.freeze({
@@ -21,6 +21,7 @@ export const SPATIAL_LEXEME_REALMS = Object.freeze({
   "en-0d4fc4a78d3706ed": "people-society",
   "en-0e92d69f9b951b18": "qualities-states",
   "en-0eeea780b063634b": "objects-technology",
+  "en-0f4168490e38b844": "nature-life",
   "en-0f48868342614a8b": "objects-technology",
   "en-10ca50a8a7148afd": "objects-technology",
   "en-10e9f5602d2492b3": "qualities-states",
@@ -50,12 +51,14 @@ export const SPATIAL_LEXEME_REALMS = Object.freeze({
   "en-2e1cfa82b035c26c": "qualities-states",
   "en-2eec533c3767f8d1": "objects-technology",
   "en-3171d89ad00530ff": "objects-technology",
+  "en-34707c3f40dfa20c": "nature-life",
   "en-3486577cd905f870": "objects-technology",
   "en-34da56029403e6f7": "qualities-states",
   "en-350a770c0ec9f353": "nature-life",
   "en-3580c9267518807d": "people-society",
   "en-382635c9325bf327": "qualities-states",
   "en-39200d1e8a8dbbb6": "objects-technology",
+  "en-3a7bd3e2360a3d29": "body-daily-life",
   "en-3d4d101cd7ea9e5e": "objects-technology",
   "en-3d7eb3d3dab17ee5": "objects-technology",
   "en-3e341d2d9c67be01": "nature-life",
@@ -124,13 +127,16 @@ export const SPATIAL_LEXEME_REALMS = Object.freeze({
   "en-7f480e744a79953e": "objects-technology",
   "en-833a63294a4cb1fc": "objects-technology",
   "en-86d6e84ef9a21b74": "objects-technology",
+  "en-873ac9ffea4dd04f": "body-daily-life",
   "en-881d5fb60090f59a": "people-society",
+  "en-8825e76530f87ff5": "body-daily-life",
   "en-89f45d4c8172f37e": "body-daily-life",
   "en-8a39178d327e72a9": "space-time-measure",
   "en-8a46854926e5416b": "objects-technology",
   "en-8c1a64a5158bd820": "body-daily-life",
   "en-8d0c7ac992af2f49": "objects-technology",
   "en-8e0a1b0ada421728": "qualities-states",
+  "en-8f5c570f55dd7921": "body-daily-life",
   "en-91f060a9ad4b39eb": "objects-technology",
   "en-9209526aaa61b070": "body-daily-life",
   "en-94f94c9c97bfa92b": "nature-life",
@@ -154,6 +160,7 @@ export const SPATIAL_LEXEME_REALMS = Object.freeze({
   "en-a457e8f04aa796dc": "objects-technology",
   "en-a4c18ee0ada59e34": "body-daily-life",
   "en-a52514252adf8606": "body-daily-life",
+  "en-a5ad895656074bb1": "body-daily-life",
   "en-a67a41c8bc79d5da": "qualities-states",
   "en-a6e42a44e79e131a": "objects-technology",
   "en-a864ed013d128c9c": "people-society",
@@ -223,6 +230,7 @@ export const SPATIAL_LEXEME_REALMS = Object.freeze({
   "en-f6000d4ef895fd96": "objects-technology",
   "en-f695e71ab3815726": "body-daily-life",
   "en-f6cc5b085b61387a": "nature-life",
+  "en-fa6598317163f260": "body-daily-life",
   "en-faaa92f6df65089f": "objects-technology",
   "en-fcfd075cbe367c15": "nature-life",
   "en-fdf0d7533af5b16d": "objects-technology",
