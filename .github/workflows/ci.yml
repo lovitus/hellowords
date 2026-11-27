@@ -1,4 +1,4 @@
-name: Verify office break room and refrigerator exploration
+name: Verify office break room coffee and tea station exploration
 on:
   workflow_dispatch:
     inputs:
@@ -11,10 +11,10 @@ permissions:
   contents: read
 env:
   CI: "true"
-  BASELINE: 57402fb3787ffdabde34ce3d2355a63a2853d4fe
+  BASELINE: 4265fe0c1abcb05d9af1752638543208a33bce02
   PRODUCT: ${{ inputs.candidate }}
 jobs:
-  refrigerator:
+  drinks:
     runs-on: ubuntu-24.04
     timeout-minutes: 18
     defaults:
@@ -34,14 +34,14 @@ jobs:
       - uses: actions/download-artifact@v5
         with:
           name: production-dist-${{ env.BASELINE }}
-          run-id: "45950843653"
+          run-id: "45958053422"
           github-token: ${{ github.token }}
           path: ${{ runner.temp }}/frozen
       - name: Verify sources and frozen production files
         run: |
           test "$(git rev-parse HEAD)" = "$PRODUCT"
           test "$(git rev-parse HEAD^)" = "$BASELINE"
-          test "$(sha256sum "$RUNNER_TEMP/frozen/artifacts/build/dist-manifest.json" | cut -d' ' -f1)" = 4bf2cbb16b9fa91ace6b0668668cf045bb5351742705bb85b4418551c451bd98
+          test "$(sha256sum "$RUNNER_TEMP/frozen/artifacts/build/dist-manifest.json" | cut -d' ' -f1)" = b0fa291d0f89eaca258f8d8335034fb892fab64ad6795ad860f6fc85daeb5550
           python ../.github/verify-office-phone.py manifest "$RUNNER_TEMP/frozen" "$BASELINE"
       - uses: actions/setup-node@v7
         with:
@@ -52,14 +52,14 @@ jobs:
         run: |
           npm ci > "$RUNNER_TEMP/dependencies.log" 2>&1
           ./node_modules/.bin/playwright install --with-deps chromium > "$RUNNER_TEMP/chromium.log" 2>&1
-      - name: Reproduce magnifying the refrigerator ceiling light on the frozen break room photograph
+      - name: Reproduce magnifying the coffee maker and tea packet on the frozen break room photograph
         id: red
         continue-on-error: true
         run: |
           test ! -e dist
           mv "$RUNNER_TEMP/frozen/dist" dist
           trap 'mv dist "$RUNNER_TEMP/frozen/dist"' EXIT
-          python ../.github/check-office-refrigerator.py baseline
+          python ../.github/check-office-drinks.py baseline
       - name: Validate the candidate vocabulary and pending image reviews
         run: npm run validate:data -- --allow-image-reviewed
       - name: Typecheck and lint changed code
@@ -72,8 +72,8 @@ jobs:
           GITHUB_SHA="$PRODUCT" npm run build > "$RUNNER_TEMP/build.log" 2>&1
           GITHUB_SHA="$PRODUCT" npm run analyze:build
           python ../.github/verify-office-phone.py manifest . "$PRODUCT"
-      - name: Verify both served photographs and follow the refrigerator, atrium and cabin journeys
-        run: python ../.github/check-office-refrigerator.py candidate
+      - name: Verify four office photographs and follow the drink station, refrigerator and atrium journeys
+        run: python ../.github/check-office-drinks.py candidate
       - name: Run the affected scene contracts and all vocabulary checks
         if: ${{ !cancelled() && steps.build.outcome == 'success' }}
         run: |
@@ -95,11 +95,11 @@ jobs:
       - uses: actions/upload-artifact@v5
         if: ${{ !cancelled() }}
         with:
-          name: office-refrigerator-${{ github.run_id }}
-          path: ${{ runner.temp }}/refrigerator-evidence
+          name: office-drink-stations-${{ github.run_id }}
+          path: ${{ runner.temp }}/office-drinks-evidence
           if-no-files-found: error
           retention-days: 7
-      - name: Require the observed baseline zoom on the refrigerator ceiling light
+      - name: Require both original station entrance failures on both viewports
         run: test "$RED_OUTCOME" = success
         env:
           RED_OUTCOME: ${{ steps.red.outcome }}

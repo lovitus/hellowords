@@ -1,4 +1,4 @@
-"""Verify the observed refrigerator journey on the frozen baseline and candidate."""
+"""Compare both photographed drink station journeys on the baseline and candidate."""
 from collections import Counter, defaultdict
 import hashlib
 import json
@@ -13,7 +13,7 @@ browser = runpy.run_path(str(controls / "verify-office-phone.py"))
 diagnostics = runpy.run_path(str(controls / "diagnose-office-phone.py"))
 phase = sys.argv[1]
 temp = Path(os.environ["RUNNER_TEMP"])
-dest = temp / "refrigerator-evidence"
+dest = temp / "office-drinks-evidence"
 dest.mkdir(exist_ok=True)
 room = "office-break-room"
 fridge = "office-refrigerator-interior"
@@ -24,9 +24,20 @@ fridge_hash = "b4ea5c5e7306c5950adce3166de9acd8e917d67e78be2dc2788e402119664d6d"
 entry = "refrigerator-ceiling-light"
 object_point = (848, 375)
 journey = "the office break room opens the refrigerator interior and returns to the break room by zoom"
-cabin = "aircraft cabin opens the passenger seat row and meal tray, then restores both parent scenes"
+stations = {
+    "the office break room opens the coffee station and returns to the break room by zoom": {
+        "scene": "office-coffee-station", "entry": "coffee-maker-housing", "entry_point": (550, 246),
+        "asset": "/scenes/office-coffee-station-premium-v1.jpg", "object_point": (758, 367),
+        "hash": "9bac4f9ebef7c21d37e2c1bec3f1d2652c9741482862eae17fad1939b7e9fff0",
+    },
+    "the office break room opens the tea station and returns to the break room by zoom": {
+        "scene": "office-tea-station", "entry": "tea-packet", "entry_point": (752, 312),
+        "asset": "/scenes/office-tea-station-premium-v1.jpg", "object_point": (807, 714),
+        "hash": "f4c375d1de6f57b65aa1ceee0dede02e702f60eb5841a8bf086c5130f98358ff",
+    },
+}
 projects = ("chromium", "mobile-chromium")
-journeys = [("e2e/office-refrigerator.spec.ts", journey)]
+journeys = [("e2e/office-drinks.spec.ts", title) for title in stations]
 
 
 def digest(asset):
@@ -64,9 +75,12 @@ if digest(room_asset) != room_hash:
 if phase == "candidate":
     if digest(fridge_asset) != fridge_hash:
         raise ValueError("The packaged refrigerator photograph differs from the reviewed photograph")
+    for station in stations.values():
+        if digest(station["asset"]) != station["hash"]:
+            raise ValueError(f"The packaged photograph differs for {station['scene']}")
     journeys.extend([
         ("e2e/office-conference.spec.ts", browser["RETURN"]),
-        ("e2e/cabin-meal.spec.ts", cabin),
+        ("e2e/office-refrigerator.spec.ts", journey),
     ])
 cases = [(project, file, title) for project in projects for file, title in journeys]
 browser["run_browser"](phase, temp, cases)
@@ -105,21 +119,25 @@ for suite in report["suites"]:
         accepted = result["status"] == "passed" and not result["errors"]
         if phase == "baseline":
             errors = result["errors"]
+            station = stations[title]
+            expected_error = f"magnifying the photographed {station['entry']} must leave {station['scene']} open"
             accepted = (result["status"] == "failed" and len(errors) == 1
-                        and f"magnifying the photographed {entry} must leave {fridge} open" in errors[0].get("message", "")
-                        and observed(items, shots, entry, room_asset, room, (372, 87), inspect=True))
+                        and expected_error in errors[0].get("message", "")
+                        and observed(items, shots, station["entry"], room_asset, room, station["entry_point"], inspect=True))
+        elif title in stations:
+            station = stations[title]
+            asset, destination = station["asset"], station["scene"]
+            accepted = (accepted and observed(items, shots, station["entry"], room_asset, destination, station["entry_point"])
+                        and items["station-photo"] == [{"asset": asset, "sha256": station["hash"], "size": [1600, 900]}]
+                        and observed(items, shots, "station-object", asset, destination, station["object_point"], inspect=True)
+                        and tapped(shots, ("station-object-arrival", "break-room-object-return"))
+                        and retreated(items["station-return"]))
         elif title == journey:
             accepted = (accepted and observed(items, shots, entry, room_asset, fridge, (372, 87))
                         and items["refrigerator-interior-photo"] == [{"asset": fridge_asset, "sha256": fridge_hash, "size": [1600, 900]}]
                         and observed(items, shots, "refrigerator-object", fridge_asset, fridge, object_point, inspect=True)
                         and tapped(shots, ("refrigerator-object-arrival", "break-room-object-return"))
                         and retreated(items["refrigerator-return"]))
-        elif title == cabin:
-            accepted = (accepted and observed(items, shots, "seat-back-panel", "/scenes/aircraft-cabin-premium-v1.jpg", "passenger-seat-row", (795, 452))
-                        and observed(items, shots, "meal-tray-edge", "/scenes/passenger-seat-row-premium-v1.jpg", "inflight-meal-tray", (478, 550))
-                        and observed(items, shots, "meal-food", "/scenes/inflight-meal-tray-premium-v1.jpg", "inflight-meal-tray", (798, 613), inspect=True)
-                        and tapped(shots, ("neck-pillow-arrival", "foil-dish-fit", "meal-food-arrival", "neck-pillow-return", "cabin-aisle-return"))
-                        and retreated(items["meal-tray-return"]) and retreated(items["seat-row-return"]))
         elif title == browser["RETURN"]:
             restored = items["office-return-words"]
             accepted = (accepted and all(counts[name] == 1 for name in browser["required_attachments"](phase, case))
