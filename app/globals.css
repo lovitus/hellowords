@@ -1519,6 +1519,22 @@ a:focus-visible {
   font-weight: 800;
 }
 
+.scene-hotspot-region[data-sized-marker="true"] .scene-hotspot {
+  width: var(--portal-button-size);
+  height: var(--portal-button-size);
+  padding: 0;
+  box-shadow: 0 0 0 1px rgba(255, 225, 158, 0.65);
+}
+
+.scene-hotspot-region[data-sized-marker="true"] .scene-hotspot::before {
+  inset: -1px;
+}
+
+.scene-hotspot-region[data-sized-marker="true"] .scene-hotspot-icon {
+  font-size: clamp(8px, calc(var(--portal-button-size) * 0.55), 15px);
+  line-height: 1;
+}
+
 .scene-hotspot-caption {
   position: absolute;
   top: calc(100% + 7px);

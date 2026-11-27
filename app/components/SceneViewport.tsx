@@ -20,6 +20,7 @@ import {
   COMPACT_PORTAL_CUE_SIZE,
   portalCueProtectedRegion,
   portalMarkerOffset,
+  portraitPortalButtonSize,
   buildSceneLabelMountWindow,
   buildVocabularyCueRevealStateFromSummary,
   buildVocabularyRevealSummary,
@@ -274,7 +275,7 @@ function usesPortraitPhotoBounds(scene: Scene, viewport: FrameSize): boolean {
     || scene.id === "baggage-drop-station" || scene.id === "baggage-claim"
     || scene.id === "baggage-service-desk" || scene.id === "suitcase-packing-table" || scene.id === "hospital"
     || scene.id === "aircraft-cabin" || scene.id === "passenger-seat-row" || scene.id === "inflight-meal-tray"
-    || scene.id === "office-break-room" || scene.id === "office-refrigerator-interior"
+    || scene.id === "office-break-room" || scene.parentId === "office-break-room"
     || scene.id === "radiology-suite" || scene.id === "pathology-lab"
     || scene.id === "hospital-pharmacy" || scene.id === "tablet-counting-bench"
     || scene.id === "office-building" || scene.id === "conference-room" || scene.id === "video-conferencing-console")
@@ -1463,9 +1464,15 @@ export function SceneViewport({
         const right = snapToDevicePixel(bounds.x + bounds.width);
         const bottom = snapToDevicePixel(bounds.y + bounds.height);
         const markerOffset = portalMarkerOffset(portal, camera.fit * camera.scale, labelViewport);
+        const size = portraitPortalButtonSize(portal, camera.fit * camera.scale, labelViewport);
+        if (portal.portraitMarker?.scaleToObject) {
+          setDatasetValueIfChanged(region, "sizedMarker", String(size !== undefined));
+          setStylePropertyIfChanged(region.style, "--portal-button-size", size === undefined ? "" : `${size}px`);
+        }
         // The button and its label exclusion share the same snapped grid origin.
         const cue = portalCueProtectedRegion(
           (left + right) / 2 + markerOffset.x, (top + bottom) / 2 + markerOffset.y, labelViewport,
+          size === undefined ? undefined : size + 2,
         );
         if (cue) portalCueRegions.push(cue);
         if (portal.portraitMarker && hotspot) {
@@ -3215,17 +3222,17 @@ export function SceneViewport({
   // Canvas words are hit-tested by pointer on release. Keyboard users reach the
   // focusable DOM mirror buttons, whose own click handlers stay in place.
   const activateCanvasLabel = (event: React.PointerEvent<HTMLDivElement>) => {
-    if ((event.target as Element).closest("button, a, input, textarea, select")) return;
     const state = labelPaintStateRef.current;
-    if (!state) return;
+    if (!state) return false;
     const bounds = event.currentTarget.getBoundingClientRect();
     const hit = hitPaintedLabel(state.labels, event.clientX - bounds.left, event.clientY - bounds.top, event.pointerType);
-    if (!hit) return;
+    if (!hit) return false;
     if (atlasOverviewMode) cancelAtlasHover();
     selectedLabelIdRef.current = hit.id;
     requestCameraFrame();
     reportClickedLabel(hit.label);
     onSelectWord(hit.label);
+    return true;
   };
 
   const updateAtlasCategoryHover = (event: React.PointerEvent<HTMLDivElement>) => {
@@ -3343,9 +3350,18 @@ export function SceneViewport({
     const isTap = event.type === "pointerup" && start?.pointerId === event.pointerId
       && Math.hypot(event.clientX - start.x, event.clientY - start.y) <= 6
       && viewerInteractive && !committingRef.current && !continuitySettlingRef.current && !event.defaultPrevented;
-    if ((event.target as Element).closest(".scene-hotspot")) {
+    const control = (event.target as Element).closest<HTMLElement>("button, a, input, textarea, select");
+    if (control?.matches(".scene-hotspot")) {
       suppressPortalClickRef.current = !isTap;
-    } else if (isTap) {
+      // Touch target adjustment can send a tap on a painted dot to a nearby
+      // button. Use the actual pointer position while it is still available.
+      if (isTap && event.pointerType === "touch" && control.closest('[data-sized-marker="true"]')) {
+        const { left, top, right, bottom } = control.getBoundingClientRect();
+        if (event.clientX < left || event.clientX > right || event.clientY < top || event.clientY > bottom) {
+          suppressPortalClickRef.current = activateCanvasLabel(event);
+        }
+      }
+    } else if (isTap && !control) {
       activateCanvasLabel(event);
     }
     tapStartRef.current = null;

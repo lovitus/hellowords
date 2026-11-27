@@ -1,0 +1,2246 @@
+{
+  "id": "office-coffee-station",
+  "title": "Office coffee station",
+  "translation": "办公室咖啡台",
+  "subtitle": "Find the drip coffee maker, coffee beans and paper filters, then explore the cups, milk and sugar.",
+  "asset": "/scenes/office-coffee-station-premium-v1.jpg",
+  "width": 1600,
+  "height": 900,
+  "parentId": "office-break-room",
+  "portals": [],
+  "portraitOverviewLabelIds": [
+    "office-coffee-station-coffee-pot"
+  ],
+  "labels": [
+    {
+      "id": "office-coffee-station-coffee-pot",
+      "word": "coffee pot",
+      "translation": "咖啡壶",
+      "x": 758,
+      "y": 367,
+      "priority": 1,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-office-coffee-station-coffee-pot"
+    },
+    {
+      "id": "office-coffee-station-coffee",
+      "word": "coffee",
+      "translation": "咖啡",
+      "x": 869,
+      "y": 473,
+      "priority": 1.001,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-office-coffee-station-coffee",
+      "lexemeId": "en-37290d74ac4d186e"
+    },
+    {
+      "id": "office-coffee-station-pouring-spout",
+      "word": "pouring spout",
+      "translation": "倒液壶嘴",
+      "x": 709,
+      "y": 310,
+      "priority": 1.002,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-office-coffee-station-pouring-spout"
+    },
+    {
+      "id": "office-coffee-station-carafe-handle",
+      "word": "carafe handle",
+      "translation": "咖啡壶把手",
+      "x": 1017,
+      "y": 432,
+      "priority": 1.003,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-office-coffee-station-carafe-handle"
+    },
+    {
+      "id": "office-coffee-station-carafe-lid",
+      "word": "carafe lid",
+      "translation": "咖啡壶盖",
+      "x": 813,
+      "y": 298,
+      "priority": 1.004,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-office-coffee-station-carafe-lid"
+    },
+    {
+      "id": "office-coffee-station-thumb-lever",
+      "word": "thumb lever",
+      "translation": "拇指压杆",
+      "x": 938,
+      "y": 298,
+      "priority": 1.005,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-office-coffee-station-thumb-lever"
+    },
+    {
+      "id": "office-coffee-station-condensation",
+      "word": "condensation",
+      "translation": "冷凝水珠",
+      "x": 813,
+      "y": 351,
+      "priority": 1.006,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-office-coffee-station-condensation"
+    },
+    {
+      "id": "office-coffee-station-coffee-surface",
+      "word": "coffee surface",
+      "translation": "咖啡液面",
+      "x": 848,
+      "y": 407,
+      "priority": 1.007,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-office-coffee-station-coffee-surface"
+    },
+    {
+      "id": "office-coffee-station-bubbles",
+      "word": "bubbles",
+      "translation": "气泡",
+      "x": 841,
+      "y": 431,
+      "priority": 1.008,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-office-coffee-station-bubbles",
+      "lexemeId": "en-2ea0d25e51920dc0"
+    },
+    {
+      "id": "office-coffee-station-metal-band",
+      "word": "metal band",
+      "translation": "金属箍",
+      "x": 858,
+      "y": 526,
+      "priority": 1.009,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-office-coffee-station-metal-band"
+    },
+    {
+      "id": "office-coffee-station-transparent",
+      "word": "transparent",
+      "translation": "透明的",
+      "x": 779,
+      "y": 387,
+      "priority": 1.01,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-office-coffee-station-transparent",
+      "lexemeId": "en-10e9f5602d2492b3"
+    },
+    {
+      "id": "office-coffee-station-drip-coffee-maker",
+      "word": "drip coffee maker",
+      "translation": "滴滤咖啡机",
+      "x": 826,
+      "y": 163,
+      "priority": 1.011,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-office-coffee-station-drip-coffee-maker"
+    },
+    {
+      "id": "office-coffee-station-brew-basket-housing",
+      "word": "brew basket housing",
+      "translation": "滤篮外壳",
+      "x": 757,
+      "y": 205,
+      "priority": 1.012,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-office-coffee-station-brew-basket-housing"
+    },
+    {
+      "id": "office-coffee-station-hinged-lid",
+      "word": "hinged lid",
+      "translation": "翻盖",
+      "x": 759,
+      "y": 47,
+      "priority": 1.013,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-office-coffee-station-hinged-lid"
+    },
+    {
+      "id": "office-coffee-station-finger-recess",
+      "word": "finger recess",
+      "translation": "手指凹槽",
+      "x": 844,
+      "y": 35,
+      "priority": 1.014,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-office-coffee-station-finger-recess"
+    },
+    {
+      "id": "office-coffee-station-brushed-steel",
+      "word": "brushed steel",
+      "translation": "拉丝钢材",
+      "x": 894,
+      "y": 118,
+      "priority": 1.015,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-office-coffee-station-brushed-steel"
+    },
+    {
+      "id": "office-coffee-station-lid-seam",
+      "word": "lid seam",
+      "translation": "盖缝",
+      "x": 1005,
+      "y": 72,
+      "priority": 1.016,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-office-coffee-station-lid-seam"
+    },
+    {
+      "id": "office-coffee-station-coffee-outlet",
+      "word": "coffee outlet",
+      "translation": "咖啡流出口",
+      "x": 815,
+      "y": 278,
+      "priority": 1.017,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-office-coffee-station-coffee-outlet"
+    },
+    {
+      "id": "office-coffee-station-side-panel",
+      "word": "side panel",
+      "translation": "侧面板",
+      "x": 1008,
+      "y": 183,
+      "priority": 1.018,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-office-coffee-station-side-panel"
+    },
+    {
+      "id": "office-coffee-station-warming-plate",
+      "word": "warming plate",
+      "translation": "保温盘",
+      "x": 930,
+      "y": 550,
+      "priority": 1.019,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-office-coffee-station-warming-plate"
+    },
+    {
+      "id": "office-coffee-station-power-button",
+      "word": "power button",
+      "translation": "电源按钮",
+      "x": 794,
+      "y": 604,
+      "priority": 1.02,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-office-coffee-station-power-button"
+    },
+    {
+      "id": "office-coffee-station-brewer-base",
+      "word": "brewer base",
+      "translation": "咖啡机底座",
+      "x": 900,
+      "y": 597,
+      "priority": 1.021,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-office-coffee-station-brewer-base"
+    },
+    {
+      "id": "office-coffee-station-steel",
+      "word": "steel",
+      "translation": "钢材",
+      "x": 718,
+      "y": 596,
+      "priority": 1.022,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-office-coffee-station-steel",
+      "lexemeId": "en-b86262f9bc892590"
+    },
+    {
+      "id": "office-coffee-station-black-base-trim",
+      "word": "black base trim",
+      "translation": "黑色底座饰边",
+      "x": 850,
+      "y": 641,
+      "priority": 1.023,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-office-coffee-station-black-base-trim"
+    },
+    {
+      "id": "office-coffee-station-coffee-bean",
+      "word": "coffee bean",
+      "translation": "咖啡豆",
+      "x": 177,
+      "y": 681,
+      "priority": 1.024,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-office-coffee-station-coffee-bean"
+    },
+    {
+      "id": "office-coffee-station-jar",
+      "word": "jar",
+      "translation": "罐子",
+      "x": 322,
+      "y": 545,
+      "priority": 1.025,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-office-coffee-station-jar",
+      "lexemeId": "en-0163f1eea7894350"
+    },
+    {
+      "id": "office-coffee-station-roasted-beans",
+      "word": "roasted beans",
+      "translation": "烘焙咖啡豆",
+      "x": 224,
+      "y": 545,
+      "priority": 1.026,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-office-coffee-station-roasted-beans"
+    },
+    {
+      "id": "office-coffee-station-bean-crease",
+      "word": "bean crease",
+      "translation": "豆子中缝",
+      "x": 241,
+      "y": 682,
+      "priority": 1.027,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-office-coffee-station-bean-crease"
+    },
+    {
+      "id": "office-coffee-station-glass-lid",
+      "word": "glass lid",
+      "translation": "玻璃盖",
+      "x": 73,
+      "y": 505,
+      "priority": 1.028,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-office-coffee-station-glass-lid"
+    },
+    {
+      "id": "office-coffee-station-wire-clasp",
+      "word": "wire clasp",
+      "translation": "金属丝搭扣",
+      "x": 373,
+      "y": 456,
+      "priority": 1.029,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-office-coffee-station-wire-clasp"
+    },
+    {
+      "id": "office-coffee-station-jar-mouth",
+      "word": "jar mouth",
+      "translation": "罐口",
+      "x": 247,
+      "y": 371,
+      "priority": 1.03,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-office-coffee-station-jar-mouth"
+    },
+    {
+      "id": "office-coffee-station-jar-hinge",
+      "word": "jar hinge",
+      "translation": "罐盖铰链",
+      "x": 137,
+      "y": 392,
+      "priority": 1.031,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-office-coffee-station-jar-hinge"
+    },
+    {
+      "id": "office-coffee-station-wire",
+      "word": "wire",
+      "translation": "金属丝",
+      "x": 357,
+      "y": 437,
+      "priority": 1.032,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-office-coffee-station-wire",
+      "lexemeId": "en-9b2abfc29cc47494"
+    },
+    {
+      "id": "office-coffee-station-jar-base",
+      "word": "jar base",
+      "translation": "罐底",
+      "x": 260,
+      "y": 657,
+      "priority": 1.033,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-office-coffee-station-jar-base"
+    },
+    {
+      "id": "office-coffee-station-brown",
+      "word": "brown",
+      "translation": "棕色",
+      "x": 272,
+      "y": 507,
+      "priority": 1.034,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-office-coffee-station-brown",
+      "lexemeId": "en-5eb67f9f8409b9c3"
+    },
+    {
+      "id": "office-coffee-station-coffee-grinder",
+      "word": "coffee grinder",
+      "translation": "咖啡磨豆机",
+      "x": 418,
+      "y": 421,
+      "priority": 1.035,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-office-coffee-station-coffee-grinder"
+    },
+    {
+      "id": "office-coffee-station-crank",
+      "word": "crank",
+      "translation": "摇柄",
+      "x": 507,
+      "y": 252,
+      "priority": 1.036,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-office-coffee-station-crank"
+    },
+    {
+      "id": "office-coffee-station-wooden-knob",
+      "word": "wooden knob",
+      "translation": "木质握钮",
+      "x": 565,
+      "y": 220,
+      "priority": 1.037,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-office-coffee-station-wooden-knob"
+    },
+    {
+      "id": "office-coffee-station-hopper",
+      "word": "hopper",
+      "translation": "进豆斗",
+      "x": 411,
+      "y": 317,
+      "priority": 1.038,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-office-coffee-station-hopper"
+    },
+    {
+      "id": "office-coffee-station-grinder-drawer",
+      "word": "grinder drawer",
+      "translation": "接粉抽屉",
+      "x": 465,
+      "y": 452,
+      "priority": 1.039,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-office-coffee-station-grinder-drawer"
+    },
+    {
+      "id": "office-coffee-station-drawer-knob",
+      "word": "drawer knob",
+      "translation": "抽屉拉钮",
+      "x": 492,
+      "y": 461,
+      "priority": 1.04,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-office-coffee-station-drawer-knob"
+    },
+    {
+      "id": "office-coffee-station-spindle",
+      "word": "spindle",
+      "translation": "转轴",
+      "x": 439,
+      "y": 281,
+      "priority": 1.041,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-office-coffee-station-spindle"
+    },
+    {
+      "id": "office-coffee-station-knurled-knob",
+      "word": "knurled knob",
+      "translation": "滚花旋钮",
+      "x": 441,
+      "y": 248,
+      "priority": 1.042,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-office-coffee-station-knurled-knob"
+    },
+    {
+      "id": "office-coffee-station-wood",
+      "word": "wood",
+      "translation": "木材",
+      "x": 516,
+      "y": 411,
+      "priority": 1.043,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-office-coffee-station-wood",
+      "lexemeId": "en-99f7855eb789dfec"
+    },
+    {
+      "id": "office-coffee-station-hopper-lip",
+      "word": "hopper lip",
+      "translation": "料斗边沿",
+      "x": 482,
+      "y": 290,
+      "priority": 1.044,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-office-coffee-station-hopper-lip"
+    },
+    {
+      "id": "office-coffee-station-coffee-filter",
+      "word": "coffee filter",
+      "translation": "咖啡滤纸",
+      "x": 483,
+      "y": 512,
+      "priority": 1.045,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-office-coffee-station-coffee-filter"
+    },
+    {
+      "id": "office-coffee-station-measuring-scoop",
+      "word": "measuring scoop",
+      "translation": "咖啡量勺",
+      "x": 367,
+      "y": 689,
+      "priority": 1.046,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-office-coffee-station-measuring-scoop"
+    },
+    {
+      "id": "office-coffee-station-coffee-grounds",
+      "word": "coffee grounds",
+      "translation": "咖啡粉",
+      "x": 371,
+      "y": 639,
+      "priority": 1.047,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-office-coffee-station-coffee-grounds"
+    },
+    {
+      "id": "office-coffee-station-paper",
+      "word": "paper",
+      "translation": "纸",
+      "x": 493,
+      "y": 593,
+      "priority": 1.048,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-office-coffee-station-paper",
+      "lexemeId": "en-382635c9325bf327"
+    },
+    {
+      "id": "office-coffee-station-pleat",
+      "word": "pleat",
+      "translation": "褶裥",
+      "x": 522,
+      "y": 583,
+      "priority": 1.049,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-office-coffee-station-pleat"
+    },
+    {
+      "id": "office-coffee-station-filter-edge",
+      "word": "filter edge",
+      "translation": "滤纸边缘",
+      "x": 537,
+      "y": 483,
+      "priority": 1.05,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-office-coffee-station-filter-edge"
+    },
+    {
+      "id": "office-coffee-station-nested-filters",
+      "word": "nested filters",
+      "translation": "套叠的滤纸",
+      "x": 428,
+      "y": 552,
+      "priority": 1.051,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-office-coffee-station-nested-filters"
+    },
+    {
+      "id": "office-coffee-station-scoop-handle",
+      "word": "scoop handle",
+      "translation": "量勺柄",
+      "x": 502,
+      "y": 676,
+      "priority": 1.052,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-office-coffee-station-scoop-handle"
+    },
+    {
+      "id": "office-coffee-station-hanging-hole",
+      "word": "hanging hole",
+      "translation": "悬挂孔",
+      "x": 570,
+      "y": 688,
+      "priority": 1.053,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-office-coffee-station-hanging-hole"
+    },
+    {
+      "id": "office-coffee-station-scoop-rim",
+      "word": "scoop rim",
+      "translation": "量勺边沿",
+      "x": 401,
+      "y": 661,
+      "priority": 1.054,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-office-coffee-station-scoop-rim"
+    },
+    {
+      "id": "office-coffee-station-mug",
+      "word": "mug",
+      "translation": "马克杯",
+      "x": 1125,
+      "y": 545,
+      "priority": 1.055,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-office-coffee-station-mug"
+    },
+    {
+      "id": "office-coffee-station-saucer",
+      "word": "saucer",
+      "translation": "杯碟",
+      "x": 1121,
+      "y": 688,
+      "priority": 1.056,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-office-coffee-station-saucer"
+    },
+    {
+      "id": "office-coffee-station-teaspoon",
+      "word": "teaspoon",
+      "translation": "茶匙",
+      "x": 1055,
+      "y": 647,
+      "priority": 1.057,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-office-coffee-station-teaspoon"
+    },
+    {
+      "id": "office-coffee-station-mug-handle",
+      "word": "mug handle",
+      "translation": "马克杯把手",
+      "x": 1273,
+      "y": 538,
+      "priority": 1.058,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-office-coffee-station-mug-handle"
+    },
+    {
+      "id": "office-coffee-station-teal",
+      "word": "teal",
+      "translation": "蓝绿色",
+      "x": 1288,
+      "y": 458,
+      "priority": 1.059,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-office-coffee-station-teal"
+    },
+    {
+      "id": "office-coffee-station-glaze",
+      "word": "glaze",
+      "translation": "釉面",
+      "x": 1163,
+      "y": 559,
+      "priority": 1.06,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-office-coffee-station-glaze"
+    },
+    {
+      "id": "office-coffee-station-cup",
+      "word": "cup",
+      "translation": "杯子",
+      "x": 1313,
+      "y": 503,
+      "priority": 1.061,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-office-coffee-station-cup",
+      "lexemeId": "en-c6171781d65f3ccc"
+    },
+    {
+      "id": "office-coffee-station-mug-opening",
+      "word": "mug opening",
+      "translation": "杯口",
+      "x": 1126,
+      "y": 454,
+      "priority": 1.062,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-office-coffee-station-mug-opening"
+    },
+    {
+      "id": "office-coffee-station-spoon-bowl",
+      "word": "spoon bowl",
+      "translation": "匙头",
+      "x": 1082,
+      "y": 653,
+      "priority": 1.063,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-office-coffee-station-spoon-bowl"
+    },
+    {
+      "id": "office-coffee-station-spoon-handle",
+      "word": "spoon handle",
+      "translation": "匙柄",
+      "x": 1221,
+      "y": 676,
+      "priority": 1.064,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-office-coffee-station-spoon-handle"
+    },
+    {
+      "id": "office-coffee-station-saucer-border",
+      "word": "saucer border",
+      "translation": "杯碟饰边",
+      "x": 1026,
+      "y": 665,
+      "priority": 1.065,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-office-coffee-station-saucer-border"
+    },
+    {
+      "id": "office-coffee-station-terracotta",
+      "word": "terracotta",
+      "translation": "赤陶色",
+      "x": 1172,
+      "y": 589,
+      "priority": 1.066,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-office-coffee-station-terracotta"
+    },
+    {
+      "id": "office-coffee-station-paper-cup",
+      "word": "paper cup",
+      "translation": "纸杯",
+      "x": 1376,
+      "y": 244,
+      "priority": 1.067,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-office-coffee-station-paper-cup"
+    },
+    {
+      "id": "office-coffee-station-wooden-stirrer",
+      "word": "wooden stirrer",
+      "translation": "木搅拌棒",
+      "x": 1221,
+      "y": 270,
+      "priority": 1.068,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-office-coffee-station-wooden-stirrer"
+    },
+    {
+      "id": "office-coffee-station-takeaway-lid",
+      "word": "takeaway lid",
+      "translation": "外带杯盖",
+      "x": 1523,
+      "y": 394,
+      "priority": 1.069,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-office-coffee-station-takeaway-lid"
+    },
+    {
+      "id": "office-coffee-station-holder",
+      "word": "holder",
+      "translation": "收纳筒",
+      "x": 1173,
+      "y": 362,
+      "priority": 1.07,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-office-coffee-station-holder",
+      "lexemeId": "en-6e45386daeb0b86d"
+    },
+    {
+      "id": "office-coffee-station-rolled-rim",
+      "word": "rolled rim",
+      "translation": "卷边杯沿",
+      "x": 1380,
+      "y": 306,
+      "priority": 1.071,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-office-coffee-station-rolled-rim"
+    },
+    {
+      "id": "office-coffee-station-nested-cups",
+      "word": "nested cups",
+      "translation": "套叠的杯子",
+      "x": 1383,
+      "y": 353,
+      "priority": 1.072,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-office-coffee-station-nested-cups"
+    },
+    {
+      "id": "office-coffee-station-cup-bottom",
+      "word": "cup bottom",
+      "translation": "杯底",
+      "x": 1378,
+      "y": 161,
+      "priority": 1.073,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-office-coffee-station-cup-bottom"
+    },
+    {
+      "id": "office-coffee-station-stacked-lids",
+      "word": "stacked lids",
+      "translation": "叠放的杯盖",
+      "x": 1568,
+      "y": 451,
+      "priority": 1.074,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-office-coffee-station-stacked-lids"
+    },
+    {
+      "id": "office-coffee-station-rounded-tip",
+      "word": "rounded tip",
+      "translation": "圆头",
+      "x": 1252,
+      "y": 237,
+      "priority": 1.075,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-office-coffee-station-rounded-tip"
+    },
+    {
+      "id": "office-coffee-station-milk",
+      "word": "milk",
+      "translation": "牛奶",
+      "x": 1475,
+      "y": 567,
+      "priority": 1.076,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-office-coffee-station-milk",
+      "lexemeId": "en-8825e76530f87ff5"
+    },
+    {
+      "id": "office-coffee-station-sugar-cube",
+      "word": "sugar cube",
+      "translation": "方糖",
+      "x": 1362,
+      "y": 578,
+      "priority": 1.077,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-office-coffee-station-sugar-cube"
+    },
+    {
+      "id": "office-coffee-station-milk-pitcher",
+      "word": "milk pitcher",
+      "translation": "奶壶",
+      "x": 1506,
+      "y": 542,
+      "priority": 1.078,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-office-coffee-station-milk-pitcher"
+    },
+    {
+      "id": "office-coffee-station-sugar-bowl",
+      "word": "sugar bowl",
+      "translation": "糖碗",
+      "x": 1348,
+      "y": 639,
+      "priority": 1.079,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-office-coffee-station-sugar-bowl"
+    },
+    {
+      "id": "office-coffee-station-pitcher-handle",
+      "word": "pitcher handle",
+      "translation": "奶壶把手",
+      "x": 1553,
+      "y": 527,
+      "priority": 1.08,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-office-coffee-station-pitcher-handle"
+    },
+    {
+      "id": "office-coffee-station-milk-level",
+      "word": "milk level",
+      "translation": "牛奶液面",
+      "x": 1467,
+      "y": 518,
+      "priority": 1.081,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-office-coffee-station-milk-level"
+    },
+    {
+      "id": "office-coffee-station-pitcher-spout",
+      "word": "pitcher spout",
+      "translation": "奶壶壶嘴",
+      "x": 1396,
+      "y": 460,
+      "priority": 1.082,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-office-coffee-station-pitcher-spout"
+    },
+    {
+      "id": "office-coffee-station-sugar",
+      "word": "sugar",
+      "translation": "糖",
+      "x": 1399,
+      "y": 600,
+      "priority": 1.083,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-office-coffee-station-sugar",
+      "lexemeId": "en-cc767fb1c6efc232"
+    },
+    {
+      "id": "office-coffee-station-sugar-packet",
+      "word": "sugar packet",
+      "translation": "糖包",
+      "x": 1477,
+      "y": 687,
+      "priority": 1.084,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-office-coffee-station-sugar-packet"
+    },
+    {
+      "id": "office-coffee-station-sealed-end",
+      "word": "sealed end",
+      "translation": "封口端",
+      "x": 1532,
+      "y": 680,
+      "priority": 1.085,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-office-coffee-station-sealed-end"
+    },
+    {
+      "id": "office-coffee-station-dish-towel",
+      "word": "dish towel",
+      "translation": "擦碗巾",
+      "x": 1108,
+      "y": 793,
+      "priority": 1.086,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-office-coffee-station-dish-towel"
+    },
+    {
+      "id": "office-coffee-station-countertop",
+      "word": "countertop",
+      "translation": "操作台面",
+      "x": 897,
+      "y": 727,
+      "priority": 1.087,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-office-coffee-station-countertop"
+    },
+    {
+      "id": "office-coffee-station-stripe",
+      "word": "stripe",
+      "translation": "条纹",
+      "x": 1081,
+      "y": 778,
+      "priority": 1.088,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-office-coffee-station-stripe"
+    },
+    {
+      "id": "office-coffee-station-weave",
+      "word": "weave",
+      "translation": "织纹",
+      "x": 1186,
+      "y": 777,
+      "priority": 1.089,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-office-coffee-station-weave"
+    },
+    {
+      "id": "office-coffee-station-fold",
+      "word": "fold",
+      "translation": "折层",
+      "x": 1034,
+      "y": 852,
+      "priority": 1.09,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-office-coffee-station-fold",
+      "lexemeId": "en-255541b1d8c61855"
+    },
+    {
+      "id": "office-coffee-station-hem",
+      "word": "hem",
+      "translation": "锁边",
+      "x": 1184,
+      "y": 848,
+      "priority": 1.091,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-office-coffee-station-hem"
+    },
+    {
+      "id": "office-coffee-station-counter-edge",
+      "word": "counter edge",
+      "translation": "台面前沿",
+      "x": 853,
+      "y": 866,
+      "priority": 1.092,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-office-coffee-station-counter-edge"
+    },
+    {
+      "id": "office-coffee-station-houseplant",
+      "word": "houseplant",
+      "translation": "室内盆栽",
+      "x": 150,
+      "y": 202,
+      "priority": 1.093,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-office-coffee-station-houseplant"
+    },
+    {
+      "id": "office-coffee-station-wall-tile",
+      "word": "wall tile",
+      "translation": "墙砖",
+      "x": 508,
+      "y": 109,
+      "priority": 1.094,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-office-coffee-station-wall-tile"
+    },
+    {
+      "id": "office-coffee-station-leaf",
+      "word": "leaf",
+      "translation": "叶片",
+      "x": 210,
+      "y": 255,
+      "priority": 1.095,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-office-coffee-station-leaf",
+      "lexemeId": "en-9f91161f43433e49"
+    },
+    {
+      "id": "office-coffee-station-planter",
+      "word": "planter",
+      "translation": "花盆",
+      "x": 168,
+      "y": 324,
+      "priority": 1.096,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-office-coffee-station-planter"
+    },
+    {
+      "id": "office-coffee-station-vine",
+      "word": "vine",
+      "translation": "藤蔓",
+      "x": 343,
+      "y": 191,
+      "priority": 1.097,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-office-coffee-station-vine"
+    },
+    {
+      "id": "office-coffee-station-grout-line",
+      "word": "grout line",
+      "translation": "砖缝",
+      "x": 566,
+      "y": 162,
+      "priority": 1.098,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-office-coffee-station-grout-line"
+    },
+    {
+      "id": "office-coffee-station-shadow",
+      "word": "shadow",
+      "translation": "阴影",
+      "x": 609,
+      "y": 129,
+      "priority": 1.099,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-office-coffee-station-shadow",
+      "lexemeId": "en-0bb09d80600eec3e"
+    }
+  ],
+  "relatedWords": [
+    {
+      "id": "office-coffee-station-drip-coffee",
+      "word": "drip coffee",
+      "translation": "滴滤咖啡"
+    },
+    {
+      "id": "office-coffee-station-brew-a-pot-of-coffee",
+      "word": "brew a pot of coffee",
+      "translation": "煮一壶咖啡"
+    },
+    {
+      "id": "office-coffee-station-grind-the-beans",
+      "word": "grind the beans",
+      "translation": "研磨咖啡豆"
+    },
+    {
+      "id": "office-coffee-station-medium-grind",
+      "word": "medium grind",
+      "translation": "中度研磨"
+    },
+    {
+      "id": "office-coffee-station-ground-coffee",
+      "word": "ground coffee",
+      "translation": "研磨咖啡粉"
+    },
+    {
+      "id": "office-coffee-station-decaf-coffee",
+      "word": "decaf coffee",
+      "translation": "低因咖啡"
+    },
+    {
+      "id": "office-coffee-station-black-coffee",
+      "word": "black coffee",
+      "translation": "黑咖啡"
+    },
+    {
+      "id": "office-coffee-station-coffee-with-milk",
+      "word": "coffee with milk",
+      "translation": "加奶咖啡"
+    },
+    {
+      "id": "office-coffee-station-coffee-refill",
+      "word": "coffee refill",
+      "translation": "咖啡续杯"
+    },
+    {
+      "id": "office-coffee-station-takeaway-coffee",
+      "word": "takeaway coffee",
+      "translation": "外带咖啡"
+    }
+  ],
+  "visualRegions": [
+    {
+      "id": "photo-office-coffee-station-coffee-pot",
+      "description": "coffee pot in the coffee pot area",
+      "kind": "part",
+      "x": 747,
+      "y": 353,
+      "width": 22,
+      "height": 28
+    },
+    {
+      "id": "photo-office-coffee-station-coffee",
+      "description": "coffee in the coffee pot area",
+      "kind": "part",
+      "x": 850,
+      "y": 459,
+      "width": 39,
+      "height": 29
+    },
+    {
+      "id": "photo-office-coffee-station-pouring-spout",
+      "description": "pouring spout in the coffee pot area",
+      "kind": "part",
+      "x": 704,
+      "y": 307,
+      "width": 11,
+      "height": 6
+    },
+    {
+      "id": "photo-office-coffee-station-carafe-handle",
+      "description": "carafe handle in the coffee pot area",
+      "kind": "part",
+      "x": 1011,
+      "y": 418,
+      "width": 12,
+      "height": 28
+    },
+    {
+      "id": "photo-office-coffee-station-carafe-lid",
+      "description": "carafe lid in the coffee pot area",
+      "kind": "part",
+      "x": 797,
+      "y": 295,
+      "width": 33,
+      "height": 7
+    },
+    {
+      "id": "photo-office-coffee-station-thumb-lever",
+      "description": "thumb lever in the coffee pot area",
+      "kind": "part",
+      "x": 931,
+      "y": 296,
+      "width": 15,
+      "height": 5
+    },
+    {
+      "id": "photo-office-coffee-station-condensation",
+      "description": "condensation in the coffee pot area",
+      "kind": "part",
+      "x": 803,
+      "y": 343,
+      "width": 21,
+      "height": 16
+    },
+    {
+      "id": "photo-office-coffee-station-coffee-surface",
+      "description": "coffee surface in the coffee pot area",
+      "kind": "part",
+      "x": 836,
+      "y": 404,
+      "width": 24,
+      "height": 6
+    },
+    {
+      "id": "photo-office-coffee-station-bubbles",
+      "description": "bubbles in the coffee pot area",
+      "kind": "part",
+      "x": 834,
+      "y": 429,
+      "width": 15,
+      "height": 4
+    },
+    {
+      "id": "photo-office-coffee-station-metal-band",
+      "description": "metal band in the coffee pot area",
+      "kind": "part",
+      "x": 843,
+      "y": 522,
+      "width": 30,
+      "height": 9
+    },
+    {
+      "id": "photo-office-coffee-station-transparent",
+      "description": "transparent in the coffee pot area",
+      "kind": "part",
+      "x": 775,
+      "y": 381,
+      "width": 8,
+      "height": 12
+    },
+    {
+      "id": "photo-office-coffee-station-drip-coffee-maker",
+      "description": "drip coffee maker in the drip coffee maker area",
+      "kind": "part",
+      "x": 798,
+      "y": 143,
+      "width": 57,
+      "height": 40
+    },
+    {
+      "id": "photo-office-coffee-station-brew-basket-housing",
+      "description": "brew basket housing in the drip coffee maker area",
+      "kind": "part",
+      "x": 744,
+      "y": 194,
+      "width": 27,
+      "height": 23
+    },
+    {
+      "id": "photo-office-coffee-station-hinged-lid",
+      "description": "hinged lid in the drip coffee maker area",
+      "kind": "part",
+      "x": 742,
+      "y": 44,
+      "width": 35,
+      "height": 7
+    },
+    {
+      "id": "photo-office-coffee-station-finger-recess",
+      "description": "finger recess in the drip coffee maker area",
+      "kind": "part",
+      "x": 820,
+      "y": 33,
+      "width": 49,
+      "height": 4
+    },
+    {
+      "id": "photo-office-coffee-station-brushed-steel",
+      "description": "brushed steel in the drip coffee maker area",
+      "kind": "part",
+      "x": 882,
+      "y": 109,
+      "width": 24,
+      "height": 19
+    },
+    {
+      "id": "photo-office-coffee-station-lid-seam",
+      "description": "lid seam in the drip coffee maker area",
+      "kind": "part",
+      "x": 995,
+      "y": 71,
+      "width": 20,
+      "height": 3
+    },
+    {
+      "id": "photo-office-coffee-station-coffee-outlet",
+      "description": "coffee outlet in the drip coffee maker area",
+      "kind": "part",
+      "x": 807,
+      "y": 276,
+      "width": 17,
+      "height": 4
+    },
+    {
+      "id": "photo-office-coffee-station-side-panel",
+      "description": "side panel in the drip coffee maker area",
+      "kind": "part",
+      "x": 999,
+      "y": 168,
+      "width": 19,
+      "height": 31
+    },
+    {
+      "id": "photo-office-coffee-station-warming-plate",
+      "description": "warming plate in the warming base and controls area",
+      "kind": "part",
+      "x": 920,
+      "y": 548,
+      "width": 20,
+      "height": 5
+    },
+    {
+      "id": "photo-office-coffee-station-power-button",
+      "description": "power button in the warming base and controls area",
+      "kind": "part",
+      "x": 786,
+      "y": 597,
+      "width": 17,
+      "height": 14
+    },
+    {
+      "id": "photo-office-coffee-station-brewer-base",
+      "description": "brewer base in the warming base and controls area",
+      "kind": "part",
+      "x": 883,
+      "y": 588,
+      "width": 34,
+      "height": 18
+    },
+    {
+      "id": "photo-office-coffee-station-steel",
+      "description": "steel in the warming base and controls area",
+      "kind": "part",
+      "x": 709,
+      "y": 588,
+      "width": 19,
+      "height": 16
+    },
+    {
+      "id": "photo-office-coffee-station-black-base-trim",
+      "description": "black base trim in the warming base and controls area",
+      "kind": "part",
+      "x": 835,
+      "y": 638,
+      "width": 31,
+      "height": 6
+    },
+    {
+      "id": "photo-office-coffee-station-coffee-bean",
+      "description": "coffee bean in the roasted beans and jar area",
+      "kind": "part",
+      "x": 169,
+      "y": 677,
+      "width": 17,
+      "height": 8
+    },
+    {
+      "id": "photo-office-coffee-station-jar",
+      "description": "jar in the roasted beans and jar area",
+      "kind": "part",
+      "x": 316,
+      "y": 536,
+      "width": 12,
+      "height": 18
+    },
+    {
+      "id": "photo-office-coffee-station-roasted-beans",
+      "description": "roasted beans in the roasted beans and jar area",
+      "kind": "part",
+      "x": 213,
+      "y": 537,
+      "width": 23,
+      "height": 17
+    },
+    {
+      "id": "photo-office-coffee-station-bean-crease",
+      "description": "bean crease in the roasted beans and jar area",
+      "kind": "part",
+      "x": 236,
+      "y": 681,
+      "width": 11,
+      "height": 3
+    },
+    {
+      "id": "photo-office-coffee-station-glass-lid",
+      "description": "glass lid in the roasted beans and jar area",
+      "kind": "part",
+      "x": 64,
+      "y": 491,
+      "width": 18,
+      "height": 28
+    },
+    {
+      "id": "photo-office-coffee-station-wire-clasp",
+      "description": "wire clasp in the roasted beans and jar area",
+      "kind": "part",
+      "x": 370,
+      "y": 452,
+      "width": 6,
+      "height": 9
+    },
+    {
+      "id": "photo-office-coffee-station-jar-mouth",
+      "description": "jar mouth in the roasted beans and jar area",
+      "kind": "part",
+      "x": 232,
+      "y": 368,
+      "width": 31,
+      "height": 7
+    },
+    {
+      "id": "photo-office-coffee-station-jar-hinge",
+      "description": "jar hinge in the roasted beans and jar area",
+      "kind": "part",
+      "x": 133,
+      "y": 388,
+      "width": 9,
+      "height": 8
+    },
+    {
+      "id": "photo-office-coffee-station-wire",
+      "description": "wire in the roasted beans and jar area",
+      "kind": "part",
+      "x": 355,
+      "y": 433,
+      "width": 4,
+      "height": 9
+    },
+    {
+      "id": "photo-office-coffee-station-jar-base",
+      "description": "jar base in the roasted beans and jar area",
+      "kind": "part",
+      "x": 247,
+      "y": 655,
+      "width": 26,
+      "height": 4
+    },
+    {
+      "id": "photo-office-coffee-station-brown",
+      "description": "brown in the roasted beans and jar area",
+      "kind": "part",
+      "x": 267,
+      "y": 503,
+      "width": 10,
+      "height": 9
+    },
+    {
+      "id": "photo-office-coffee-station-coffee-grinder",
+      "description": "coffee grinder in the hand coffee grinder area",
+      "kind": "part",
+      "x": 404,
+      "y": 410,
+      "width": 29,
+      "height": 23
+    },
+    {
+      "id": "photo-office-coffee-station-crank",
+      "description": "crank in the hand coffee grinder area",
+      "kind": "part",
+      "x": 493,
+      "y": 250,
+      "width": 29,
+      "height": 5
+    },
+    {
+      "id": "photo-office-coffee-station-wooden-knob",
+      "description": "wooden knob in the hand coffee grinder area",
+      "kind": "part",
+      "x": 555,
+      "y": 214,
+      "width": 20,
+      "height": 13
+    },
+    {
+      "id": "photo-office-coffee-station-hopper",
+      "description": "hopper in the hand coffee grinder area",
+      "kind": "part",
+      "x": 402,
+      "y": 310,
+      "width": 19,
+      "height": 15
+    },
+    {
+      "id": "photo-office-coffee-station-grinder-drawer",
+      "description": "grinder drawer in the hand coffee grinder area",
+      "kind": "part",
+      "x": 457,
+      "y": 446,
+      "width": 16,
+      "height": 13
+    },
+    {
+      "id": "photo-office-coffee-station-drawer-knob",
+      "description": "drawer knob in the hand coffee grinder area",
+      "kind": "part",
+      "x": 486,
+      "y": 456,
+      "width": 12,
+      "height": 11
+    },
+    {
+      "id": "photo-office-coffee-station-spindle",
+      "description": "spindle in the hand coffee grinder area",
+      "kind": "part",
+      "x": 436,
+      "y": 277,
+      "width": 6,
+      "height": 9
+    },
+    {
+      "id": "photo-office-coffee-station-knurled-knob",
+      "description": "knurled knob in the hand coffee grinder area",
+      "kind": "part",
+      "x": 437,
+      "y": 245,
+      "width": 8,
+      "height": 6
+    },
+    {
+      "id": "photo-office-coffee-station-wood",
+      "description": "wood in the hand coffee grinder area",
+      "kind": "part",
+      "x": 509,
+      "y": 403,
+      "width": 15,
+      "height": 17
+    },
+    {
+      "id": "photo-office-coffee-station-hopper-lip",
+      "description": "hopper lip in the hand coffee grinder area",
+      "kind": "part",
+      "x": 474,
+      "y": 288,
+      "width": 16,
+      "height": 4
+    },
+    {
+      "id": "photo-office-coffee-station-coffee-filter",
+      "description": "coffee filter in the paper filters and measuring scoop area",
+      "kind": "part",
+      "x": 469,
+      "y": 505,
+      "width": 28,
+      "height": 15
+    },
+    {
+      "id": "photo-office-coffee-station-measuring-scoop",
+      "description": "measuring scoop in the paper filters and measuring scoop area",
+      "kind": "part",
+      "x": 354,
+      "y": 682,
+      "width": 27,
+      "height": 15
+    },
+    {
+      "id": "photo-office-coffee-station-coffee-grounds",
+      "description": "coffee grounds in the paper filters and measuring scoop area",
+      "kind": "part",
+      "x": 357,
+      "y": 631,
+      "width": 29,
+      "height": 17
+    },
+    {
+      "id": "photo-office-coffee-station-paper",
+      "description": "paper in the paper filters and measuring scoop area",
+      "kind": "part",
+      "x": 486,
+      "y": 583,
+      "width": 14,
+      "height": 21
+    },
+    {
+      "id": "photo-office-coffee-station-pleat",
+      "description": "pleat in the paper filters and measuring scoop area",
+      "kind": "part",
+      "x": 519,
+      "y": 575,
+      "width": 7,
+      "height": 17
+    },
+    {
+      "id": "photo-office-coffee-station-filter-edge",
+      "description": "filter edge in the paper filters and measuring scoop area",
+      "kind": "part",
+      "x": 531,
+      "y": 481,
+      "width": 12,
+      "height": 4
+    },
+    {
+      "id": "photo-office-coffee-station-nested-filters",
+      "description": "nested filters in the paper filters and measuring scoop area",
+      "kind": "part",
+      "x": 420,
+      "y": 548,
+      "width": 16,
+      "height": 9
+    },
+    {
+      "id": "photo-office-coffee-station-scoop-handle",
+      "description": "scoop handle in the paper filters and measuring scoop area",
+      "kind": "part",
+      "x": 492,
+      "y": 673,
+      "width": 20,
+      "height": 6
+    },
+    {
+      "id": "photo-office-coffee-station-hanging-hole",
+      "description": "hanging hole in the paper filters and measuring scoop area",
+      "kind": "part",
+      "x": 566,
+      "y": 687,
+      "width": 8,
+      "height": 3
+    },
+    {
+      "id": "photo-office-coffee-station-scoop-rim",
+      "description": "scoop rim in the paper filters and measuring scoop area",
+      "kind": "part",
+      "x": 397,
+      "y": 660,
+      "width": 9,
+      "height": 3
+    },
+    {
+      "id": "photo-office-coffee-station-mug",
+      "description": "mug in the mugs, saucer and spoon area",
+      "kind": "part",
+      "x": 1110,
+      "y": 532,
+      "width": 30,
+      "height": 26
+    },
+    {
+      "id": "photo-office-coffee-station-saucer",
+      "description": "saucer in the mugs, saucer and spoon area",
+      "kind": "part",
+      "x": 1106,
+      "y": 684,
+      "width": 30,
+      "height": 8
+    },
+    {
+      "id": "photo-office-coffee-station-teaspoon",
+      "description": "teaspoon in the mugs, saucer and spoon area",
+      "kind": "part",
+      "x": 1046,
+      "y": 642,
+      "width": 18,
+      "height": 10
+    },
+    {
+      "id": "photo-office-coffee-station-mug-handle",
+      "description": "mug handle in the mugs, saucer and spoon area",
+      "kind": "part",
+      "x": 1270,
+      "y": 528,
+      "width": 7,
+      "height": 21
+    },
+    {
+      "id": "photo-office-coffee-station-teal",
+      "description": "teal in the mugs, saucer and spoon area",
+      "kind": "part",
+      "x": 1279,
+      "y": 450,
+      "width": 19,
+      "height": 16
+    },
+    {
+      "id": "photo-office-coffee-station-glaze",
+      "description": "glaze in the mugs, saucer and spoon area",
+      "kind": "part",
+      "x": 1158,
+      "y": 550,
+      "width": 10,
+      "height": 18
+    },
+    {
+      "id": "photo-office-coffee-station-cup",
+      "description": "cup in the mugs, saucer and spoon area",
+      "kind": "part",
+      "x": 1308,
+      "y": 495,
+      "width": 11,
+      "height": 16
+    },
+    {
+      "id": "photo-office-coffee-station-mug-opening",
+      "description": "mug opening in the mugs, saucer and spoon area",
+      "kind": "part",
+      "x": 1115,
+      "y": 450,
+      "width": 23,
+      "height": 8
+    },
+    {
+      "id": "photo-office-coffee-station-spoon-bowl",
+      "description": "spoon bowl in the mugs, saucer and spoon area",
+      "kind": "part",
+      "x": 1077,
+      "y": 650,
+      "width": 10,
+      "height": 6
+    },
+    {
+      "id": "photo-office-coffee-station-spoon-handle",
+      "description": "spoon handle in the mugs, saucer and spoon area",
+      "kind": "part",
+      "x": 1213,
+      "y": 674,
+      "width": 16,
+      "height": 4
+    },
+    {
+      "id": "photo-office-coffee-station-saucer-border",
+      "description": "saucer border in the mugs, saucer and spoon area",
+      "kind": "part",
+      "x": 1022,
+      "y": 663,
+      "width": 8,
+      "height": 4
+    },
+    {
+      "id": "photo-office-coffee-station-terracotta",
+      "description": "terracotta in the mugs, saucer and spoon area",
+      "kind": "part",
+      "x": 1165,
+      "y": 582,
+      "width": 15,
+      "height": 14
+    },
+    {
+      "id": "photo-office-coffee-station-paper-cup",
+      "description": "paper cup in the takeaway cups and stirrers area",
+      "kind": "part",
+      "x": 1359,
+      "y": 230,
+      "width": 34,
+      "height": 28
+    },
+    {
+      "id": "photo-office-coffee-station-wooden-stirrer",
+      "description": "wooden stirrer in the takeaway cups and stirrers area",
+      "kind": "part",
+      "x": 1218,
+      "y": 260,
+      "width": 7,
+      "height": 21
+    },
+    {
+      "id": "photo-office-coffee-station-takeaway-lid",
+      "description": "takeaway lid in the takeaway cups and stirrers area",
+      "kind": "part",
+      "x": 1507,
+      "y": 389,
+      "width": 33,
+      "height": 10
+    },
+    {
+      "id": "photo-office-coffee-station-holder",
+      "description": "holder in the takeaway cups and stirrers area",
+      "kind": "part",
+      "x": 1170,
+      "y": 354,
+      "width": 7,
+      "height": 16
+    },
+    {
+      "id": "photo-office-coffee-station-rolled-rim",
+      "description": "rolled rim in the takeaway cups and stirrers area",
+      "kind": "part",
+      "x": 1368,
+      "y": 304,
+      "width": 24,
+      "height": 4
+    },
+    {
+      "id": "photo-office-coffee-station-nested-cups",
+      "description": "nested cups in the takeaway cups and stirrers area",
+      "kind": "part",
+      "x": 1371,
+      "y": 347,
+      "width": 25,
+      "height": 12
+    },
+    {
+      "id": "photo-office-coffee-station-cup-bottom",
+      "description": "cup bottom in the takeaway cups and stirrers area",
+      "kind": "part",
+      "x": 1366,
+      "y": 159,
+      "width": 24,
+      "height": 4
+    },
+    {
+      "id": "photo-office-coffee-station-stacked-lids",
+      "description": "stacked lids in the takeaway cups and stirrers area",
+      "kind": "part",
+      "x": 1556,
+      "y": 444,
+      "width": 25,
+      "height": 15
+    },
+    {
+      "id": "photo-office-coffee-station-rounded-tip",
+      "description": "rounded tip in the takeaway cups and stirrers area",
+      "kind": "part",
+      "x": 1249,
+      "y": 234,
+      "width": 7,
+      "height": 6
+    },
+    {
+      "id": "photo-office-coffee-station-milk",
+      "description": "milk in the milk and sugar area",
+      "kind": "part",
+      "x": 1463,
+      "y": 556,
+      "width": 24,
+      "height": 23
+    },
+    {
+      "id": "photo-office-coffee-station-sugar-cube",
+      "description": "sugar cube in the milk and sugar area",
+      "kind": "part",
+      "x": 1355,
+      "y": 572,
+      "width": 15,
+      "height": 13
+    },
+    {
+      "id": "photo-office-coffee-station-milk-pitcher",
+      "description": "milk pitcher in the milk and sugar area",
+      "kind": "part",
+      "x": 1503,
+      "y": 535,
+      "width": 7,
+      "height": 14
+    },
+    {
+      "id": "photo-office-coffee-station-sugar-bowl",
+      "description": "sugar bowl in the milk and sugar area",
+      "kind": "part",
+      "x": 1336,
+      "y": 630,
+      "width": 24,
+      "height": 18
+    },
+    {
+      "id": "photo-office-coffee-station-pitcher-handle",
+      "description": "pitcher handle in the milk and sugar area",
+      "kind": "part",
+      "x": 1551,
+      "y": 519,
+      "width": 5,
+      "height": 16
+    },
+    {
+      "id": "photo-office-coffee-station-milk-level",
+      "description": "milk level in the milk and sugar area",
+      "kind": "part",
+      "x": 1459,
+      "y": 517,
+      "width": 17,
+      "height": 3
+    },
+    {
+      "id": "photo-office-coffee-station-pitcher-spout",
+      "description": "pitcher spout in the milk and sugar area",
+      "kind": "part",
+      "x": 1391,
+      "y": 458,
+      "width": 11,
+      "height": 5
+    },
+    {
+      "id": "photo-office-coffee-station-sugar",
+      "description": "sugar in the milk and sugar area",
+      "kind": "part",
+      "x": 1394,
+      "y": 596,
+      "width": 10,
+      "height": 8
+    },
+    {
+      "id": "photo-office-coffee-station-sugar-packet",
+      "description": "sugar packet in the milk and sugar area",
+      "kind": "part",
+      "x": 1464,
+      "y": 682,
+      "width": 27,
+      "height": 10
+    },
+    {
+      "id": "photo-office-coffee-station-sealed-end",
+      "description": "sealed end in the milk and sugar area",
+      "kind": "part",
+      "x": 1528,
+      "y": 678,
+      "width": 9,
+      "height": 4
+    },
+    {
+      "id": "photo-office-coffee-station-dish-towel",
+      "description": "dish towel in the dish towel and countertop area",
+      "kind": "part",
+      "x": 1094,
+      "y": 783,
+      "width": 29,
+      "height": 20
+    },
+    {
+      "id": "photo-office-coffee-station-countertop",
+      "description": "countertop in the dish towel and countertop area",
+      "kind": "part",
+      "x": 877,
+      "y": 718,
+      "width": 40,
+      "height": 19
+    },
+    {
+      "id": "photo-office-coffee-station-stripe",
+      "description": "stripe in the dish towel and countertop area",
+      "kind": "part",
+      "x": 1077,
+      "y": 772,
+      "width": 9,
+      "height": 13
+    },
+    {
+      "id": "photo-office-coffee-station-weave",
+      "description": "weave in the dish towel and countertop area",
+      "kind": "part",
+      "x": 1180,
+      "y": 773,
+      "width": 13,
+      "height": 9
+    },
+    {
+      "id": "photo-office-coffee-station-fold",
+      "description": "fold in the dish towel and countertop area",
+      "kind": "part",
+      "x": 1021,
+      "y": 850,
+      "width": 26,
+      "height": 5
+    },
+    {
+      "id": "photo-office-coffee-station-hem",
+      "description": "hem in the dish towel and countertop area",
+      "kind": "part",
+      "x": 1178,
+      "y": 846,
+      "width": 13,
+      "height": 5
+    },
+    {
+      "id": "photo-office-coffee-station-counter-edge",
+      "description": "counter edge in the dish towel and countertop area",
+      "kind": "part",
+      "x": 846,
+      "y": 863,
+      "width": 14,
+      "height": 6
+    },
+    {
+      "id": "photo-office-coffee-station-houseplant",
+      "description": "houseplant in the plant and tiled wall area",
+      "kind": "part",
+      "x": 136,
+      "y": 193,
+      "width": 28,
+      "height": 19
+    },
+    {
+      "id": "photo-office-coffee-station-wall-tile",
+      "description": "wall tile in the plant and tiled wall area",
+      "kind": "part",
+      "x": 492,
+      "y": 99,
+      "width": 32,
+      "height": 21
+    },
+    {
+      "id": "photo-office-coffee-station-leaf",
+      "description": "leaf in the plant and tiled wall area",
+      "kind": "part",
+      "x": 200,
+      "y": 246,
+      "width": 21,
+      "height": 18
+    },
+    {
+      "id": "photo-office-coffee-station-planter",
+      "description": "planter in the plant and tiled wall area",
+      "kind": "part",
+      "x": 154,
+      "y": 315,
+      "width": 29,
+      "height": 18
+    },
+    {
+      "id": "photo-office-coffee-station-vine",
+      "description": "vine in the plant and tiled wall area",
+      "kind": "part",
+      "x": 341,
+      "y": 185,
+      "width": 5,
+      "height": 12
+    },
+    {
+      "id": "photo-office-coffee-station-grout-line",
+      "description": "grout line in the plant and tiled wall area",
+      "kind": "part",
+      "x": 552,
+      "y": 161,
+      "width": 29,
+      "height": 3
+    },
+    {
+      "id": "photo-office-coffee-station-shadow",
+      "description": "shadow in the plant and tiled wall area",
+      "kind": "part",
+      "x": 604,
+      "y": 126,
+      "width": 10,
+      "height": 6
+    }
+  ],
+  "detailZones": [
+    {
+      "id": "office-coffee-station-zone-coffee-pot",
+      "title": "Coffee pot",
+      "translation": "咖啡壶",
+      "description": "The curved glass pot holds dark brewed coffee. Condensation, the liquid surface and a line of bubbles show through the glass.",
+      "x": 675,
+      "y": 275,
+      "width": 367,
+      "height": 271,
+      "targetScale": 2.8,
+      "labelIds": [
+        "office-coffee-station-coffee-pot",
+        "office-coffee-station-coffee",
+        "office-coffee-station-pouring-spout",
+        "office-coffee-station-carafe-handle",
+        "office-coffee-station-carafe-lid",
+        "office-coffee-station-thumb-lever",
+        "office-coffee-station-condensation",
+        "office-coffee-station-coffee-surface",
+        "office-coffee-station-bubbles",
+        "office-coffee-station-metal-band",
+        "office-coffee-station-transparent"
+      ]
+    },
+    {
+      "id": "office-coffee-station-zone-drip-brewer",
+      "title": "Drip coffee maker",
+      "translation": "滴滤咖啡机",
+      "description": "The coffee maker has a broad black top and a brushed steel front above the pot. The coffee outlet sits just above the lid of the pot.",
+      "x": 645,
+      "y": 19,
+      "width": 399,
+      "height": 268,
+      "targetScale": 2.8,
+      "labelIds": [
+        "office-coffee-station-drip-coffee-maker",
+        "office-coffee-station-brew-basket-housing",
+        "office-coffee-station-hinged-lid",
+        "office-coffee-station-finger-recess",
+        "office-coffee-station-brushed-steel",
+        "office-coffee-station-lid-seam",
+        "office-coffee-station-coffee-outlet",
+        "office-coffee-station-side-panel"
+      ]
+    },
+    {
+      "id": "office-coffee-station-zone-warming-base",
+      "title": "Warming base and controls",
+      "translation": "保温底座与开关",
+      "description": "The pot rests on the dark warming plate. The lower housing has a round power button and a bright strip of steel.",
+      "x": 636,
+      "y": 526,
+      "width": 386,
+      "height": 135,
+      "targetScale": 2.8,
+      "labelIds": [
+        "office-coffee-station-warming-plate",
+        "office-coffee-station-power-button",
+        "office-coffee-station-brewer-base",
+        "office-coffee-station-steel",
+        "office-coffee-station-black-base-trim"
+      ]
+    },
+    {
+      "id": "office-coffee-station-zone-bean-jar",
+      "title": "Roasted beans and jar",
+      "translation": "烘焙咖啡豆与储豆罐",
+      "description": "Whole beans fill the lower part of the open jar. Its heavy glass lid swings to the left, and a wire clasp hangs on the right. Loose beans lie in front.",
+      "x": 7,
+      "y": 344,
+      "width": 383,
+      "height": 376,
+      "targetScale": 2.8,
+      "labelIds": [
+        "office-coffee-station-coffee-bean",
+        "office-coffee-station-jar",
+        "office-coffee-station-roasted-beans",
+        "office-coffee-station-bean-crease",
+        "office-coffee-station-glass-lid",
+        "office-coffee-station-wire-clasp",
+        "office-coffee-station-jar-mouth",
+        "office-coffee-station-jar-hinge",
+        "office-coffee-station-wire",
+        "office-coffee-station-jar-base",
+        "office-coffee-station-brown"
+      ]
+    },
+    {
+      "id": "office-coffee-station-zone-hand-grinder",
+      "title": "Hand coffee grinder",
+      "translation": "手摇磨豆机",
+      "description": "A crank with a wooden grip turns above the open metal hopper. The wooden grinder body has a small pull-out drawer on the front.",
+      "x": 351,
+      "y": 194,
+      "width": 247,
+      "height": 322,
+      "targetScale": 2.8,
+      "labelIds": [
+        "office-coffee-station-coffee-grinder",
+        "office-coffee-station-crank",
+        "office-coffee-station-wooden-knob",
+        "office-coffee-station-hopper",
+        "office-coffee-station-grinder-drawer",
+        "office-coffee-station-drawer-knob",
+        "office-coffee-station-spindle",
+        "office-coffee-station-knurled-knob",
+        "office-coffee-station-wood",
+        "office-coffee-station-hopper-lip"
+      ]
+    },
+    {
+      "id": "office-coffee-station-zone-filters-and-scoop",
+      "title": "Paper filters and measuring scoop",
+      "translation": "滤纸与咖啡量勺",
+      "description": "Nested fluted filters stand behind a metal scoop heaped with ground coffee. The end of the scoop handle has a hanging hole.",
+      "x": 303,
+      "y": 471,
+      "width": 311,
+      "height": 258,
+      "targetScale": 2.8,
+      "labelIds": [
+        "office-coffee-station-coffee-filter",
+        "office-coffee-station-measuring-scoop",
+        "office-coffee-station-coffee-grounds",
+        "office-coffee-station-paper",
+        "office-coffee-station-pleat",
+        "office-coffee-station-filter-edge",
+        "office-coffee-station-nested-filters",
+        "office-coffee-station-scoop-handle",
+        "office-coffee-station-hanging-hole",
+        "office-coffee-station-scoop-rim"
+      ]
+    },
+    {
+      "id": "office-coffee-station-zone-mugs-and-saucer",
+      "title": "Mugs, saucer and spoon",
+      "translation": "马克杯、杯碟与匙",
+      "description": "A terracotta-colored mug and a teal mug stand behind an empty saucer. A small metal spoon lies diagonally across the saucer.",
+      "x": 992,
+      "y": 390,
+      "width": 399,
+      "height": 318,
+      "targetScale": 2.8,
+      "labelIds": [
+        "office-coffee-station-mug",
+        "office-coffee-station-saucer",
+        "office-coffee-station-teaspoon",
+        "office-coffee-station-mug-handle",
+        "office-coffee-station-teal",
+        "office-coffee-station-glaze",
+        "office-coffee-station-cup",
+        "office-coffee-station-mug-opening",
+        "office-coffee-station-spoon-bowl",
+        "office-coffee-station-spoon-handle",
+        "office-coffee-station-saucer-border",
+        "office-coffee-station-terracotta"
+      ]
+    },
+    {
+      "id": "office-coffee-station-zone-takeaway-supplies",
+      "title": "Takeaway cups and stirrers",
+      "translation": "外带杯与搅拌棒",
+      "description": "Plain paper cups are nested upside down next to a pile of white drink lids. Flat wooden stirrers fan out of a clear holder.",
+      "x": 1146,
+      "y": 149,
+      "width": 453,
+      "height": 378,
+      "targetScale": 2.8,
+      "labelIds": [
+        "office-coffee-station-paper-cup",
+        "office-coffee-station-wooden-stirrer",
+        "office-coffee-station-takeaway-lid",
+        "office-coffee-station-holder",
+        "office-coffee-station-rolled-rim",
+        "office-coffee-station-nested-cups",
+        "office-coffee-station-cup-bottom",
+        "office-coffee-station-stacked-lids",
+        "office-coffee-station-rounded-tip"
+      ]
+    },
+    {
+      "id": "office-coffee-station-zone-milk-and-sugar",
+      "title": "Milk and sugar",
+      "translation": "牛奶与方糖",
+      "description": "A little glass pitcher of milk stands beside the sugar bowl. White sugar cubes are piled above its rim, and a sealed paper packet lies in front.",
+      "x": 1275,
+      "y": 437,
+      "width": 299,
+      "height": 280,
+      "targetScale": 2.8,
+      "labelIds": [
+        "office-coffee-station-milk",
+        "office-coffee-station-sugar-cube",
+        "office-coffee-station-milk-pitcher",
+        "office-coffee-station-sugar-bowl",
+        "office-coffee-station-pitcher-handle",
+        "office-coffee-station-milk-level",
+        "office-coffee-station-pitcher-spout",
+        "office-coffee-station-sugar",
+        "office-coffee-station-sugar-packet",
+        "office-coffee-station-sealed-end"
+      ]
+    },
+    {
+      "id": "office-coffee-station-zone-towel-and-counter",
+      "title": "Dish towel and countertop",
+      "translation": "擦碗巾与台面",
+      "description": "A striped woven towel lies folded on the pale counter. Several layers and the bound hem can be seen along its near edge.",
+      "x": 817,
+      "y": 691,
+      "width": 618,
+      "height": 208,
+      "targetScale": 2.8,
+      "labelIds": [
+        "office-coffee-station-dish-towel",
+        "office-coffee-station-countertop",
+        "office-coffee-station-stripe",
+        "office-coffee-station-weave",
+        "office-coffee-station-fold",
+        "office-coffee-station-hem",
+        "office-coffee-station-counter-edge"
+      ]
+    },
+    {
+      "id": "office-coffee-station-zone-plant-and-tiles",
+      "title": "Plant and tiled wall",
+      "translation": "绿植与瓷砖墙",
+      "description": "Climbing stems and variegated leaves rise above a speckled planter. Sunlight from the left casts shadows on the tiled wall.",
+      "x": 0,
+      "y": 2,
+      "width": 651,
+      "height": 345,
+      "targetScale": 2.8,
+      "labelIds": [
+        "office-coffee-station-houseplant",
+        "office-coffee-station-wall-tile",
+        "office-coffee-station-leaf",
+        "office-coffee-station-planter",
+        "office-coffee-station-vine",
+        "office-coffee-station-grout-line",
+        "office-coffee-station-shadow"
+      ]
+    }
+  ],
+  "anchorAudit": {
+    "status": "image-reviewed",
+    "policy": "visible-object-or-part-only",
+    "reviewedAsset": "/scenes/office-coffee-station-premium-v1.jpg",
+    "reviewedAssetSha256": "9bac4f9ebef7c21d37e2c1bec3f1d2652c9741482862eae17fad1939b7e9fff0",
+    "rationale": "The final photo resolves the brewed coffee, the carafe and brewer, the open bean jar, the grinder, spare filters and serving supplies. Brewing actions and drink preferences are indexed separately.",
+    "previousLabelCount": 110,
+    "retainedLabelCount": 100,
+    "removedLabelCount": 10,
+    "removedExamples": [
+      "drip coffee",
+      "brew a pot of coffee",
+      "grind the beans"
+    ]
+  }
+}

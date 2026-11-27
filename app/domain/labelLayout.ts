@@ -442,11 +442,11 @@ export function portalCueProtectedRegion(
   centerX: number,
   centerY: number,
   viewport: SceneLabelViewport,
+  cueSize = viewport.compact ? COMPACT_PORTAL_CUE_SIZE : 58,
 ): SceneLabelProtectedRegion | null {
   // Desktop keeps the generous 44px button plus its progress halo. Compact
   // scenes use the 32px control defined by the mobile stylesheet, leaving
   // dense branch overviews enough real vocabulary space without overlap.
-  const cueSize = viewport.compact ? COMPACT_PORTAL_CUE_SIZE : 58;
   const cueHalf = cueSize / 2;
   if (
     centerX < -cueHalf
@@ -458,6 +458,11 @@ export function portalCueProtectedRegion(
 }
 
 const centeredMarkerOffset: Point = { x: 0, y: 0 };
+
+export function portraitPortalButtonSize(portal: Portal, scale: number, viewport: SceneLabelViewport): number | undefined {
+  if (!portal.portraitMarker?.scaleToObject || viewport.width > 560 || viewport.width >= viewport.height) return;
+  return clamp(Math.min(portal.width, portal.height) * scale, 12, 32);
+}
 
 export function portalMarkerOffset(portal: Portal, scale: number, viewport: SceneLabelViewport): Point {
   const anchor = portal.portraitMarker;
@@ -476,10 +481,12 @@ export function buildPortalCueProtectedRegions(
   const effectiveScale = camera.fit * camera.scale;
   return portals.flatMap((portal) => {
     const offset = portalMarkerOffset(portal, effectiveScale, viewport);
+    const size = portraitPortalButtonSize(portal, effectiveScale, viewport);
     const cue = portalCueProtectedRegion(
       camera.x + (portal.x + portal.width / 2) * effectiveScale + offset.x,
       camera.y + (portal.y + portal.height / 2) * effectiveScale + offset.y,
       viewport,
+      size === undefined ? undefined : size + 2,
     );
     return cue ? [cue] : [];
   });

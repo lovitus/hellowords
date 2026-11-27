@@ -1258,6 +1258,24 @@
       "y": 77,
       "width": 56,
       "height": 21
+    },
+    {
+      "id": "portal-office-coffee-station",
+      "description": "Brushed metal face on the upper left of the drip brewer, above its glass pot.",
+      "kind": "object",
+      "x": 536,
+      "y": 230,
+      "width": 33,
+      "height": 29
+    },
+    {
+      "id": "portal-office-tea-station",
+      "description": "Orange packet at the right-hand end of the wooden tea organizer.",
+      "kind": "object",
+      "x": 743,
+      "y": 300,
+      "width": 16,
+      "height": 19
     }
   ],
   "detailZones": [
@@ -2900,6 +2918,32 @@
         "y": 82
       },
       "enterScale": 3.4
+    },
+    {
+      "id": "enter-office-coffee-station",
+      "label": "Explore the coffee station",
+      "translation": "探索滴滤咖啡台",
+      "childSceneId": "office-coffee-station",
+      "sourceVisualRegion": "portal-office-coffee-station",
+      "x": 536,
+      "y": 230,
+      "width": 33,
+      "height": 29,
+      "portraitMarker": {"x": 537, "y": 231, "scaleToObject": true},
+      "enterScale": 3.4
+    },
+    {
+      "id": "enter-office-tea-station",
+      "label": "Explore the tea station",
+      "translation": "探索泡茶台",
+      "childSceneId": "office-tea-station",
+      "sourceVisualRegion": "portal-office-tea-station",
+      "x": 743,
+      "y": 300,
+      "width": 16,
+      "height": 19,
+      "portraitMarker": {"x": 758, "y": 303, "scaleToObject": true},
+      "enterScale": 3.4
     }
   ],
   "relatedWords": [
@@ -2966,6 +3010,9 @@
   ],
   "portraitOverviewLabelIds": [
     "office-break-room-open-refrigerator",
+    "office-break-room-coffee-carafe",
+    "office-break-room-electric-kettle",
+    "office-break-room-drip-coffee-maker",
     "office-break-room-blue-recycling-bin"
   ]
 }
