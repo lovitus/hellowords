@@ -31,7 +31,7 @@ contracts = {
             ("meal-food", meal_photo, (798, 613), "inflight-meal-tray", True),
         ),
         "words": (),
-        "taps": ("neck-pillow-arrival", "meal-food-arrival", "neck-pillow-return", "cabin-aisle-return"),
+        "taps": ("neck-pillow-arrival", "foil-dish-fit", "meal-food-arrival", "neck-pillow-return", "cabin-aisle-return"),
         "tap_shots": ("before", "dot", "word"),
         "returns": ("meal-tray-return", "seat-row-return"),
     },

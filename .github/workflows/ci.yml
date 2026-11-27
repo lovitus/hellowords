@@ -33,16 +33,22 @@ jobs:
           persist-credentials: false
       - uses: actions/download-artifact@v5
         with:
-          name: production-dist-${{ env.BASELINE }}
-          run-id: "45946027692"
+          name: passenger-seat-meal-45949933105
+          run-id: "45949933105"
           github-token: ${{ github.token }}
-          path: ${{ runner.temp }}/frozen
-      - name: Verify sources and frozen production files
+          path: ${{ runner.temp }}/cabin-evidence
+      - name: Verify the first run's desktop and mobile baseline for this frozen candidate
         run: |
+          test "$PRODUCT" = 57402fb3787ffdabde34ce3d2355a63a2853d4fe
           test "$(git rev-parse HEAD)" = "$PRODUCT"
           test "$(git rev-parse HEAD^)" = "$BASELINE"
-          test "$(sha256sum "$RUNNER_TEMP/frozen/artifacts/build/dist-manifest.json" | cut -d' ' -f1)" = f82c4f6717ef98ff7ea5a1585ab8376ec0596174f04e144cfa09ba04ff3b7e69
-          python ../.github/verify-office-phone.py manifest "$RUNNER_TEMP/frozen" "$BASELINE"
+          cd "$RUNNER_TEMP/cabin-evidence"
+          echo '12dc7495e3b72e9d6d199eef12141e3cfd12ded7587b966e902498783c0c0b3f  baseline.json' | sha256sum -c -
+          jq -e --arg baseline "$BASELINE" '
+            .phase == "baseline" and .product == $baseline and .accepted == true
+            and ([.cases[].project] | sort) == ["chromium", "mobile-chromium"]
+            and all(.cases[]; .accepted == true and .status == "failed" and .attempts == 1 and .retry == 0)
+          ' baseline.json
       - uses: actions/setup-node@v7
         with:
           node-version: "22"
@@ -52,14 +58,6 @@ jobs:
         run: |
           npm ci > "$RUNNER_TEMP/dependencies.log" 2>&1
           ./node_modules/.bin/playwright install --with-deps chromium > "$RUNNER_TEMP/chromium.log" 2>&1
-      - name: Reproduce zooming the seat on the frozen aircraft cabin photograph
-        id: red
-        continue-on-error: true
-        run: |
-          test ! -e dist
-          mv "$RUNNER_TEMP/frozen/dist" dist
-          trap 'mv dist "$RUNNER_TEMP/frozen/dist"' EXIT
-          python ../.github/check-cabin-meal.py baseline
       - name: Validate the candidate vocabulary and pending image reviews
         run: npm run validate:data -- --allow-image-reviewed
       - name: Typecheck and lint changed code
@@ -73,9 +71,9 @@ jobs:
           GITHUB_SHA="$PRODUCT" npm run analyze:build
           python ../.github/verify-office-phone.py manifest . "$PRODUCT"
           sha256sum -c <<'PHOTOS'
-          43bc4ae1927274df211288acce769e17f16975ddfea8e0c57d8ce5349f697dbc  dist/scenes/aircraft-cabin-premium-v1.jpg
-          10027d910b150f8b0ae7e5b067f671ba55406fb42a3bfc0edd19014386edb00b  dist/scenes/passenger-seat-row-premium-v1.jpg
-          3f410b93713664f7ab367e5a1058f77f47da8bb0126f5a4051c6aed505c23c49  dist/scenes/inflight-meal-tray-premium-v1.jpg
+          43bc4ae1927274df211288acce769e17f16975ddfea8e0c57d8ce5349f697dbc  dist/client/scenes/aircraft-cabin-premium-v1.jpg
+          10027d910b150f8b0ae7e5b067f671ba55406fb42a3bfc0edd19014386edb00b  dist/client/scenes/passenger-seat-row-premium-v1.jpg
+          3f410b93713664f7ab367e5a1058f77f47da8bb0126f5a4051c6aed505c23c49  dist/client/scenes/inflight-meal-tray-premium-v1.jpg
           PHOTOS
       - name: Enter the passenger seat and meal tray and return by zoom
         run: python ../.github/check-cabin-meal.py candidate
@@ -99,7 +97,3 @@ jobs:
           path: ${{ runner.temp }}/cabin-evidence
           if-no-files-found: error
           retention-days: 7
-      - name: Require the observed baseline zoom on the blue passenger seat
-        run: test "$RED_OUTCOME" = success
-        env:
-          RED_OUTCOME: ${{ steps.red.outcome }}
