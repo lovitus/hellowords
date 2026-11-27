@@ -1,9 +1,9 @@
-name: Verify airport terminal vocabulary on the photograph
+name: Verify city services landmarks and the three building return routes
 on:
   workflow_dispatch:
     inputs:
       candidate:
-        description: Full SHA of the airport terminal candidate following the frozen minimap build
+        description: Full SHA of the urban services candidate following the frozen terminal build
         required: true
         type: string
 permissions:
@@ -11,10 +11,10 @@ permissions:
   contents: read
 env:
   CI: "true"
-  BASELINE: 296b527b76fa2fb4f2d0deafabf4742a087db8dc
+  BASELINE: 8d7f06e7bb6de25239fd14104d48afc3adfd0525
   PRODUCT: ${{ inputs.candidate }}
-  MANIFEST_SHA256: 58e2ae990062cdc7723c66d82a4fefd8e767c5050812e4fea9c8ebbc7209efaf
-  ARTIFACT_RUN: "45996127309"
+  MANIFEST_SHA256: 675f93c4917b8e52ead56c212956ae01b73d4f1cba5b03d44afaabf3cbb9a1d8
+  ARTIFACT_RUN: "45999864862"
 jobs:
   acceptance:
     runs-on: ubuntu-24.04
@@ -79,7 +79,7 @@ jobs:
         id: browser
         continue-on-error: true
         run: ./node_modules/.bin/playwright install --with-deps chromium > "$RUNNER_TEMP/browser.log" 2>&1
-      - name: Reproduce the airport terminal photo mismatch on both devices
+      - name: Reproduce the terminal roof landing on the grass in the old overview on both devices
         id: misplaced
         if: ${{ !cancelled() && steps.integrity.outcome == 'success' && steps.browser.outcome == 'success' }}
         continue-on-error: true
@@ -108,7 +108,7 @@ jobs:
           include-hidden-files: true
           if-no-files-found: error
           retention-days: 7
-      - name: Read terminal objects and follow the airport and office return routes on both devices
+      - name: Read the roof and follow the hospital, airport and office routes on both devices
         id: journeys
         if: ${{ !cancelled() && steps.build.outcome == 'success' && steps.browser.outcome == 'success' }}
         continue-on-error: true

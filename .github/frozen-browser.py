@@ -1,4 +1,4 @@
-"""Verify airport terminal photo reading on both frozen builds and exercise the adjoining journeys."""
+"""Verify the city services overview on both frozen builds and exercise the adjoining journeys."""
 import base64
 from collections import Counter
 import hashlib
@@ -15,8 +15,7 @@ import sys
 MINIMAP = ("e2e/scene-minimap.spec.ts",
            "the photograph and minimap open their own destinations where their buttons overlap")
 OFFICE = ("e2e/office-conference.spec.ts", "returning to the office restores the atrium photograph and its own object labels")
-HANDOFF = ("e2e/continuous-semantic-zoom.spec.ts",
-           "Apartment handoff settles to the complete child before a fresh outward gesture can exit")
+DISTRICT_ZONES = ("e2e/world.spec.ts", "urban services exposes hospital, airport and office vocabulary through the transit path")
 BAGGAGE = ("e2e/baggage-services.spec.ts",
            "baggage services opens the wooden counter and the open suitcase, then restores both parent scenes")
 CHECKIN = ("e2e/airport-bag-drop.spec.ts",
@@ -25,8 +24,11 @@ SECURITY = ("e2e/airport-bag-drop.spec.ts",
             "airport security checkpoint reads the front stanchion pole, looks up its collar and returns from both child scenes")
 TERMINAL = ("e2e/airport-terminal.spec.ts",
             "the airport terminal reads the suitcase shell and carousel island and restores its words after baggage claim")
-SHELL_ASSERTION = "the luggage shell dot lands on the photographed navy suitcase shell"
-PHOTO_SHA = "428e5f9dbcca0f19e8fcedc540a9715362bc55b9b2e51e31d39a4659133f31e1"
+OVERVIEW = ("e2e/urban-services-overview.spec.ts",
+            "urban services reads the photographed terminal roof and returns from all three destinations")
+ROOF_ASSERTION = "the terminal roof dot lands on the photographed silver terminal roof"
+TERMINAL_SHA = "428e5f9dbcca0f19e8fcedc540a9715362bc55b9b2e51e31d39a4659133f31e1"
+OVERVIEW_SHA = "0cc4d2fc02d402b2f5b215711e72d7d93635e889064891bf42477d42e063a19d"
 PROJECTS = ("chromium", "mobile-chromium")
 phase = sys.argv[1]
 assert phase in ("baseline", "candidate")
@@ -34,10 +36,10 @@ out = Path(os.environ["RUNNER_TEMP"]) / "frozen-display-evidence" / phase
 out.mkdir(parents=True)
 temp = Path(os.environ["RUNNER_TEMP"]) / f"browser-{phase}"
 temp.mkdir()
-cases = [(project, *TERMINAL) for project in PROJECTS]
+cases = [(project, *OVERVIEW) for project in PROJECTS]
 if phase == "candidate":
     cases.extend((project, *journey) for project in PROJECTS
-                 for journey in (BAGGAGE, CHECKIN, SECURITY, OFFICE, MINIMAP, HANDOFF))
+                 for journey in (DISTRICT_ZONES, TERMINAL, OFFICE, BAGGAGE, CHECKIN, SECURITY, MINIMAP))
 
 
 def visit(suite):
@@ -46,27 +48,30 @@ def visit(suite):
         yield from visit(child)
 
 
-def terminal_inventory():
+def overview_inventory():
     root = Path("dist/client")
-    photo = root / "scenes/airport-terminal-premium-v1.jpg"
-    scene_file = root / "data/scenes/airport.json"
+    photo = root / "scenes/urban-services-overview-premium-v1.jpg"
+    scene_file = root / "data/scenes/urban-services.json"
     baseline_file = (scene_file if phase == "baseline"
-                     else Path(os.environ["RUNNER_TEMP"]) / "frozen/dist/client/data/scenes/airport.json")
+                     else Path(os.environ["RUNNER_TEMP"]) / "frozen/dist/client/data/scenes/urban-services.json")
     original = baseline_file.read_bytes()
-    if (hashlib.sha256(photo.read_bytes()).hexdigest() != PHOTO_SHA
-            or hashlib.sha256(original).hexdigest() != "7164dc60566ba91924f64fdbe27d9ad784452c19d920a1a6ef985144e8d441fa"):
-        raise ValueError("The terminal photograph or original vocabulary differs from the frozen input")
+    if (hashlib.sha256(photo.read_bytes()).hexdigest() != OVERVIEW_SHA
+            or hashlib.sha256(original).hexdigest() != "40b3fbcb93c45fa278f06a68ee51f0864d58955186ccca93f6471106b2f57b68"):
+        raise ValueError("The city overview photograph or original vocabulary differs from the frozen input")
     scene = json.loads(scene_file.read_bytes())
     labels = scene["labels"]
     index = scene.get("relatedWords", [])
     originals = [(entry["id"], entry["word"], entry["translation"]) for entry in json.loads(original)["labels"]]
     current = [(entry["id"], entry["word"], entry["translation"]) for entry in labels + index]
-    if Counter(originals) - Counter(current):
-        raise ValueError("The terminal lost an existing bilingual vocabulary entry")
+    if len(current) != 120 or Counter(originals) != Counter(current):
+        raise ValueError("The 120 original bilingual entries must remain in the city overview")
     coordinates = Counter((entry["x"], entry["y"]) for entry in labels)
-    return {"photoSha256": PHOTO_SHA, "sceneSha256": hashlib.sha256(scene_file.read_bytes()).hexdigest(),
+    shared = sum(count > 1 for count in coordinates.values())
+    if phase == "candidate" and (shared or any({"x", "y", "priority"} & entry.keys() for entry in index)):
+        raise ValueError("The city overview has shared coordinates or a spatial field on a related word")
+    return {"photoSha256": OVERVIEW_SHA, "sceneSha256": hashlib.sha256(scene_file.read_bytes()).hexdigest(),
             "photoWords": len(labels), "indexWords": len(index),
-            "sharedCoordinates": sum(count > 1 for count in coordinates.values())}
+            "sharedCoordinates": shared}
 
 
 def keep_attachments(items, prefix):
@@ -96,38 +101,53 @@ def keep_attachments(items, prefix):
     return names, observations, images
 
 
-def misplaced_shell(errors):
+def misplaced_roof(errors):
     if len(errors) != 1:
         return False
     message = re.sub(r"\x1b\[[0-9;]*m", "", errors[0].get("message", "")).strip()
-    return (message and message.splitlines()[0].removeprefix("Error: ").strip() == SHELL_ASSERTION
+    return (message and message.splitlines()[0].removeprefix("Error: ").strip() == ROOF_ASSERTION
             and re.search(r"(?m)^Expected:\s*true\s*$", message)
             and re.search(r"(?m)^Received:\s*false\s*$", message)
             and not re.search(r"\b(?:timed out|test timeout|timeout \d+ms)\b", message, re.I))
 
 
+def overview_reading(observed, images, result):
+    entries = observed.get("terminal-roof-geometry", [])
+    if len(entries) != 1 or "terminal-roof-view" not in images:
+        return False
+    reading = entries[0]
+    if reading.get("word") != "terminal roof" or reading.get("sha256") != OVERVIEW_SHA or reading.get("visible") is not True:
+        return False
+    if phase == "baseline":
+        return bool(result["status"] == "failed" and misplaced_roof(result["errors"])
+                    and reading.get("inside") is False
+                    and abs(reading["x"] - 1070) < 1 and abs(reading["y"] - 665) < 1)
+    dots = observed.get("terminal-roof-dot-geometry", [])
+    return (result["status"] == "passed" and not result["errors"] and reading.get("inside") is True
+            and len(dots) == 1 and dots[0].get("dotExposed") is True
+            and all(name in images for name in ("terminal-roof-painted-card", "terminal-roof-dot-card",
+                                                "silver-roof-reading", "silver-roof-after-airport",
+                                                "urban-services-related-seal")))
+
+
 def terminal_readings(observed, images, result):
-    words = ("luggage shell",) if phase == "baseline" else ("luggage shell", "carousel island")
-    for word in words:
+    for word in ("luggage shell", "carousel island"):
         name = word.replace(" ", "-")
         readings = observed.get(name + "-geometry", [])
         if len(readings) != 1 or name + "-view" not in images:
             return False
         reading = readings[0]
-        if reading.get("word") != word or reading.get("sha256") != PHOTO_SHA or reading.get("visible") is not True:
+        if reading.get("word") != word or reading.get("sha256") != TERMINAL_SHA or reading.get("visible") is not True:
             return False
-        if phase == "baseline":
-            return bool(result["status"] == "failed" and misplaced_shell(result["errors"])
-                        and reading.get("inside") is False
-                        and abs(reading["x"] - 1442.5) < 1 and abs(reading["y"] - 510) < 1)
         dots = observed.get(name + "-dot-geometry", [])
         if (reading.get("inside") is not True or len(dots) != 1 or dots[0].get("dotExposed") is not True
                 or not all(name + suffix in images for suffix in ("-dot-card", "-painted-card", "-photo-reading"))):
             return False
-    return result["status"] == "passed" and not result["errors"] and "returned-terminal-shell-reading" in images
+    return (result["status"] == "passed" and not result["errors"]
+            and all(name in images for name in ("returned-terminal-shell-reading", "returned-terminal-suitcase-lining")))
 
 
-inventory = terminal_inventory()
+inventory = overview_inventory()
 selection = temp / "cases.txt"
 selection.write_text("".join(f"[{p}] > {f} > {title}\n" for p, f, title in cases))
 reporter = temp / "results.json"
@@ -161,6 +181,9 @@ for spec in visit(report):
         row.update(status=result["status"], errorCount=len(errors),
                    assertionLocations=source_lines, attachments=names, imageSizes=images)
         passed = result["status"] == "passed" and not errors
+        if title == OVERVIEW[1]:
+            row["accepted"] = overview_reading(observed, images, result)
+            continue
         if title == TERMINAL[1]:
             row["accepted"] = terminal_readings(observed, images, result)
             continue
@@ -184,7 +207,7 @@ for spec in visit(report):
 accepted = (code == (1 if phase == "baseline" else 0) and not report.get("errors")
             and Counter(seen) == Counter(cases) and all(row["accepted"] for row in rows))
 (out / "result.json").write_text(json.dumps({"phase": phase, "exit": code, "accepted": accepted,
-                                           "terminal": inventory,
+                                           "overview": inventory,
                                            "reportSha256": hashlib.sha256(reporter.read_bytes()).hexdigest(),
                                            "cases": rows}, indent=2) + "\n")
 sys.exit(0 if accepted else 1)
