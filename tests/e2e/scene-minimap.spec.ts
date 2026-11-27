@@ -26,6 +26,42 @@ async function openWorld(page: Page): Promise<Locator> {
   return app;
 }
 
+test("the photograph and minimap open their own destinations where their buttons overlap", async ({ page, isMobile }, testInfo) => {
+  if (!isMobile) await page.setViewportSize({ width: 1280, height: 720 });
+  const app = await openWorld(page);
+  const map = page.locator(MINIMAP);
+  const activate = (button: Locator) => isMobile ? button.tap() : button.click();
+  await activate(page.getByTestId("meaning-toggle"));
+  await expect(page.getByTestId("meaning-toggle")).toHaveAttribute("aria-pressed", "true");
+  const apartment = map.getByRole("button", { name: "进入 Apartment", exact: true });
+  await expect(apartment).toBeVisible();
+  const box = (await apartment.boundingBox())!;
+  const x = box.x + box.width / 2;
+  const y = box.y + box.height / 2;
+  // Use the actual screen coordinate. A locator may retry a blocked click
+  // without revealing which scene a user would enter at that position.
+  if (isMobile) await page.touchscreen.tap(x, y);
+  else await page.mouse.click(x, y);
+  await expect(app).not.toHaveAttribute("data-scene-id", "world-map");
+  await expect(app).toHaveAttribute("data-transition-state", "idle");
+  const destination = await app.getAttribute("data-scene-id");
+  await testInfo.attach("minimap-destination", {
+    body: JSON.stringify({ x, y, destination }), contentType: "application/json",
+  });
+  expect(destination, "the visible Apartment minimap button opens the apartment").toBe("apartment");
+  await expect(app.locator(".viewer-shell:not([data-phase]) img.scene-art")).toHaveAttribute("src", "/scenes/apartment-bright-v2.jpg");
+  await activate(map.getByRole("button", { name: "World atlas", exact: true }));
+  await expect(app).toHaveAttribute("data-scene-id", "world-map");
+  await expect(app).toHaveAttribute("data-transition-state", "idle");
+  await activate(map.getByRole("button", { name: "收起小地图" }));
+  await expect(map).toHaveAttribute("data-collapsed", "true");
+  const campus = app.locator('.viewer-shell:not([data-phase]) [data-testid="scene-hotspot"][data-target-scene="school-campus"]');
+  await activate(campus);
+  await expect(app).toHaveAttribute("data-scene-id", "school-campus");
+  await expect(app).toHaveAttribute("data-transition-state", "idle");
+  await expect(app.locator(".viewer-shell:not([data-phase]) img.scene-art")).toHaveAttribute("src", "/scenes/school-campus-premium-v1.jpg");
+});
+
 async function expectReadableMinimapName(button: Locator, name: string): Promise<void> {
   await button.scrollIntoViewIfNeeded();
   const label = button.getByText(name, { exact: true });
