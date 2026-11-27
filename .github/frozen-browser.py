@@ -1,4 +1,4 @@
-"""Compare a narrow bilingual photo reading and preserve the urban services journeys."""
+"""Compare photographed street and station objects and retain the existing city journeys."""
 import base64
 from collections import Counter
 import hashlib
@@ -28,7 +28,10 @@ OVERVIEW = ("e2e/urban-services-overview.spec.ts",
             "urban services reads the photographed terminal roof and returns from all three destinations")
 NARROW = ("e2e/urban-services-overview.spec.ts",
           "the bilingual phone reads the silver terminal roof after returning through the photographed airport entrance")
-NARROW_ASSERTION = "tapping the silver roof after the airport round trip reads terminal roof in bilingual phone view"
+STREET_TRANSIT = ("e2e/street-transit-photo-reading.spec.ts",
+                  "the street and transit round trip reads the museum column shaft and silver escalator side panel and keeps the pediment in the word index")
+STREET_PHOTO = "/scenes/city-street-bright-v4.jpg"
+TRANSIT_PHOTO = "/scenes/transit-hub-premium-v2.jpg"
 TERMINAL_SHA = "428e5f9dbcca0f19e8fcedc540a9715362bc55b9b2e51e31d39a4659133f31e1"
 OVERVIEW_SHA = "0cc4d2fc02d402b2f5b215711e72d7d93635e889064891bf42477d42e063a19d"
 PROJECTS = ("chromium", "mobile-chromium")
@@ -38,8 +41,9 @@ out = Path(os.environ["RUNNER_TEMP"]) / "frozen-display-evidence" / phase
 out.mkdir(parents=True)
 temp = Path(os.environ["RUNNER_TEMP"]) / f"browser-{phase}"
 temp.mkdir()
-cases = [("mobile-chromium", *NARROW)]
+cases = [("chromium", *STREET_TRANSIT)]
 if phase == "candidate":
+    cases.append(("mobile-chromium", *NARROW))
     cases.extend((project, *journey) for project in PROJECTS
                  for journey in (OVERVIEW, DISTRICT_ZONES, TERMINAL, OFFICE, BAGGAGE, CHECKIN, SECURITY, MINIMAP))
 
@@ -50,31 +54,32 @@ def visit(suite):
         yield from visit(child)
 
 
-def overview_inventory():
+def inventory(scene_id, asset, photo_sha, source_sha, count):
     root = Path("dist/client")
-    photo = root / "scenes/urban-services-overview-premium-v1.jpg"
-    scene_file = root / "data/scenes/urban-services.json"
+    photo = root / asset.lstrip("/")
+    relative = Path("data/scenes") / f"{scene_id}.json"
+    scene_file = root / relative
     baseline_file = (scene_file if phase == "baseline"
-                     else Path(os.environ["RUNNER_TEMP"]) / "frozen/dist/client/data/scenes/urban-services.json")
+                     else Path(os.environ["RUNNER_TEMP"]) / "frozen/dist/client" / relative)
     original = baseline_file.read_bytes()
-    if (hashlib.sha256(photo.read_bytes()).hexdigest() != OVERVIEW_SHA
-            or hashlib.sha256(original).hexdigest() != "9980bacf553c9df0883703c584595afce870e70c9ef53113c508eb4b5b984237"):
-        raise ValueError("The city overview photograph or original vocabulary differs from the frozen input")
+    if hashlib.sha256(photo.read_bytes()).hexdigest() != photo_sha or hashlib.sha256(original).hexdigest() != source_sha:
+        raise ValueError(f"The {scene_id} photograph or original vocabulary differs from the frozen input")
     scene = json.loads(scene_file.read_bytes())
     labels = scene["labels"]
     index = scene.get("relatedWords", [])
     previous = json.loads(original)
-    originals = [(entry["id"], entry["word"], entry["translation"]) for entry in previous["labels"] + previous["relatedWords"]]
-    current = [(entry["id"], entry["word"], entry["translation"]) for entry in labels + index]
-    if len(current) != 120 or Counter(originals) != Counter(current):
-        raise ValueError("The 120 original bilingual entries must remain in the city overview")
+    originals = [(entry["id"], entry["word"], entry["translation"], entry.get("lexemeId"))
+                 for entry in previous["labels"] + previous.get("relatedWords", [])]
+    current = [(entry["id"], entry["word"], entry["translation"], entry.get("lexemeId")) for entry in labels + index]
+    if len(current) != count or Counter(originals) != Counter(current):
+        raise ValueError(f"The {count} original bilingual entries must remain in {scene_id}")
     coordinates = Counter((entry["x"], entry["y"]) for entry in labels)
     shared = sum(count > 1 for count in coordinates.values())
     if phase == "candidate" and (shared or any({"x", "y", "priority"} & entry.keys() for entry in index)):
-        raise ValueError("The city overview has shared coordinates or a spatial field on a related word")
-    return {"photoSha256": OVERVIEW_SHA, "sceneSha256": hashlib.sha256(scene_file.read_bytes()).hexdigest(),
+        raise ValueError(f"{scene_id} has shared coordinates or a spatial field on a related word")
+    return {"photoSha256": photo_sha, "sceneSha256": hashlib.sha256(scene_file.read_bytes()).hexdigest(),
             "photoWords": len(labels), "indexWords": len(index),
-            "sharedCoordinates": shared}
+            "sharedCoordinates": shared, "linkedPhotoWords": sum(bool(entry.get("lexemeId")) for entry in labels)}
 
 
 def keep_attachments(items, prefix):
@@ -114,16 +119,8 @@ def narrow_reading(observed, images, result):
             or not all(isinstance(point.get(axis), (int, float)) and 0 <= point[axis] < limit
                        for axis, limit in (("x", 385), ("y", 705)))):
         return False
-    if phase == "candidate":
-        return (result["status"] == "passed" and not result["errors"]
-                and reading.get("word") == "terminal roof" and reading.get("meaning") == "航站楼屋顶")
-    if (result["status"] != "failed" or len(result["errors"]) != 1
-            or reading.get("word") != "aircraft" or reading.get("meaning") != "飞机"):
-        return False
-    message = re.sub(r"\x1b\[[0-9;]*m", "", result["errors"][0].get("message", "")).strip()
-    return bool(message and message.splitlines()[0].removeprefix("Error: ").strip() == NARROW_ASSERTION
-                and '"aircraft"' in message and '"terminal roof"' in message
-                and not re.search(r"\b(?:timed out|test timeout|timeout \d+ms)\b", message, re.I))
+    return (result["status"] == "passed" and not result["errors"]
+            and reading.get("word") == "terminal roof" and reading.get("meaning") == "航站楼屋顶")
 
 
 def overview_reading(observed, images, result):
@@ -158,7 +155,55 @@ def terminal_readings(observed, images, result):
             and all(name in images for name in ("returned-terminal-shell-reading", "returned-terminal-suitcase-lining")))
 
 
-inventory = overview_inventory()
+def street_transit_readings(observed, images, result):
+    checks = set()
+    for visits, scene, photo, coordinates, old_card, new_card in (
+        (("street-arrival", "street-return"), "city-street", STREET_PHOTO, (361, 422),
+         ("facade block", "立面石块"), ("column shaft", "柱身")),
+        (("transit-arrival", "transit-reentry"), "transit-hub", TRANSIT_PHOTO, (1051, 510),
+         (None, None), ("escalator side panel", "扶梯侧板")),
+    ):
+        for visit in visits:
+            entries = observed.get(visit + "-result", [])
+            if len(entries) != 1 or images.get(visit) != (1440, 900):
+                return False
+            reading = entries[0]
+            if not {"point", "word", "meaning"} <= reading.keys():
+                return False
+            point = reading["point"]
+            if (reading.get("scene") != scene or reading.get("photo") != photo
+                    or (reading.get("x"), reading.get("y")) != coordinates
+                    or (reading["word"], reading["meaning"]) != (old_card if phase == "baseline" else new_card)
+                    or point.get("visible") is not True
+                    or not all(isinstance(point.get(axis), (int, float)) and 0 <= point[axis] < limit
+                               for axis, limit in (("x", 1440), ("y", 900)))):
+                return False
+            checks.add(f"{visit} reads the photographed {new_card[0]}")
+    if images.get("pediment-search-card") != (1440, 900):
+        return False
+    if phase == "candidate":
+        return result["status"] == "passed" and not result["errors"]
+    messages = [re.sub(r"\x1b\[[0-9;]*m", "", error.get("message", "")).strip() for error in result["errors"]]
+    if result["status"] != "failed" or not messages or any(not m for m in messages):
+        return False
+    headings = {message.splitlines()[0].removeprefix("Error: ").strip() for message in messages}
+    # This test uses soft expectations so the same trip records the bad readings and the old spatial index entry.
+    placed = any("toHaveAccessibleName" in m and '"museum pediment，博物馆山花"' in m for m in messages)
+    painted = any("the photograph has no museum pediment marker" in m
+                  and re.search(r"(?m)^Received:\s*[1-9]\d*\s*$", m) for m in messages)
+    allowed = checks | {"the related word preserves the street framing", "the photograph has no museum pediment marker"}
+    return (checks <= headings and placed and painted
+            and all(m.splitlines()[0].removeprefix("Error: ").strip() in allowed
+                    or ("toHaveAccessibleName" in m and '"museum pediment，博物馆山花"' in m)
+                    or ("toBeVisible" in m and "相关词 · 图中未标注" in m and "museum pediment" in m) for m in messages))
+
+
+scenes = {
+    "city-street": inventory("city-street", STREET_PHOTO, "e280b0047e7bf0dbcf7f1ff392c38d5b88f06e11bb6304f3d998f47f37438fdf",
+                             "146d4670e5fb9fbb2f5db5c06e02280ffd995188d395f282bee4175af4cd4961", 179),
+    "transit-hub": inventory("transit-hub", TRANSIT_PHOTO, "0404f4a4fcfef1cba37b54231530085b708e498b1e21dd94e5585477f68652f9",
+                             "c8e112d0200da7b0250786a283b7085ca8fa9f1947f70e3deb528b091607d353", 175),
+}
 selection = temp / "cases.txt"
 selection.write_text("".join(f"[{p}] > {f} > {title}\n" for p, f, title in cases))
 reporter = temp / "results.json"
@@ -192,6 +237,9 @@ for spec in visit(report):
         row.update(status=result["status"], errorCount=len(errors),
                    assertionLocations=source_lines, attachments=names, imageSizes=images)
         passed = result["status"] == "passed" and not errors
+        if title == STREET_TRANSIT[1]:
+            row["accepted"] = street_transit_readings(observed, images, result)
+            continue
         if title == NARROW[1]:
             row["accepted"] = narrow_reading(observed, images, result)
             continue
@@ -221,7 +269,7 @@ for spec in visit(report):
 accepted = (code == (1 if phase == "baseline" else 0) and not report.get("errors")
             and Counter(seen) == Counter(cases) and all(row["accepted"] for row in rows))
 (out / "result.json").write_text(json.dumps({"phase": phase, "exit": code, "accepted": accepted,
-                                           "overview": inventory,
+                                           "scenes": scenes,
                                            "reportSha256": hashlib.sha256(reporter.read_bytes()).hexdigest(),
                                            "cases": rows}, indent=2) + "\n")
 sys.exit(0 if accepted else 1)

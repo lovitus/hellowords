@@ -1,9 +1,9 @@
-name: Verify bilingual roof reading after returning to the narrow city overview
+name: Verify city street and transit hub vocabulary on the photographs
 on:
   workflow_dispatch:
     inputs:
       candidate:
-        description: Full SHA of the narrow bilingual correction following the frozen urban services build
+        description: Full SHA of the street and transit candidate following the frozen bilingual build
         required: true
         type: string
 permissions:
@@ -11,10 +11,10 @@ permissions:
   contents: read
 env:
   CI: "true"
-  BASELINE: 8d4461bda846ad933922bb0293cd1351820b5174
+  BASELINE: 5a61ad0df64beb1cb3b74fbc319dbd592b890f32
   PRODUCT: ${{ inputs.candidate }}
-  MANIFEST_SHA256: 015b31a6605a70d6c9c1e371f990e184a8869a032f4564a25147c74331737d6c
-  ARTIFACT_RUN: "46004671583"
+  MANIFEST_SHA256: fd05a5ed97975049dae3f5334c202d9001b0edc3b784397dd2a649c26f1dfcd9
+  ARTIFACT_RUN: "46008681040"
 jobs:
   acceptance:
     runs-on: ubuntu-24.04
@@ -54,7 +54,7 @@ jobs:
           run-id: ${{ env.ARTIFACT_RUN }}
           github-token: ${{ github.token }}
           path: ${{ runner.temp }}/original-evidence
-      - name: Verify the existing performance failure against the frozen build
+      - name: Verify the existing passing performance measurement against the frozen build
         id: baseline
         if: ${{ !cancelled() && steps.integrity.outcome == 'success' && steps.original_evidence.outcome == 'success' }}
         continue-on-error: true
@@ -79,7 +79,7 @@ jobs:
         id: browser
         continue-on-error: true
         run: ./node_modules/.bin/playwright install --with-deps chromium > "$RUNNER_TEMP/browser.log" 2>&1
-      - name: Reproduce aircraft being read from the roof in the narrow bilingual overview
+      - name: Reproduce the wrong column card, missing escalator card and misplaced museum pediment
         id: misplaced
         if: ${{ !cancelled() && steps.integrity.outcome == 'success' && steps.browser.outcome == 'success' }}
         continue-on-error: true
@@ -108,7 +108,7 @@ jobs:
           include-hidden-files: true
           if-no-files-found: error
           retention-days: 7
-      - name: Repeat the narrow bilingual roof reading and all sixteen previous journeys
+      - name: Read the street and transit objects on return and retain the previous journeys
         id: journeys
         if: ${{ !cancelled() && steps.build.outcome == 'success' && steps.browser.outcome == 'success' }}
         continue-on-error: true

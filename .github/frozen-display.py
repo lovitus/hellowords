@@ -61,8 +61,8 @@ def run(stage, command, env=None):
 def baseline_performance():
     root = TEMP / "original-evidence"
     digests = {
-        "summary.json": "e49c213b88b95c88e376678dc59fcfd685cd7c86cf3b2100813a77e9f06de8c8",
-        "navigation-result.json": "de3605b5af0936a82523c0baa9ae5e354bc9f6b2298b04e8a67d436acc34ed0a",
+        "summary.json": "0c95701421824c52337f07d1b612972c3de7525846de1d7d8f19fe22dfd9face",
+        "navigation-result.json": "032f80d1042bdac6be383ef3d94a533af45977e528810d2bf80ec878e602c24e",
     }
     for name, expected in digests.items():
         if hashlib.sha256((root / name).read_bytes()).hexdigest() != expected:
@@ -75,10 +75,9 @@ def baseline_performance():
                 "retainedPssDeltaMiB": metrics["memory"]["pssDeltaMiB"]}
     exceeded = sorted(name for name, value in readings.items() if value > summary["budgets"][name])
     if (summary["gitSha"] != os.environ["BASELINE"] or summary["scenario"]["cycles"] != 20
-            or metrics["transitions"] != 40 or report["exit"] != 1 or len(report["cases"]) != 1
-            or report["cases"][0]["status"] != "failed"
-            or exceeded != ["rendererTaskMsPerTransition"]):
-        raise ValueError("The frozen measurements do not match the completed baseline failure")
+            or metrics["transitions"] != 40 or report["exit"] != 0 or len(report["cases"]) != 1
+            or report["cases"][0]["status"] != "passed" or report["cases"][0]["retry"] != 0 or exceeded):
+        raise ValueError("The frozen measurements do not match the completed baseline pass")
     save("baseline-performance.json", {"gitSha": summary["gitSha"], "run": os.environ["ARTIFACT_RUN"],
                                       "cycles": 20, "transitions": 40, "measurements": readings,
                                       "budgets": summary["budgets"], "exceeded": exceeded, "sourceDigests": digests})
@@ -152,7 +151,8 @@ def domain():
     files = sorted(set(changed) | {
         f"tests/domain/{name}.test.ts" for name in ("camera", "navigation", "semanticZoom", "semanticZoomBoundary",
                                                     "newFacilityScenes", "worldContent", "sceneVisualQuality",
-                                                    "airportSecurityGate", "baggageClaim", "checkInCounter", "labelCanvasHit")
+                                                    "airportSecurityGate", "baggageClaim", "checkInCounter", "labelCanvasHit",
+                                                    "cityStreetBrightV4")
     })
     code = run("domain", ["./node_modules/.bin/tsx", "--test", "--test-reporter=tap", *files])
     text = (TEMP / "domain.out").read_text()
@@ -195,7 +195,7 @@ def record():
     gates = {gate: steps.get(gate, {}).get("outcome", "missing") for gate in GATES}
     save("result.json", {"gitSha": PRODUCT, "sourceRun": os.environ["ARTIFACT_RUN"],
                          "run": os.environ["GITHUB_RUN_ID"], "controlSha": os.environ["GITHUB_SHA"],
-                         "scope": "urban-services-narrow-bilingual", "outcomes": gates,
+                         "scope": "street-transit-photo-reading", "outcomes": gates,
                          "passed": all(v == "success" for v in gates.values())})
     with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as summary:
         summary.write("| Check | Outcome |\n|---|---|\n")
