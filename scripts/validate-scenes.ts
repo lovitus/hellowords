@@ -337,11 +337,9 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // fossil and preparation-tool parts; the ceiling blocks behavior, era,
   // species claims and museum activities that are not visible in one frame.
   "dinosaur-hall": 69,
-  // The bright electric-bus cutaway resolves the cabin, entry, running gear
-  // and underfloor battery parts; the ceiling blocks passenger roles and
-  // operating states that are not visible in a static frame while allowing
-  // the reviewed front-entry hardware additions.
-  "electric-bus": 85,
+  // The cutaway exposes 63 distinct parts and surfaces. Hidden equipment
+  // such as the brake disc and emergency hammer stays in the scene index.
+  "electric-bus": 63,
   "human-body": 90,
   // The reviewed carriage raster exposes the complete cabin plus distinct
   // door, seat, suspension and foreground track hardware; the ceiling blocks
@@ -351,10 +349,9 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // subparts, suspension seats, linkage pins and track fasteners; the ceiling
   // blocks maintenance actions, failure states and hidden load concepts.
   "rail-bogie": 95,
-  // The final platform raster resolves passenger fixtures, train hardware,
-  // overhead electrification and track subparts; the ceiling blocks signage
-  // and inferred service states while allowing the reviewed 96-anchor scene.
-  "railway-platform": 126,
+  // The photo supports 100 platform, train, catenary and track points.
+  // The scene index also includes fasteners and joints too small to identify.
+  "railway-platform": 100,
   // The battery cutaway resolves pack, module, cell, electrical, cooling and
   // enclosure hardware; the ceiling blocks invisible electrochemistry and
   // sensors that cannot be identified as separate objects in this frame.

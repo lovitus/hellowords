@@ -788,12 +788,15 @@ test("railway platform preserves its expanded passenger, train and track vocabul
   const { scenes } = await loadWorld();
   const platform = scenes.find((scene) => scene.id === "railway-platform");
   assert.ok(platform);
-  assert.equal(platform.labels.length, 126);
+  assert.equal(platform.labels.length, 100);
+  assert.equal(platform.relatedWords?.length, 26);
+  assert.equal(new Set([...platform.labels, ...(platform.relatedWords ?? [])].map(word => word.id)).size, 126);
+  assert.equal(new Set(platform.labels.map(label => `${label.x},${label.y}`)).size, platform.labels.length);
   assert.deepEqual(
     [0, 1, 2, 3, 4].map((level) => (
       platform.labels.filter((label) => label.minLevel === level).length
     )),
-    [7, 6, 19, 39, 55],
+    [8, 6, 13, 32, 41],
   );
   const words = new Set(platform.labels.map(({ word }) => word.toLocaleLowerCase()));
   for (const required of [
@@ -814,34 +817,34 @@ test("railway platform preserves its expanded passenger, train and track vocabul
     "door step",
     "headlight bezel",
     "coupler head",
-    "buffer",
-    "wheel hub",
-    "bogie suspension",
+    "tactile tile",
     "rail baseplate",
-    "sleeper shoulder",
-    "ballast shoulder",
     "mast crossarm",
     "pantograph hinge",
   ]) {
     assert.ok(words.has(required), `railway platform visibly grounds ${required}`);
   }
+  const index = new Set(platform.relatedWords?.map(label => label.word));
+  for (const word of ["wheel hub", "bogie suspension", "rail joint", "sleeper grain", "loudspeaker grille"]) {
+    assert.ok(index.has(word) && !words.has(word), `${word} remains searchable without claiming a visible point`);
+  }
   assert.deepEqual(
     platform.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
     [
-      ["passenger-platform", 34],
-      ["train-body", 30],
-      ["overhead-electrification", 11],
-      ["track-structure", 51],
+      ["passenger-platform", 32],
+      ["train-body", 27],
+      ["overhead-electrification", 10],
+      ["track-structure", 31],
     ],
   );
   const labels = new Map(platform.labels.map((label) => [label.id, label] as const));
   assert.deepEqual(
-    ["platform-tile", "roof-vent", "rail-baseplate"].map((id) => {
+    ["platform-tile", "roof-vent", "rail-baseplate", "tactile-tile-pro-1"].map((id) => {
       const label = labels.get(id);
       assert.ok(label);
       return [label.x, label.y];
     }),
-    [[470, 820], [1110, 250], [1310, 760]],
+    [[479, 814], [948, 279], [1288, 865], [743, 839]],
     "new railway platform parts stay anchored on their reviewed pixels",
   );
 });
@@ -1378,22 +1381,25 @@ test("premium electric bus expands its visible cabin and running gear without ad
   assert.ok(bus);
   assert.equal(bus.parentId, "transit-hub");
   assert.equal(bus.asset, "/scenes/electric-bus-premium-v2.jpg");
-  assert.equal(bus.labels.length, 85);
+  assert.equal(bus.labels.length, 63);
+  assert.equal(bus.relatedWords?.length, 22);
+  assert.equal(new Set([...bus.labels, ...(bus.relatedWords ?? [])].map(word => word.id)).size, 85);
+  assert.equal(new Set(bus.labels.map(label => `${label.x},${label.y}`)).size, bus.labels.length);
   assert.deepEqual(
     [0, 1, 2, 3, 4].map((level) => (
       bus.labels.filter((label) => label.minLevel === level).length
     )),
-    [7, 10, 21, 25, 22],
+    [9, 10, 15, 19, 10],
   );
   assert.deepEqual(
     bus.detailZones?.map((zone) => [zone.id, zone.labelIds.length]),
     [
-      ["bus-shell", 6],
-      ["passenger-cabin", 40],
-      ["front-entry-cab", 17],
+      ["bus-shell", 7],
+      ["passenger-cabin", 24],
+      ["front-entry-cab", 16],
       ["underfloor-energy", 6],
-      ["rear-drivetrain", 4],
-      ["front-running-gear", 10],
+      ["rear-drivetrain", 5],
+      ["front-running-gear", 5],
     ],
   );
   assert.deepEqual(
@@ -1406,22 +1412,26 @@ test("premium electric bus expands its visible cabin and running gear without ad
   const words = new Set(bus.labels.map(({ word }) => word.toLocaleLowerCase()));
   for (const visible of [
     "front bumper",
-    "rear bumper",
+    "steering wheel",
     "seat cushion",
     "seat leg",
     "wheel rim",
-    "suspension arm",
+    "seat upholstery",
     "battery tray",
     "cable clamp",
-    "door handle",
+    "charging port",
     "step",
-    "brake disc",
+    "coil spring",
     "door frame",
     "door window",
-    "door hinge",
+    "door threshold",
     "wheel lug",
   ]) {
     assert.ok(words.has(visible), `electric bus visibly grounds ${visible}`);
+  }
+  const index = new Set(bus.relatedWords?.map(label => label.word));
+  for (const word of ["brake disc", "emergency hammer", "seatback pocket", "door hinge"]) {
+    assert.ok(index.has(word) && !words.has(word), `the cutaway keeps ${word} in the word index`);
   }
   for (const unsupported of [
     "driver",
@@ -1437,12 +1447,12 @@ test("premium electric bus expands its visible cabin and running gear without ad
 
   const labels = new Map(bus.labels.map((label) => [label.id, label] as const));
   assert.deepEqual(
-    ["front-bumper", "seat-cushion", "battery-tray", "brake-disc", "door-frame", "door-window", "door-hinge", "wheel-lug"].map((id) => {
+    ["front-bumper", "seat-upholstery-pro-1", "battery-tray", "wheel-rim", "hub", "wheel-lug"].map((id) => {
       const label = labels.get(id);
       assert.ok(label);
       return [label.x, label.y];
     }),
-    [[1370, 760], [450, 510], [620, 735], [910, 675], [1045, 360], [1080, 355], [1150, 430], [930, 675]],
+    [[1464, 746], [777, 465], [642, 715], [244, 611], [899, 702], [887, 676]],
     "new bus parts stay anchored on the reviewed cutaway pixels",
   );
 });

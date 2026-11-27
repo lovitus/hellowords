@@ -12,8 +12,8 @@
       "id": "railway-platform",
       "word": "railway platform",
       "translation": "铁路站台",
-      "x": 220,
-      "y": 780,
+      "x": 246,
+      "y": 811,
       "priority": 1,
       "minLevel": 0,
       "sourceVisualRegion": "whole-platform"
@@ -22,8 +22,8 @@
       "id": "train-carriage",
       "word": "train carriage",
       "translation": "列车车厢",
-      "x": 1030,
-      "y": 420,
+      "x": 728,
+      "y": 482,
       "priority": 1.001,
       "minLevel": 0,
       "sourceVisualRegion": "verified-train-carriage"
@@ -32,8 +32,8 @@
       "id": "track",
       "word": "track",
       "translation": "轨道",
-      "x": 1020,
-      "y": 700,
+      "x": 860,
+      "y": 615,
       "priority": 1.002,
       "minLevel": 0,
       "sourceVisualRegion": "verified-track"
@@ -42,8 +42,8 @@
       "id": "commuter",
       "word": "commuter",
       "translation": "通勤者",
-      "x": 302,
-      "y": 485,
+      "x": 310,
+      "y": 388,
       "priority": 1.003,
       "minLevel": 0,
       "sourceVisualRegion": "verified-commuter"
@@ -52,8 +52,8 @@
       "id": "canopy",
       "word": "canopy",
       "translation": "站台雨棚",
-      "x": 210,
-      "y": 85,
+      "x": 381,
+      "y": 110,
       "priority": 1.004,
       "minLevel": 0,
       "sourceVisualRegion": "verified-canopy"
@@ -62,8 +62,8 @@
       "id": "platform-edge",
       "word": "platform edge",
       "translation": "站台边缘",
-      "x": 610,
-      "y": 665,
+      "x": 770,
+      "y": 709,
       "priority": 1.005,
       "minLevel": 0,
       "sourceVisualRegion": "verified-platform-edge"
@@ -73,8 +73,8 @@
       "word": "window",
       "translation": "车窗",
       "lexemeId": "en-44ff7b02c80d38b2",
-      "x": 750,
-      "y": 418,
+      "x": 800,
+      "y": 427,
       "priority": 1.006,
       "minLevel": 0,
       "sourceVisualRegion": "verified-window"
@@ -84,8 +84,8 @@
       "word": "rail",
       "translation": "钢轨",
       "lexemeId": "en-fdf0d7533af5b16d",
-      "x": 1115,
-      "y": 755,
+      "x": 905,
+      "y": 696,
       "priority": 2.007,
       "minLevel": 1,
       "sourceVisualRegion": "verified-rail"
@@ -94,8 +94,8 @@
       "id": "tactile-paving",
       "word": "tactile paving",
       "translation": "触觉铺面",
-      "x": 590,
-      "y": 720,
+      "x": 555,
+      "y": 804,
       "priority": 2.008,
       "minLevel": 1,
       "sourceVisualRegion": "verified-tactile-paving"
@@ -104,8 +104,8 @@
       "id": "carriage-door",
       "word": "carriage door",
       "translation": "车厢门",
-      "x": 960,
-      "y": 440,
+      "x": 1004,
+      "y": 515,
       "priority": 2.009,
       "minLevel": 1,
       "sourceVisualRegion": "verified-carriage-door"
@@ -114,8 +114,8 @@
       "id": "suitcase",
       "word": "suitcase",
       "translation": "行李箱",
-      "x": 329,
-      "y": 646,
+      "x": 322,
+      "y": 662,
       "priority": 2.01,
       "minLevel": 1,
       "sourceVisualRegion": "verified-suitcase"
@@ -124,8 +124,8 @@
       "id": "pantograph",
       "word": "pantograph",
       "translation": "受电弓",
-      "x": 1050,
-      "y": 150,
+      "x": 1030,
+      "y": 266,
       "priority": 2.011,
       "minLevel": 1,
       "sourceVisualRegion": "verified-pantograph"
@@ -135,8 +135,8 @@
       "word": "bench",
       "translation": "长椅",
       "lexemeId": "en-1b32c28cb38c0548",
-      "x": 130,
-      "y": 665,
+      "x": 144,
+      "y": 675,
       "priority": 2.012,
       "minLevel": 1,
       "sourceVisualRegion": "verified-bench"
@@ -145,8 +145,8 @@
       "id": "sleeper",
       "word": "sleeper",
       "translation": "轨枕",
-      "x": 790,
-      "y": 720,
+      "x": 840,
+      "y": 724,
       "priority": 3.013,
       "minLevel": 2,
       "sourceVisualRegion": "verified-sleeper"
@@ -155,8 +155,8 @@
       "id": "ballast",
       "word": "ballast",
       "translation": "道砟",
-      "x": 1015,
-      "y": 700,
+      "x": 1027,
+      "y": 680,
       "priority": 3.014,
       "minLevel": 2,
       "sourceVisualRegion": "verified-ballast"
@@ -165,8 +165,8 @@
       "id": "warning-line",
       "word": "warning line",
       "translation": "安全警戒线",
-      "x": 550,
-      "y": 660,
+      "x": 816,
+      "y": 851,
       "priority": 3.015,
       "minLevel": 2,
       "sourceVisualRegion": "verified-warning-line"
@@ -175,8 +175,8 @@
       "id": "analog-clock",
       "word": "analog clock",
       "translation": "指针钟",
-      "x": 83,
-      "y": 190,
+      "x": 98,
+      "y": 166,
       "priority": 3.016,
       "minLevel": 2,
       "sourceVisualRegion": "verified-analog-clock"
@@ -185,8 +185,8 @@
       "id": "support-mast",
       "word": "support mast",
       "translation": "接触网支柱",
-      "x": 663,
-      "y": 233,
+      "x": 669,
+      "y": 218,
       "priority": 3.017,
       "minLevel": 2,
       "sourceVisualRegion": "verified-support-mast"
@@ -195,8 +195,8 @@
       "id": "catenary-wire",
       "word": "catenary wire",
       "translation": "接触网承力索",
-      "x": 1040,
-      "y": 50,
+      "x": 751,
+      "y": 130,
       "priority": 3.018,
       "minLevel": 2,
       "sourceVisualRegion": "verified-catenary-wire"
@@ -206,8 +206,8 @@
       "word": "backpack",
       "translation": "双肩包",
       "lexemeId": "en-5f00368a6ad231c3",
-      "x": 276,
-      "y": 455,
+      "x": 262,
+      "y": 476,
       "priority": 3.019,
       "minLevel": 2,
       "sourceVisualRegion": "verified-backpack"
@@ -217,8 +217,8 @@
       "word": "wheel",
       "translation": "车轮",
       "lexemeId": "en-ba59926159d2aa25",
-      "x": 1044,
-      "y": 580,
+      "x": 1104,
+      "y": 633,
       "priority": 4.02,
       "minLevel": 3,
       "sourceVisualRegion": "verified-wheel"
@@ -227,8 +227,8 @@
       "id": "bogie",
       "word": "bogie",
       "translation": "转向架",
-      "x": 1020,
-      "y": 600,
+      "x": 1030,
+      "y": 583,
       "priority": 4.021,
       "minLevel": 3,
       "sourceVisualRegion": "verified-bogie"
@@ -237,8 +237,8 @@
       "id": "headlight",
       "word": "headlight",
       "translation": "前照灯",
-      "x": 1465,
-      "y": 519,
+      "x": 1380,
+      "y": 514,
       "priority": 4.022,
       "minLevel": 3,
       "sourceVisualRegion": "verified-headlight"
@@ -247,8 +247,8 @@
       "id": "litter-bin",
       "word": "litter bin",
       "translation": "垃圾桶",
-      "x": 183,
-      "y": 530,
+      "x": 159,
+      "y": 556,
       "priority": 4.023,
       "minLevel": 3,
       "sourceVisualRegion": "verified-litter-bin"
@@ -257,8 +257,8 @@
       "id": "loudspeaker",
       "word": "loudspeaker",
       "translation": "扬声器",
-      "x": 196,
-      "y": 208,
+      "x": 211,
+      "y": 207,
       "priority": 4.024,
       "minLevel": 3,
       "sourceVisualRegion": "verified-loudspeaker"
@@ -267,8 +267,8 @@
       "id": "canopy-column",
       "word": "canopy column",
       "translation": "雨棚立柱",
-      "x": 55,
-      "y": 420,
+      "x": 105,
+      "y": 366,
       "priority": 4.025,
       "minLevel": 3,
       "sourceVisualRegion": "verified-canopy-column"
@@ -277,8 +277,8 @@
       "id": "windshield",
       "word": "windshield",
       "translation": "前风挡玻璃",
-      "x": 1460,
-      "y": 362,
+      "x": 1433,
+      "y": 361,
       "priority": 5.026,
       "minLevel": 4,
       "sourceVisualRegion": "verified-windshield"
@@ -287,8 +287,8 @@
       "id": "windshield-wiper",
       "word": "windshield wiper",
       "translation": "雨刷器",
-      "x": 1450,
-      "y": 380,
+      "x": 1370,
+      "y": 346,
       "priority": 5.027,
       "minLevel": 4,
       "sourceVisualRegion": "verified-windshield-wiper"
@@ -297,8 +297,8 @@
       "id": "cctv-camera",
       "word": "CCTV camera",
       "translation": "监控摄像头",
-      "x": 238,
-      "y": 120,
+      "x": 249,
+      "y": 147,
       "priority": 5.028,
       "minLevel": 4,
       "sourceVisualRegion": "verified-cctv-camera"
@@ -308,7 +308,7 @@
       "word": "dropper wire",
       "translation": "吊弦",
       "x": 797,
-      "y": 120,
+      "y": 145,
       "priority": 5.029,
       "minLevel": 4,
       "sourceVisualRegion": "verified-dropper-wire"
@@ -317,8 +317,8 @@
       "id": "rail-fastener",
       "word": "rail fastener",
       "translation": "钢轨扣件",
-      "x": 1310,
-      "y": 740,
+      "x": 1128,
+      "y": 792,
       "priority": 5.03,
       "minLevel": 4,
       "sourceVisualRegion": "verified-rail-fastener"
@@ -328,8 +328,8 @@
       "word": "umbrella",
       "translation": "雨伞",
       "lexemeId": "en-2974744982f08b20",
-      "x": 348,
-      "y": 575,
+      "x": 365,
+      "y": 586,
       "priority": 5.031,
       "minLevel": 4,
       "sourceVisualRegion": "verified-umbrella"
@@ -338,8 +338,8 @@
       "id": "clock-face",
       "word": "clock face",
       "translation": "钟面",
-      "x": 83,
-      "y": 190,
+      "x": 130,
+      "y": 216,
       "priority": 6.001,
       "minLevel": 3,
       "sourceVisualRegion": "verified-analog-clock"
@@ -348,28 +348,18 @@
       "id": "clock-hand",
       "word": "clock hand",
       "translation": "时针",
-      "x": 83,
+      "x": 93,
       "y": 190,
       "priority": 6.002,
       "minLevel": 4,
       "sourceVisualRegion": "verified-analog-clock"
     },
     {
-      "id": "loudspeaker-grille",
-      "word": "loudspeaker grille",
-      "translation": "扬声器格栅",
-      "x": 196,
-      "y": 208,
-      "priority": 6.003,
-      "minLevel": 4,
-      "sourceVisualRegion": "verified-loudspeaker"
-    },
-    {
       "id": "camera-lens",
       "word": "camera lens",
       "translation": "摄像头镜头",
-      "x": 238,
-      "y": 120,
+      "x": 249,
+      "y": 158,
       "priority": 6.004,
       "minLevel": 4,
       "sourceVisualRegion": "verified-cctv-camera"
@@ -378,8 +368,8 @@
       "id": "canopy-glass",
       "word": "canopy glass",
       "translation": "雨棚玻璃",
-      "x": 210,
-      "y": 40,
+      "x": 265,
+      "y": 43,
       "priority": 6.005,
       "minLevel": 3,
       "sourceVisualRegion": "verified-canopy"
@@ -388,8 +378,8 @@
       "id": "canopy-beam",
       "word": "canopy beam",
       "translation": "雨棚横梁",
-      "x": 300,
-      "y": 50,
+      "x": 345,
+      "y": 92,
       "priority": 6.006,
       "minLevel": 4,
       "sourceVisualRegion": "verified-canopy"
@@ -398,8 +388,8 @@
       "id": "bench-slat",
       "word": "bench slat",
       "translation": "长凳木条",
-      "x": 130,
-      "y": 630,
+      "x": 184,
+      "y": 648,
       "priority": 6.007,
       "minLevel": 3,
       "sourceVisualRegion": "verified-bench"
@@ -408,8 +398,8 @@
       "id": "bench-leg",
       "word": "bench leg",
       "translation": "长凳支腿",
-      "x": 130,
-      "y": 760,
+      "x": 153,
+      "y": 755,
       "priority": 6.008,
       "minLevel": 4,
       "sourceVisualRegion": "verified-bench"
@@ -418,8 +408,8 @@
       "id": "bin-lid",
       "word": "bin lid",
       "translation": "垃圾桶盖",
-      "x": 183,
-      "y": 470,
+      "x": 158,
+      "y": 498,
       "priority": 6.009,
       "minLevel": 4,
       "sourceVisualRegion": "verified-litter-bin"
@@ -428,8 +418,8 @@
       "id": "suitcase-handle",
       "word": "suitcase handle",
       "translation": "行李箱把手",
-      "x": 329,
-      "y": 575,
+      "x": 327,
+      "y": 609,
       "priority": 6.01,
       "minLevel": 3,
       "sourceVisualRegion": "verified-suitcase"
@@ -438,8 +428,8 @@
       "id": "umbrella-handle",
       "word": "umbrella handle",
       "translation": "雨伞把手",
-      "x": 348,
-      "y": 575,
+      "x": 351,
+      "y": 537,
       "priority": 6.011,
       "minLevel": 4,
       "sourceVisualRegion": "verified-umbrella"
@@ -448,8 +438,8 @@
       "id": "backpack-strap",
       "word": "backpack strap",
       "translation": "背包肩带",
-      "x": 276,
-      "y": 455,
+      "x": 284,
+      "y": 414,
       "priority": 6.012,
       "minLevel": 4,
       "sourceVisualRegion": "verified-backpack"
@@ -458,8 +448,8 @@
       "id": "carriage-window",
       "word": "carriage window",
       "translation": "车厢窗",
-      "x": 750,
-      "y": 418,
+      "x": 574,
+      "y": 438,
       "priority": 6.013,
       "minLevel": 2,
       "sourceVisualRegion": "verified-window"
@@ -468,8 +458,8 @@
       "id": "carriage-roof",
       "word": "carriage roof",
       "translation": "车厢顶部",
-      "x": 1100,
-      "y": 250,
+      "x": 1001,
+      "y": 285,
       "priority": 6.014,
       "minLevel": 3,
       "sourceVisualRegion": "verified-train-carriage"
@@ -478,8 +468,8 @@
       "id": "carriage-side",
       "word": "carriage side",
       "translation": "车厢侧面",
-      "x": 1200,
-      "y": 450,
+      "x": 1196,
+      "y": 490,
       "priority": 6.015,
       "minLevel": 3,
       "sourceVisualRegion": "verified-train-carriage"
@@ -488,8 +478,8 @@
       "id": "door-window",
       "word": "door window",
       "translation": "车门窗",
-      "x": 960,
-      "y": 390,
+      "x": 1002,
+      "y": 411,
       "priority": 6.016,
       "minLevel": 3,
       "sourceVisualRegion": "verified-carriage-door"
@@ -498,18 +488,18 @@
       "id": "door-handle",
       "word": "door handle",
       "translation": "车门把手",
-      "x": 960,
+      "x": 1104,
       "y": 460,
       "priority": 6.017,
       "minLevel": 4,
-      "sourceVisualRegion": "verified-carriage-door"
+      "sourceVisualRegion": "verified-cab-access-door"
     },
     {
       "id": "headlight-lens",
       "word": "headlight lens",
       "translation": "前照灯镜片",
-      "x": 1465,
-      "y": 519,
+      "x": 1549,
+      "y": 512,
       "priority": 6.018,
       "minLevel": 4,
       "sourceVisualRegion": "verified-headlight"
@@ -518,7 +508,7 @@
       "id": "windshield-frame",
       "word": "windshield frame",
       "translation": "前挡框",
-      "x": 1460,
+      "x": 1341,
       "y": 340,
       "priority": 6.019,
       "minLevel": 3,
@@ -528,8 +518,8 @@
       "id": "windshield-glass",
       "word": "windshield glass",
       "translation": "前挡玻璃",
-      "x": 1460,
-      "y": 350,
+      "x": 1428,
+      "y": 398,
       "priority": 6.02,
       "minLevel": 3,
       "sourceVisualRegion": "verified-windshield"
@@ -538,8 +528,8 @@
       "id": "wiper-arm",
       "word": "wiper arm",
       "translation": "雨刷臂",
-      "x": 1450,
-      "y": 380,
+      "x": 1491,
+      "y": 382,
       "priority": 6.021,
       "minLevel": 4,
       "sourceVisualRegion": "verified-windshield-wiper"
@@ -548,8 +538,8 @@
       "id": "wheel-rim",
       "word": "wheel rim",
       "translation": "车轮轮辋",
-      "x": 1044,
-      "y": 580,
+      "x": 960,
+      "y": 615,
       "priority": 6.022,
       "minLevel": 4,
       "sourceVisualRegion": "verified-wheel"
@@ -558,8 +548,8 @@
       "id": "bogie-frame",
       "word": "bogie frame",
       "translation": "转向架框架",
-      "x": 1020,
-      "y": 600,
+      "x": 1011,
+      "y": 612,
       "priority": 6.023,
       "minLevel": 4,
       "sourceVisualRegion": "verified-bogie"
@@ -568,28 +558,18 @@
       "id": "coupling",
       "word": "coupling",
       "translation": "车钩",
-      "x": 1550,
-      "y": 550,
+      "x": 1490,
+      "y": 584,
       "priority": 6.024,
       "minLevel": 3,
-      "sourceVisualRegion": "verified-train-carriage"
-    },
-    {
-      "id": "rail-joint",
-      "word": "rail joint",
-      "translation": "钢轨接头",
-      "x": 1115,
-      "y": 755,
-      "priority": 6.025,
-      "minLevel": 3,
-      "sourceVisualRegion": "verified-rail"
+      "sourceVisualRegion": "verified-coupler"
     },
     {
       "id": "rail-head",
       "word": "rail head",
       "translation": "钢轨轨头",
-      "x": 1115,
-      "y": 730,
+      "x": 1342,
+      "y": 843,
       "priority": 6.026,
       "minLevel": 4,
       "sourceVisualRegion": "verified-rail"
@@ -598,8 +578,8 @@
       "id": "sleeper-edge",
       "word": "sleeper edge",
       "translation": "轨枕边缘",
-      "x": 790,
-      "y": 720,
+      "x": 1040,
+      "y": 824,
       "priority": 6.027,
       "minLevel": 4,
       "sourceVisualRegion": "verified-sleeper"
@@ -608,8 +588,8 @@
       "id": "ballast-stone",
       "word": "ballast stone",
       "translation": "道砟石",
-      "x": 1015,
-      "y": 700,
+      "x": 1356,
+      "y": 822,
       "priority": 6.028,
       "minLevel": 4,
       "sourceVisualRegion": "verified-ballast"
@@ -618,8 +598,8 @@
       "id": "fastener-clip",
       "word": "fastener clip",
       "translation": "扣件夹",
-      "x": 1310,
-      "y": 740,
+      "x": 1206,
+      "y": 825,
       "priority": 6.029,
       "minLevel": 4,
       "sourceVisualRegion": "verified-rail-fastener"
@@ -628,38 +608,28 @@
       "id": "platform-slab",
       "word": "platform slab",
       "translation": "站台板",
-      "x": 600,
-      "y": 820,
+      "x": 633,
+      "y": 690,
       "priority": 6.03,
       "minLevel": 3,
-      "sourceVisualRegion": "verified-tactile-paving"
+      "sourceVisualRegion": "verified-platform-pavement"
     },
     {
       "id": "tactile-strip",
       "word": "tactile strip",
       "translation": "触觉条带",
-      "x": 590,
-      "y": 720,
+      "x": 600,
+      "y": 736,
       "priority": 6.031,
       "minLevel": 3,
       "sourceVisualRegion": "verified-tactile-paving"
     },
     {
-      "id": "warning-strip",
-      "word": "warning strip",
-      "translation": "警戒条带",
-      "x": 550,
-      "y": 660,
-      "priority": 6.032,
-      "minLevel": 4,
-      "sourceVisualRegion": "verified-warning-line"
-    },
-    {
       "id": "pantograph-arm",
       "word": "pantograph arm",
       "translation": "受电弓臂",
-      "x": 1050,
-      "y": 130,
+      "x": 1063,
+      "y": 225,
       "priority": 6.033,
       "minLevel": 3,
       "sourceVisualRegion": "verified-pantograph"
@@ -668,58 +638,38 @@
       "id": "pantograph-contact",
       "word": "pantograph contact",
       "translation": "受电弓触条",
-      "x": 1050,
-      "y": 150,
+      "x": 1024,
+      "y": 111,
       "priority": 6.034,
       "minLevel": 4,
       "sourceVisualRegion": "verified-pantograph"
     },
     {
-      "id": "mast-insulator",
-      "word": "mast insulator",
-      "translation": "支柱绝缘子",
-      "x": 663,
-      "y": 233,
-      "priority": 6.035,
-      "minLevel": 4,
-      "sourceVisualRegion": "verified-support-mast"
-    },
-    {
       "id": "catenary-support",
       "word": "catenary support",
       "translation": "接触网支撑",
-      "x": 1040,
-      "y": 50,
+      "x": 550,
+      "y": 302,
       "priority": 6.036,
       "minLevel": 3,
-      "sourceVisualRegion": "verified-catenary-wire"
+      "sourceVisualRegion": "verified-catenary-cantilever"
     },
     {
       "id": "dropper-hook",
       "word": "dropper hook",
       "translation": "吊弦挂钩",
-      "x": 797,
-      "y": 120,
+      "x": 798,
+      "y": 187,
       "priority": 6.037,
       "minLevel": 4,
       "sourceVisualRegion": "verified-dropper-wire"
     },
     {
-      "id": "canopy-column-base",
-      "word": "canopy column base",
-      "translation": "雨棚柱基座",
-      "x": 55,
-      "y": 800,
-      "priority": 6.038,
-      "minLevel": 4,
-      "sourceVisualRegion": "verified-canopy-column"
-    },
-    {
       "id": "train-door-seal",
       "word": "train door seal",
       "translation": "车门密封条",
-      "x": 1030,
-      "y": 550,
+      "x": 925,
+      "y": 493,
       "priority": 6.039,
       "minLevel": 4,
       "sourceVisualRegion": "verified-carriage-door"
@@ -728,18 +678,18 @@
       "id": "platform-tile",
       "word": "platform tile",
       "translation": "站台铺砖",
-      "x": 470,
-      "y": 820,
+      "x": 479,
+      "y": 814,
       "priority": 7.001,
       "minLevel": 2,
-      "sourceVisualRegion": "verified-tactile-paving"
+      "sourceVisualRegion": "verified-platform-pavement"
     },
     {
       "id": "platform-coping",
       "word": "platform coping",
       "translation": "站台缘石",
-      "x": 610,
-      "y": 665,
+      "x": 889,
+      "y": 782,
       "priority": 7.002,
       "minLevel": 3,
       "sourceVisualRegion": "verified-platform-edge"
@@ -748,8 +698,8 @@
       "id": "tactile-stud",
       "word": "tactile stud",
       "translation": "触觉凸点",
-      "x": 610,
-      "y": 720,
+      "x": 778,
+      "y": 869,
       "priority": 7.003,
       "minLevel": 4,
       "sourceVisualRegion": "verified-tactile-paving"
@@ -758,8 +708,8 @@
       "id": "clock-housing",
       "word": "clock housing",
       "translation": "时钟外壳",
-      "x": 83,
-      "y": 145,
+      "x": 116,
+      "y": 146,
       "priority": 7.004,
       "minLevel": 3,
       "sourceVisualRegion": "verified-analog-clock"
@@ -768,8 +718,8 @@
       "id": "clock-mount",
       "word": "clock mount",
       "translation": "时钟支架",
-      "x": 130,
-      "y": 190,
+      "x": 54,
+      "y": 197,
       "priority": 7.005,
       "minLevel": 4,
       "sourceVisualRegion": "verified-analog-clock"
@@ -778,8 +728,8 @@
       "id": "bench-backrest",
       "word": "bench backrest",
       "translation": "长椅靠背",
-      "x": 130,
-      "y": 590,
+      "x": 94,
+      "y": 614,
       "priority": 7.006,
       "minLevel": 3,
       "sourceVisualRegion": "verified-bench"
@@ -788,8 +738,8 @@
       "id": "bench-seat",
       "word": "bench seat",
       "translation": "长椅座面",
-      "x": 130,
-      "y": 690,
+      "x": 162,
+      "y": 638,
       "priority": 7.007,
       "minLevel": 3,
       "sourceVisualRegion": "verified-bench"
@@ -798,8 +748,8 @@
       "id": "suitcase-wheel",
       "word": "suitcase wheel",
       "translation": "行李箱轮",
-      "x": 329,
-      "y": 700,
+      "x": 330,
+      "y": 706,
       "priority": 7.008,
       "minLevel": 4,
       "sourceVisualRegion": "verified-suitcase"
@@ -808,7 +758,7 @@
       "id": "umbrella-tip",
       "word": "umbrella tip",
       "translation": "雨伞尖端",
-      "x": 348,
+      "x": 377,
       "y": 640,
       "priority": 7.009,
       "minLevel": 4,
@@ -818,8 +768,8 @@
       "id": "jacket-sleeve",
       "word": "jacket sleeve",
       "translation": "夹克袖子",
-      "x": 285,
-      "y": 430,
+      "x": 317,
+      "y": 456,
       "priority": 7.01,
       "minLevel": 3,
       "sourceVisualRegion": "verified-commuter"
@@ -828,8 +778,8 @@
       "id": "speaker-bracket",
       "word": "speaker bracket",
       "translation": "扬声器支架",
-      "x": 180,
-      "y": 208,
+      "x": 191,
+      "y": 199,
       "priority": 7.011,
       "minLevel": 4,
       "sourceVisualRegion": "verified-loudspeaker"
@@ -838,18 +788,18 @@
       "id": "roof-vent",
       "word": "roof vent",
       "translation": "车顶通风口",
-      "x": 1110,
-      "y": 250,
+      "x": 948,
+      "y": 279,
       "priority": 7.012,
       "minLevel": 3,
-      "sourceVisualRegion": "verified-train-carriage"
+      "sourceVisualRegion": "verified-roof-vent"
     },
     {
       "id": "window-frame",
       "word": "window frame",
       "translation": "车窗框",
-      "x": 750,
-      "y": 418,
+      "x": 844,
+      "y": 431,
       "priority": 7.013,
       "minLevel": 3,
       "sourceVisualRegion": "verified-window"
@@ -858,8 +808,8 @@
       "id": "door-threshold",
       "word": "door threshold",
       "translation": "车门门槛",
-      "x": 960,
-      "y": 550,
+      "x": 958,
+      "y": 555,
       "priority": 7.014,
       "minLevel": 4,
       "sourceVisualRegion": "verified-carriage-door"
@@ -868,7 +818,7 @@
       "id": "door-step",
       "word": "door step",
       "translation": "车门踏板",
-      "x": 960,
+      "x": 950,
       "y": 580,
       "priority": 7.015,
       "minLevel": 4,
@@ -878,8 +828,8 @@
       "id": "headlight-bezel",
       "word": "headlight bezel",
       "translation": "前照灯饰圈",
-      "x": 1465,
-      "y": 500,
+      "x": 1408,
+      "y": 525,
       "priority": 7.016,
       "minLevel": 4,
       "sourceVisualRegion": "verified-headlight"
@@ -888,88 +838,38 @@
       "id": "coupler-head",
       "word": "coupler head",
       "translation": "车钩钩头",
-      "x": 1550,
-      "y": 550,
+      "x": 1527,
+      "y": 600,
       "priority": 7.017,
       "minLevel": 4,
-      "sourceVisualRegion": "verified-train-carriage"
-    },
-    {
-      "id": "buffer",
-      "word": "buffer",
-      "translation": "缓冲器",
-      "x": 1510,
-      "y": 560,
-      "priority": 7.018,
-      "minLevel": 4,
-      "sourceVisualRegion": "verified-train-carriage"
-    },
-    {
-      "id": "wheel-hub",
-      "word": "wheel hub",
-      "translation": "车轮轮毂",
-      "x": 1044,
-      "y": 580,
-      "priority": 7.019,
-      "minLevel": 4,
-      "sourceVisualRegion": "verified-wheel"
-    },
-    {
-      "id": "bogie-suspension",
-      "word": "bogie suspension",
-      "translation": "转向架悬挂",
-      "x": 1020,
-      "y": 625,
-      "priority": 7.02,
-      "minLevel": 4,
-      "sourceVisualRegion": "verified-bogie"
+      "sourceVisualRegion": "verified-coupler"
     },
     {
       "id": "rail-baseplate",
       "word": "rail baseplate",
       "translation": "钢轨底板",
-      "x": 1310,
-      "y": 760,
+      "x": 1288,
+      "y": 865,
       "priority": 7.021,
       "minLevel": 4,
       "sourceVisualRegion": "verified-rail-fastener"
     },
     {
-      "id": "sleeper-shoulder",
-      "word": "sleeper shoulder",
-      "translation": "轨枕肩部",
-      "x": 790,
-      "y": 760,
-      "priority": 7.022,
-      "minLevel": 4,
-      "sourceVisualRegion": "verified-sleeper"
-    },
-    {
-      "id": "ballast-shoulder",
-      "word": "ballast shoulder",
-      "translation": "道砟肩",
-      "x": 1015,
-      "y": 760,
-      "priority": 7.023,
-      "minLevel": 4,
-      "sourceVisualRegion": "verified-ballast"
-    },
-    {
       "id": "mast-crossarm",
       "word": "mast crossarm",
       "translation": "支柱横臂",
-      "x": 663,
-      "y": 190,
+      "x": 540,
+      "y": 268,
       "priority": 7.024,
       "minLevel": 3,
-      "sourceVisualRegion": "verified-support-mast"
+      "sourceVisualRegion": "verified-catenary-cantilever"
     },
     {
       "id": "pantograph-hinge",
       "word": "pantograph hinge",
       "translation": "受电弓铰链",
-      "x": 1050,
-      "y": 185,
+      "x": 1111,
+      "y": 175,
       "priority": 7.025,
       "minLevel": 4,
       "sourceVisualRegion": "verified-pantograph"
@@ -978,330 +878,154 @@
       "id": "rail-web-pro-1",
       "word": "rail web",
       "translation": "钢轨腹板",
-      "x": 454.17,
-      "y": 603,
+      "x": 1347,
+      "y": 866,
       "priority": 7.026,
       "minLevel": 2,
-      "sourceVisualRegion": "verified-track",
+      "sourceVisualRegion": "verified-rail",
       "semanticRealmId": "objects-technology"
     },
     {
       "id": "rail-foot-pro-1",
       "word": "rail foot",
       "translation": "钢轨底座",
-      "x": 662.5,
-      "y": 603,
+      "x": 1353,
+      "y": 883,
       "priority": 7.027,
       "minLevel": 2,
-      "sourceVisualRegion": "verified-track",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "fishplate-pro-1",
-      "word": "fishplate",
-      "translation": "鱼尾板",
-      "x": 870.83,
-      "y": 603,
-      "priority": 7.028,
-      "minLevel": 2,
-      "sourceVisualRegion": "verified-track",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "fishplate-bolt-pro-1",
-      "word": "fishplate bolt",
-      "translation": "鱼尾板螺栓",
-      "x": 1079.17,
-      "y": 603,
-      "priority": 7.029,
-      "minLevel": 2,
-      "sourceVisualRegion": "verified-track",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "sleeper-pad-pro-1",
-      "word": "sleeper pad",
-      "translation": "轨枕垫",
-      "x": 1287.5,
-      "y": 603,
-      "priority": 7.03,
-      "minLevel": 2,
-      "sourceVisualRegion": "verified-track",
+      "sourceVisualRegion": "verified-rail",
       "semanticRealmId": "objects-technology"
     },
     {
       "id": "sleeper-end-pro-1",
       "word": "sleeper end",
       "translation": "轨枕端面",
-      "x": 1495.83,
-      "y": 603,
+      "x": 1526,
+      "y": 796,
       "priority": 7.031,
       "minLevel": 2,
-      "sourceVisualRegion": "verified-track",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "ballast-pocket-pro-1",
-      "word": "ballast pocket",
-      "translation": "道砟凹槽",
-      "x": 454.17,
-      "y": 669,
-      "priority": 7.032,
-      "minLevel": 2,
-      "sourceVisualRegion": "verified-track",
+      "sourceVisualRegion": "verified-sleeper",
       "semanticRealmId": "objects-technology"
     },
     {
       "id": "rail-clip-pro-1",
       "word": "rail clip",
       "translation": "钢轨夹",
-      "x": 662.5,
-      "y": 669,
+      "x": 1296,
+      "y": 860,
       "priority": 7.033,
       "minLevel": 2,
-      "sourceVisualRegion": "verified-track",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "clip-bolt-pro-1",
-      "word": "clip bolt",
-      "translation": "扣件螺栓",
-      "x": 870.83,
-      "y": 669,
-      "priority": 7.034,
-      "minLevel": 2,
-      "sourceVisualRegion": "verified-track",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "baseplate-pro-1",
-      "word": "baseplate",
-      "translation": "轨道底板",
-      "x": 1079.17,
-      "y": 669,
-      "priority": 7.035,
-      "minLevel": 2,
-      "sourceVisualRegion": "verified-track",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "baseplate-bolt-pro-1",
-      "word": "baseplate bolt",
-      "translation": "底板螺栓",
-      "x": 1287.5,
-      "y": 669,
-      "priority": 7.036,
-      "minLevel": 3,
-      "sourceVisualRegion": "verified-track",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "tie-plate-pro-1",
-      "word": "tie plate",
-      "translation": "垫板",
-      "x": 1495.83,
-      "y": 669,
-      "priority": 7.037,
-      "minLevel": 3,
-      "sourceVisualRegion": "verified-track",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "rail-splice-pro-1",
-      "word": "rail splice",
-      "translation": "钢轨接缝",
-      "x": 454.17,
-      "y": 735,
-      "priority": 7.038,
-      "minLevel": 3,
-      "sourceVisualRegion": "verified-track",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "rail-weld-pro-1",
-      "word": "rail weld",
-      "translation": "钢轨焊缝",
-      "x": 662.5,
-      "y": 735,
-      "priority": 7.039,
-      "minLevel": 3,
-      "sourceVisualRegion": "verified-track",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "rail-anchor-pro-1",
-      "word": "rail anchor",
-      "translation": "钢轨锚固件",
-      "x": 870.83,
-      "y": 735,
-      "priority": 7.04,
-      "minLevel": 3,
-      "sourceVisualRegion": "verified-track",
+      "sourceVisualRegion": "verified-rail-fastener",
       "semanticRealmId": "objects-technology"
     },
     {
       "id": "track-fastener-pro-1",
       "word": "track fastener",
       "translation": "轨道扣件",
-      "x": 1079.17,
-      "y": 735,
+      "x": 1063,
+      "y": 768,
       "priority": 7.041,
       "minLevel": 3,
-      "sourceVisualRegion": "verified-track",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "track-bolt-pro-1",
-      "word": "track bolt",
-      "translation": "轨道螺栓",
-      "x": 1287.5,
-      "y": 735,
-      "priority": 7.042,
-      "minLevel": 3,
-      "sourceVisualRegion": "verified-track",
+      "sourceVisualRegion": "verified-rail-fastener",
       "semanticRealmId": "objects-technology"
     },
     {
       "id": "sleeper-corner-pro-1",
       "word": "sleeper corner",
       "translation": "轨枕角",
-      "x": 1495.83,
-      "y": 735,
+      "x": 1425,
+      "y": 769,
       "priority": 7.043,
       "minLevel": 3,
-      "sourceVisualRegion": "verified-track",
+      "sourceVisualRegion": "verified-sleeper",
       "semanticRealmId": "objects-technology"
     },
     {
       "id": "ballast-pebble-pro-1",
       "word": "ballast pebble",
       "translation": "道砟小石",
-      "x": 454.17,
-      "y": 801,
+      "x": 1395,
+      "y": 824,
       "priority": 7.044,
       "minLevel": 3,
-      "sourceVisualRegion": "verified-track",
+      "sourceVisualRegion": "verified-ballast",
       "semanticRealmId": "objects-technology"
     },
     {
       "id": "ballast-edge-pro-1",
       "word": "ballast edge",
       "translation": "道砟边",
-      "x": 662.5,
-      "y": 801,
+      "x": 951,
+      "y": 804,
       "priority": 7.045,
       "minLevel": 3,
-      "sourceVisualRegion": "verified-track",
+      "sourceVisualRegion": "verified-ballast",
       "semanticRealmId": "objects-technology"
     },
     {
       "id": "platform-joint-pro-1",
       "word": "platform joint",
       "translation": "站台接缝",
-      "x": 870.83,
-      "y": 801,
+      "x": 945,
+      "y": 820,
       "priority": 7.046,
       "minLevel": 4,
-      "sourceVisualRegion": "verified-track",
+      "sourceVisualRegion": "verified-platform-edge",
       "semanticRealmId": "objects-technology"
     },
     {
       "id": "edge-stone-pro-1",
       "word": "edge stone",
       "translation": "边缘石",
-      "x": 1079.17,
-      "y": 801,
+      "x": 1012,
+      "y": 857,
       "priority": 7.047,
       "minLevel": 4,
-      "sourceVisualRegion": "verified-track",
+      "sourceVisualRegion": "verified-platform-edge",
       "semanticRealmId": "objects-technology"
     },
     {
       "id": "tactile-tile-pro-1",
       "word": "tactile tile",
       "translation": "盲道砖",
-      "x": 1287.5,
-      "y": 801,
-      "priority": 7.048,
-      "minLevel": 4,
-      "sourceVisualRegion": "verified-track",
+      "x": 743,
+      "y": 839,
+      "priority": 1.0005,
+      "minLevel": 0,
+      "sourceVisualRegion": "verified-tactile-paving",
       "semanticRealmId": "objects-technology"
     },
     {
       "id": "warning-dot-pro-1",
       "word": "warning dot",
       "translation": "警示点",
-      "x": 1495.83,
-      "y": 801,
+      "x": 840,
+      "y": 884,
       "priority": 7.049,
       "minLevel": 4,
-      "sourceVisualRegion": "verified-track",
+      "sourceVisualRegion": "verified-tactile-paving",
       "semanticRealmId": "objects-technology"
     },
     {
       "id": "platform-seam-pro-1",
       "word": "platform seam",
       "translation": "站台缝",
-      "x": 454.17,
-      "y": 867,
+      "x": 850,
+      "y": 834,
       "priority": 7.05,
       "minLevel": 4,
-      "sourceVisualRegion": "verified-track",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "rail-shadow-pro-1",
-      "word": "rail shadow",
-      "translation": "钢轨阴影",
-      "x": 662.5,
-      "y": 867,
-      "priority": 7.051,
-      "minLevel": 4,
-      "sourceVisualRegion": "verified-track",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "sleeper-grain-pro-1",
-      "word": "sleeper grain",
-      "translation": "轨枕木纹",
-      "x": 870.83,
-      "y": 867,
-      "priority": 7.052,
-      "minLevel": 4,
-      "sourceVisualRegion": "verified-track",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "ballast-gap-pro-1",
-      "word": "ballast gap",
-      "translation": "道砟间隙",
-      "x": 1079.17,
-      "y": 867,
-      "priority": 7.053,
-      "minLevel": 4,
-      "sourceVisualRegion": "verified-track",
+      "sourceVisualRegion": "verified-platform-pavement",
       "semanticRealmId": "objects-technology"
     },
     {
       "id": "rail-side-pro-1",
       "word": "rail side",
       "translation": "钢轨侧面",
-      "x": 1287.5,
-      "y": 867,
+      "x": 1498,
+      "y": 762,
       "priority": 7.054,
       "minLevel": 4,
-      "sourceVisualRegion": "verified-track",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "fastener-washer-pro-1",
-      "word": "fastener washer",
-      "translation": "扣件垫圈",
-      "x": 1495.83,
-      "y": 867,
-      "priority": 7.055,
-      "minLevel": 4,
-      "sourceVisualRegion": "verified-track",
+      "sourceVisualRegion": "verified-rail",
       "semanticRealmId": "objects-technology"
     }
   ],
@@ -1320,21 +1044,25 @@
     }
   ],
   "anchorAudit": {
-    "status": "human-verified",
+    "status": "image-reviewed",
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/railway-platform-premium-v2.jpg",
     "reviewedAssetSha256": "85250ba12bfa202f5f9d43b690d44d32118647620f0fe1c39ce3830baa682fb0",
-    "rationale": "Re-anchored all retained terms against the final bright platform pixels, separating passenger fixtures, train parts, overhead electrification and track hardware. The expanded set names readable structural subparts without restoring bicycles, signage or invisible service claims; the complete stopped leading carriage remains the train-carriage portal. The professional vocabulary pass adds 30 additional region-grounded nouns across the reviewed facilities, equipment, diagnostic, disease, medicine or building-system crops.",
+    "rationale": "The bright platform photograph separates the yellow tactile tiles and warning line from the grey stone ballast and running rails. Visible rail-head, web, foot, clips and concrete sleepers have distinct points. The horn speaker, train doors, headlights and articulated current collector were checked against their photographed parts. Welding, hidden fasteners and wood grain remain in the index. Human confirmation of the revised points is pending.",
     "previousLabelCount": 142,
-    "retainedLabelCount": 126,
-    "removedLabelCount": 16,
+    "retainedLabelCount": 100,
+    "removedLabelCount": 42,
     "removedExamples": [
       "bicycle",
       "drainage channel",
       "station sign",
       "delay",
       "destination",
-      "ticket validity"
+      "ticket validity",
+      "fishplate",
+      "rail weld",
+      "sleeper grain",
+      "loudspeaker grille"
     ]
   },
   "detailZones": [
@@ -1363,7 +1091,6 @@
         "umbrella",
         "clock-face",
         "clock-hand",
-        "loudspeaker-grille",
         "camera-lens",
         "canopy-glass",
         "canopy-beam",
@@ -1373,7 +1100,6 @@
         "suitcase-handle",
         "umbrella-handle",
         "backpack-strap",
-        "canopy-column-base",
         "platform-tile",
         "clock-housing",
         "clock-mount",
@@ -1422,10 +1148,7 @@
         "door-threshold",
         "door-step",
         "headlight-bezel",
-        "coupler-head",
-        "buffer",
-        "wheel-hub",
-        "bogie-suspension"
+        "coupler-head"
       ]
     },
     {
@@ -1445,7 +1168,6 @@
         "dropper-wire",
         "pantograph-arm",
         "pantograph-contact",
-        "mast-insulator",
         "catenary-support",
         "dropper-hook",
         "mast-crossarm",
@@ -1471,36 +1193,20 @@
         "platform-edge",
         "tactile-paving",
         "warning-line",
-        "rail-joint",
         "rail-head",
         "sleeper-edge",
         "ballast-stone",
         "fastener-clip",
         "platform-slab",
         "tactile-strip",
-        "warning-strip",
         "platform-coping",
         "tactile-stud",
         "rail-baseplate",
-        "sleeper-shoulder",
-        "ballast-shoulder",
         "rail-web-pro-1",
         "rail-foot-pro-1",
-        "fishplate-pro-1",
-        "fishplate-bolt-pro-1",
-        "sleeper-pad-pro-1",
         "sleeper-end-pro-1",
-        "ballast-pocket-pro-1",
         "rail-clip-pro-1",
-        "clip-bolt-pro-1",
-        "baseplate-pro-1",
-        "baseplate-bolt-pro-1",
-        "tie-plate-pro-1",
-        "rail-splice-pro-1",
-        "rail-weld-pro-1",
-        "rail-anchor-pro-1",
         "track-fastener-pro-1",
-        "track-bolt-pro-1",
         "sleeper-corner-pro-1",
         "ballast-pebble-pro-1",
         "ballast-edge-pro-1",
@@ -1509,11 +1215,7 @@
         "tactile-tile-pro-1",
         "warning-dot-pro-1",
         "platform-seam-pro-1",
-        "rail-shadow-pro-1",
-        "sleeper-grain-pro-1",
-        "ballast-gap-pro-1",
-        "rail-side-pro-1",
-        "fastener-washer-pro-1"
+        "rail-side-pro-1"
       ]
     }
   ],
@@ -1574,12 +1276,12 @@
     },
     {
       "id": "verified-platform-edge",
-      "description": "Raised platform edge beside the running rail",
+      "description": "Pale coping stones along the outer edge of the platform paving",
       "kind": "part",
-      "x": 300,
-      "y": 555,
-      "width": 920,
-      "height": 210
+      "x": 317,
+      "y": 477,
+      "width": 853,
+      "height": 423
     },
     {
       "id": "verified-window",
@@ -1592,12 +1294,12 @@
     },
     {
       "id": "verified-rail",
-      "description": "Shiny steel foreground running rail",
+      "description": "Running rails with the reflective head, recessed web and lower flange",
       "kind": "part",
-      "x": 600,
-      "y": 650,
-      "width": 1000,
-      "height": 210
+      "x": 590,
+      "y": 550,
+      "width": 1010,
+      "height": 350
     },
     {
       "id": "verified-tactile-paving",
@@ -1673,12 +1375,12 @@
     },
     {
       "id": "verified-analog-clock",
-      "description": "Large round analog platform clock",
+      "description": "Round clock face, dark rim and its attachment to the separate black post",
       "kind": "object",
-      "x": 30,
-      "y": 130,
-      "width": 115,
-      "height": 125
+      "x": 35,
+      "y": 137,
+      "width": 139,
+      "height": 118
     },
     {
       "id": "verified-support-mast",
@@ -1691,12 +1393,12 @@
     },
     {
       "id": "verified-catenary-wire",
-      "description": "Upper suspended catenary wire above the train",
+      "description": "Overhead contact and suspension wires above the train",
       "kind": "part",
-      "x": 430,
+      "x": 431,
       "y": 0,
-      "width": 1100,
-      "height": 130
+      "width": 920,
+      "height": 325
     },
     {
       "id": "verified-backpack",
@@ -1709,12 +1411,12 @@
     },
     {
       "id": "verified-wheel",
-      "description": "Exposed steel train wheel below the carriage",
+      "description": "Exposed steel wheels beneath the forward carriage",
       "kind": "part",
-      "x": 980,
-      "y": 525,
-      "width": 130,
-      "height": 105
+      "x": 925,
+      "y": 563,
+      "width": 220,
+      "height": 95
     },
     {
       "id": "verified-bogie",
@@ -1727,12 +1429,12 @@
     },
     {
       "id": "verified-headlight",
-      "description": "Round illuminated headlight on the train nose",
+      "description": "Two dark lamp housings in the yellow nose and their separate lenses",
       "kind": "part",
-      "x": 1400,
-      "y": 475,
-      "width": 130,
-      "height": 100
+      "x": 1324,
+      "y": 488,
+      "width": 238,
+      "height": 53
     },
     {
       "id": "verified-litter-bin",
@@ -1754,30 +1456,30 @@
     },
     {
       "id": "verified-canopy-column",
-      "description": "Dark steel canopy column along the left edge",
+      "description": "Broad grey roof support behind the clock and platform furniture",
       "kind": "part",
-      "x": 20,
-      "y": 90,
-      "width": 95,
-      "height": 810
+      "x": 70,
+      "y": 0,
+      "width": 92,
+      "height": 675
     },
     {
       "id": "verified-windshield",
-      "description": "Large dark windshield on the rounded train nose",
+      "description": "Blue-tinted cab windshield and the dark frame against the yellow nose",
       "kind": "part",
-      "x": 1360,
-      "y": 255,
-      "width": 210,
-      "height": 230
+      "x": 1315,
+      "y": 252,
+      "width": 232,
+      "height": 235
     },
     {
       "id": "verified-windshield-wiper",
-      "description": "Black wiper arms mounted across the windshield",
+      "description": "Both black wiper assemblies on the cab windshield",
       "kind": "part",
-      "x": 1380,
-      "y": 300,
-      "width": 155,
-      "height": 150
+      "x": 1353,
+      "y": 316,
+      "width": 178,
+      "height": 151
     },
     {
       "id": "verified-cctv-camera",
@@ -1799,12 +1501,12 @@
     },
     {
       "id": "verified-rail-fastener",
-      "description": "Dark rail clips fixed to a foreground sleeper",
+      "description": "Repeated steel clips and their visible mounting plates on the foreground sleepers",
       "kind": "part",
-      "x": 1240,
-      "y": 690,
-      "width": 170,
-      "height": 120
+      "x": 966,
+      "y": 725,
+      "width": 377,
+      "height": 158
     },
     {
       "id": "verified-umbrella",
@@ -1814,6 +1516,183 @@
       "y": 500,
       "width": 70,
       "height": 150
+    },
+    {
+      "id": "verified-platform-pavement",
+      "description": "Grey platform paving and individual joints alongside the tactile bands",
+      "kind": "part",
+      "x": 184,
+      "y": 510,
+      "width": 968,
+      "height": 390
+    },
+    {
+      "id": "verified-coupler",
+      "description": "Exposed front coupler assembly and its protruding metal head",
+      "kind": "part",
+      "x": 1404,
+      "y": 538,
+      "width": 195,
+      "height": 123
+    },
+    {
+      "id": "verified-cab-access-door",
+      "description": "Narrow closed cab access door with an external vertical handle",
+      "kind": "part",
+      "x": 1093,
+      "y": 306,
+      "width": 93,
+      "height": 264
+    },
+    {
+      "id": "verified-roof-vent",
+      "description": "Slatted ventilation housing on the carriage roof beside the pantograph",
+      "kind": "part",
+      "x": 933,
+      "y": 263,
+      "width": 52,
+      "height": 34
+    },
+    {
+      "id": "verified-catenary-cantilever",
+      "description": "Horizontal mast crossarm and diagonal brace over the track",
+      "kind": "part",
+      "x": 445,
+      "y": 250,
+      "width": 237,
+      "height": 103
+    }
+  ],
+  "relatedWords": [
+    {
+      "id": "loudspeaker-grille",
+      "word": "loudspeaker grille",
+      "translation": "扬声器格栅"
+    },
+    {
+      "id": "rail-joint",
+      "word": "rail joint",
+      "translation": "钢轨接头"
+    },
+    {
+      "id": "warning-strip",
+      "word": "warning strip",
+      "translation": "警戒条带"
+    },
+    {
+      "id": "mast-insulator",
+      "word": "mast insulator",
+      "translation": "支柱绝缘子"
+    },
+    {
+      "id": "canopy-column-base",
+      "word": "canopy column base",
+      "translation": "雨棚柱基座"
+    },
+    {
+      "id": "buffer",
+      "word": "buffer",
+      "translation": "缓冲器"
+    },
+    {
+      "id": "wheel-hub",
+      "word": "wheel hub",
+      "translation": "车轮轮毂"
+    },
+    {
+      "id": "bogie-suspension",
+      "word": "bogie suspension",
+      "translation": "转向架悬挂"
+    },
+    {
+      "id": "sleeper-shoulder",
+      "word": "sleeper shoulder",
+      "translation": "轨枕肩部"
+    },
+    {
+      "id": "ballast-shoulder",
+      "word": "ballast shoulder",
+      "translation": "道砟肩"
+    },
+    {
+      "id": "fishplate-pro-1",
+      "word": "fishplate",
+      "translation": "鱼尾板"
+    },
+    {
+      "id": "fishplate-bolt-pro-1",
+      "word": "fishplate bolt",
+      "translation": "鱼尾板螺栓"
+    },
+    {
+      "id": "sleeper-pad-pro-1",
+      "word": "sleeper pad",
+      "translation": "轨枕垫"
+    },
+    {
+      "id": "ballast-pocket-pro-1",
+      "word": "ballast pocket",
+      "translation": "道砟凹槽"
+    },
+    {
+      "id": "clip-bolt-pro-1",
+      "word": "clip bolt",
+      "translation": "扣件螺栓"
+    },
+    {
+      "id": "baseplate-pro-1",
+      "word": "baseplate",
+      "translation": "轨道底板"
+    },
+    {
+      "id": "baseplate-bolt-pro-1",
+      "word": "baseplate bolt",
+      "translation": "底板螺栓"
+    },
+    {
+      "id": "tie-plate-pro-1",
+      "word": "tie plate",
+      "translation": "垫板"
+    },
+    {
+      "id": "rail-splice-pro-1",
+      "word": "rail splice",
+      "translation": "钢轨接缝"
+    },
+    {
+      "id": "rail-weld-pro-1",
+      "word": "rail weld",
+      "translation": "钢轨焊缝"
+    },
+    {
+      "id": "rail-anchor-pro-1",
+      "word": "rail anchor",
+      "translation": "钢轨锚固件"
+    },
+    {
+      "id": "track-bolt-pro-1",
+      "word": "track bolt",
+      "translation": "轨道螺栓"
+    },
+    {
+      "id": "rail-shadow-pro-1",
+      "word": "rail shadow",
+      "translation": "钢轨阴影"
+    },
+    {
+      "id": "sleeper-grain-pro-1",
+      "word": "sleeper grain",
+      "translation": "轨枕木纹"
+    },
+    {
+      "id": "ballast-gap-pro-1",
+      "word": "ballast gap",
+      "translation": "道砟间隙"
+    },
+    {
+      "id": "fastener-washer-pro-1",
+      "word": "fastener washer",
+      "translation": "扣件垫圈"
     }
   ]
 }
