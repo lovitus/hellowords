@@ -22,7 +22,7 @@ claim_photo = "/scenes/baggage-claim-premium-v1.jpg"
 desk_photo = "/scenes/baggage-service-desk-premium-v1.jpg"
 table_photo = "/scenes/suitcase-packing-table-premium-v1.jpg"
 word_photos = (
-    ("desk bell", 2, "e6960ee5da74727d72647a1483f2ccc58794a636778c82ba316b7df30c987f13"),
+    ("desk bell", 1, "e6960ee5da74727d72647a1483f2ccc58794a636778c82ba316b7df30c987f13"),
     ("T-shirt", 1, "bb673805d31f21009b73821a8ecb78cab84b5982fe2f7d0b4665c9b0171d4f38"),
     ("baggage services desk", 1, "867f17349b32d7c2802e2710a9b765117e50480301c30e0dea5ee7a4f10457c0"),
 )
@@ -103,6 +103,8 @@ for suite in report["suites"]:
                 accepted = accepted and all(dot["dotExposed"] for dot in dots)
                 accepted = accepted and all(screenshots[f"{prefix}-{suffix}"] == count
                                             for suffix in ("view", "painted-card", "dot-card"))
+            for name in ("desk-bell-arrival", "desk-bell-return", "shirt-arrival", "claim-counter-return"):
+                accepted = accepted and all(screenshots[f"{name}-{suffix}"] == 1 for suffix in ("before", "card"))
             for name in ("packing-table-return", "baggage-service-desk-return"):
                 returns = json_items[name]
                 accepted = accepted and len(returns) == 1 and isinstance(returns[0], list) and len(returns[0]) >= 2
