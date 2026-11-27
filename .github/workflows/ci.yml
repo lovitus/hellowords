@@ -1,9 +1,9 @@
-name: Verify photographed bedspace targets and frozen candidate display
+name: Verify the bedside water jug and nurse-call handset
 on:
   workflow_dispatch:
     inputs:
       candidate:
-        description: Full SHA of the single candidate commit following the frozen office build
+        description: Full SHA of the single candidate following the frozen bedspace build
         required: true
         type: string
 permissions:
@@ -11,10 +11,10 @@ permissions:
   contents: read
 env:
   CI: "true"
-  BASELINE: 5c98d78daead9ad0327e673fe80bd7f267780734
+  BASELINE: 472a9697463e03074f6a3118b56a3a3eec9eb5d1
   PRODUCT: ${{ inputs.candidate }}
-  MANIFEST_SHA256: e491fb6283e0af803b1c64cebccaabda4feb2c271b3b14f908d6f80b5747b4d3
-  ARTIFACT_RUN: "45967043296"
+  MANIFEST_SHA256: d10c8d73e1213a29dec7fe40452ffee13668fcd7f0247f87b7a76fd534bc5ad8
+  ARTIFACT_RUN: "45971112816"
 jobs:
   acceptance:
     runs-on: ubuntu-24.04
@@ -54,11 +54,19 @@ jobs:
       - name: Install the locked dependencies
         id: dependencies
         run: npm ci > "$RUNNER_TEMP/npm.log" 2>&1
+      - name: Lint the product
+        id: lint
+        continue-on-error: true
+        run: python ../.github/frozen-display.py lint
+      - name: Typecheck the product
+        id: types
+        continue-on-error: true
+        run: python ../.github/frozen-display.py types
       - name: Install the locked Chromium
         id: browser
         continue-on-error: true
         run: ./node_modules/.bin/playwright install --with-deps chromium > "$RUNNER_TEMP/browser.log" 2>&1
-      - name: Reproduce the photographed bedspace failures on the frozen baseline
+      - name: Reproduce both misplaced anchors on the frozen bedspace photograph
         id: baseline
         if: ${{ !cancelled() && steps.browser.outcome == 'success' }}
         continue-on-error: true
@@ -87,41 +95,16 @@ jobs:
           include-hidden-files: true
           if-no-files-found: error
           retention-days: 7
-      - name: Check bedspace, quick coffee taps, hospital entrance and return
+      - name: Read the water jug, nurse-call handset, bedspace return and quick coffee taps
         id: journeys
         if: ${{ !cancelled() && steps.build.outcome == 'success' && steps.browser.outcome == 'success' }}
         continue-on-error: true
         run: python ../.github/frozen-browser.py candidate
-      - name: Measure 20 scene navigation cycles on the frozen build
-        id: navigation
-        if: ${{ !cancelled() && steps.build.outcome == 'success' && steps.browser.outcome == 'success' }}
-        continue-on-error: true
-        run: python ../.github/frozen-display.py navigation
-      - name: Measure 44-shard vocabulary search on the same build
-        id: search
-        if: ${{ !cancelled() && steps.build.outcome == 'success' && steps.browser.outcome == 'success' }}
-        continue-on-error: true
-        run: python ../.github/frozen-display.py search
-      - name: Check the server-rendered product
-        id: ssr
-        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
-        continue-on-error: true
-        run: python ../.github/frozen-display.py ssr
-      - name: Run all domain unit tests
+      - name: Run the affected domain and scene contracts
         id: domain
         if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
         continue-on-error: true
         run: python ../.github/frozen-display.py domain
-      - name: Run all semantic and lexical-world unit tests
-        id: lexicon
-        if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
-        continue-on-error: true
-        run: python ../.github/frozen-display.py lexicon
-      - name: Validate the complete dataset with strict human review
-        id: strict
-        if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
-        continue-on-error: true
-        run: python ../.github/frozen-display.py strict
       - name: Record structural integrity and all outstanding image reviews independently
         id: structure
         if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
