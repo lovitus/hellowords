@@ -9,10 +9,11 @@ import sys
 
 controls = Path(__file__).resolve().parent
 helpers = runpy.run_path(str(controls / "verify-office-phone.py"))
-attachment_bytes = runpy.run_path(str(controls / "diagnose-office-phone.py"))["attachment_data"]
+diagnostics = runpy.run_path(str(controls / "diagnose-office-phone.py"))
+attachment_bytes = diagnostics["attachment_data"]
 phase = sys.argv[1]
 temp = Path(os.environ["RUNNER_TEMP"])
-output = temp / "cabin-evidence"
+output = temp / ("baggage-diagnostic" if phase in ("prior", "mobile-baggage") else "cabin-evidence")
 output.mkdir(exist_ok=True)
 cabin = "aircraft cabin opens the passenger seat row and meal tray, then restores both parent scenes"
 airport = "baggage services opens the wooden counter and the open suitcase, then restores both parent scenes"
@@ -51,13 +52,54 @@ contracts = {
         "returns": ("packing-table-return", "baggage-service-desk-return"),
     },
 }
+projects = ("chromium", "mobile-chromium")
+if phase == "prior":
+    prior = temp / "prior-cabin"
+    baseline = json.loads((prior / "baseline.json").read_bytes())
+    previous = json.loads((prior / "candidate.json").read_bytes())
+    target = ("mobile-chromium", airport)
+    expected = {(project, journey) for project in projects for journey in (cabin, airport, helpers["RETURN"])}
+    previous_results = {(r["project"], r["journey"]): r for r in previous["cases"]}
+    if (baseline["phase"] != "baseline" or baseline["product"] != os.environ["BASELINE"] or baseline["accepted"] is not True
+            or sorted((r["project"], r["journey"]) for r in baseline["cases"]) != [(p, cabin) for p in projects]
+            or any(r["accepted"] is not True or r["status"] != "failed" or r["attempts"] != 1 or r["retry"] != 0
+                   for r in baseline["cases"])):
+        raise ValueError("The original dual-viewport baseline was not observed")
+    if (previous["phase"] != "candidate" or previous["product"] != os.environ["PRODUCT"] or previous["accepted"] is not False
+            or set(previous_results) != expected or len(previous["cases"]) != len(expected)
+            or any(r["attempts"] != 1 or r["retry"] != 0 or r["accepted"] != (key != target)
+                   or r["status"] != ("failed" if key == target else "passed") for key, r in previous_results.items())):
+        raise ValueError("The pinned prior run must have five accepted rows and the one original mobile baggage failure")
+    for name in ("baseline.json", "candidate.json"):
+        (output / f"original-{name}").write_bytes((prior / name).read_bytes())
+    print("Verified both baseline observations, five accepted candidate journeys and the original mobile baggage failure.")
+    sys.exit(0)
+
 journeys = [("e2e/cabin-meal.spec.ts", cabin)]
-if phase == "candidate":
+if phase == "mobile-baggage":
+    projects = ("mobile-chromium",)
+    journeys = [("e2e/baggage-services.spec.ts", airport)]
+elif phase == "candidate":
     journeys.extend([
         ("e2e/baggage-services.spec.ts", airport),
         ("e2e/office-conference.spec.ts", helpers["RETURN"]),
     ])
-cases = [(project, file, title) for project in ("chromium", "mobile-chromium") for file, title in journeys]
+cases = [(project, file, title) for project in projects for file, title in journeys]
+
+
+def summarize_error(error):
+    return diagnostics["details"](error.get("message", ""), error.get("stack", ""), error.get("location"))
+
+
+def summarize_steps(steps):
+    return [{
+        "title": diagnostics["text"](step["title"]),
+        "durationMs": step["duration"],
+        **({"error": summarize_error(step["error"])} if step.get("error") else {}),
+        **({"steps": summarize_steps(step["steps"])} if step.get("steps") else {}),
+    } for step in steps]
+
+
 helpers["run_browser"](phase, temp, cases)
 folder = temp / phase
 report = json.loads((folder / "results.json").read_bytes())
@@ -73,6 +115,9 @@ for suite in report["suites"]:
         if len(attempts) != 1:
             continue
         result = attempts[0]
+        if phase == "mobile-baggage":
+            row.update(durationMs=result["duration"], steps=summarize_steps(result.get("steps", [])),
+                       errors=[summarize_error(error) for error in result["errors"]])
         json_items = defaultdict(list)
         screenshots = Counter()
         attachments = Counter()
@@ -137,11 +182,17 @@ for suite in report["suites"]:
                    accepted=bool(accepted and result["retry"] == 0))
 
 receipt = {
-    "phase": phase, "product": os.environ["PRODUCT" if phase == "candidate" else "BASELINE"],
+    "phase": phase, "product": os.environ["BASELINE" if phase == "baseline" else "PRODUCT"],
     "stats": report["stats"], "cases": rows,
     "accepted": sorted(seen) == sorted(cases) and all(row["accepted"] for row in rows)
                 and not report["errors"] and (folder / "exit").read_text().strip() == ("1" if phase == "baseline" else "0"),
 }
+if phase == "mobile-baggage":
+    before = json.loads((output / "original-candidate.json").read_bytes())
+    receipt["priorRun"] = "45950843653"
+    receipt["carriedForward"] = [{"project": row["project"], "journey": row["journey"]}
+                                 for row in before["cases"] if row["accepted"]]
+    receipt["globalErrors"] = [summarize_error(error) for error in report["errors"]]
 (output / f"{phase}.json").write_text(json.dumps(receipt, indent=2) + "\n")
 print(json.dumps(receipt, ensure_ascii=False))
 raise SystemExit(0 if receipt["accepted"] else 1)

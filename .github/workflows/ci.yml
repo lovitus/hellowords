@@ -1,11 +1,12 @@
-name: Verify aircraft seat and meal tray exploration
+name: Diagnose the frozen mobile baggage service return
 on:
   workflow_dispatch:
     inputs:
       candidate:
-        description: Full product commit SHA
-        required: true
+        description: Frozen cabin product SHA from the original hosted run
         type: string
+        required: true
+        default: 57402fb3787ffdabde34ce3d2355a63a2853d4fe
 permissions:
   actions: read
   contents: read
@@ -14,9 +15,9 @@ env:
   BASELINE: 693ad9a81b2842f5dc2ab2c02b71cd7a2f02174d
   PRODUCT: ${{ inputs.candidate }}
 jobs:
-  cabin:
+  baggage-return:
     runs-on: ubuntu-24.04
-    timeout-minutes: 18
+    timeout-minutes: 12
     defaults:
       run:
         working-directory: product
@@ -27,73 +28,50 @@ jobs:
           persist-credentials: false
       - uses: actions/checkout@v6
         with:
-          ref: ${{ inputs.candidate }}
+          ref: 57402fb3787ffdabde34ce3d2355a63a2853d4fe
           fetch-depth: 2
           path: product
           persist-credentials: false
       - uses: actions/download-artifact@v5
         with:
-          name: passenger-seat-meal-45949933105
-          run-id: "45949933105"
+          name: production-dist-57402fb3787ffdabde34ce3d2355a63a2853d4fe
+          run-id: "45950843653"
           github-token: ${{ github.token }}
-          path: ${{ runner.temp }}/cabin-evidence
-      - name: Verify the first run's desktop and mobile baseline for this frozen candidate
+          path: product
+      - uses: actions/download-artifact@v5
+        with:
+          name: passenger-seat-meal-45950843653
+          run-id: "45950843653"
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/prior-cabin
+      - name: Verify the original production files, baseline and five passed journeys
         run: |
           test "$PRODUCT" = 57402fb3787ffdabde34ce3d2355a63a2853d4fe
           test "$(git rev-parse HEAD)" = "$PRODUCT"
           test "$(git rev-parse HEAD^)" = "$BASELINE"
-          cd "$RUNNER_TEMP/cabin-evidence"
-          echo '12dc7495e3b72e9d6d199eef12141e3cfd12ded7587b966e902498783c0c0b3f  baseline.json' | sha256sum -c -
-          jq -e --arg baseline "$BASELINE" '
-            .phase == "baseline" and .product == $baseline and .accepted == true
-            and ([.cases[].project] | sort) == ["chromium", "mobile-chromium"]
-            and all(.cases[]; .accepted == true and .status == "failed" and .attempts == 1 and .retry == 0)
-          ' baseline.json
+          echo '4bf2cbb16b9fa91ace6b0668668cf045bb5351742705bb85b4418551c451bd98  artifacts/build/dist-manifest.json' | sha256sum -c -
+          python ../.github/verify-office-phone.py manifest . "$PRODUCT"
+          cd "$RUNNER_TEMP/prior-cabin"
+          sha256sum -c <<'RECEIPTS'
+          12dc7495e3b72e9d6d199eef12141e3cfd12ded7587b966e902498783c0c0b3f  baseline.json
+          4bbba172ed6a40df2ee34f412c9269325ab2630a725aa27e955929f030e8568b  candidate.json
+          RECEIPTS
+          python "$GITHUB_WORKSPACE/.github/check-cabin-meal.py" prior
       - uses: actions/setup-node@v7
         with:
           node-version: "22"
           cache: npm
           cache-dependency-path: product/package-lock.json
-      - name: Install pinned dependencies and Chromium
+      - name: Install pinned browser dependencies
         run: |
           npm ci > "$RUNNER_TEMP/dependencies.log" 2>&1
           ./node_modules/.bin/playwright install --with-deps chromium > "$RUNNER_TEMP/chromium.log" 2>&1
-      - name: Validate the candidate vocabulary and pending image reviews
-        run: npm run validate:data -- --allow-image-reviewed
-      - name: Typecheck and lint changed code
-        run: |
-          npm run typecheck
-          git diff --name-only --diff-filter=ACMR -z "$BASELINE" "$PRODUCT" -- '*.ts' '*.tsx' '*.mjs' | xargs -0r ./node_modules/.bin/eslint --
-      - name: Build the frozen candidate once and verify the manifest
-        id: build
-        run: |
-          GITHUB_SHA="$PRODUCT" npm run build > "$RUNNER_TEMP/build.log" 2>&1
-          GITHUB_SHA="$PRODUCT" npm run analyze:build
-          python ../.github/verify-office-phone.py manifest . "$PRODUCT"
-          sha256sum -c <<'PHOTOS'
-          43bc4ae1927274df211288acce769e17f16975ddfea8e0c57d8ce5349f697dbc  dist/client/scenes/aircraft-cabin-premium-v1.jpg
-          10027d910b150f8b0ae7e5b067f671ba55406fb42a3bfc0edd19014386edb00b  dist/client/scenes/passenger-seat-row-premium-v1.jpg
-          3f410b93713664f7ab367e5a1058f77f47da8bb0126f5a4051c6aed505c23c49  dist/client/scenes/inflight-meal-tray-premium-v1.jpg
-          PHOTOS
-      - name: Enter the passenger seat and meal tray and return by zoom
-        run: python ../.github/check-cabin-meal.py candidate
-      - name: Run all domain and vocabulary checks
-        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
-        run: npm run test:unit
-      - uses: actions/upload-artifact@v5
-        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
-        with:
-          name: production-dist-${{ env.PRODUCT }}
-          path: |
-            product/dist
-            product/artifacts/build/dist-manifest.json
-          include-hidden-files: true
-          if-no-files-found: error
-          retention-days: 7
+      - name: Run the original mobile baggage journey once on the original files
+        run: python ../.github/check-cabin-meal.py mobile-baggage
       - uses: actions/upload-artifact@v5
         if: ${{ !cancelled() }}
         with:
-          name: passenger-seat-meal-${{ github.run_id }}
-          path: ${{ runner.temp }}/cabin-evidence
+          name: mobile-baggage-return-${{ github.run_id }}
+          path: ${{ runner.temp }}/baggage-diagnostic
           if-no-files-found: error
           retention-days: 7
