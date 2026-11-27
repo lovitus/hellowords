@@ -1,9 +1,9 @@
-name: Verify the bedside water jug and nurse-call handset
+name: Verify the fitted apartment photograph and scene returns
 on:
   workflow_dispatch:
     inputs:
       candidate:
-        description: Full SHA of the single candidate following the frozen bedspace build
+        description: Full SHA of the candidate following the frozen bedside build
         required: true
         type: string
 permissions:
@@ -11,10 +11,10 @@ permissions:
   contents: read
 env:
   CI: "true"
-  BASELINE: 472a9697463e03074f6a3118b56a3a3eec9eb5d1
+  BASELINE: b3c2a62b5eb38a6855d9005084ee165a1fe12c68
   PRODUCT: ${{ inputs.candidate }}
-  MANIFEST_SHA256: d10c8d73e1213a29dec7fe40452ffee13668fcd7f0247f87b7a76fd534bc5ad8
-  ARTIFACT_RUN: "45971112816"
+  MANIFEST_SHA256: ea3511121cdbfc0b96836caed4100f886c8270eb1624f73a957cb5c4c1daec30
+  ARTIFACT_RUN: "45974598019"
 jobs:
   acceptance:
     runs-on: ubuntu-24.04
@@ -44,7 +44,6 @@ jobs:
         run: |
           test "$(git rev-parse HEAD)" = "$PRODUCT"
           test "$(git show -s --format=%P HEAD)" = "$BASELINE"
-          git diff --exit-code --quiet "$BASELINE" "$PRODUCT" -- tests/perf playwright.config.ts
           python ../.github/frozen-display.py baseline-integrity
       - uses: actions/setup-node@v7
         with:
@@ -66,7 +65,7 @@ jobs:
         id: browser
         continue-on-error: true
         run: ./node_modules/.bin/playwright install --with-deps chromium > "$RUNNER_TEMP/browser.log" 2>&1
-      - name: Reproduce both misplaced anchors on the frozen bedspace photograph
+      - name: Reproduce the fitted apartment photograph alignment failure
         id: baseline
         if: ${{ !cancelled() && steps.browser.outcome == 'success' }}
         continue-on-error: true
@@ -95,16 +94,26 @@ jobs:
           include-hidden-files: true
           if-no-files-found: error
           retention-days: 7
-      - name: Read the water jug, nurse-call handset, bedspace return and quick coffee taps
+      - name: Verify the apartment photograph and handoff, office atrium and hospital returns
         id: journeys
         if: ${{ !cancelled() && steps.build.outcome == 'success' && steps.browser.outcome == 'success' }}
         continue-on-error: true
         run: python ../.github/frozen-browser.py candidate
+      - name: Measure the original 20 navigation cycles against the original budgets
+        id: navigation
+        if: ${{ !cancelled() && steps.build.outcome == 'success' && steps.browser.outcome == 'success' }}
+        continue-on-error: true
+        run: python ../.github/frozen-display.py navigation
       - name: Run the affected domain and scene contracts
         id: domain
         if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
         continue-on-error: true
         run: python ../.github/frozen-display.py domain
+      - name: Run strict source and human-review validation
+        id: strict
+        if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
+        continue-on-error: true
+        run: python ../.github/frozen-display.py strict
       - name: Record structural integrity and all outstanding image reviews independently
         id: structure
         if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}

@@ -14,7 +14,7 @@ OUT = TEMP / "frozen-display-evidence"
 OUT.mkdir(exist_ok=True)
 PRODUCT = os.environ["PRODUCT"]
 GATES = ("integrity", "dependencies", "browser", "baseline", "build", "product_artifact", "journeys",
-         "lint", "types", "domain", "structure")
+         "navigation", "lint", "types", "domain", "strict", "structure")
 
 
 def save(name, body):
@@ -22,6 +22,15 @@ def save(name, body):
 
 
 def integrity(baseline):
+    if baseline:
+        # The measurement helper can tighten its scale read. The sampler,
+        # thresholds, measurement loop and every budget assertion stay pinned.
+        subprocess.run(["git", "diff", "--quiet", os.environ["BASELINE"], PRODUCT, "--", "tests/perf",
+                        "playwright.config.ts", "package.json", "package-lock.json",
+                        ":(exclude)tests/perf/world-performance.spec.ts"], check=True)
+        measurement = Path("tests/perf/world-performance.spec.ts").read_bytes()
+        if hashlib.sha256(measurement).hexdigest() != "9b781a13004524377ca96614ba4cdc0ad74ae35d31b8e477848bf1d389b16670":
+            raise ValueError("The measurement differs from the reviewed handoff and original budgets")
     frozen = TEMP / "frozen" if baseline else Path(".")
     sha = os.environ["BASELINE"] if baseline else PRODUCT
     raw = (frozen / "artifacts/build/dist-manifest.json").read_bytes()
@@ -49,9 +58,50 @@ def integrity(baseline):
                 "manifestSha256": digest, "verifiedFiles": len(files)})
 
 
-def run(stage, command):
+def run(stage, command, env=None):
     with (TEMP / f"{stage}.out").open("wb") as stdout, (TEMP / f"{stage}.err").open("wb") as stderr:
-        return subprocess.run(command, stdout=stdout, stderr=stderr, check=False).returncode
+        return subprocess.run(command, stdout=stdout, stderr=stderr, env=env, check=False).returncode
+
+
+def navigation():
+    title = "scene slices stay within CPU and memory budgets"
+    env = {**os.environ, "PERF_RUN": "1", "PERF_SOURCE_SHA": PRODUCT, "PERF_SCENE_CYCLES": "20"}
+    env.pop("GITHUB_STEP_SUMMARY", None)
+    code = run("navigation", ["npm", "run", "test:perf", "--", "--grep", title, "--workers=1", "--retries=0"], env)
+    perf = Path("artifacts/perf")
+    for name in ("summary.json", "samples.ndjson"):
+        if (perf / name).is_file():
+            shutil.copyfile(perf / name, OUT / name)
+    reporter = perf / "results.json"
+    if not reporter.is_file():
+        return code or 1
+    subprocess.run(["openssl", "cms", "-encrypt", "-binary", "-aes-256-cbc", "-outform", "DER",
+                    "-in", str(reporter), "-out", str(OUT / "navigation-playwright.json.cms"),
+                    str(Path(__file__).with_name("evidence-recipient.crt"))], check=True)
+    original = reporter.read_bytes()
+    report = json.loads(original)
+    cases = []
+    def visit(suite):
+        for spec in suite.get("specs", []):
+            for test in spec["tests"]:
+                for result in test["results"]:
+                    lines = [location["line"] for error in result.get("errors", [])
+                             if (location := error.get("location")) and "line" in location
+                             and Path(location.get("file", "")).name == "world-performance.spec.ts"]
+                    cases.append({"title": spec["title"], "project": test["projectName"], "status": result["status"],
+                                  "retry": result["retry"], "durationMs": result["duration"], "assertionLines": lines})
+        for child in suite.get("suites", []):
+            visit(child)
+    visit(report)
+    save("navigation-result.json", {"exit": code, "cases": cases, "stats": report["stats"],
+                                    "reportSha256": hashlib.sha256(original).hexdigest()})
+    measurements = OUT / "summary.json"
+    summary = json.loads(measurements.read_bytes()) if measurements.is_file() else {}
+    passed = (len(cases) == 1 and cases[0]["title"] == title and cases[0]["project"] == "performance"
+              and cases[0]["retry"] == 0 and cases[0]["status"] == "passed"
+              and summary.get("gitSha") == PRODUCT and summary.get("scenario", {}).get("cycles") == 20
+              and summary.get("result", {}).get("transitions") == 40 and (OUT / "samples.ndjson").is_file())
+    return code or (0 if passed else 1)
 
 
 def code_check(stage):
@@ -79,7 +129,8 @@ def domain():
     changed = subprocess.check_output(["git", "diff", "--diff-filter=ACMR", "--name-only", os.environ["BASELINE"],
                                        PRODUCT, "--", "tests/domain/*.test.ts"], text=True).splitlines()
     files = sorted(set(changed) | {
-        f"tests/domain/{name}.test.ts" for name in ("newFacilityScenes", "worldContent", "sceneVisualQuality")
+        f"tests/domain/{name}.test.ts" for name in ("camera", "navigation", "semanticZoom", "semanticZoomBoundary",
+                                                    "newFacilityScenes", "worldContent", "sceneVisualQuality")
     })
     code = run("domain", ["./node_modules/.bin/tsx", "--test", "--test-reporter=tap", *files])
     text = (TEMP / "domain.out").read_text()
@@ -98,12 +149,31 @@ def structure():
     return code or 1
 
 
+def strict():
+    code = run("strict", ["npm", "run", "--silent", "validate:data"])
+    stdout = (TEMP / "strict.out").read_text()
+    reports = []
+    for match in re.finditer(r"(?m)^\{", stdout):
+        data, length = json.JSONDecoder().raw_decode(stdout[match.start():])
+        for marker, name in (("atlasGroups", "vocabulary"), ("wordNetCoveragePercent", "semantic"),
+                             ("duplicateReachability", "lexical-world")):
+            if marker in data:
+                (OUT / f"{name}.json").write_text(stdout[match.start():match.start() + length] + "\n")
+                reports.append(name)
+                break
+    pending = re.search(r"^Error: Human review required before release: ([a-z0-9,-]+(?: [a-z0-9,-]+)*)$",
+                        (TEMP / "strict.err").read_text(), re.M)
+    save("strict-data.json", {"exit": code, "reports": reports,
+                              "pendingHumanReview": pending.group(1).split(", ") if pending else None})
+    return code or (0 if len(reports) == 3 else 1)
+
+
 def record():
     steps = json.loads(os.environ["STEPS"])
     gates = {gate: steps.get(gate, {}).get("outcome", "missing") for gate in GATES}
     save("result.json", {"gitSha": PRODUCT, "sourceRun": os.environ["ARTIFACT_RUN"],
                          "run": os.environ["GITHUB_RUN_ID"], "controlSha": os.environ["GITHUB_SHA"],
-                         "scope": "bedside-photo-targets", "outcomes": gates,
+                         "scope": "apartment-photo-handoff", "outcomes": gates,
                          "passed": all(v == "success" for v in gates.values())})
     with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as summary:
         summary.write("| Check | Outcome |\n|---|---|\n")
@@ -118,6 +188,10 @@ elif stage == "record":
     record()
 elif stage == "domain":
     sys.exit(domain())
+elif stage == "navigation":
+    sys.exit(navigation())
+elif stage == "strict":
+    sys.exit(strict())
 elif stage in ("lint", "types"):
     sys.exit(code_check(stage))
 elif stage == "structure":
