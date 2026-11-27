@@ -1,4 +1,4 @@
-"""Verify the city services overview on both frozen builds and exercise the adjoining journeys."""
+"""Compare a narrow bilingual photo reading and preserve the urban services journeys."""
 import base64
 from collections import Counter
 import hashlib
@@ -26,7 +26,9 @@ TERMINAL = ("e2e/airport-terminal.spec.ts",
             "the airport terminal reads the suitcase shell and carousel island and restores its words after baggage claim")
 OVERVIEW = ("e2e/urban-services-overview.spec.ts",
             "urban services reads the photographed terminal roof and returns from all three destinations")
-ROOF_ASSERTION = "the terminal roof dot lands on the photographed silver terminal roof"
+NARROW = ("e2e/urban-services-overview.spec.ts",
+          "the bilingual phone reads the silver terminal roof after returning through the photographed airport entrance")
+NARROW_ASSERTION = "tapping the silver roof after the airport round trip reads terminal roof in bilingual phone view"
 TERMINAL_SHA = "428e5f9dbcca0f19e8fcedc540a9715362bc55b9b2e51e31d39a4659133f31e1"
 OVERVIEW_SHA = "0cc4d2fc02d402b2f5b215711e72d7d93635e889064891bf42477d42e063a19d"
 PROJECTS = ("chromium", "mobile-chromium")
@@ -36,10 +38,10 @@ out = Path(os.environ["RUNNER_TEMP"]) / "frozen-display-evidence" / phase
 out.mkdir(parents=True)
 temp = Path(os.environ["RUNNER_TEMP"]) / f"browser-{phase}"
 temp.mkdir()
-cases = [(project, *OVERVIEW) for project in PROJECTS]
+cases = [("mobile-chromium", *NARROW)]
 if phase == "candidate":
     cases.extend((project, *journey) for project in PROJECTS
-                 for journey in (DISTRICT_ZONES, TERMINAL, OFFICE, BAGGAGE, CHECKIN, SECURITY, MINIMAP))
+                 for journey in (OVERVIEW, DISTRICT_ZONES, TERMINAL, OFFICE, BAGGAGE, CHECKIN, SECURITY, MINIMAP))
 
 
 def visit(suite):
@@ -56,12 +58,13 @@ def overview_inventory():
                      else Path(os.environ["RUNNER_TEMP"]) / "frozen/dist/client/data/scenes/urban-services.json")
     original = baseline_file.read_bytes()
     if (hashlib.sha256(photo.read_bytes()).hexdigest() != OVERVIEW_SHA
-            or hashlib.sha256(original).hexdigest() != "40b3fbcb93c45fa278f06a68ee51f0864d58955186ccca93f6471106b2f57b68"):
+            or hashlib.sha256(original).hexdigest() != "9980bacf553c9df0883703c584595afce870e70c9ef53113c508eb4b5b984237"):
         raise ValueError("The city overview photograph or original vocabulary differs from the frozen input")
     scene = json.loads(scene_file.read_bytes())
     labels = scene["labels"]
     index = scene.get("relatedWords", [])
-    originals = [(entry["id"], entry["word"], entry["translation"]) for entry in json.loads(original)["labels"]]
+    previous = json.loads(original)
+    originals = [(entry["id"], entry["word"], entry["translation"]) for entry in previous["labels"] + previous["relatedWords"]]
     current = [(entry["id"], entry["word"], entry["translation"]) for entry in labels + index]
     if len(current) != 120 or Counter(originals) != Counter(current):
         raise ValueError("The 120 original bilingual entries must remain in the city overview")
@@ -101,14 +104,26 @@ def keep_attachments(items, prefix):
     return names, observations, images
 
 
-def misplaced_roof(errors):
-    if len(errors) != 1:
+def narrow_reading(observed, images, result):
+    entries = observed.get("bilingual-roof-reading", [])
+    if len(entries) != 1 or not all(name in images for name in ("bilingual-roof-before-tap", "bilingual-roof-card")):
         return False
-    message = re.sub(r"\x1b\[[0-9;]*m", "", errors[0].get("message", "")).strip()
-    return (message and message.splitlines()[0].removeprefix("Error: ").strip() == ROOF_ASSERTION
-            and re.search(r"(?m)^Expected:\s*true\s*$", message)
-            and re.search(r"(?m)^Received:\s*false\s*$", message)
-            and not re.search(r"\b(?:timed out|test timeout|timeout \d+ms)\b", message, re.I))
+    reading = entries[0]
+    point = reading.get("point", {})
+    if (reading.get("scene") != "urban-services" or point.get("visible") is not True
+            or not all(isinstance(point.get(axis), (int, float)) and 0 <= point[axis] < limit
+                       for axis, limit in (("x", 385), ("y", 705)))):
+        return False
+    if phase == "candidate":
+        return (result["status"] == "passed" and not result["errors"]
+                and reading.get("word") == "terminal roof" and reading.get("meaning") == "航站楼屋顶")
+    if (result["status"] != "failed" or len(result["errors"]) != 1
+            or reading.get("word") != "aircraft" or reading.get("meaning") != "飞机"):
+        return False
+    message = re.sub(r"\x1b\[[0-9;]*m", "", result["errors"][0].get("message", "")).strip()
+    return bool(message and message.splitlines()[0].removeprefix("Error: ").strip() == NARROW_ASSERTION
+                and '"aircraft"' in message and '"terminal roof"' in message
+                and not re.search(r"\b(?:timed out|test timeout|timeout \d+ms)\b", message, re.I))
 
 
 def overview_reading(observed, images, result):
@@ -118,10 +133,6 @@ def overview_reading(observed, images, result):
     reading = entries[0]
     if reading.get("word") != "terminal roof" or reading.get("sha256") != OVERVIEW_SHA or reading.get("visible") is not True:
         return False
-    if phase == "baseline":
-        return bool(result["status"] == "failed" and misplaced_roof(result["errors"])
-                    and reading.get("inside") is False
-                    and abs(reading["x"] - 1070) < 1 and abs(reading["y"] - 665) < 1)
     dots = observed.get("terminal-roof-dot-geometry", [])
     return (result["status"] == "passed" and not result["errors"] and reading.get("inside") is True
             and len(dots) == 1 and dots[0].get("dotExposed") is True
@@ -181,6 +192,9 @@ for spec in visit(report):
         row.update(status=result["status"], errorCount=len(errors),
                    assertionLocations=source_lines, attachments=names, imageSizes=images)
         passed = result["status"] == "passed" and not errors
+        if title == NARROW[1]:
+            row["accepted"] = narrow_reading(observed, images, result)
+            continue
         if title == OVERVIEW[1]:
             row["accepted"] = overview_reading(observed, images, result)
             continue
