@@ -58,20 +58,13 @@ def integrity(baseline):
         old_images = {scene: json.loads((old_root / f"{scene}.json").read_bytes())["asset"] for scene in old_ids}
         old_manifest = json.loads((TEMP / "frozen/artifacts/build/dist-manifest.json").read_bytes())
         old_files = {e["path"]: e["sha256"] for e in old_manifest["files"] if e["path"].startswith("client/scenes/")}
-        airport, apron, cart = [json.loads((scene_root / f"{scene}.json").read_bytes())
-                                for scene in ("airport", "airport-apron", "airport-baggage-cart")]
-        photo_path = "client/scenes/airport-apron-v1.jpg"
-        cart_photo_path = "client/scenes/airport-baggage-cart-v1.jpg"
-        if (len(old_ids) != 113 or scene_ids - old_ids != {"airport-apron", "airport-baggage-cart"} or old_ids - scene_ids
-                or not old_images.items() <= scene_images.items() or not old_files.items() <= image_files.items()
-                or image_files.keys() - old_files.keys() != {photo_path, cart_photo_path} or "client" + apron["asset"] != photo_path
-                or "client" + cart["asset"] != cart_photo_path
-                or any((scene["width"], scene["height"]) != (1600, 900) for scene in (apron, cart))
-                or len(set(scene_images.values())) != len(set(old_images.values())) + 2):
-            raise ValueError("The airport expansion must retain the previous scenes and photographs and add only the apron and cart images")
-        for parent, child in ((airport, apron), (apron, cart)):
+        if len(old_ids) != 115 or scene_ids != old_ids or scene_images != old_images or image_files != old_files:
+            raise ValueError("The 115 scenes must retain their original photograph assets and bytes")
+        route = [json.loads((scene_root / f"{scene}.json").read_bytes()) for scene in
+                 ("airport", "security-checkpoint", "boarding-gate", "passenger-boarding-bridge", "aircraft-cabin")]
+        for parent, child in zip(route, route[1:]):
             if child["parentId"] != parent["id"] or sum(p["childSceneId"] == child["id"] for p in parent["portals"]) != 1:
-                raise ValueError("The airport must link to the apron and the apron to the cart")
+                raise ValueError(f"The photographed route from {parent['id']} to {child['id']} is disconnected")
     name = "baseline-integrity.json" if baseline else "candidate-integrity.json"
     save(name, {"sourceRun": os.environ["ARTIFACT_RUN" if baseline else "GITHUB_RUN_ID"], "gitSha": sha,
                 "manifestSha256": digest, "verifiedFiles": len(files), "scenes": len(scene_ids),
@@ -141,10 +134,6 @@ def spatial():
     current_refs = references(Path("public"))
     old_ids = {entry[3] for entry in old_refs}
     added = sorted(current_refs - old_refs)
-    cart_words = {"handle": "en-c2a116aa910d147b", "pocket": "en-62f5d588fd39c2bb", "fabric": "en-ad2a542c84c7060f",
-                  "canvas": "en-a457e8f04aa796dc", "blanket": "en-7cd0fc6ee61e2a57", "strap": "en-833a63294a4cb1fc",
-                  "tire": "en-c91e5b2418a7d741"}
-    expected_additions = {("airport-baggage-cart", word, word, lexeme) for word, lexeme in cart_words.items()}
     # Read the exported constant through the same TS runtime as the project's domain tests.
     exported = int(subprocess.check_output(
         ["./node_modules/.bin/tsx", "-e",
@@ -161,19 +150,19 @@ def spatial():
                                 "candidate": {**candidate, "authored": len(current_refs),
                                               "addedReferences": added, "removedReferences": sorted(old_refs - current_refs)}})
     current_ids = {entry[3] for entry in current_refs}
-    return 0 if (old_code == 0 and green == 0 and len(old_refs) == exported == 397 and len(old_ids) == 239
-                 and old_refs <= current_refs and set(added) == expected_additions and old_ids == current_ids
+    return 0 if (old_code == 0 and green == 0 and len(old_refs) == exported == 404 and len(old_ids) == 239
+                 and current_refs == old_refs
                  and all(result["report"].get("status") == "current"
                          and result["report"].get("linkedLabelCount") == len(refs)
-                         and result["report"].get("uniqueLexemeCount") == len(current_ids)
-                         for result, refs in ((baseline, old_refs), (candidate, current_refs)))) else 1
+                         and result["report"].get("uniqueLexemeCount") == len(ids)
+                         for result, refs, ids in ((baseline, old_refs, old_ids), (candidate, current_refs, current_ids)))) else 1
 
 
 def baseline_performance():
     root = TEMP / "original-evidence"
     digests = {
-        "summary.json": "49a69d284dc2aea7a498ef0d362246b257209826c83fb06cd549b1bc469416a7",
-        "navigation-result.json": "a4bc88969759f576850e67592fdfded9f2fed26595498ae33ad32733f7e7abf5",
+        "summary.json": "45c86ae002b0798e288d7de96626a151fef701944b68e68e0cf538da675bce9f",
+        "navigation-result.json": "b858a68005283a2388d3f752b62a1272b67dca220473b8c2e5fdc4097982d927",
     }
     for name, expected in digests.items():
         if hashlib.sha256((root / name).read_bytes()).hexdigest() != expected:
@@ -188,8 +177,8 @@ def baseline_performance():
     if (summary["gitSha"] != os.environ["BASELINE"] or summary["scenario"]["cycles"] != 20
             or metrics["transitions"] != 40 or report["exit"] != 1 or len(report["cases"]) != 1
             or report["cases"][0]["status"] != "failed" or report["cases"][0]["retry"] != 0
-            or exceeded != ["rendererTaskMsPerTransition"]):
-        raise ValueError("The frozen measurements do not match the original rendering budget failure")
+            or exceeded != ["rendererTaskMsPerTransition", "retainedPssDeltaMiB"]):
+        raise ValueError("The frozen measurements do not match the original renderer and memory budget failures")
     save("baseline-performance.json", {"gitSha": summary["gitSha"], "run": os.environ["ARTIFACT_RUN"],
                                       "cycles": 20, "transitions": 40, "measurements": readings,
                                       "budgets": summary["budgets"], "exceeded": exceeded, "sourceDigests": digests})
@@ -263,7 +252,8 @@ def domain():
     files = sorted(set(changed) | {
         f"tests/domain/{name}.test.ts" for name in ("camera", "navigation", "semanticZoom", "semanticZoomBoundary",
                                                     "newFacilityScenes", "worldContent", "sceneVisualQuality",
-                                                    "airportSecurityGate", "baggageClaim", "checkInCounter", "labelCanvasHit",
+                                                    "airportSecurityGate", "aircraftCabin", "aircraftLavatory",
+                                                    "baggageClaim", "baggageDropStation", "checkInCounter", "labelCanvasHit",
                                                     "cityStreetBrightV4", "radiologySuite", "spatialLexemeRealms")
     })
     code = run("domain", ["./node_modules/.bin/tsx", "--test", "--test-reporter=tap", *files])
@@ -309,7 +299,7 @@ def record():
     gates = {gate: steps.get(gate, {}).get("outcome", "missing") for gate in GATES}
     save("result.json", {"gitSha": PRODUCT, "sourceRun": os.environ["ARTIFACT_RUN"],
                          "run": os.environ["GITHUB_RUN_ID"], "controlSha": os.environ["GITHUB_SHA"],
-                         "scope": "airport-apron", "outcomes": gates,
+                         "scope": "boarding-gate-bridge", "outcomes": gates,
                          "passed": all(v == "success" for v in gates.values())})
     with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as summary:
         summary.write("| Check | Outcome |\n|---|---|\n")

@@ -1,4 +1,4 @@
-"""Compare the airport apron and baggage cart round trip on both devices."""
+"""Verify the photographed route from airport security through the gate and jet bridge."""
 import base64
 from collections import Counter
 import hashlib
@@ -45,6 +45,8 @@ RECEPTION = ("e2e/hospital-reception-dialysis.spec.ts",
              "the hospital reception desk leads through its dialysis doorway and both photographs remain readable on return")
 APRON = ("e2e/airport-apron.spec.ts",
          "the airport ground vehicle leads through the apron to the baggage cart and both photographs remain readable on return")
+GATE_BRIDGE = ("e2e/boarding-gate-bridge.spec.ts",
+               "the boarding gate clock and bridge handset stay readable on the route to the aircraft cabin and back")
 STREET_PHOTO = "/scenes/city-street-bright-v4.jpg"
 TRANSIT_PHOTO = "/scenes/transit-hub-premium-v2.jpg"
 BUS_PHOTO = "/scenes/electric-bus-premium-v2.jpg"
@@ -60,8 +62,9 @@ out = Path(os.environ["RUNNER_TEMP"]) / "frozen-display-evidence" / phase
 out.mkdir(parents=True)
 temp = Path(os.environ["RUNNER_TEMP"]) / f"browser-{phase}"
 temp.mkdir()
-cases = [(project, *APRON) for project in PROJECTS]
+cases = [(project, *GATE_BRIDGE) for project in PROJECTS]
 if phase == "candidate":
+    cases.extend((project, *APRON) for project in PROJECTS)
     cases.extend((project, *RECEPTION) for project in PROJECTS)
     cases.extend((project, *ULTRASOUND) for project in PROJECTS)
     cases.extend((project, *RADIOLOGY) for project in PROJECTS)
@@ -80,7 +83,7 @@ def visit(suite):
         yield from visit(child)
 
 
-def inventory(scene_id, asset, photo_sha, source_sha, count):
+def inventory(scene_id, asset, photo_sha, source_sha, count, *, revised_density=None):
     root = Path("dist/client")
     photo = root / asset.lstrip("/")
     relative = Path("data/scenes") / f"{scene_id}.json"
@@ -94,17 +97,25 @@ def inventory(scene_id, asset, photo_sha, source_sha, count):
     labels = scene["labels"]
     index = scene.get("relatedWords", [])
     previous = json.loads(original)
-    originals = [(entry["id"], entry["word"], entry["translation"], entry.get("lexemeId"))
-                 for entry in previous["labels"] + previous.get("relatedWords", [])]
-    current = [(entry["id"], entry["word"], entry["translation"], entry.get("lexemeId")) for entry in labels + index]
-    if len(current) != count or Counter(originals) != Counter(current):
-        raise ValueError(f"The {count} original bilingual entries must remain in {scene_id}")
+    originals = {entry["id"]: (entry["word"], entry["translation"], entry.get("lexemeId"))
+                 for entry in previous["labels"] + previous.get("relatedWords", [])}
+    current = {entry["id"]: (entry["word"], entry["translation"], entry.get("lexemeId")) for entry in labels + index}
+    if len(labels) + len(index) != count or len(originals) != count or originals.keys() != current.keys():
+        raise ValueError(f"The {count} original vocabulary IDs must each appear once in {scene_id}")
+    if any(not word.strip() or not translation.strip() for word, translation, _ in current.values()):
+        raise ValueError(f"A bilingual entry lost its wording in {scene_id}")
+    if revised_density is None and originals != current:
+        raise ValueError(f"The bilingual entries or dictionary links changed in {scene_id}")
+    if phase == "candidate" and revised_density is not None and (len(labels), len(index)) != revised_density:
+        raise ValueError(f"The calibrated photograph and index counts differ in {scene_id}")
+    renamed = {key: {"original": originals[key][:2], "current": value[:2]}
+               for key, value in current.items() if originals[key][:2] != value[:2]}
     coordinates = Counter((entry["x"], entry["y"]) for entry in labels)
     shared = sum(count > 1 for count in coordinates.values())
     if phase == "candidate" and (shared or any({"x", "y", "priority"} & entry.keys() for entry in index)):
         raise ValueError(f"{scene_id} has shared coordinates or a spatial field on a related word")
     return {"photoSha256": photo_sha, "sceneSha256": hashlib.sha256(scene_file.read_bytes()).hexdigest(),
-            "photoWords": len(labels), "indexWords": len(index),
+            "photoWords": len(labels), "indexWords": len(index), "renamedEntries": renamed,
             "sharedCoordinates": shared, "linkedPhotoWords": sum(bool(entry.get("lexemeId")) for entry in labels)}
 
 
@@ -358,25 +369,29 @@ def reception_journey(observed, images, result, project):
             and card(back_reception, reception, "service bell", "服务铃") and card(back_hospital, hospital, "reception desk", "接待台"))
 
 
-def apron_journey(observed, images, result, project):
+def photographed_stage(observed, images, project, stage, point=None):
     viewport = (385, 705) if project == "mobile-chromium" else (1440, 900)
     pixels = (1011, 1851) if project == "mobile-chromium" else (1440, 900)
+    rows = observed.get(stage + "-result", [])
+    if len(rows) != 1 or images.get(stage) != pixels:
+        return {}
+    row = rows[0]
+    if point is not None:
+        touch = row.get("point", {})
+        if ((row.get("x"), row.get("y")) != point or touch.get("visible") is not True
+                or not all(isinstance(value := touch.get(axis), (int, float)) and 0 <= value < bound
+                           for axis, bound in zip(("x", "y"), viewport))):
+            return {}
+    return row
+
+
+def apron_journey(observed, images, result, project):
     terminal = ("airport", "/scenes/airport-terminal-premium-v1.jpg")
     apron = ("airport-apron", "/scenes/airport-apron-v1.jpg")
     cart = ("airport-baggage-cart", "/scenes/airport-baggage-cart-v1.jpg")
 
     def reading(stage, point=None):
-        rows = observed.get(stage + "-result", [])
-        if len(rows) != 1 or images.get(stage) != pixels:
-            return {}
-        row = rows[0]
-        if point is not None:
-            touch = row.get("point", {})
-            if ((row.get("x"), row.get("y")) != point or touch.get("visible") is not True
-                    or not all(isinstance(value := touch.get(axis), (int, float)) and 0 <= value < bound
-                               for axis, bound in zip(("x", "y"), viewport))):
-                return {}
-        return row
+        return photographed_stage(observed, images, project, stage, point)
 
     def location(row):
         return row.get("scene"), row.get("photo")
@@ -391,11 +406,6 @@ def apron_journey(observed, images, result, project):
     first = reading("enter-airport-apron", (885, 457))
     if (first.get("sourceScene"), first.get("sourcePhoto")) != terminal:
         return False
-    if phase == "baseline":
-        return (result["status"] == "failed" and len(result["errors"]) == 1 and first.get("entranceCount") == 0
-                and "hitTarget" in first and first["hitTarget"] is None and location(first) == terminal
-                and isinstance(first.get("cards"), list) and "apron-wheel-chock-result" not in observed
-                and "enter-airport-baggage-cart-result" not in observed)
     chock = reading("apron-wheel-chock", (1213, 492))
     second = reading("enter-airport-baggage-cart", (808, 715))
     bag = reading("baggage-cart-first-object", (1155, 475))
@@ -419,6 +429,61 @@ def apron_journey(observed, images, result, project):
             and card(back_apron, apron, "wheel chock", "轮挡") and card(back_terminal, terminal, "ground vehicle", "地面车辆"))
 
 
+def gate_bridge_journey(observed, images, result, project):
+    airport = ("airport", "/scenes/airport-terminal-premium-v1.jpg")
+    security = ("security-checkpoint", "/scenes/airport-security-checkpoint-premium-v1.jpg")
+    gate = ("boarding-gate", "/scenes/airport-boarding-gate-premium-v1.jpg")
+    bridge = ("passenger-boarding-bridge", "/scenes/airport-boarding-bridge-premium-v1.jpg")
+    cabin = ("aircraft-cabin", "/scenes/aircraft-cabin-premium-v1.jpg")
+    clock = {"word": "gate wall clock", "meaning": "登机区挂钟"}
+    handset = {"word": "emergency phone handset", "meaning": "应急电话听筒"}
+    aisle = {"word": "cabin center aisle", "meaning": "客舱中央过道"}
+
+    def visible_scene(stage, point, scene):
+        row = photographed_stage(observed, images, project, stage, point)
+        if ((row.get("scene"), row.get("photo")) != scene or type(row.get("readable")) is not int
+                or row["readable"] <= 0):
+            return {}
+        return row
+
+    def entered(origin, destination, point):
+        row = visible_scene("enter-" + destination[0], point, destination)
+        return ((row.get("sourceScene"), row.get("sourcePhoto")) == origin
+                and row.get("hitTarget") == destination[0] and row.get("cards") == [])
+
+    def reading(stage, scene, point, card):
+        row = visible_scene(stage, point, scene)
+        if (row.get("expectedWord"), row.get("expectedMeaning")) != (card["word"], card["meaning"]):
+            return None
+        return row.get("cards")
+
+    def bilingual_ink(stage, scene, card):
+        row = visible_scene(stage + "-bilingual-ink", None, scene)
+        return (row.get("painted") is True and row.get("fits") is True
+                and (row.get("word"), row.get("translated")) == (card["word"], card["meaning"])
+                and all(isinstance(row.get(key), (int, float)) and math.isfinite(row[key])
+                        for key in ("inkLeft", "inkRight", "pillWidth", "pillLeft", "canvasWidth"))
+                and 0 <= row["inkLeft"] < row["inkRight"] <= row["pillWidth"]
+                and 0 <= row["pillLeft"] + row["inkLeft"] < row["pillLeft"] + row["inkRight"] <= row["canvasWidth"])
+
+    if not entered(airport, security, (530, 465)) or not entered(security, gate, (1425, 221)):
+        return False
+    first = reading("gate-clock", gate, (315, 213), clock)
+    if phase == "baseline":
+        return (result["status"] == "failed" and len(result["errors"]) == 1 and first == []
+                and "the photograph at (315, 213) reads gate wall clock" in result["errors"][0].get("message", "")
+                and "enter-passenger-boarding-bridge-result" not in observed)
+    return (result["status"] == "passed" and not result["errors"] and first == [clock]
+            and entered(gate, bridge, (915, 536)) and reading("bridge-handset", bridge, (347, 291), handset) == [handset]
+            and entered(bridge, cabin, (756, 325)) and reading("cabin-aisle", cabin, (883, 760), aisle) == [aisle]
+            and reading("returned-bridge-handset", bridge, (347, 291), handset) == [handset]
+            and reading("returned-gate-clock", gate, (315, 213), clock) == [clock]
+            and (project != "mobile-chromium" or all(bilingual_ink(stage, scene, card) for stage, scene, card in (
+                ("gate-clock", gate, clock), ("bridge-handset", bridge, handset),
+                ("returned-bridge-handset", bridge, handset), ("returned-gate-clock", gate, clock))))
+            and visible_scene("returned-airport", None, airport).get("cards") == [])
+
+
 scenes = {
     "city-street": inventory("city-street", STREET_PHOTO, "e280b0047e7bf0dbcf7f1ff392c38d5b88f06e11bb6304f3d998f47f37438fdf",
                              "c7a161b33a84d256719168a40eff7c84b096be98ab8d610e485686182fe7965b", 179),
@@ -432,6 +497,12 @@ scenes = {
                          "a3dbef0265f45da5cf1b2e35edbc4dedfef78d0055524644b054ec8da81a3dfa", 90),
     "train-carriage": inventory("train-carriage", CARRIAGE_PHOTO, "d1498a2fdee076830e331bd915c841763f122332116f2bc52fa173a28afd6148",
                                "c3eeb913e647bcabce72d92bec8aad6dd06f53f2b9b856e75658f745b2dedefc", 100),
+    "boarding-gate": inventory("boarding-gate", "/scenes/airport-boarding-gate-premium-v1.jpg",
+                               "12c9298681df0b7fa1f282fab91ba9af5f05f5a9ddcc16a3b51a5b9e9765436b",
+                               "4178341546565684f7100fcd2d295aecff2f3dca89fbc84d9048c735a1a29a20", 120, revised_density=(79, 41)),
+    "passenger-boarding-bridge": inventory("passenger-boarding-bridge", "/scenes/airport-boarding-bridge-premium-v1.jpg",
+                                          "f2d8b7c4fde68f8c8abf1b05d708536bd956a64e892ffa620dd9732b80d52835",
+                                          "a5601fd189e7eed458a239bb873b659a30dc11eb32c79e7aba5c77df6939b2ac", 150, revised_density=(110, 40)),
 }
 selection = temp / "cases.txt"
 selection.write_text("".join(f"[{p}] > {f} > {title}\n" for p, f, title in cases))
@@ -466,6 +537,9 @@ for spec in visit(report):
         row.update(status=result["status"], errorCount=len(errors),
                    assertionLocations=source_lines, attachments=names, imageSizes=images)
         passed = result["status"] == "passed" and not errors
+        if title == GATE_BRIDGE[1]:
+            row["accepted"] = gate_bridge_journey(observed, images, result, project)
+            continue
         if title == APRON[1]:
             row["accepted"] = apron_journey(observed, images, result, project)
             continue

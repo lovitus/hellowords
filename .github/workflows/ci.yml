@@ -1,9 +1,9 @@
-name: Verify the airport apron and baggage cart round trip
+name: Verify boarding gate and jet bridge photograph reading
 on:
   workflow_dispatch:
     inputs:
       candidate:
-        description: Full SHA of the airport apron candidate
+        description: Full SHA of the boarding gate and jet bridge candidate
         required: true
         type: string
 permissions:
@@ -11,10 +11,10 @@ permissions:
   contents: read
 env:
   CI: "true"
-  BASELINE: 5599de505cd731cd9666d99d2d4f397616b05c82
+  BASELINE: 516d1369c42a3e45f043573fc7a45ed9699d3d86
   PRODUCT: ${{ inputs.candidate }}
-  MANIFEST_SHA256: 2cb7390aadac03e25ad3e040b41b7e5e22265942064ea1f18e4be107d8e2d45b
-  ARTIFACT_RUN: "46045582061"
+  MANIFEST_SHA256: 9ff6ef23a6633c38b944bfba81b6012651263cd3a5046878972e20c0df8f9c7b
+  ARTIFACT_RUN: "46050727079"
 jobs:
   acceptance:
     runs-on: ubuntu-24.04
@@ -54,7 +54,7 @@ jobs:
           run-id: ${{ env.ARTIFACT_RUN }}
           github-token: ${{ github.token }}
           path: ${{ runner.temp }}/original-evidence
-      - name: Verify the measured rendering budget failure in the frozen build
+      - name: Verify the original renderer and retained memory budget failures
         id: baseline
         if: ${{ !cancelled() && steps.integrity.outcome == 'success' && steps.original_evidence.outcome == 'success' }}
         continue-on-error: true
@@ -84,7 +84,7 @@ jobs:
         id: browser
         continue-on-error: true
         run: ./node_modules/.bin/playwright install --with-deps chromium > "$RUNNER_TEMP/browser.log" 2>&1
-      - name: Touch the ground vehicle at the airport and verify the missing apron entrance in the frozen build
+      - name: Reproduce the missing gate clock card on both devices in the frozen build
         id: misplaced
         if: ${{ !cancelled() && steps.integrity.outcome == 'success' && steps.browser.outcome == 'success' }}
         continue-on-error: true
@@ -113,7 +113,7 @@ jobs:
           include-hidden-files: true
           if-no-files-found: error
           retention-days: 7
-      - name: Visit the apron and baggage cart from the terminal on desktop and phone and retain the existing journeys
+      - name: Read the gate clock and bridge handset on the round trip to the cabin and retain the existing journeys
         id: journeys
         if: ${{ !cancelled() && steps.build.outcome == 'success' && steps.browser.outcome == 'success' }}
         continue-on-error: true
