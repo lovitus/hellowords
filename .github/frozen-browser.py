@@ -1,4 +1,4 @@
-"""Verify the clicked scene on the frozen pair, then exercise the minimap and deep photograph entries."""
+"""Verify airport terminal photo reading on both frozen builds and exercise the adjoining journeys."""
 import base64
 from collections import Counter
 import hashlib
@@ -12,9 +12,21 @@ import subprocess
 import sys
 
 
-MINIMAP = "e2e/scene-minimap.spec.ts"
-OVERLAP = "the photograph and minimap open their own destinations where their buttons overlap"
-ASSERTION = "the visible Apartment minimap button opens the apartment"
+MINIMAP = ("e2e/scene-minimap.spec.ts",
+           "the photograph and minimap open their own destinations where their buttons overlap")
+OFFICE = ("e2e/office-conference.spec.ts", "returning to the office restores the atrium photograph and its own object labels")
+HANDOFF = ("e2e/continuous-semantic-zoom.spec.ts",
+           "Apartment handoff settles to the complete child before a fresh outward gesture can exit")
+BAGGAGE = ("e2e/baggage-services.spec.ts",
+           "baggage services opens the wooden counter and the open suitcase, then restores both parent scenes")
+CHECKIN = ("e2e/airport-bag-drop.spec.ts",
+           "airport check-in opens the nearest self-service kiosk from its dot and reads the card reader without moving the photograph")
+SECURITY = ("e2e/airport-bag-drop.spec.ts",
+            "airport security checkpoint reads the front stanchion pole, looks up its collar and returns from both child scenes")
+TERMINAL = ("e2e/airport-terminal.spec.ts",
+            "the airport terminal reads the suitcase shell and carousel island and restores its words after baggage claim")
+SHELL_ASSERTION = "the luggage shell dot lands on the photographed navy suitcase shell"
+PHOTO_SHA = "428e5f9dbcca0f19e8fcedc540a9715362bc55b9b2e51e31d39a4659133f31e1"
 PROJECTS = ("chromium", "mobile-chromium")
 phase = sys.argv[1]
 assert phase in ("baseline", "candidate")
@@ -22,23 +34,39 @@ out = Path(os.environ["RUNNER_TEMP"]) / "frozen-display-evidence" / phase
 out.mkdir(parents=True)
 temp = Path(os.environ["RUNNER_TEMP"]) / f"browser-{phase}"
 temp.mkdir()
-cases = [("chromium", MINIMAP, OVERLAP)]
+cases = [(project, *TERMINAL) for project in PROJECTS]
 if phase == "candidate":
-    cases += [("mobile-chromium", MINIMAP, OVERLAP),
-              ("chromium", MINIMAP, "the home atlas keeps words hover-scoped to one district")]
-    for project in PROJECTS:
-        cases += [(project, MINIMAP, title) for title in (
-            "the compact minimap exposes direct children, terminal state, and ancestor return",
-            "the Apartment minimap focuses named zones and navigates to Bathroom and back to World atlas",
-            "the minimap exposes the complete color-coded ten-thousand-word plane")]
-        cases.append((project, "e2e/world.spec.ts",
-                      "oxygen scene exposes its expanded exchange path through the real blood route"))
+    cases.extend((project, *journey) for project in PROJECTS
+                 for journey in (BAGGAGE, CHECKIN, SECURITY, OFFICE, MINIMAP, HANDOFF))
 
 
 def visit(suite):
     yield from suite.get("specs", [])
     for child in suite.get("suites", []):
         yield from visit(child)
+
+
+def terminal_inventory():
+    root = Path("dist/client")
+    photo = root / "scenes/airport-terminal-premium-v1.jpg"
+    scene_file = root / "data/scenes/airport.json"
+    baseline_file = (scene_file if phase == "baseline"
+                     else Path(os.environ["RUNNER_TEMP"]) / "frozen/dist/client/data/scenes/airport.json")
+    original = baseline_file.read_bytes()
+    if (hashlib.sha256(photo.read_bytes()).hexdigest() != PHOTO_SHA
+            or hashlib.sha256(original).hexdigest() != "7164dc60566ba91924f64fdbe27d9ad784452c19d920a1a6ef985144e8d441fa"):
+        raise ValueError("The terminal photograph or original vocabulary differs from the frozen input")
+    scene = json.loads(scene_file.read_bytes())
+    labels = scene["labels"]
+    index = scene.get("relatedWords", [])
+    originals = [(entry["id"], entry["word"], entry["translation"]) for entry in json.loads(original)["labels"]]
+    current = [(entry["id"], entry["word"], entry["translation"]) for entry in labels + index]
+    if Counter(originals) - Counter(current):
+        raise ValueError("The terminal lost an existing bilingual vocabulary entry")
+    coordinates = Counter((entry["x"], entry["y"]) for entry in labels)
+    return {"photoSha256": PHOTO_SHA, "sceneSha256": hashlib.sha256(scene_file.read_bytes()).hexdigest(),
+            "photoWords": len(labels), "indexWords": len(index),
+            "sharedCoordinates": sum(count > 1 for count in coordinates.values())}
 
 
 def keep_attachments(items, prefix):
@@ -68,16 +96,38 @@ def keep_attachments(items, prefix):
     return names, observations, images
 
 
-def wrong_scene(errors):
+def misplaced_shell(errors):
     if len(errors) != 1:
         return False
     message = re.sub(r"\x1b\[[0-9;]*m", "", errors[0].get("message", "")).strip()
-    return (message and message.splitlines()[0].removeprefix("Error: ").strip() == ASSERTION
-            and re.search(r'(?m)^Expected:\s*"apartment"\s*$', message)
-            and re.search(r'(?m)^Received:\s*"school-campus"\s*$', message)
+    return (message and message.splitlines()[0].removeprefix("Error: ").strip() == SHELL_ASSERTION
+            and re.search(r"(?m)^Expected:\s*true\s*$", message)
+            and re.search(r"(?m)^Received:\s*false\s*$", message)
             and not re.search(r"\b(?:timed out|test timeout|timeout \d+ms)\b", message, re.I))
 
 
+def terminal_readings(observed, images, result):
+    words = ("luggage shell",) if phase == "baseline" else ("luggage shell", "carousel island")
+    for word in words:
+        name = word.replace(" ", "-")
+        readings = observed.get(name + "-geometry", [])
+        if len(readings) != 1 or name + "-view" not in images:
+            return False
+        reading = readings[0]
+        if reading.get("word") != word or reading.get("sha256") != PHOTO_SHA or reading.get("visible") is not True:
+            return False
+        if phase == "baseline":
+            return bool(result["status"] == "failed" and misplaced_shell(result["errors"])
+                        and reading.get("inside") is False
+                        and abs(reading["x"] - 1442.5) < 1 and abs(reading["y"] - 510) < 1)
+        dots = observed.get(name + "-dot-geometry", [])
+        if (reading.get("inside") is not True or len(dots) != 1 or dots[0].get("dotExposed") is not True
+                or not all(name + suffix in images for suffix in ("-dot-card", "-painted-card", "-photo-reading"))):
+            return False
+    return result["status"] == "passed" and not result["errors"] and "returned-terminal-shell-reading" in images
+
+
+inventory = terminal_inventory()
 selection = temp / "cases.txt"
 selection.write_text("".join(f"[{p}] > {f} > {title}\n" for p, f, title in cases))
 reporter = temp / "results.json"
@@ -111,7 +161,15 @@ for spec in visit(report):
         row.update(status=result["status"], errorCount=len(errors),
                    assertionLocations=source_lines, attachments=names, imageSizes=images)
         passed = result["status"] == "passed" and not errors
-        if title != OVERLAP:
+        if title == TERMINAL[1]:
+            row["accepted"] = terminal_readings(observed, images, result)
+            continue
+        if title == OFFICE[1] and phase == "candidate" and passed:
+            office = observed.get("office-return-words", [])
+            row["accepted"] = (len(office) == 1 and bool(office[0]["returnedIds"]) and office[0]["foreignIds"] == []
+                               and office[0]["cameraLensPinned"] is False and "office-atrium-return" in images)
+            continue
+        if title != MINIMAP[1]:
             row["accepted"] = phase == "candidate" and passed
             continue
         entries = observed.get("minimap-destination", [])
@@ -121,16 +179,12 @@ for spec in visit(report):
         if not all(isinstance(reading.get(k), (int, float)) and math.isfinite(reading[k]) for k in ("x", "y")):
             continue
         row["click"] = {k: reading.get(k) for k in ("x", "y", "destination")}
-        if phase == "baseline":
-            row["accepted"] = bool(result["status"] == "failed" and wrong_scene(errors)
-                                   and row["click"]["destination"] == "school-campus"
-                                   and (1280, 720) in images.values())
-        else:
-            row["accepted"] = passed and row["click"]["destination"] == "apartment"
+        row["accepted"] = phase == "candidate" and passed and row["click"]["destination"] == "apartment"
 
 accepted = (code == (1 if phase == "baseline" else 0) and not report.get("errors")
             and Counter(seen) == Counter(cases) and all(row["accepted"] for row in rows))
 (out / "result.json").write_text(json.dumps({"phase": phase, "exit": code, "accepted": accepted,
+                                           "terminal": inventory,
                                            "reportSha256": hashlib.sha256(reporter.read_bytes()).hexdigest(),
                                            "cases": rows}, indent=2) + "\n")
 sys.exit(0 if accepted else 1)

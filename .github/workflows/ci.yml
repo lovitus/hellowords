@@ -1,9 +1,9 @@
-name: Verify minimap and photograph click destinations
+name: Verify airport terminal vocabulary on the photograph
 on:
   workflow_dispatch:
     inputs:
       candidate:
-        description: Full SHA of the minimap candidate following the frozen bathroom build
+        description: Full SHA of the airport terminal candidate following the frozen minimap build
         required: true
         type: string
 permissions:
@@ -11,10 +11,10 @@ permissions:
   contents: read
 env:
   CI: "true"
-  BASELINE: 510715c78a010767a580f24ea1f340beaec27a55
+  BASELINE: 296b527b76fa2fb4f2d0deafabf4742a087db8dc
   PRODUCT: ${{ inputs.candidate }}
-  MANIFEST_SHA256: 8277d119d31e7323a686e1d38229f91fbcdc71aa2f8cf31a8ab1a51098997b23
-  ARTIFACT_RUN: "45993179711"
+  MANIFEST_SHA256: 58e2ae990062cdc7723c66d82a4fefd8e767c5050812e4fea9c8ebbc7209efaf
+  ARTIFACT_RUN: "45996127309"
 jobs:
   acceptance:
     runs-on: ubuntu-24.04
@@ -79,7 +79,7 @@ jobs:
         id: browser
         continue-on-error: true
         run: ./node_modules/.bin/playwright install --with-deps chromium > "$RUNNER_TEMP/browser.log" 2>&1
-      - name: Reproduce a desktop click on the visible apartment button opening the campus
+      - name: Reproduce the airport terminal photo mismatch on both devices
         id: misplaced
         if: ${{ !cancelled() && steps.integrity.outcome == 'success' && steps.browser.outcome == 'success' }}
         continue-on-error: true
@@ -108,7 +108,7 @@ jobs:
           include-hidden-files: true
           if-no-files-found: error
           retention-days: 7
-      - name: Click minimap and photograph controls on both devices and follow the deep oxygen route
+      - name: Read terminal objects and follow the airport and office return routes on both devices
         id: journeys
         if: ${{ !cancelled() && steps.build.outcome == 'success' && steps.browser.outcome == 'success' }}
         continue-on-error: true
