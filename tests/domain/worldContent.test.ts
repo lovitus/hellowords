@@ -3159,7 +3159,14 @@ test("urban services adds hospital, airport and office vocabulary without breaki
   const urban = byId.get("urban-services");
   assert.ok(urban);
   assert.equal(urban.parentId, "transit-hub");
-  assert.equal(urban.labels.length, 120);
+  assert.equal(urban.labels.length, 70);
+  const urbanIndex = urban.relatedWords ?? [];
+  assert.equal(urbanIndex.length, 50);
+  assert.equal(new Set([...urban.labels, ...urbanIndex].map(entry => entry.id)).size, 120);
+  assert.equal(new Set(urban.labels.map(label => `${label.x},${label.y}`)).size, urban.labels.length);
+  for (const term of ["emergency entrance", "jet bridge seal", "open office", "storm drain"]) {
+    assert.ok(urbanIndex.some(entry => entry.word === term), `${term} remains in the overview index`);
+  }
   assert.equal(urban.detailZones?.length, 4);
   assert.deepEqual(
     urban.portals.map(({ childSceneId }) => childSceneId),

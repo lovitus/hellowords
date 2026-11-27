@@ -86,9 +86,9 @@ const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
   "wardrobe-interior": 32,
   "cotton-shirt": 32,
   "city-street": 32,
-  // The urban-services overview anchors three clearly separated campus blocks
-  // and their shared connectors before handing off to the specialist scenes.
-  "urban-services": 80,
+  // The aerial view resolves 70 distinct points across the campuses and paths.
+  // Interior rooms and parts hidden at this scale stay in the scene index.
+  "urban-services": 70,
   // Five departments plus the atrium have photographed objects and signs.
   // Clinical conditions and the names of medicines stay in the hospital index.
   hospital: 124,
@@ -228,7 +228,7 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   "city-street": 179,
   // The remaining 24 home terms are searchable without a pin on the cutaway.
   apartment: 149,
-  "urban-services": 120,
+  "urban-services": 70,
   // The latest professional-depth passes add reviewed equipment, medicine,
   // airside, imaging, dispensing and conference-room bands to each facility.
   hospital: 124,

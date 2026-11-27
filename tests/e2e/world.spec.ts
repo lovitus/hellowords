@@ -1256,12 +1256,12 @@ test("urban services exposes hospital, airport and office vocabulary through the
     urbanViewport!.x + urbanViewport!.width / 2,
     urbanViewport!.y + urbanViewport!.height - 36,
   );
-  await expect(page.getByTestId("scene-word-progress")).toHaveAttribute("data-total", "120");
+  await expect(page.getByTestId("scene-word-progress")).toHaveAttribute("data-total", "70");
   for (const [zoneId, word] of [
-    ["hospital-campus-detail", "medical center"],
+    ["hospital-campus-detail", "hospital"],
     ["airport-campus-detail", "terminal"],
-    ["office-campus-detail", "office lobby"],
-    ["district-connectors-detail", "planting bed"],
+    ["office-campus-detail", "office tower"],
+    ["district-connectors-detail", "river"],
   ] as const) {
     const zone = page.locator(
       `[data-testid="scene-minimap-zone"][data-zone-id="${zoneId}"]`,
