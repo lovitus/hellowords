@@ -3152,7 +3152,7 @@ test("urban services adds hospital, airport and office vocabulary without breaki
     ["hospital", "airport", "office-building"],
   );
   for (const [sceneId, count, zones, parent, required] of [
-    ["hospital", 440, 6, "urban-services", ["emergency department", "pathology laboratory", "mri scanner", "pharmacy", "cancer", "paracetamol", "cardiology", "hypertension", "suction unit", "table strap", "defibrillator", "pulse oximeter", "mri bore", "positioning laser", "surgical light handle"]],
+    ["hospital", 124, 7, "urban-services", ["emergency department", "patient bed", "pathology laboratory", "microscope", "bore opening", "pharmacy", "medication shelf", "operating table", "surgical light", "circle", "bench"]],
     ["radiology-suite", 74, 6, "hospital", ["ct bay", "mri bay", "radiography room", "mammography room", "ultrasound bay", "ultrasound monitor", "radiation indicator", "wall clock face", "x-ray collimator", "ultrasound cart wheel", "sink basin drain", "exam couch cushion"]],
     ["emergency-department", 108, 5, "hospital", ["triage bay", "triage workstation", "ed resuscitation bay", "ed examination couch", "clinical pass-through", "ed door vision panel"]],
     ["emergency-triage-reception", 302, 7, "emergency-department", ["triage-left registration monitor", "patient check-in station", "triage patient chair", "triage-reception wheelchair", "triage-room door handle", "open circulation floor"]],
@@ -3183,8 +3183,16 @@ test("urban services adds hospital, airport and office vocabulary without breaki
       assert.ok(words.has(term.toLocaleLowerCase()), `${sceneId} visibly grounds ${term}`);
     }
   }
+  const hospital = byId.get("hospital")!;
+  const hospitalIndex = hospital.relatedWords ?? [];
+  assert.equal(hospitalIndex.length, 375);
+  assert.equal(new Set([...hospital.labels, ...hospitalIndex].map(word => word.id)).size, 499);
+  const clinicalReference = new Set(hospitalIndex.map(word => word.word.toLowerCase()));
+  for (const term of ["diagnosis", "mri scanner", "cancer", "paracetamol", "cardiology", "hypertension", "suction unit", "table strap", "defibrillator", "pulse oximeter", "mri bore", "positioning laser"]) {
+    assert.ok(clinicalReference.has(term), `${term} remains in the hospital index`);
+  }
   assert.deepEqual(
-    byId.get("hospital")?.portals.map(({ childSceneId }) => childSceneId),
+    hospital.portals.map(({ childSceneId }) => childSceneId),
     ["emergency-department", "pathology-lab", "radiology-suite", "hospital-pharmacy"],
   );
   assert.deepEqual(

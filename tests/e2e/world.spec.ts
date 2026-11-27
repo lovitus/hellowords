@@ -1286,38 +1286,24 @@ test("urban services exposes hospital, airport and office vocabulary through the
     '[data-testid="scene-minimap-child"][data-target-scene="hospital"]',
   ).click();
   await expect(app).toHaveAttribute("data-scene-id", "hospital");
-  await expect(page.getByTestId("scene-word-progress")).toHaveAttribute("data-total", "440");
-  const emergencyZone = page.locator(
-    '[data-testid="scene-minimap-zone"][data-zone-id="emergency-department-detail"]',
-  );
-  await emergencyZone.click();
-  await expect.poll(() => paintedWordCount(page, "defibrillator"), { message: "hospital emergency focus should show defibrillator" }).toBeGreaterThan(0);
-  const pathologyZone = page.locator(
-    '[data-testid="scene-minimap-zone"][data-zone-id="pathology-laboratory-detail"]',
-  );
-  await pathologyZone.click();
-  if (testInfo.project.name === "mobile-chromium") {
-    await expect.poll(async () => Number(
-      await page.locator(".scene-surface").getAttribute("data-visible-label-count"),
-    )).toBeGreaterThan(0);
-  } else {
-    await expect.poll(() => paintedWordCount(page, "microscope")).toBeGreaterThan(0);
-  }
-  const clinicalZone = page.locator(
-    '[data-testid="scene-minimap-zone"][data-zone-id="clinical-reference-detail"]',
-  );
-  await clinicalZone.click();
-  await expect.poll(() => paintedWordCount(page, "diagnosis")).toBeGreaterThan(0);
-  const pharmacyZone = page.locator(
-    '[data-testid="scene-minimap-zone"][data-zone-id="pharmacy-dispensary-detail"]',
-  );
-  await pharmacyZone.click();
-  if (testInfo.project.name === "mobile-chromium") {
-    await expect.poll(async () => Number(
-      await page.locator(".scene-surface").getAttribute("data-visible-label-count"),
-    )).toBeGreaterThan(0);
-  } else {
-    await expect.poll(() => paintedWordCount(page, "ibuprofen")).toBeGreaterThan(0);
+  await expect(page.getByTestId("scene-word-progress")).toHaveAttribute("data-total", "124");
+  for (const [zoneId, word] of [
+    ["emergency-department-detail", "patient bed"],
+    ["pathology-laboratory-detail", "microscope"],
+    ["atrium-signs-detail", "square"],
+    ["pharmacy-dispensary-detail", "medication shelf"],
+  ] as const) {
+    const zone = page.locator(`[data-testid="scene-minimap-zone"][data-zone-id="${zoneId}"]`);
+    if (testInfo.project.name === "mobile-chromium") await zone.tap();
+    else await zone.click();
+    await expect(zone).toHaveAttribute("data-active", "true");
+    await expect.poll(() => page.locator(".label-canvas").evaluate((element, word) => {
+      const canvas = element as HTMLCanvasElement & { paintedLabels?: readonly PaintedLabel[] };
+      const { width, height } = canvas.getBoundingClientRect();
+      return canvas.paintedLabels?.some(label =>
+        label.word === word && label.interactive && label.opacity >= 0.52
+        && label.centerX >= 0 && label.centerX < width && label.centerY >= 0 && label.centerY < height);
+    }, word), { message: `focusing ${zoneId} shows a readable ${word} on the hospital photograph` }).toBe(true);
   }
 
   await page.locator(

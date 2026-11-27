@@ -2639,6 +2639,22 @@ function slugify(word) {
 }
 
 function addGroup(scene, definition, groupIndex) {
+  // An image review may have moved this whole group to the searchable index
+  // and replaced its detail zone with one that actually appears in the photo.
+  const vocabulary = [...scene.labels, ...(scene.relatedWords ?? [])];
+  const existingWords = new Set(vocabulary.map(({ word }) => word.toLocaleLowerCase()));
+  const existingIds = new Set(vocabulary.map(({ id }) => id));
+  const presentCount = definition.terms.filter(({ word }) => (
+    existingWords.has(word.toLocaleLowerCase())
+  )).length;
+  if (presentCount === definition.terms.length) return 0;
+  if (presentCount > 0) {
+    const presentTerms = definition.terms
+      .filter(({ word }) => existingWords.has(word.toLocaleLowerCase()))
+      .map(({ word }) => word)
+      .join(", ");
+    throw new Error(`${scene.id}/${definition.regionId} is only partially applied: ${presentTerms}`);
+  }
   const region = scene.visualRegions.find(({ id }) => id === definition.regionId);
   if (!region) throw new Error(`${scene.id} has no region ${definition.regionId}`);
   const zone = (scene.detailZones ?? []).find(({ id }) => id === definition.zoneId);
@@ -2655,20 +2671,6 @@ function addGroup(scene, definition, groupIndex) {
     throw new Error(`${scene.id}/${definition.regionId} and ${definition.zoneId} do not overlap`);
   }
 
-  const vocabulary = [...scene.labels, ...(scene.relatedWords ?? [])];
-  const existingWords = new Set(vocabulary.map(({ word }) => word.toLocaleLowerCase()));
-  const existingIds = new Set(vocabulary.map(({ id }) => id));
-  const presentCount = definition.terms.filter(({ word }) => (
-    existingWords.has(word.toLocaleLowerCase())
-  )).length;
-  if (presentCount === definition.terms.length) return 0;
-  if (presentCount > 0) {
-    const presentTerms = definition.terms
-      .filter(({ word }) => existingWords.has(word.toLocaleLowerCase()))
-      .map(({ word }) => word)
-      .join(", ");
-    throw new Error(`${scene.id}/${definition.regionId} is only partially applied: ${presentTerms}`);
-  }
   const maxPriority = scene.labels.reduce((max, label) => Math.max(max, label.priority ?? 0), 0);
   const added = definition.terms.map((term, index) => {
     const normalized = term.word.toLocaleLowerCase();

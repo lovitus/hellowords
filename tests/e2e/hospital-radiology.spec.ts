@@ -1,4 +1,5 @@
 import { expect, test, type Locator } from "@playwright/test";
+import { paintedWordCount } from "./canvas-words";
 import { checkMagnifiedObject, checkPaintedWords, magnify, openPhotographedRoute, projectPhoto, zoomBack, type PhotographedWord } from "./photo-journey";
 
 const hospital = "/scenes/hospital-atrium-premium-v1.jpg";
@@ -22,6 +23,118 @@ const objects: PhotographedWord[] = [
       [947, 840], [923, 839], [908, 832], [781, 679], [777, 668], [749, 631]],
   ] },
 ];
+
+test("hospital reads the photographed microscope and keeps cancer in the index on department round trips", async ({ page, isMobile }, testInfo) => {
+  test.setTimeout(90_000);
+  const app = page.getByTestId("world-app");
+  const viewer = page.locator(".viewer-shell:not([data-phase])");
+  const image = viewer.locator("img.scene-art");
+  const activate = (control: Locator) => isMobile ? control.tap() : control.click();
+  const stable = async () => (await image.elementHandle()).waitForElementState("stable");
+  const camera = () => viewer.locator(".scene-surface").evaluate(el => getComputedStyle(el).transform);
+  const sha256 = await openPhotographedRoute(page, isMobile, hospitalRoute, hospital, "027bfd9596fe551b513c8cd68ebe487553c1d75f21609c7519b88296460116a8");
+  await activate(page.getByTestId("scene-minimap").getByRole("button", { name: "收起小地图" }));
+
+  // The two foreground microscopes sit behind the laboratory window, with a
+  // glass mullion between them. The colored tubes stand in front of the bench.
+  const microscope: PhotographedWord = {
+    word: "microscope", meaning: "显微镜",
+    assertion: "the microscope dot must land on the photographed microscope behind the laboratory window",
+    outlines: [
+      [[433, 447], [441, 448], [451, 447], [452, 461], [450, 464], [456, 465], [461, 470],
+        [457, 474], [462, 477], [467, 485], [467, 527], [459, 528], [434, 528], [413, 527],
+        [426, 524], [429, 511], [429, 492], [443, 488], [441, 478], [429, 484], [425, 488],
+        [418, 490], [423, 481], [435, 473], [443, 468], [442, 465], [437, 464]],
+      [[569, 457], [573, 456], [581, 461], [582, 457], [587, 456], [589, 466], [587, 469],
+        [594, 471], [604, 478], [611, 485], [612, 490], [612, 520], [617, 521], [621, 528],
+        [618, 530], [604, 532], [586, 531], [583, 530], [584, 520], [587, 517], [583, 509],
+        [583, 504], [594, 504], [595, 498], [583, 498], [571, 495], [571, 492], [579, 492],
+        [583, 484], [580, 481], [570, 478], [571, 476], [580, 473], [577, 470]],
+    ],
+  };
+  const readMicroscope = async () => {
+    await checkPaintedWords(page, isMobile, testInfo, [microscope], sha256);
+    await stable();
+    // Several microscope parts sit within a few CSS pixels on a phone. Tap
+    // the whole instrument's painted dot and check which card actually opens.
+    const canvas = viewer.locator(".label-canvas");
+    const paintedDot = () => canvas.evaluate((element, word) => {
+      type Label = { word: string; interactive: boolean; opacity: number; anchorX: number; anchorY: number };
+      const dot = (element as HTMLCanvasElement & { paintedLabels?: Label[] }).paintedLabels
+        ?.find(label => label.word === word && label.interactive && label.opacity >= 0.52);
+      if (!dot) return null;
+      const frame = element.getBoundingClientRect();
+      return { x: frame.left + dot.anchorX, y: frame.top + dot.anchorY };
+    }, microscope.word);
+    await expect.poll(paintedDot, { message: "the microscope dot remains painted after its word card closes" }).not.toBeNull();
+    const point = (await paintedDot())!;
+    if (isMobile) await page.touchscreen.tap(point.x, point.y);
+    else await page.mouse.click(point.x, point.y);
+    const card = page.getByRole("complementary", { name: "microscope word details", exact: true });
+    await expect(card.locator("strong")).toHaveText(microscope.word);
+    await expect(card.getByText(microscope.meaning, { exact: true })).toBeVisible();
+    await testInfo.attach("microscope-dot-card", { body: await page.screenshot(), contentType: "image/png" });
+    await activate(card.getByRole("button", { name: "关闭单词卡" }));
+    await expect(card).toBeHidden();
+  };
+  await test.step("read the microscope in the hospital photograph", readMicroscope);
+
+  await stable();
+  const before = await camera();
+  await activate(page.getByTestId("scene-word-index-toggle"));
+  const index = page.getByTestId("scene-word-index");
+  await index.getByRole("searchbox").fill("cancer");
+  await activate(index.getByRole("button").filter({ has: page.getByText("cancer", { exact: true }) }));
+  const related = page.getByRole("complementary", { name: "cancer word details", exact: true });
+  await expect(related.getByText("癌症", { exact: true })).toBeVisible();
+  await expect(related.getByText("相关词 · 图中未标注", { exact: true })).toBeVisible();
+  await stable();
+  expect(await camera(), "reading cancer keeps the same view of the microscope").toBe(before);
+  expect(await paintedWordCount(page, "cancer"), "cancer has no word painted on the hospital photograph").toBe(0);
+  await testInfo.attach("hospital-cancer-index", { body: await page.screenshot(), contentType: "image/png" });
+  await activate(related.getByRole("button", { name: "关闭单词卡" }));
+  await expect(related).toBeHidden();
+
+  for (const [id, entrance] of [["pathology-lab", /^进入 Pathology lab\b/], ["radiology-suite", /^进入 Radiology suite\b/]] as const) {
+    await test.step(`enter ${id} and read the microscope after returning`, async () => {
+      await activate(viewer.getByRole("button", { name: "Fit scene", exact: true }));
+      await stable();
+      await activate(viewer.getByRole("button", { name: entrance }));
+      await expect(app).toHaveAttribute("data-scene-id", id);
+      await expect(app).toHaveAttribute("data-transition-state", "idle");
+      await activate(page.getByRole("button", { name: /返回上一层/ }));
+      await expect(app).toHaveAttribute("data-scene-id", "hospital");
+      await expect(app).toHaveAttribute("data-transition-state", "idle");
+      await expect(image).toHaveAttribute("src", hospital);
+      await readMicroscope();
+    });
+  }
+  for (const [word, meaning, x, y] of [
+    ["patient bed", "病床", 201, 535],
+    ["medication shelf", "药品货架", 1242, 452],
+  ] as const) {
+    await test.step(`read ${word} from the photograph after closing its search result`, async () => {
+      await activate(viewer.getByRole("button", { name: "Fit scene", exact: true }));
+      await stable();
+      await activate(page.getByTestId("scene-word-index-toggle"));
+      await index.getByRole("searchbox").fill(word);
+      await activate(index.getByRole("button").filter({ has: page.getByText(word, { exact: true }) }));
+      const card = page.getByRole("complementary", { name: `${word} word details`, exact: true });
+      await expect(card.getByText(meaning, { exact: true })).toBeVisible();
+      await stable();
+      await activate(card.getByRole("button", { name: "关闭单词卡" }));
+      await expect(card).toBeHidden();
+      await expect.poll(() => paintedWordCount(page, word)).toBeGreaterThan(0);
+      const point = await projectPhoto(image, x, y);
+      expect(point.visible).toBe(true);
+      if (isMobile) await page.touchscreen.tap(point.x, point.y);
+      else await page.mouse.click(point.x, point.y);
+      await expect(card.getByText(meaning, { exact: true })).toBeVisible();
+      await testInfo.attach(`hospital-${word.replaceAll(" ", "-")}-card`, { body: await page.screenshot(), contentType: "image/png" });
+      await activate(card.getByRole("button", { name: "关闭单词卡" }));
+    });
+  }
+});
 
 test("hospital radiology keeps ultrasound words on the photograph through Fit, continuous zoom and hospital return", async ({ page, isMobile }, testInfo) => {
   const app = page.getByTestId("world-app");

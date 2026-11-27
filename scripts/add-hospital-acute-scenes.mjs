@@ -646,10 +646,11 @@ const hospitalPortal = {
   translation: "进入急诊科",
   childSceneId: "emergency-department",
   sourceVisualRegion: "emergency-department",
-  x: 20,
-  y: 280,
-  width: 320,
-  height: 360,
+  x: 73,
+  y: 351,
+  width: 247,
+  height: 39,
+  portraitMarker: { x: 313, y: 380 },
   enterScale: 3.4,
 };
 
