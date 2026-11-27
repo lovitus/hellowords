@@ -1,4 +1,4 @@
-"""Compare photographed battery and carriage objects and retain the existing city journeys."""
+"""Compare the indexed carriage hatch on a bilingual phone and retain the existing journeys."""
 import base64
 from collections import Counter
 import hashlib
@@ -35,6 +35,8 @@ BUS_PLATFORM = ("e2e/bus-platform-photo-reading.spec.ts",
 BATTERY_PORTALS = ("e2e/world.spec.ts", "battery pack exposes its expanded grounded vocabulary through the real portal path")
 PACK_CARRIAGE = ("e2e/pack-carriage-photo-reading.spec.ts",
                  "the transit journey reads the battery mounting hole and carriage equipment hatch and keeps the lid hinge index-only")
+HATCH = ("e2e/pack-carriage-photo-reading.spec.ts",
+         "on a narrow phone the photographed equipment hatch opens again after promptly closing its index card")
 STREET_PHOTO = "/scenes/city-street-bright-v4.jpg"
 TRANSIT_PHOTO = "/scenes/transit-hub-premium-v2.jpg"
 BUS_PHOTO = "/scenes/electric-bus-premium-v2.jpg"
@@ -50,8 +52,9 @@ out = Path(os.environ["RUNNER_TEMP"]) / "frozen-display-evidence" / phase
 out.mkdir(parents=True)
 temp = Path(os.environ["RUNNER_TEMP"]) / f"browser-{phase}"
 temp.mkdir()
-cases = [("chromium", *PACK_CARRIAGE)]
+cases = [("mobile-chromium", *HATCH)]
 if phase == "candidate":
+    cases.append(("chromium", *PACK_CARRIAGE))
     cases.append(("chromium", *BUS_PLATFORM))
     cases.append(("chromium", *STREET_TRANSIT))
     cases.append(("mobile-chromium", *NARROW))
@@ -195,8 +198,7 @@ def street_transit_readings(observed, images, result):
 
 def photo_and_index_readings(observed, images, result, cards, indexed_word, indexed_meaning, index_scene):
     for word, meaning, scene, photo, point in cards:
-        card = (None, None) if phase == "baseline" else (word, meaning)
-        if not photographed_word(observed, images, word.replace(" ", "-"), scene, photo, point, card):
+        if not photographed_word(observed, images, word.replace(" ", "-"), scene, photo, point, (word, meaning)):
             return False
     name = indexed_word.replace(" ", "-") + "-index"
     entries = observed.get(name + "-result", [])
@@ -210,17 +212,31 @@ def photo_and_index_readings(observed, images, result, cards, indexed_word, inde
     if index_scene == "battery" and (reading.get("word"), reading.get("meaning")) != (indexed_word, indexed_meaning):
         return False
     bilingual = indexed_word + "，" + indexed_meaning
+    return (result["status"] == "passed" and not result["errors"]
+            and reading.get("indexName") == bilingual + "，图中未标注" and reading.get("related") is True
+            and reading["paintedMarkers"] == 0 and before == after)
+
+
+def indexed_hatch(observed, images, result):
+    readings = observed.get("hatch-touch-result", [])
+    if (len(readings) != 1 or any(images.get(name) != (1011, 1851) for name in ("hatch-before-touch", "hatch-after-touch"))):
+        return False
+    reading = readings[0]
+    point = reading.get("point", {})
+    if (reading.get("photo") != {"x": 1353, "y": 582} or point.get("visible") is not True
+            or not all(isinstance(point.get(axis), (int, float)) and 0 <= point[axis] < bound
+                       for axis, bound in (("x", 385), ("y", 705))) or "markerBeforeTouch" not in reading):
+        return False
+    marker = reading["markerBeforeTouch"]
+    cards = reading.get("cardsAfterTouch")
     if phase == "candidate":
-        return (result["status"] == "passed" and not result["errors"]
-                and reading.get("indexName") == bilingual + "，图中未标注" and reading.get("related") is True
-                and reading["paintedMarkers"] == 0 and before == after)
-    expected = {f"clicking the photographed {word} opens its word card" for word, *_ in cards}
-    expected.add("the lid hinge is index-only and preserves the battery pack framing")
+        return (result["status"] == "passed" and not result["errors"] and isinstance(marker, dict)
+                and marker.get("interactive") is True and cards == [{"word": "equipment hatch", "meaning": "设备舱盖"}])
+    expected = {"touching the photographed hatch after dismissing its index card must reopen the bilingual equipment hatch card",
+                "the hatch must retain an interactive marker once the search camera settles"}
     headings = [re.sub(r"\x1b\[[0-9;]*m", "", err.get("message", "")).partition("\n")[0].removeprefix("Error: ").strip()
                 for err in result["errors"]]
-    return (result["status"] == "failed" and Counter(headings) == Counter(expected)
-            and reading.get("indexName") == bilingual and reading.get("related") is False
-            and reading["paintedMarkers"] > 0 and before != after)
+    return result["status"] == "failed" and Counter(headings) == Counter(expected) and marker is None and cards == []
 
 
 scenes = {
@@ -233,9 +249,9 @@ scenes = {
     "railway-platform": inventory("railway-platform", PLATFORM_PHOTO, "85250ba12bfa202f5f9d43b690d44d32118647620f0fe1c39ce3830baa682fb0",
                                   "ec946bbe2aeb59278e0f8decb7b78f6b3a8d20ce20f33e2fcf0002bd1a798727", 126),
     "battery": inventory("battery", BATTERY_PHOTO, "497ca59f0582e79f6a3cc1c143e23bd3d3c925dc306e0ed631edf3f23cf7e2b1",
-                         "e76f5d197d3a31338d3a504588d0b6d3e49bc37c1feb03206ac4869bb242c5df", 90),
+                         "a3dbef0265f45da5cf1b2e35edbc4dedfef78d0055524644b054ec8da81a3dfa", 90),
     "train-carriage": inventory("train-carriage", CARRIAGE_PHOTO, "d1498a2fdee076830e331bd915c841763f122332116f2bc52fa173a28afd6148",
-                               "94e4baded692488b1f299b205ba148f61f9381be153f398a4307813dd0a2a961", 100),
+                               "c3eeb913e647bcabce72d92bec8aad6dd06f53f2b9b856e75658f745b2dedefc", 100),
 }
 selection = temp / "cases.txt"
 selection.write_text("".join(f"[{p}] > {f} > {title}\n" for p, f, title in cases))
@@ -270,6 +286,9 @@ for spec in visit(report):
         row.update(status=result["status"], errorCount=len(errors),
                    assertionLocations=source_lines, attachments=names, imageSizes=images)
         passed = result["status"] == "passed" and not errors
+        if title == HATCH[1]:
+            row["accepted"] = indexed_hatch(observed, images, result)
+            continue
         if title == BUS_PLATFORM[1]:
             cards = (("seat upholstery", "座椅面料", "electric-bus", BUS_PHOTO, (777, 465)),
                      ("tactile tile", "盲道砖", "railway-platform", PLATFORM_PHOTO, (743, 839)))

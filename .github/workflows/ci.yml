@@ -1,9 +1,9 @@
-name: Verify battery pack and train carriage vocabulary on the photographs
+name: Verify reopening an indexed carriage word on a narrow phone
 on:
   workflow_dispatch:
     inputs:
       candidate:
-        description: Full SHA of the battery and carriage candidate following the frozen bus and platform build
+        description: Full SHA of the indexed word fix following the frozen battery and carriage build
         required: true
         type: string
 permissions:
@@ -11,10 +11,10 @@ permissions:
   contents: read
 env:
   CI: "true"
-  BASELINE: 3a157fa0a20a7dfbfbf6a1b37f8ea0ce3b1c2755
+  BASELINE: 2e81fccd3b1e8a4cd2798ac3dbc5715f83f8abc8
   PRODUCT: ${{ inputs.candidate }}
-  MANIFEST_SHA256: bd473eca56021880197227a680ce62b07f79b6d908bf3c0e865a681699a665b3
-  ARTIFACT_RUN: "46020576939"
+  MANIFEST_SHA256: 7ffb45ba3a45fc6d6671a34275c2f67a020b838b834262aa974c117053e29e86
+  ARTIFACT_RUN: "46029408548"
 jobs:
   acceptance:
     runs-on: ubuntu-24.04
@@ -54,7 +54,7 @@ jobs:
           run-id: ${{ env.ARTIFACT_RUN }}
           github-token: ${{ github.token }}
           path: ${{ runner.temp }}/original-evidence
-      - name: Verify the recorded renderer budget failure against the frozen build
+      - name: Verify the recorded retained memory budget failure against the frozen build
         id: baseline
         if: ${{ !cancelled() && steps.integrity.outcome == 'success' && steps.original_evidence.outcome == 'success' }}
         continue-on-error: true
@@ -79,7 +79,7 @@ jobs:
         id: browser
         continue-on-error: true
         run: ./node_modules/.bin/playwright install --with-deps chromium > "$RUNNER_TEMP/browser.log" 2>&1
-      - name: Reproduce the frozen battery and carriage readings and the misplaced lid hinge
+      - name: Reproduce the missing carriage hatch after promptly dismissing its bilingual word card
         id: misplaced
         if: ${{ !cancelled() && steps.integrity.outcome == 'success' && steps.browser.outcome == 'success' }}
         continue-on-error: true
@@ -108,7 +108,7 @@ jobs:
           include-hidden-files: true
           if-no-files-found: error
           retention-days: 7
-      - name: Read photographed battery and carriage objects and retain the existing journeys
+      - name: Reopen the photographed hatch by touch and retain the existing journeys
         id: journeys
         if: ${{ !cancelled() && steps.build.outcome == 'success' && steps.browser.outcome == 'success' }}
         continue-on-error: true

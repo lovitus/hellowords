@@ -61,8 +61,8 @@ def run(stage, command, env=None):
 def baseline_performance():
     root = TEMP / "original-evidence"
     digests = {
-        "summary.json": "c43e4849397ea98688ac38327dc5ab1182fb875e24da4e555753d61d04cc0b4e",
-        "navigation-result.json": "992e04908314cd2da2abd7834f18a4b100fc0fd7f3299d4fe4fa9ced8d1499df",
+        "summary.json": "3f49a8ae287ba5a08fea44537f7e07d5199edee835db4898e1bb8550a17e9d1f",
+        "navigation-result.json": "af451bcc38c7ee7ffd756e3cd5277539754e291bd41992784f3934c9396481a4",
     }
     for name, expected in digests.items():
         if hashlib.sha256((root / name).read_bytes()).hexdigest() != expected:
@@ -77,8 +77,8 @@ def baseline_performance():
     if (summary["gitSha"] != os.environ["BASELINE"] or summary["scenario"]["cycles"] != 20
             or metrics["transitions"] != 40 or report["exit"] != 1 or len(report["cases"]) != 1
             or report["cases"][0]["status"] != "failed" or report["cases"][0]["retry"] != 0
-            or report["cases"][0]["assertionLines"] != [374] or exceeded != ["rendererTaskMsPerTransition"]):
-        raise ValueError("The frozen measurements do not match the recorded baseline renderer budget failure")
+            or report["cases"][0]["assertionLines"] != [386] or exceeded != ["retainedPssDeltaMiB"]):
+        raise ValueError("The frozen measurements do not match the recorded baseline retained memory budget failure")
     save("baseline-performance.json", {"gitSha": summary["gitSha"], "run": os.environ["ARTIFACT_RUN"],
                                       "cycles": 20, "transitions": 40, "measurements": readings,
                                       "budgets": summary["budgets"], "exceeded": exceeded, "sourceDigests": digests})
@@ -196,7 +196,7 @@ def record():
     gates = {gate: steps.get(gate, {}).get("outcome", "missing") for gate in GATES}
     save("result.json", {"gitSha": PRODUCT, "sourceRun": os.environ["ARTIFACT_RUN"],
                          "run": os.environ["GITHUB_RUN_ID"], "controlSha": os.environ["GITHUB_SHA"],
-                         "scope": "pack-carriage-photo-reading", "outcomes": gates,
+                         "scope": "narrow-indexed-hatch", "outcomes": gates,
                          "passed": all(v == "success" for v in gates.values())})
     with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as summary:
         summary.write("| Check | Outcome |\n|---|---|\n")
