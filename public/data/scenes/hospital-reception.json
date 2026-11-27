@@ -1,0 +1,1874 @@
+{
+  "id": "hospital-reception",
+  "title": "Hospital reception",
+  "translation": "医院服务台",
+  "subtitle": "Check in at the counter and follow the marked doorway to the dialysis unit",
+  "asset": "/scenes/hospital-reception-v1.jpg",
+  "width": 1600,
+  "height": 900,
+  "parentId": "hospital",
+  "portraitOverviewLabelIds": [
+    "service-bell",
+    "queue-ticket",
+    "telephone",
+    "clipboard",
+    "department-sign",
+    "treatment-recliner"
+  ],
+  "labels": [
+    {
+      "id": "service-bell",
+      "word": "service bell",
+      "translation": "服务铃",
+      "x": 134,
+      "y": 664,
+      "priority": 1,
+      "minLevel": 0,
+      "sourceVisualRegion": "desk-bell",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "bell-button",
+      "word": "bell button",
+      "translation": "铃钮",
+      "x": 137,
+      "y": 606,
+      "priority": 3.001,
+      "minLevel": 2,
+      "sourceVisualRegion": "desk-bell",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "bell-dome",
+      "word": "bell dome",
+      "translation": "铃罩",
+      "x": 108,
+      "y": 650,
+      "priority": 3.002,
+      "minLevel": 2,
+      "sourceVisualRegion": "desk-bell",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "bell-rim",
+      "word": "bell rim",
+      "translation": "铃缘",
+      "x": 170,
+      "y": 690,
+      "priority": 4.003,
+      "minLevel": 3,
+      "sourceVisualRegion": "desk-bell",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "bell-base",
+      "word": "bell base",
+      "translation": "铃座",
+      "x": 125,
+      "y": 724,
+      "priority": 2.004,
+      "minLevel": 1,
+      "sourceVisualRegion": "desk-bell",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "reception-counter",
+      "word": "reception counter",
+      "translation": "服务台",
+      "x": 723,
+      "y": 830,
+      "priority": 1.005,
+      "minLevel": 0,
+      "sourceVisualRegion": "reception-counter",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "countertop",
+      "word": "countertop",
+      "translation": "台面",
+      "x": 443,
+      "y": 742,
+      "priority": 2.006,
+      "minLevel": 1,
+      "sourceVisualRegion": "reception-counter",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "counter-edge",
+      "word": "counter edge",
+      "translation": "台面边缘",
+      "x": 670,
+      "y": 765,
+      "priority": 3.007,
+      "minLevel": 2,
+      "sourceVisualRegion": "reception-counter",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "curved-front-panel",
+      "word": "curved front panel",
+      "translation": "弧形前板",
+      "x": 1121,
+      "y": 810,
+      "priority": 3.008,
+      "minLevel": 2,
+      "sourceVisualRegion": "reception-counter",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "metal-trim",
+      "word": "metal trim",
+      "translation": "金属饰条",
+      "x": 1038,
+      "y": 832,
+      "priority": 4.009,
+      "minLevel": 3,
+      "sourceVisualRegion": "reception-counter",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "wood-grain",
+      "word": "wood grain",
+      "translation": "木纹",
+      "x": 930,
+      "y": 812,
+      "priority": 5.01,
+      "minLevel": 4,
+      "sourceVisualRegion": "reception-counter",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "telephone",
+      "word": "telephone",
+      "translation": "电话",
+      "x": 423,
+      "y": 607,
+      "priority": 1.011,
+      "minLevel": 0,
+      "sourceVisualRegion": "desk-phone",
+      "semanticRealmId": "objects-technology",
+      "lexemeId": "en-7339725159893c57"
+    },
+    {
+      "id": "telephone-handset",
+      "word": "telephone handset",
+      "translation": "电话听筒",
+      "x": 265,
+      "y": 520,
+      "priority": 2.012,
+      "minLevel": 1,
+      "sourceVisualRegion": "desk-phone",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "earpiece",
+      "word": "earpiece",
+      "translation": "听筒听音端",
+      "x": 250,
+      "y": 478,
+      "priority": 3.013,
+      "minLevel": 2,
+      "sourceVisualRegion": "desk-phone",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "mouthpiece",
+      "word": "mouthpiece",
+      "translation": "听筒送话端",
+      "x": 296,
+      "y": 598,
+      "priority": 4.014,
+      "minLevel": 3,
+      "sourceVisualRegion": "desk-phone",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "handset-cradle",
+      "word": "handset cradle",
+      "translation": "听筒托架",
+      "x": 203,
+      "y": 532,
+      "priority": 4.015,
+      "minLevel": 3,
+      "sourceVisualRegion": "desk-phone",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "telephone-display",
+      "word": "telephone display",
+      "translation": "电话显示屏",
+      "x": 344,
+      "y": 507,
+      "priority": 3.016,
+      "minLevel": 2,
+      "sourceVisualRegion": "desk-phone",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "function-key",
+      "word": "function key",
+      "translation": "功能键",
+      "x": 354,
+      "y": 533,
+      "priority": 4.017,
+      "minLevel": 3,
+      "sourceVisualRegion": "desk-phone",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "telephone-keypad",
+      "word": "telephone keypad",
+      "translation": "电话键盘",
+      "x": 377,
+      "y": 561,
+      "priority": 2.018,
+      "minLevel": 1,
+      "sourceVisualRegion": "desk-phone",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "number-key",
+      "word": "number key",
+      "translation": "数字键",
+      "x": 389,
+      "y": 549,
+      "priority": 4.019,
+      "minLevel": 3,
+      "sourceVisualRegion": "desk-phone",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "star-key",
+      "word": "star key",
+      "translation": "星号键",
+      "x": 365,
+      "y": 595,
+      "priority": 5.02,
+      "minLevel": 4,
+      "sourceVisualRegion": "desk-phone",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "hash-key",
+      "word": "hash key",
+      "translation": "井号键",
+      "x": 415,
+      "y": 586,
+      "priority": 5.021,
+      "minLevel": 4,
+      "sourceVisualRegion": "desk-phone",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "coiled-cord",
+      "word": "coiled cord",
+      "translation": "螺旋线",
+      "x": 359,
+      "y": 673,
+      "priority": 2.022,
+      "minLevel": 1,
+      "sourceVisualRegion": "phone-cord",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "cord-connector",
+      "word": "cord connector",
+      "translation": "线缆接头",
+      "x": 314,
+      "y": 623,
+      "priority": 5.023,
+      "minLevel": 4,
+      "sourceVisualRegion": "phone-cord",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "clipboard",
+      "word": "clipboard",
+      "translation": "写字夹板",
+      "x": 554,
+      "y": 690,
+      "priority": 1.024,
+      "minLevel": 0,
+      "sourceVisualRegion": "paperwork",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "spring-clip",
+      "word": "spring clip",
+      "translation": "弹簧夹",
+      "x": 578,
+      "y": 575,
+      "priority": 3.025,
+      "minLevel": 2,
+      "sourceVisualRegion": "paperwork",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "clip-handle",
+      "word": "clip handle",
+      "translation": "夹子提环",
+      "x": 557,
+      "y": 548,
+      "priority": 5.026,
+      "minLevel": 4,
+      "sourceVisualRegion": "paperwork",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "form",
+      "word": "form",
+      "translation": "表格",
+      "x": 616,
+      "y": 636,
+      "priority": 2.027,
+      "minLevel": 1,
+      "sourceVisualRegion": "paperwork",
+      "semanticRealmId": "objects-technology",
+      "lexemeId": "en-07397d633f25a710"
+    },
+    {
+      "id": "form-field",
+      "word": "form field",
+      "translation": "表格栏位",
+      "x": 558,
+      "y": 621,
+      "priority": 4.028,
+      "minLevel": 3,
+      "sourceVisualRegion": "paperwork",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "ruled-line",
+      "word": "ruled line",
+      "translation": "横线",
+      "x": 589,
+      "y": 656,
+      "priority": 5.029,
+      "minLevel": 4,
+      "sourceVisualRegion": "paperwork",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "pen",
+      "word": "pen",
+      "translation": "笔",
+      "x": 699,
+      "y": 646,
+      "priority": 2.03,
+      "minLevel": 1,
+      "sourceVisualRegion": "paperwork",
+      "semanticRealmId": "objects-technology",
+      "lexemeId": "en-e21a6b0cb193057e"
+    },
+    {
+      "id": "pen-tip",
+      "word": "pen tip",
+      "translation": "笔尖",
+      "x": 631,
+      "y": 666,
+      "priority": 4.031,
+      "minLevel": 3,
+      "sourceVisualRegion": "paperwork",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "pocket-clip",
+      "word": "pocket clip",
+      "translation": "笔夹",
+      "x": 723,
+      "y": 650,
+      "priority": 5.032,
+      "minLevel": 4,
+      "sourceVisualRegion": "paperwork",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "queue-ticket-dispenser",
+      "word": "queue ticket dispenser",
+      "translation": "取号机",
+      "x": 642,
+      "y": 495,
+      "priority": 1.033,
+      "minLevel": 0,
+      "sourceVisualRegion": "queue-dispenser",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "dispenser-cover",
+      "word": "dispenser cover",
+      "translation": "取号机上盖",
+      "x": 690,
+      "y": 462,
+      "priority": 3.034,
+      "minLevel": 2,
+      "sourceVisualRegion": "queue-dispenser",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "ticket-slot",
+      "word": "ticket slot",
+      "translation": "出票口",
+      "x": 704,
+      "y": 519,
+      "priority": 4.035,
+      "minLevel": 3,
+      "sourceVisualRegion": "queue-dispenser",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "queue-ticket",
+      "word": "queue ticket",
+      "translation": "号码票",
+      "x": 736,
+      "y": 566,
+      "priority": 2.036,
+      "minLevel": 1,
+      "sourceVisualRegion": "queue-dispenser",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "queue-number",
+      "word": "queue number",
+      "translation": "排队号码",
+      "x": 717,
+      "y": 548,
+      "priority": 3.037,
+      "minLevel": 2,
+      "sourceVisualRegion": "queue-dispenser",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "receipt-printer",
+      "word": "receipt printer",
+      "translation": "小票打印机",
+      "x": 851,
+      "y": 516,
+      "priority": 1.038,
+      "minLevel": 0,
+      "sourceVisualRegion": "printer",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "printer-lid",
+      "word": "printer lid",
+      "translation": "打印机盖",
+      "x": 809,
+      "y": 448,
+      "priority": 3.039,
+      "minLevel": 2,
+      "sourceVisualRegion": "printer",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "paper-outlet",
+      "word": "paper outlet",
+      "translation": "出纸口",
+      "x": 844,
+      "y": 459,
+      "priority": 4.04,
+      "minLevel": 3,
+      "sourceVisualRegion": "printer",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "status-light",
+      "word": "status light",
+      "translation": "状态指示灯",
+      "x": 897,
+      "y": 525,
+      "priority": 5.041,
+      "minLevel": 4,
+      "sourceVisualRegion": "printer",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "payment-terminal",
+      "word": "payment terminal",
+      "translation": "支付终端",
+      "x": 946,
+      "y": 531,
+      "priority": 1.042,
+      "minLevel": 0,
+      "sourceVisualRegion": "card-reader",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "card-reader-screen",
+      "word": "card reader screen",
+      "translation": "读卡器屏幕",
+      "x": 975,
+      "y": 508,
+      "priority": 3.043,
+      "minLevel": 2,
+      "sourceVisualRegion": "card-reader",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "payment-keypad",
+      "word": "payment keypad",
+      "translation": "支付键盘",
+      "x": 1012,
+      "y": 533,
+      "priority": 3.044,
+      "minLevel": 2,
+      "sourceVisualRegion": "card-reader",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "green-key",
+      "word": "green key",
+      "translation": "绿色按键",
+      "x": 1041,
+      "y": 543,
+      "priority": 4.045,
+      "minLevel": 3,
+      "sourceVisualRegion": "card-reader",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "yellow-key",
+      "word": "yellow key",
+      "translation": "黄色按键",
+      "x": 1027,
+      "y": 546,
+      "priority": 4.046,
+      "minLevel": 3,
+      "sourceVisualRegion": "card-reader",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "red-key",
+      "word": "red key",
+      "translation": "红色按键",
+      "x": 1010,
+      "y": 548,
+      "priority": 4.047,
+      "minLevel": 3,
+      "sourceVisualRegion": "card-reader",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "touchscreen",
+      "word": "touchscreen",
+      "translation": "触摸屏",
+      "x": 1149,
+      "y": 366,
+      "priority": 1.048,
+      "minLevel": 0,
+      "sourceVisualRegion": "touch-display",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "screen-bezel",
+      "word": "screen bezel",
+      "translation": "屏幕边框",
+      "x": 1228,
+      "y": 428,
+      "priority": 3.049,
+      "minLevel": 2,
+      "sourceVisualRegion": "touch-display",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "screen-stand",
+      "word": "screen stand",
+      "translation": "屏幕支架",
+      "x": 1155,
+      "y": 454,
+      "priority": 3.05,
+      "minLevel": 2,
+      "sourceVisualRegion": "touch-display",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "stand-base",
+      "word": "stand base",
+      "translation": "支架底座",
+      "x": 1179,
+      "y": 482,
+      "priority": 4.051,
+      "minLevel": 3,
+      "sourceVisualRegion": "touch-display",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "on-screen-button",
+      "word": "on-screen button",
+      "translation": "屏幕按钮",
+      "x": 1170,
+      "y": 383,
+      "priority": 5.052,
+      "minLevel": 4,
+      "sourceVisualRegion": "touch-display",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "leaflet-holder",
+      "word": "leaflet holder",
+      "translation": "宣传单架",
+      "x": 1035,
+      "y": 489,
+      "priority": 1.053,
+      "minLevel": 0,
+      "sourceVisualRegion": "brochure-display",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "information-leaflet",
+      "word": "information leaflet",
+      "translation": "宣传单",
+      "x": 1039,
+      "y": 393,
+      "priority": 2.054,
+      "minLevel": 1,
+      "sourceVisualRegion": "brochure-display",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "brochure-cover",
+      "word": "brochure cover",
+      "translation": "手册封面",
+      "x": 954,
+      "y": 386,
+      "priority": 3.055,
+      "minLevel": 2,
+      "sourceVisualRegion": "brochure-display",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "leaflet-pocket",
+      "word": "leaflet pocket",
+      "translation": "资料插槽",
+      "x": 930,
+      "y": 450,
+      "priority": 4.056,
+      "minLevel": 3,
+      "sourceVisualRegion": "brochure-display",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "pocket-divider",
+      "word": "pocket divider",
+      "translation": "插槽隔板",
+      "x": 1006,
+      "y": 431,
+      "priority": 5.057,
+      "minLevel": 4,
+      "sourceVisualRegion": "brochure-display",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "letter-tray",
+      "word": "letter tray",
+      "translation": "文件盘",
+      "x": 381,
+      "y": 295,
+      "priority": 2.058,
+      "minLevel": 1,
+      "sourceVisualRegion": "file-storage",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "stack-of-paper",
+      "word": "stack of paper",
+      "translation": "一叠纸",
+      "x": 388,
+      "y": 314,
+      "priority": 3.059,
+      "minLevel": 2,
+      "sourceVisualRegion": "file-storage",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "yellow-paper",
+      "word": "yellow paper",
+      "translation": "黄纸",
+      "x": 381,
+      "y": 344,
+      "priority": 3.06,
+      "minLevel": 2,
+      "sourceVisualRegion": "file-storage",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "wire-mesh",
+      "word": "wire mesh",
+      "translation": "金属网",
+      "x": 315,
+      "y": 292,
+      "priority": 5.061,
+      "minLevel": 4,
+      "sourceVisualRegion": "file-storage",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "file-shelf",
+      "word": "file shelf",
+      "translation": "文件架搁层",
+      "x": 351,
+      "y": 355,
+      "priority": 4.062,
+      "minLevel": 3,
+      "sourceVisualRegion": "file-storage",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "ring-binder",
+      "word": "ring binder",
+      "translation": "活页夹",
+      "x": 493,
+      "y": 324,
+      "priority": 1.063,
+      "minLevel": 0,
+      "sourceVisualRegion": "file-storage",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "binder-spine",
+      "word": "binder spine",
+      "translation": "文件夹书脊",
+      "x": 512,
+      "y": 323,
+      "priority": 3.064,
+      "minLevel": 2,
+      "sourceVisualRegion": "file-storage",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "finger-hole",
+      "word": "finger hole",
+      "translation": "指孔",
+      "x": 492,
+      "y": 361,
+      "priority": 5.065,
+      "minLevel": 4,
+      "sourceVisualRegion": "file-storage",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "spine-label",
+      "word": "spine label",
+      "translation": "书脊标签",
+      "x": 490,
+      "y": 293,
+      "priority": 4.066,
+      "minLevel": 3,
+      "sourceVisualRegion": "file-storage",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "desktop-drawer-unit",
+      "word": "desktop drawer unit",
+      "translation": "桌面抽屉柜",
+      "x": 560,
+      "y": 349,
+      "priority": 3.067,
+      "minLevel": 2,
+      "sourceVisualRegion": "file-storage",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "drawer-label-holder",
+      "word": "drawer label holder",
+      "translation": "抽屉标签框",
+      "x": 587,
+      "y": 335,
+      "priority": 5.068,
+      "minLevel": 4,
+      "sourceVisualRegion": "file-storage",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "chair",
+      "word": "chair",
+      "translation": "椅子",
+      "x": 555,
+      "y": 426,
+      "priority": 1.069,
+      "minLevel": 0,
+      "sourceVisualRegion": "work-chair",
+      "semanticRealmId": "objects-technology",
+      "lexemeId": "en-3d7eb3d3dab17ee5"
+    },
+    {
+      "id": "mesh-backrest",
+      "word": "mesh backrest",
+      "translation": "网布靠背",
+      "x": 584,
+      "y": 464,
+      "priority": 3.07,
+      "minLevel": 2,
+      "sourceVisualRegion": "work-chair",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "backrest-frame",
+      "word": "backrest frame",
+      "translation": "靠背框架",
+      "x": 473,
+      "y": 415,
+      "priority": 4.071,
+      "minLevel": 3,
+      "sourceVisualRegion": "work-chair",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "chair-armrest",
+      "word": "chair armrest",
+      "translation": "座椅扶手",
+      "x": 448,
+      "y": 525,
+      "priority": 2.072,
+      "minLevel": 1,
+      "sourceVisualRegion": "work-chair",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "storage-cabinet",
+      "word": "storage cabinet",
+      "translation": "储物柜",
+      "x": 342,
+      "y": 463,
+      "priority": 2.073,
+      "minLevel": 1,
+      "sourceVisualRegion": "back-counter",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "cabinet-handle",
+      "word": "cabinet handle",
+      "translation": "柜门把手",
+      "x": 407,
+      "y": 438,
+      "priority": 4.074,
+      "minLevel": 3,
+      "sourceVisualRegion": "back-counter",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "cabinet-door",
+      "word": "cabinet door",
+      "translation": "柜门",
+      "x": 264,
+      "y": 444,
+      "priority": 3.075,
+      "minLevel": 2,
+      "sourceVisualRegion": "back-counter",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "rear-worktop",
+      "word": "rear worktop",
+      "translation": "后方工作台面",
+      "x": 449,
+      "y": 399,
+      "priority": 4.076,
+      "minLevel": 3,
+      "sourceVisualRegion": "back-counter",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "clock",
+      "word": "clock",
+      "translation": "时钟",
+      "x": 957,
+      "y": 126,
+      "priority": 1.077,
+      "minLevel": 0,
+      "sourceVisualRegion": "clock",
+      "semanticRealmId": "objects-technology",
+      "lexemeId": "en-d8198efa3604d164"
+    },
+    {
+      "id": "clock-face",
+      "word": "clock face",
+      "translation": "钟面",
+      "x": 935,
+      "y": 121,
+      "priority": 2.078,
+      "minLevel": 1,
+      "sourceVisualRegion": "clock",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "hour-hand",
+      "word": "hour hand",
+      "translation": "时针",
+      "x": 932,
+      "y": 89,
+      "priority": 4.079,
+      "minLevel": 3,
+      "sourceVisualRegion": "clock",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "minute-hand",
+      "word": "minute hand",
+      "translation": "分针",
+      "x": 981,
+      "y": 83,
+      "priority": 4.08,
+      "minLevel": 3,
+      "sourceVisualRegion": "clock",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "clock-rim",
+      "word": "clock rim",
+      "translation": "钟框",
+      "x": 1017,
+      "y": 129,
+      "priority": 3.081,
+      "minLevel": 2,
+      "sourceVisualRegion": "clock",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "clock-numeral",
+      "word": "clock numeral",
+      "translation": "钟面数字",
+      "x": 951,
+      "y": 45,
+      "priority": 5.082,
+      "minLevel": 4,
+      "sourceVisualRegion": "clock",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "minute-mark",
+      "word": "minute mark",
+      "translation": "分钟刻度",
+      "x": 968,
+      "y": 36,
+      "priority": 5.083,
+      "minLevel": 4,
+      "sourceVisualRegion": "clock",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "windowpane",
+      "word": "windowpane",
+      "translation": "窗玻璃",
+      "x": 124,
+      "y": 164,
+      "priority": 2.084,
+      "minLevel": 1,
+      "sourceVisualRegion": "window",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "window-mullion",
+      "word": "window mullion",
+      "translation": "窗竖梃",
+      "x": 244,
+      "y": 146,
+      "priority": 3.085,
+      "minLevel": 2,
+      "sourceVisualRegion": "window",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "window-sill",
+      "word": "window sill",
+      "translation": "窗台",
+      "x": 14,
+      "y": 357,
+      "priority": 4.086,
+      "minLevel": 3,
+      "sourceVisualRegion": "window",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "trailing-plant",
+      "word": "trailing plant",
+      "translation": "垂蔓植物",
+      "x": 73,
+      "y": 399,
+      "priority": 2.087,
+      "minLevel": 1,
+      "sourceVisualRegion": "plants",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "heart-shaped-leaf",
+      "word": "heart-shaped leaf",
+      "translation": "心形叶",
+      "x": 90,
+      "y": 462,
+      "priority": 4.088,
+      "minLevel": 3,
+      "sourceVisualRegion": "plants",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "trailing-vine",
+      "word": "trailing vine",
+      "translation": "下垂藤蔓",
+      "x": 124,
+      "y": 454,
+      "priority": 4.089,
+      "minLevel": 3,
+      "sourceVisualRegion": "plants",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "plant-pot",
+      "word": "plant pot",
+      "translation": "花盆",
+      "x": 170,
+      "y": 376,
+      "priority": 2.09,
+      "minLevel": 1,
+      "sourceVisualRegion": "plants",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "potted-houseplant",
+      "word": "potted houseplant",
+      "translation": "室内盆栽",
+      "x": 837,
+      "y": 269,
+      "priority": 2.091,
+      "minLevel": 1,
+      "sourceVisualRegion": "plants",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "leaf-tip",
+      "word": "leaf tip",
+      "translation": "叶尖",
+      "x": 860,
+      "y": 197,
+      "priority": 5.092,
+      "minLevel": 4,
+      "sourceVisualRegion": "plants",
+      "semanticRealmId": "nature-life"
+    },
+    {
+      "id": "door",
+      "word": "door",
+      "translation": "门",
+      "x": 1539,
+      "y": 472,
+      "priority": 1.093,
+      "minLevel": 0,
+      "sourceVisualRegion": "room-entrance",
+      "semanticRealmId": "objects-technology",
+      "lexemeId": "en-2534e2de1dec24fe"
+    },
+    {
+      "id": "department-sign",
+      "word": "department sign",
+      "translation": "科室标牌",
+      "x": 1425,
+      "y": 50,
+      "priority": 2.094,
+      "minLevel": 1,
+      "sourceVisualRegion": "room-entrance",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "door-frame",
+      "word": "door frame",
+      "translation": "门框",
+      "x": 1253,
+      "y": 355,
+      "priority": 3.095,
+      "minLevel": 2,
+      "sourceVisualRegion": "room-entrance",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "door-closer",
+      "word": "door closer",
+      "translation": "闭门器",
+      "x": 1491,
+      "y": 107,
+      "priority": 4.096,
+      "minLevel": 3,
+      "sourceVisualRegion": "room-entrance",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "door-hinge",
+      "word": "door hinge",
+      "translation": "门铰链",
+      "x": 1568,
+      "y": 158,
+      "priority": 4.097,
+      "minLevel": 3,
+      "sourceVisualRegion": "room-entrance",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "pull-handle",
+      "word": "pull handle",
+      "translation": "拉手",
+      "x": 1542,
+      "y": 346,
+      "priority": 3.098,
+      "minLevel": 2,
+      "sourceVisualRegion": "room-entrance",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "kick-plate",
+      "word": "kick plate",
+      "translation": "防踢板",
+      "x": 1531,
+      "y": 550,
+      "priority": 4.099,
+      "minLevel": 3,
+      "sourceVisualRegion": "room-entrance",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "door-threshold",
+      "word": "door threshold",
+      "translation": "门槛",
+      "x": 1418,
+      "y": 588,
+      "priority": 3.1,
+      "minLevel": 2,
+      "sourceVisualRegion": "room-entrance",
+      "semanticRealmId": "objects-technology"
+    },
+    {
+      "id": "treatment-recliner",
+      "word": "treatment recliner",
+      "translation": "治疗躺椅",
+      "x": 1361,
+      "y": 361,
+      "priority": 1.101,
+      "minLevel": 0,
+      "sourceVisualRegion": "treatment-chair",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "head-cushion",
+      "word": "head cushion",
+      "translation": "头枕",
+      "x": 1333,
+      "y": 316,
+      "priority": 3.102,
+      "minLevel": 2,
+      "sourceVisualRegion": "treatment-chair",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "padded-armrest",
+      "word": "padded armrest",
+      "translation": "软垫扶手",
+      "x": 1311,
+      "y": 372,
+      "priority": 4.103,
+      "minLevel": 3,
+      "sourceVisualRegion": "treatment-chair",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "leg-rest",
+      "word": "leg rest",
+      "translation": "腿托",
+      "x": 1384,
+      "y": 432,
+      "priority": 3.104,
+      "minLevel": 2,
+      "sourceVisualRegion": "treatment-chair",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "chair-caster",
+      "word": "chair caster",
+      "translation": "椅子脚轮",
+      "x": 1334,
+      "y": 475,
+      "priority": 5.105,
+      "minLevel": 4,
+      "sourceVisualRegion": "treatment-chair",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "dialysis-machine",
+      "word": "dialysis machine",
+      "translation": "透析机",
+      "x": 1453,
+      "y": 389,
+      "priority": 2.106,
+      "minLevel": 1,
+      "sourceVisualRegion": "dialysis-equipment",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "dialysis-display",
+      "word": "dialysis display",
+      "translation": "透析机显示屏",
+      "x": 1453,
+      "y": 289,
+      "priority": 3.107,
+      "minLevel": 2,
+      "sourceVisualRegion": "dialysis-equipment",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "pump-face",
+      "word": "pump face",
+      "translation": "泵正面",
+      "x": 1441,
+      "y": 339,
+      "priority": 4.108,
+      "minLevel": 3,
+      "sourceVisualRegion": "dialysis-equipment",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "tubing-loop",
+      "word": "tubing loop",
+      "translation": "管路环",
+      "x": 1489,
+      "y": 412,
+      "priority": 4.109,
+      "minLevel": 3,
+      "sourceVisualRegion": "dialysis-equipment",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "drip-stand",
+      "word": "drip stand",
+      "translation": "输液架",
+      "x": 1477,
+      "y": 245,
+      "priority": 4.11,
+      "minLevel": 3,
+      "sourceVisualRegion": "dialysis-equipment",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "hook",
+      "word": "hook",
+      "translation": "挂钩",
+      "x": 1457,
+      "y": 226,
+      "priority": 5.111,
+      "minLevel": 4,
+      "sourceVisualRegion": "dialysis-equipment",
+      "semanticRealmId": "body-daily-life",
+      "lexemeId": "en-0648298b48be0319"
+    }
+  ],
+  "relatedWords": [
+    {
+      "id": "receptionist",
+      "word": "receptionist",
+      "translation": "接待员",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "visitor",
+      "word": "visitor",
+      "translation": "访客",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "outpatient",
+      "word": "outpatient",
+      "translation": "门诊患者",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "caregiver",
+      "word": "caregiver",
+      "translation": "照护者",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "patient-registration",
+      "word": "patient registration",
+      "translation": "患者登记",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "patient-check-in",
+      "word": "patient check-in",
+      "translation": "患者报到",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "walk-in-visit",
+      "word": "walk-in visit",
+      "translation": "未预约就诊",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "scheduled-appointment",
+      "word": "scheduled appointment",
+      "translation": "预约就诊",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "appointment-confirmation",
+      "word": "appointment confirmation",
+      "translation": "预约确认",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "rescheduling",
+      "word": "rescheduling",
+      "translation": "改约",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "cancellation",
+      "word": "cancellation",
+      "translation": "取消预约",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "referral-letter",
+      "word": "referral letter",
+      "translation": "转诊信",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "referring-physician",
+      "word": "referring physician",
+      "translation": "转诊医生",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "patient-portal",
+      "word": "patient portal",
+      "translation": "患者服务平台",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "contact-details",
+      "word": "contact details",
+      "translation": "联系方式",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "emergency-contact",
+      "word": "emergency contact",
+      "translation": "紧急联系人",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "preferred-language",
+      "word": "preferred language",
+      "translation": "首选语言",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "interpreter-request",
+      "word": "interpreter request",
+      "translation": "口译申请",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "insurance-coverage",
+      "word": "insurance coverage",
+      "translation": "保险保障范围",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "copayment",
+      "word": "copayment",
+      "translation": "就诊自付额",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "billing-inquiry",
+      "word": "billing inquiry",
+      "translation": "费用查询",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "itemized-receipt",
+      "word": "itemized receipt",
+      "translation": "明细收据",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "queue-position",
+      "word": "queue position",
+      "translation": "排队顺序",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "estimated-waiting-time",
+      "word": "estimated waiting time",
+      "translation": "预计等候时间",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "department-directory",
+      "word": "department directory",
+      "translation": "科室指南",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "visitor-pass",
+      "word": "visitor pass",
+      "translation": "访客证",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "accessibility-assistance",
+      "word": "accessibility assistance",
+      "translation": "无障碍协助",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "renal-clinic",
+      "word": "renal clinic",
+      "translation": "肾脏科门诊",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "nephrologist",
+      "word": "nephrologist",
+      "translation": "肾脏科医生",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "dialysis-appointment",
+      "word": "dialysis appointment",
+      "translation": "透析预约",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "medical-record-number",
+      "word": "medical record number",
+      "translation": "病历号",
+      "semanticRealmId": "body-daily-life"
+    },
+    {
+      "id": "consent-form",
+      "word": "consent form",
+      "translation": "同意书",
+      "semanticRealmId": "body-daily-life"
+    }
+  ],
+  "visualRegions": [
+    {
+      "id": "desk-bell",
+      "description": "Silver bell with a spring-loaded top button, bright dome and black circular base.",
+      "kind": "object",
+      "x": 47,
+      "y": 596,
+      "width": 181,
+      "height": 153
+    },
+    {
+      "id": "reception-counter",
+      "description": "Pale flecked worktop above a curved wood front with a silver band.",
+      "kind": "object",
+      "x": 0,
+      "y": 555,
+      "width": 1264,
+      "height": 345
+    },
+    {
+      "id": "desk-phone",
+      "description": "Black desk phone with a handset seated in the cradle and an LCD above the keys.",
+      "kind": "object",
+      "x": 176,
+      "y": 444,
+      "width": 281,
+      "height": 197
+    },
+    {
+      "id": "phone-cord",
+      "description": "A thick black coiled cable joins the handset to the phone body.",
+      "kind": "object",
+      "x": 246,
+      "y": 609,
+      "width": 209,
+      "height": 80
+    },
+    {
+      "id": "paperwork",
+      "description": "Clipboard with a chrome clip, printed paper form and blue ballpoint pen.",
+      "kind": "object",
+      "x": 448,
+      "y": 531,
+      "width": 349,
+      "height": 178
+    },
+    {
+      "id": "queue-dispenser",
+      "description": "White ticket dispenser with a grey cover and a paper number ticket protruding from its mouth.",
+      "kind": "object",
+      "x": 604,
+      "y": 425,
+      "width": 155,
+      "height": 165
+    },
+    {
+      "id": "printer",
+      "description": "Compact black receipt printer with a paper opening, lid and a green illuminated light.",
+      "kind": "object",
+      "x": 740,
+      "y": 433,
+      "width": 177,
+      "height": 148
+    },
+    {
+      "id": "card-reader",
+      "description": "Dark payment terminal with a display, number keys and green, yellow and red keys.",
+      "kind": "object",
+      "x": 917,
+      "y": 479,
+      "width": 152,
+      "height": 102
+    },
+    {
+      "id": "touch-display",
+      "description": "Tilted black touch display on a short pedestal with a broad flat foot.",
+      "kind": "object",
+      "x": 1048,
+      "y": 293,
+      "width": 201,
+      "height": 205
+    },
+    {
+      "id": "brochure-display",
+      "description": "Two clear acrylic bays holding blue and green folded leaflets.",
+      "kind": "object",
+      "x": 892,
+      "y": 310,
+      "width": 190,
+      "height": 197
+    },
+    {
+      "id": "file-storage",
+      "description": "Black stacked mesh trays with white and yellow paper, upright binders and small white drawers.",
+      "kind": "object",
+      "x": 293,
+      "y": 254,
+      "width": 341,
+      "height": 154
+    },
+    {
+      "id": "work-chair",
+      "description": "Dark work chair with an oval mesh back, heavy top frame and a black armrest.",
+      "kind": "object",
+      "x": 388,
+      "y": 363,
+      "width": 299,
+      "height": 182
+    },
+    {
+      "id": "back-counter",
+      "description": "White back counter over golden cabinet fronts with individual metal pulls.",
+      "kind": "object",
+      "x": 0,
+      "y": 370,
+      "width": 910,
+      "height": 193
+    },
+    {
+      "id": "clock",
+      "description": "Round analogue clock with black hands, a central pivot and a numbered white face.",
+      "kind": "object",
+      "x": 877,
+      "y": 15,
+      "width": 154,
+      "height": 173
+    },
+    {
+      "id": "window",
+      "description": "Tall glazed window above the rear worktop, with contrasting dark vertical framing.",
+      "kind": "object",
+      "x": 0,
+      "y": 0,
+      "width": 360,
+      "height": 366
+    },
+    {
+      "id": "plants",
+      "description": "Trailing plant in a large pot below the window and an upright plant beside the brochure display.",
+      "kind": "object",
+      "x": 4,
+      "y": 169,
+      "width": 946,
+      "height": 355
+    },
+    {
+      "id": "room-entrance",
+      "description": "Blue DIALYSIS sign over a broad open door, with exposed hardware on the wood door leaf.",
+      "kind": "object",
+      "x": 1234,
+      "y": 10,
+      "width": 365,
+      "height": 595
+    },
+    {
+      "id": "treatment-chair",
+      "description": "Blue segmented treatment recliner with a head cushion, armrests, leg rest and wheels.",
+      "kind": "object",
+      "x": 1273,
+      "y": 293,
+      "width": 172,
+      "height": 199
+    },
+    {
+      "id": "dialysis-equipment",
+      "description": "White dialysis machine with a display, two round pump faces and the curved tubing at its side.",
+      "kind": "object",
+      "x": 1380,
+      "y": 206,
+      "width": 137,
+      "height": 289
+    },
+    {
+      "id": "dialysis-door-passage",
+      "description": "Clear passage on the floor inside the door marked DIALYSIS, directly in front of the blue recliner.",
+      "kind": "part",
+      "x": 1352,
+      "y": 493,
+      "width": 78,
+      "height": 66
+    }
+  ],
+  "detailZones": [
+    {
+      "id": "visitor-counter",
+      "title": "Visitor counter",
+      "translation": "服务铃与前台",
+      "x": 0,
+      "y": 550,
+      "width": 1264,
+      "height": 350,
+      "targetScale": 1.7,
+      "description": "Follow the polished service bell down to its base and the curved front of the counter.",
+      "labelIds": [
+        "service-bell",
+        "bell-button",
+        "bell-dome",
+        "bell-rim",
+        "bell-base",
+        "reception-counter",
+        "countertop",
+        "counter-edge",
+        "curved-front-panel",
+        "metal-trim",
+        "wood-grain"
+      ]
+    },
+    {
+      "id": "telephone",
+      "title": "Desk telephone",
+      "translation": "前台电话",
+      "x": 168,
+      "y": 442,
+      "width": 344,
+      "height": 247,
+      "targetScale": 2.55,
+      "description": "Compare the handset, curly cord, number pad and separate function keys.",
+      "labelIds": [
+        "telephone",
+        "telephone-handset",
+        "earpiece",
+        "mouthpiece",
+        "handset-cradle",
+        "telephone-display",
+        "function-key",
+        "telephone-keypad",
+        "number-key",
+        "star-key",
+        "hash-key",
+        "coiled-cord",
+        "cord-connector"
+      ]
+    },
+    {
+      "id": "registration",
+      "title": "Forms and tickets",
+      "translation": "登记与取号",
+      "x": 419,
+      "y": 425,
+      "width": 657,
+      "height": 293,
+      "targetScale": 2.05,
+      "description": "Look across the counter from the clipboard to the ticket dispenser, printer and payment terminal.",
+      "labelIds": [
+        "clipboard",
+        "spring-clip",
+        "clip-handle",
+        "form",
+        "form-field",
+        "ruled-line",
+        "pen",
+        "pen-tip",
+        "pocket-clip",
+        "queue-ticket-dispenser",
+        "dispenser-cover",
+        "ticket-slot",
+        "queue-ticket",
+        "queue-number",
+        "receipt-printer",
+        "printer-lid",
+        "paper-outlet",
+        "status-light",
+        "payment-terminal",
+        "card-reader-screen",
+        "payment-keypad",
+        "green-key",
+        "yellow-key",
+        "red-key"
+      ]
+    },
+    {
+      "id": "information",
+      "title": "Patient information",
+      "translation": "资料与触摸屏",
+      "x": 884,
+      "y": 284,
+      "width": 369,
+      "height": 229,
+      "targetScale": 2.45,
+      "description": "Inspect the upright touch display and the folded brochures inside a clear holder.",
+      "labelIds": [
+        "touchscreen",
+        "screen-bezel",
+        "screen-stand",
+        "stand-base",
+        "on-screen-button",
+        "leaflet-holder",
+        "information-leaflet",
+        "brochure-cover",
+        "leaflet-pocket",
+        "pocket-divider"
+      ]
+    },
+    {
+      "id": "office",
+      "title": "Office supplies",
+      "translation": "文件与工作椅",
+      "x": 0,
+      "y": 245,
+      "width": 909,
+      "height": 323,
+      "targetScale": 2.05,
+      "description": "Explore the filing trays, ring binders, cabinet hardware and the mesh-backed chair.",
+      "labelIds": [
+        "letter-tray",
+        "stack-of-paper",
+        "yellow-paper",
+        "wire-mesh",
+        "file-shelf",
+        "ring-binder",
+        "binder-spine",
+        "finger-hole",
+        "spine-label",
+        "desktop-drawer-unit",
+        "drawer-label-holder",
+        "chair",
+        "mesh-backrest",
+        "backrest-frame",
+        "chair-armrest",
+        "storage-cabinet",
+        "cabinet-handle",
+        "cabinet-door",
+        "rear-worktop"
+      ]
+    },
+    {
+      "id": "clock-and-window",
+      "title": "Clock and window",
+      "translation": "时钟与窗边",
+      "x": 0,
+      "y": 0,
+      "width": 1040,
+      "height": 521,
+      "targetScale": 2,
+      "description": "Read the two clock hands and find the window mullion and the separate trailing and upright plants.",
+      "labelIds": [
+        "clock",
+        "clock-face",
+        "hour-hand",
+        "minute-hand",
+        "clock-rim",
+        "clock-numeral",
+        "minute-mark",
+        "windowpane",
+        "window-mullion",
+        "window-sill",
+        "trailing-plant",
+        "heart-shaped-leaf",
+        "trailing-vine",
+        "plant-pot",
+        "potted-houseplant",
+        "leaf-tip"
+      ]
+    },
+    {
+      "id": "dialysis-door",
+      "title": "Dialysis entrance",
+      "translation": "透析室门口",
+      "x": 1206,
+      "y": 0,
+      "width": 394,
+      "height": 900,
+      "targetScale": 2,
+      "description": "Use the blue dialysis sign and open doorway to find the recliner and machine in the adjoining room.",
+      "labelIds": [
+        "door",
+        "department-sign",
+        "door-frame",
+        "door-closer",
+        "door-hinge",
+        "pull-handle",
+        "kick-plate",
+        "door-threshold",
+        "treatment-recliner",
+        "head-cushion",
+        "padded-armrest",
+        "leg-rest",
+        "chair-caster",
+        "dialysis-machine",
+        "dialysis-display",
+        "pump-face",
+        "tubing-loop",
+        "drip-stand",
+        "hook"
+      ]
+    }
+  ],
+  "portals": [
+    {
+      "id": "enter-hemodialysis-unit",
+      "label": "Enter the dialysis unit",
+      "translation": "进入血液透析室",
+      "childSceneId": "hemodialysis-unit",
+      "sourceVisualRegion": "dialysis-door-passage",
+      "x": 1352,
+      "y": 493,
+      "width": 78,
+      "height": 66,
+      "portraitMarker": {
+        "x": 1391,
+        "y": 526,
+        "scaleToObject": true
+      },
+      "enterScale": 3.4
+    }
+  ],
+  "anchorAudit": {
+    "status": "image-reviewed",
+    "policy": "visible-object-or-part-only",
+    "reviewedAsset": "/scenes/hospital-reception-v1.jpg",
+    "reviewedAssetSha256": "7fc32169c03b3e28d51632897dc8d67de139170b9b58ebb0a725b42377719dfb",
+    "rationale": "The physical bell, separate office equipment and numbered ticket can be identified on the counter. The blue DIALYSIS sign and the visible recliner and machine establish the adjoining doorway. Registration workflows and document types with no readable identification are available in the word index. Awaiting human review.",
+    "previousLabelCount": 144,
+    "retainedLabelCount": 112,
+    "removedLabelCount": 32,
+    "removedExamples": [
+      "referral letter",
+      "consent form",
+      "visitor pass"
+    ]
+  }
+}

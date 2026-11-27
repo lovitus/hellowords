@@ -2,7 +2,7 @@
 import type { LabelSemanticRealm } from "./labelSemanticStyle";
 
 /** Number of authored spatial label references covered by this compact index. */
-export const SPATIAL_LEXEME_LINK_COUNT = 387;
+export const SPATIAL_LEXEME_LINK_COUNT = 397;
 
 /** Bundled realm lookup for spatial labels; it never causes a runtime shard request. */
 export const SPATIAL_LEXEME_REALMS = Object.freeze({
@@ -13,6 +13,8 @@ export const SPATIAL_LEXEME_REALMS = Object.freeze({
   "en-04e027e4990a203f": "objects-technology",
   "en-05e884950dccb9aa": "objects-technology",
   "en-05f514fae7ca5710": "nature-life",
+  "en-0648298b48be0319": "objects-technology",
+  "en-07397d633f25a710": "language-culture",
   "en-08d33503ee27d4c1": "objects-technology",
   "en-0b6f395ca14ac202": "language-culture",
   "en-0bb09d80600eec3e": "qualities-states",
@@ -118,6 +120,7 @@ export const SPATIAL_LEXEME_REALMS = Object.freeze({
   "en-6f347b04efac92cf": "objects-technology",
   "en-6fda7451bc6b4a59": "mind-values",
   "en-72f7c894ad6c4ce2": "objects-technology",
+  "en-7339725159893c57": "objects-technology",
   "en-736bc2d4e0945110": "objects-technology",
   "en-74f7fd1cf08b145c": "objects-technology",
   "en-74fa5327cc0f4e94": "nature-life",

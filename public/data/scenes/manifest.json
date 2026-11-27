@@ -103,6 +103,16 @@
       "parentId": "urban-services"
     },
     {
+      "id": "hospital-reception",
+      "title": "Hospital reception",
+      "parentId": "hospital"
+    },
+    {
+      "id": "hemodialysis-unit",
+      "title": "Hemodialysis unit",
+      "parentId": "hospital-reception"
+    },
+    {
       "id": "emergency-department",
       "title": "Emergency department",
       "parentId": "hospital"

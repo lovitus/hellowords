@@ -46,11 +46,13 @@ const contracts = [
   },
   {
     id: "hemodialysis-unit",
-    parentId: "hospital",
+    parentId: "hospital-reception",
     asset: "/scenes/hemodialysis-unit-premium-v1.jpg",
     sha256: "fd89f968c45ae3139c699fd4a333c5eb7b5c10bdd053df35c56a9a6b8af964dc",
-    labels: 150,
-    zoneSizes: [25, 25, 25, 25, 25, 25],
+    labels: 106,
+    related: 74,
+    audit: "image-reviewed",
+    zoneSizes: [23, 20, 12, 16, 19, 16],
   },
   {
     id: "carry-on-baggage-scanner",

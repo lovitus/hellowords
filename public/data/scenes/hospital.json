@@ -7,6 +7,7 @@
   "width": 1600,
   "height": 900,
   "parentId": "urban-services",
+  "portraitOverviewLabelIds": ["reception-desk", "patient-bed", "microscope", "medication-shelf"],
   "labels": [
     {
       "id": "patient-bed",
@@ -1386,6 +1387,19 @@
       "height": 42,
       "enterScale": 3.4,
       "sourceVisualRegion": "pharmacy-dispensary"
+    },
+    {
+      "id": "enter-hospital-reception",
+      "label": "Visit the reception desk",
+      "translation": "前往医院服务台",
+      "childSceneId": "hospital-reception",
+      "sourceVisualRegion": "portal-reception-counter",
+      "x": 103,
+      "y": 633,
+      "width": 40,
+      "height": 36,
+      "portraitMarker": { "x": 123, "y": 651, "scaleToObject": true },
+      "enterScale": 3.4
     }
   ],
   "anchorAudit": {
@@ -1408,6 +1422,15 @@
     ]
   },
   "visualRegions": [
+    {
+      "id": "portal-reception-counter",
+      "description": "Curved wooden face of the visitor counter below the touchscreen, left of the red treatment bay",
+      "kind": "part",
+      "x": 103,
+      "y": 633,
+      "width": 40,
+      "height": 36
+    },
     {
       "id": "whole-hospital",
       "description": "Complete bright hospital atrium linking emergency, pathology, radiology, pharmacy and operating theatre",

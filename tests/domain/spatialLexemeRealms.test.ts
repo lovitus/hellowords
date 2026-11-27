@@ -27,8 +27,10 @@ test("the compact spatial realm index covers every authored lexeme link", async 
     .map((label) => ({ label, regions: scene.visualRegions ?? [] })));
 
   assert.equal(linkedLabels.length, SPATIAL_LEXEME_LINK_COUNT);
-  assert.equal(linkedLabels.length, 387);
-  assert.equal(Object.keys(SPATIAL_LEXEME_REALMS).length, 236);
+  const linkedIds = new Set(linkedLabels.map(({ label }) => label.lexemeId));
+  assert.deepEqual(new Set(Object.keys(SPATIAL_LEXEME_REALMS)), linkedIds);
+  assert.ok(linkedLabels.length >= 397, "retain the authored links through hospital reception");
+  assert.ok(linkedIds.size >= 239, "retain the vocabulary covered by the reception milestone");
 
   let realmPaletteCount = 0;
   let fallbackPaletteCount = 0;

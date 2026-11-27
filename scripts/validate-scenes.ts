@@ -97,6 +97,8 @@ const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
   // ultrasound and preparation fixtures without adding patient or dose claims.
   "radiology-suite": 64,
   "ultrasound-exam-room": 75,
+  "hospital-reception": 80,
+  "hemodialysis-unit": 80,
   // Acute-care scenes retain only visible triage, resuscitation, examination,
   // theatre, scrub, sterile-store and recovery fixtures.
   "emergency-department": 90,
@@ -239,6 +241,10 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   // The equipment, furniture and supplies in the seven photographed areas
   // have 107 distinct points. Scan modes and unmarked settings belong in the index.
   "ultrasound-exam-room": 107,
+  // Counter equipment, office supplies and the visible dialysis doorway.
+  "hospital-reception": 112,
+  // The remaining clinical and concealed equipment terms belong in the index.
+  "hemodialysis-unit": 106,
   "emergency-department": 108,
   "emergency-triage-reception": 302,
   // Keep the assessment scene bounded to its seven visually reviewed object groups.
