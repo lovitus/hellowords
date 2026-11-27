@@ -7,6 +7,12 @@
   "width": 1600,
   "height": 900,
   "parentId": "transit-hub",
+  "portraitOverviewLabelIds": [
+    "ambulance",
+    "terminal-roof",
+    "atrium-skylight",
+    "footbridge"
+  ],
   "labels": [
     {
       "id": "hospital",

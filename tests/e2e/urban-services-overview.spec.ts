@@ -80,3 +80,50 @@ test("urban services reads the photographed terminal roof and returns from all t
   expect(await paintedWordCount(page, "jet bridge seal")).toBe(0);
   await expect(app).toHaveAttribute("data-scene-id", "urban-services");
 });
+
+test("the bilingual phone reads the silver terminal roof after returning through the photographed airport entrance", async ({ page, isMobile }, testInfo) => {
+  test.skip(!isMobile, "This journey uses a 385 × 705 touch viewport.");
+  await page.setViewportSize({ width: 385, height: 705 });
+  const app = page.getByTestId("world-app");
+  const viewer = page.locator(".viewer-shell:not([data-phase])");
+  const image = viewer.locator("img.scene-art");
+  const buttonMap = page.getByTestId("scene-minimap");
+  const meanings = page.getByTestId("meaning-toggle");
+  const settled = async (scene: string) => {
+    await expect(app).toHaveAttribute("data-scene-id", scene);
+    await expect(app).toHaveAttribute("data-transition-state", "idle");
+    await expect(viewer).toHaveAttribute("data-interaction-locked", "false");
+    await (await image.elementHandle()).waitForElementState("stable");
+  };
+
+  await page.goto("/", { waitUntil: "domcontentloaded" });
+  await settled("world-map");
+  await meanings.tap();
+  await expect(meanings).toHaveAttribute("aria-pressed", "true");
+  for (const [id, title] of [["city-street", "City street"], ["transit-hub", "Transit hub"], ["urban-services", "Urban services"]]) {
+    await buttonMap.getByRole("button", { name: `进入 ${title}`, exact: true }).tap();
+    await settled(id);
+  }
+  await viewer.locator('[data-testid="scene-hotspot"][data-target-scene="airport"]').tap();
+  await settled("airport");
+  await page.getByRole("button", { name: "← 返回上一层", exact: true }).tap();
+  await settled("urban-services");
+  await expect(image).toHaveAttribute("src", overviewPhoto);
+  await expect(meanings).toHaveAttribute("aria-pressed", "true");
+
+  const point = await projectPhoto(image, 800, 350);
+  expect(point.visible, "the silver roof is visible on return from the airport").toBe(true);
+  await testInfo.attach("bilingual-roof-before-tap", { body: await page.screenshot(), contentType: "image/png" });
+  await page.touchscreen.tap(point.x, point.y);
+  const card = page.getByRole("complementary", { name: / word details$/ });
+  await expect(card).toBeVisible();
+  const reading = {
+    scene: await app.getAttribute("data-scene-id"),
+    word: await card.locator("strong").innerText(),
+    meaning: await card.locator("p").first().innerText(),
+  };
+  await testInfo.attach("bilingual-roof-reading", { body: JSON.stringify({ point, ...reading }), contentType: "application/json" });
+  await testInfo.attach("bilingual-roof-card", { body: await page.screenshot(), contentType: "image/png" });
+  expect(reading, "tapping the silver roof after the airport round trip reads terminal roof in bilingual phone view")
+    .toEqual({ scene: "urban-services", word: "terminal roof", meaning: "航站楼屋顶" });
+});

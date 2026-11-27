@@ -281,6 +281,10 @@ export function fullyFittedSceneCamera(sceneSize: FrameSize, viewportSize: Frame
   return centeredSceneCamera(sceneSize, viewportSize, 1);
 }
 
+function isPortraitPhone(viewport: FrameSize): boolean {
+  return viewport.width <= 560 && viewport.height > viewport.width;
+}
+
 function usesPortraitPhotoBounds(scene: Scene, viewport: FrameSize): boolean {
   return (scene.id === "apartment" || scene.parentId === "apartment"
     || scene.id === "baggage-drop-station" || scene.id === "baggage-claim"
@@ -290,7 +294,7 @@ function usesPortraitPhotoBounds(scene: Scene, viewport: FrameSize): boolean {
     || scene.id === "radiology-suite" || scene.id === "pathology-lab" || scene.id === "hospital-inpatient-bedspace"
     || scene.id === "hospital-pharmacy" || scene.id === "tablet-counting-bench"
     || scene.id === "office-building" || scene.id === "conference-room" || scene.id === "video-conferencing-console")
-    && viewport.width <= 560 && viewport.height > viewport.width;
+    && isPortraitPhone(viewport);
 }
 
 export function sceneEntryCamera(scene: Scene, viewport: FrameSize): SceneViewportCamera {
@@ -707,7 +711,7 @@ function sceneLodLevel(scale: number): 0 | 1 | 2 | 3 | 4 {
 }
 
 function portraitOverviewLabelIds(scene: Scene, viewport: FrameSize, scale: number) {
-  if (scene.portraitOverviewLabelIds && usesPortraitPhotoBounds(scene, viewport) && sceneLodLevel(scale) <= 2) {
+  if (scene.portraitOverviewLabelIds && isPortraitPhone(viewport) && sceneLodLevel(scale) <= 2) {
     return getScenePresentation(scene).portraitOverviewLabelIds;
   }
 }
