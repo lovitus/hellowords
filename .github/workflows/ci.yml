@@ -12,7 +12,7 @@ permissions:
 env:
   CI: "true"
   BASELINE: e3f2547770119c6e01deaf9f84d049214c494424
-  BASELINE_BUILD: d19dbe3577131a6f1507ac18098f30edb5ae6deb
+  FIRST: 7df9e46a0eb51351014e8844f0551088bdbb9cde
   PRODUCT: ${{ inputs.candidate }}
 jobs:
   hospital:
@@ -29,21 +29,32 @@ jobs:
       - uses: actions/checkout@v6
         with:
           ref: ${{ inputs.candidate }}
-          fetch-depth: 2
+          fetch-depth: 0
           path: product
           persist-credentials: false
       - uses: actions/download-artifact@v5
         with:
-          name: production-dist-${{ env.BASELINE_BUILD }}
-          run-id: "45935682978"
+          name: pathology-photo-45939354580
+          run-id: "45939354580"
           github-token: ${{ github.token }}
           path: ${{ runner.temp }}/frozen
-      - name: Verify sources and frozen production files
+      - name: Verify the previous photo verdict and the exact vocabulary change
         run: |
           test "$(git rev-parse HEAD)" = "$PRODUCT"
           test "$(git rev-parse HEAD^)" = "$BASELINE"
-          test "$(sha256sum "$RUNNER_TEMP/frozen/artifacts/build/dist-manifest.json" | cut -d' ' -f1)" = 1ac352aa7e86bcd29548efa00134107cbb699b48eeb604d190e342e737a425bd
-          python ../.github/verify-office-phone.py manifest "$RUNNER_TEMP/frozen" "$BASELINE_BUILD"
+          git diff --exit-code "$FIRST" HEAD -- . ':!postponed-tasks.md' ':!public/data/scenes/pathology-lab.json'
+          python - <<'PY'
+          import json, os, subprocess
+          from pathlib import Path
+          p = "public/data/scenes/pathology-lab.json"
+          previous = subprocess.check_output(["git", "show", f"{os.environ['FIRST']}:{p}"]).decode()
+          assert previous.count("tray sidewall") == 2 and previous.count("tray-sidewall") == 4
+          assert previous.replace("tray-sidewall", "staining-tray-wall").replace("tray sidewall", "staining tray wall").replace("托盘侧壁", "染色盘侧壁") == Path(p).read_text()
+          receipts = Path(os.environ["RUNNER_TEMP"]) / "frozen"
+          for phase, n in [("baseline",2), ("candidate",14)]:
+              data = json.loads((receipts / f"{phase}.json").read_bytes())
+              assert data["accepted"] and len(data["cases"]) == n
+          PY
       - uses: actions/setup-node@v7
         with:
           node-version: "22"
@@ -53,14 +64,6 @@ jobs:
         run: |
           npm ci > "$RUNNER_TEMP/dependencies.log" 2>&1
           ./node_modules/.bin/playwright install --with-deps chromium > "$RUNNER_TEMP/chromium.log" 2>&1
-      - name: Reproduce the misplaced microtome dot in both viewports
-        id: red
-        continue-on-error: true
-        run: |
-          test ! -e dist
-          mv "$RUNNER_TEMP/frozen/dist" dist
-          trap 'mv dist "$RUNNER_TEMP/frozen/dist"' EXIT
-          python ../.github/check-hospital-photo.py baseline
       - name: Validate the candidate vocabulary and pending image reviews
         run: npm run validate:data -- --allow-image-reviewed
       - name: Typecheck, lint and check the vocabulary contracts
@@ -80,11 +83,13 @@ jobs:
           GITHUB_SHA="$PRODUCT" npm run build > "$RUNNER_TEMP/build.log" 2>&1
           GITHUB_SHA="$PRODUCT" npm run analyze:build
           python ../.github/verify-office-phone.py manifest . "$PRODUCT"
-      - name: Read the microtome and return from both workstations and nearby facilities
+      - name: Read the microtome from the map and after both workstation journeys
         run: python ../.github/check-hospital-photo.py candidate
-      - name: Run all domain and vocabulary checks
+      - name: Recheck baggage-drop vocabulary and finish both vocabulary suites
         if: ${{ !cancelled() && steps.build.outcome == 'success' }}
-        run: npm run test:unit
+        run: |
+          ./node_modules/.bin/tsx --test tests/domain/baggageDropStation.test.ts
+          node --test tests/semantic/*.test.mjs tests/lexical-world/*.test.mjs
       - uses: actions/upload-artifact@v5
         if: ${{ !cancelled() && steps.build.outcome == 'success' }}
         with:
@@ -102,7 +107,3 @@ jobs:
           path: ${{ runner.temp }}/hospital-evidence
           if-no-files-found: error
           retention-days: 7
-      - name: Require the observed microtome dot on the old sample container
-        run: test "$RED_OUTCOME" = success
-        env:
-          RED_OUTCOME: ${{ steps.red.outcome }}

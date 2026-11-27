@@ -17,12 +17,7 @@ lab = (hospital[0], "pathology lab reads the photographed microtome and keeps hi
 journeys = [lab]
 if phase == "candidate":
     journeys.extend([
-        hospital,
-        ("e2e/hospital-radiology.spec.ts", "hospital console and couch stay in the hospital while magnifying the scanner enters radiology"),
-        ("e2e/hospital-radiology.spec.ts", "hospital radiology keeps ultrasound words on the photograph through Fit, continuous zoom and hospital return"),
         ("e2e/world.spec.ts", "urban services exposes hospital, airport and office vocabulary through the transit path"),
-        ("e2e/airport-bag-drop.spec.ts", "airport security checkpoint reads the front stanchion pole, looks up its collar and returns from both child scenes"),
-        ("e2e/office-conference.spec.ts", helpers["RETURN"]),
     ])
 cases = [(project, file, title) for project in ("chromium", "mobile-chromium") for file, title in journeys]
 helpers["run_browser"](phase, temp, cases)
