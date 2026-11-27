@@ -1,9 +1,9 @@
-name: Verify electric bus and railway platform vocabulary on the photographs
+name: Verify battery pack and train carriage vocabulary on the photographs
 on:
   workflow_dispatch:
     inputs:
       candidate:
-        description: Full SHA of the bus and platform candidate following the frozen street and transit build
+        description: Full SHA of the battery and carriage candidate following the frozen bus and platform build
         required: true
         type: string
 permissions:
@@ -11,10 +11,10 @@ permissions:
   contents: read
 env:
   CI: "true"
-  BASELINE: a981d11b9ee055dab948f05ceb98cadce2afb16d
+  BASELINE: 3a157fa0a20a7dfbfbf6a1b37f8ea0ce3b1c2755
   PRODUCT: ${{ inputs.candidate }}
-  MANIFEST_SHA256: 01a8efbbdbd4ffcc2f320052282e61106380593309b9d501a880299db33863dd
-  ARTIFACT_RUN: "46011472647"
+  MANIFEST_SHA256: bd473eca56021880197227a680ce62b07f79b6d908bf3c0e865a681699a665b3
+  ARTIFACT_RUN: "46020576939"
 jobs:
   acceptance:
     runs-on: ubuntu-24.04
@@ -79,7 +79,7 @@ jobs:
         id: browser
         continue-on-error: true
         run: ./node_modules/.bin/playwright install --with-deps chromium > "$RUNNER_TEMP/browser.log" 2>&1
-      - name: Reproduce both missing photographed words and the misplaced emergency hammer
+      - name: Reproduce the frozen battery and carriage readings and the misplaced lid hinge
         id: misplaced
         if: ${{ !cancelled() && steps.integrity.outcome == 'success' && steps.browser.outcome == 'success' }}
         continue-on-error: true
@@ -108,7 +108,7 @@ jobs:
           include-hidden-files: true
           if-no-files-found: error
           retention-days: 7
-      - name: Read the bus and platform objects and retain the street, office and previous journeys
+      - name: Read photographed battery and carriage objects and retain the existing journeys
         id: journeys
         if: ${{ !cancelled() && steps.build.outcome == 'success' && steps.browser.outcome == 'success' }}
         continue-on-error: true

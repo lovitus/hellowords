@@ -61,8 +61,8 @@ def run(stage, command, env=None):
 def baseline_performance():
     root = TEMP / "original-evidence"
     digests = {
-        "summary.json": "d62239643a734f0115e90e9abe13f62b8605a25b4c1d5960e4636a779666ae4e",
-        "navigation-result.json": "cf967dbb9924ecdee4e94d6d80a0b81469d7f1ecade970dcd75e26deb05a9bdc",
+        "summary.json": "c43e4849397ea98688ac38327dc5ab1182fb875e24da4e555753d61d04cc0b4e",
+        "navigation-result.json": "992e04908314cd2da2abd7834f18a4b100fc0fd7f3299d4fe4fa9ced8d1499df",
     }
     for name, expected in digests.items():
         if hashlib.sha256((root / name).read_bytes()).hexdigest() != expected:
@@ -196,7 +196,7 @@ def record():
     gates = {gate: steps.get(gate, {}).get("outcome", "missing") for gate in GATES}
     save("result.json", {"gitSha": PRODUCT, "sourceRun": os.environ["ARTIFACT_RUN"],
                          "run": os.environ["GITHUB_RUN_ID"], "controlSha": os.environ["GITHUB_SHA"],
-                         "scope": "bus-platform-photo-reading", "outcomes": gates,
+                         "scope": "pack-carriage-photo-reading", "outcomes": gates,
                          "passed": all(v == "success" for v in gates.values())})
     with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as summary:
         summary.write("| Check | Outcome |\n|---|---|\n")
