@@ -1,4 +1,4 @@
-"""Read the apartment furniture on both builds and check the candidate's slot and navigation regressions."""
+"""Read the two photographed sink bowls on frozen builds and verify the existing scene journeys."""
 import base64
 from collections import Counter
 import hashlib
@@ -17,9 +17,13 @@ ZOOM_FILE = "e2e/continuous-semantic-zoom.spec.ts"
 APARTMENT = (ZOOM_FILE, "the fitted apartment photograph stays aligned with its words after handoff")
 HANDOFF = (ZOOM_FILE, "Apartment handoff settles to the complete child before a fresh outward gesture can exit")
 FURNITURE = ("e2e/home-kitchen.spec.ts", "apartment furniture and its parts open separate word cards on the photograph")
+KITCHEN = ("e2e/home-kitchen.spec.ts", "kitchen object anchor stays on each photographed object from home entry through card selection and apartment return")
+BOWLS = ("e2e/home-kitchen.spec.ts", "the two photographed kitchen sink bowls open their own words")
 SLOTS = ("e2e/label-zoom-retention.spec.ts", "zooming back out in the apartment keeps readable words in their clear slots")
 WORDS = ("bed", "duvet", "wardrobe", "wardrobe door", "wardrobe handle", "refrigerator", "refrigerator door", "refrigerator handle")
-BED_ASSERTION = "reading the bed dot after closing its card must open bed in the apartment"
+RIGHT_BOWL_ASSERTION = "the photographed right bowl reads sink basin"
+KITCHEN_PHOTO = "/scenes/kitchen-premium-v3.jpg"
+KITCHEN_PHOTO_SHA = "7623db6c6b87f6f386f6201d5a913de9f31eb016f0894b0a33eec52dc94a7f2e"
 PHOTO = "/scenes/apartment-bright-v2.jpg"
 PHOTO_SHA = "90b90990ed24ec4324aa0b9345a0db650baf1a8bd03267ab6f53d5984d8c5ff2"
 PROJECTS = ("chromium", "mobile-chromium")
@@ -29,10 +33,10 @@ out = Path(os.environ["RUNNER_TEMP"]) / "frozen-display-evidence" / phase
 out.mkdir(parents=True)
 temp = Path(os.environ["RUNNER_TEMP"]) / f"browser-{phase}"
 temp.mkdir()
-cases = [(project, *FURNITURE) for project in PROJECTS]
+cases = [(project, *BOWLS) for project in PROJECTS]
 if phase == "candidate":
     cases += [("chromium", *APARTMENT), ("chromium", *SLOTS)]
-    cases += [(p, *journey) for p in PROJECTS for journey in (HANDOFF, OFFICE, BED)]
+    cases += [(p, *journey) for p in PROJECTS for journey in (KITCHEN, FURNITURE, HANDOFF, OFFICE, BED)]
 
 
 def visit(suite):
@@ -93,28 +97,31 @@ def confirmed_furniture(observed, names):
     return True
 
 
-def misplaced_bed_result(errors):
-    """Read the received word and scene from the ordinary Playwright object diff."""
+def right_bowl_reading(observed, names):
+    readings = observed.get("right-bowl-reading", [])
+    if (len(readings) != 1 or names.count("right-bowl-result") != 1 or "right-bowl-result" in observed
+            or not isinstance(readings[0], dict) or not {"scene", "word"} <= readings[0].keys()):
+        return None
+    return {key: readings[0][key] for key in ("scene", "word")}
+
+
+def failed_right_bowl_assertion(errors):
     if len(errors) != 1:
-        return None
-    lines = re.sub(r"\x1b\[[0-9;]*m", "", errors[0].get("message", "")).strip().splitlines()
-    if not lines or lines[0].removeprefix("Error: ").strip() != BED_ASSERTION:
-        return None
-    actual = {}
-    for line in lines[1:]:
-        match = re.fullmatch(r'[ +]\s*"(scene|word)":\s*("[a-z ]+"|null),?\s*', line)
-        if match:
-            actual[match[1]] = json.loads(match[2])
-    return actual
+        return False
+    message = re.sub(r"\x1b\[[0-9;]*m", "", errors[0].get("message", "")).strip()
+    return bool(message and message.splitlines()[0].removeprefix("Error: ").strip() == RIGHT_BOWL_ASSERTION
+                and "Expected" in message and "Received" in message
+                and not re.search(r"\b(?:timed out|test timeout|timeout \d+ms)\b", message, re.I))
 
 
-if hashlib.sha256((Path("dist/client") / PHOTO.lstrip("/")).read_bytes()).hexdigest() != PHOTO_SHA:
-    raise ValueError("The real apartment photograph differs")
+for image, expected_sha in ((PHOTO, PHOTO_SHA), (KITCHEN_PHOTO, KITCHEN_PHOTO_SHA)):
+    if hashlib.sha256((Path("dist/client") / image.lstrip("/")).read_bytes()).hexdigest() != expected_sha:
+        raise ValueError(f"Frozen photograph differs: {image}")
 if phase == "baseline":
-    apartment = json.loads(Path("dist/client/data/scenes/apartment.json").read_bytes())
-    locations = {a["id"]: [a["x"], a["y"]] for a in apartment["labels"]}
-    if locations.get("bed") != [350, 748] or locations.get("duvet") != locations["bed"]:
-        raise ValueError("The frozen bed and duvet no longer share the observed photograph position")
+    kitchen = json.loads(Path("dist/client/data/scenes/kitchen.json").read_bytes())
+    locations = {a["id"]: [a["x"], a["y"]] for a in kitchen["labels"]}
+    if locations.get("sink") != [170, 471] or locations.get("sink-basin") != [165, 470]:
+        raise ValueError("The frozen sink and basin positions differ from the measured baseline")
 selection = temp / "cases.txt"
 selection.write_text("".join(f"[{p}] > {f} > {title}\n" for p, f, title in cases))
 reporter = temp / "results.json"
@@ -152,13 +159,21 @@ for spec in visit(report):
             row["observedFrames"] = len(frames)
             row["maxOverflowPx"] = max(f["overflow"] for f in frames)
             row["maxReadable"] = max(f["readable"] for f in frames)
+        if title == BOWLS[1]:
+            row["rightBowlReading"] = right_bowl_reading(observed, names)
         if phase == "baseline":
-            wrong = {"scene": "apartment", "word": "duvet"} if project == "chromium" else {"scene": "bedroom", "word": None}
-            row["clickedBedResult"] = misplaced_bed_result(errors)
-            row["accepted"] = (title == FURNITURE[1] and result["status"] == "failed" and "apartment-bed-dot-result" in names
-                               and row["clickedBedResult"] == wrong)
+            wrong = {"scene": "kitchen", "word": None if project == "chromium" else "sink"}
+            row["accepted"] = (title == BOWLS[1] and result["status"] == "failed"
+                               and failed_right_bowl_assertion(errors) and row["rightBowlReading"] == wrong)
         elif not errors and result["status"] == "passed":
-            if title == FURNITURE[1]:
+            if title == BOWLS[1]:
+                row["accepted"] = row["rightBowlReading"] == {"scene": "kitchen", "word": "sink basin"}
+            elif title == KITCHEN[1]:
+                row["accepted"] = (all(word + "-geometry" in observed and word + "-view" in names
+                                       for word in ("sink", "faucet", "refrigerator"))
+                                   and "refrigerator-card" in names
+                                   and (project != "mobile-chromium" or "coffee-machine-entry-result" in names))
+            elif title == FURNITURE[1]:
                 row["accepted"] = "apartment-bed-dot-result" in names and confirmed_furniture(observed, names)
             elif title == SLOTS[1]:
                 trace = observed.get("apartment-outward-slot-changes", [])
