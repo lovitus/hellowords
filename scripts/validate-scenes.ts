@@ -143,6 +143,8 @@ const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
   "office-elevator-car": 120,
   "office-break-room": 138,
   "office-refrigerator-interior": 100,
+  "office-coffee-station": 100,
+  "office-tea-station": 116,
   "open-plan-workstation": 111,
   "desktop-workstation-equipment": 91,
   "conference-room": 87,
@@ -268,6 +270,8 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   "office-elevator-car": 150,
   "office-break-room": 138,
   "office-refrigerator-interior": 100,
+  "office-coffee-station": 100,
+  "office-tea-station": 116,
   // The other 39 workstation terms stay searchable without a pin.
   "open-plan-workstation": 111,
   "desktop-workstation-equipment": 91,

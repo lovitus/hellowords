@@ -200,14 +200,14 @@ const newSceneContracts: NewSceneContract[] = [
     mobileMinimumWords: 7,
     runOnMobile: true,
   }),
-  contract("office-refrigerator-interior", "office-break-room", [
+  ...["office-refrigerator-interior", "office-coffee-station", "office-tea-station"].map(target => contract(target, "office-break-room", [
     "city-street", "transit-hub", "urban-services", "office-building", "office-break-room",
   ], {
     desktopMinimumWords: 12,
     mobileMinimumWords: 7,
     runOnMobile: true,
     terminal: true,
-  }),
+  })),
   contract("airport-customs-hall", "baggage-claim", [
     "city-street",
     "transit-hub",

@@ -20,6 +20,7 @@ import {
   COMPACT_PORTAL_CUE_SIZE,
   portalCueProtectedRegion,
   portalMarkerOffset,
+  portraitPortalButtonSize,
   buildSceneLabelMountWindow,
   buildVocabularyCueRevealStateFromSummary,
   buildVocabularyRevealSummary,
@@ -176,6 +177,7 @@ type Camera = SceneViewportCamera;
 
 type LabelView = Pick<SceneViewportSnapshot, "camera" | "viewportWidth" | "viewportHeight"> & {
   readonly meaningVisible: boolean;
+  readonly pointerLabelId?: string;
 };
 
 interface Point {
@@ -274,7 +276,7 @@ function usesPortraitPhotoBounds(scene: Scene, viewport: FrameSize): boolean {
     || scene.id === "baggage-drop-station" || scene.id === "baggage-claim"
     || scene.id === "baggage-service-desk" || scene.id === "suitcase-packing-table" || scene.id === "hospital"
     || scene.id === "aircraft-cabin" || scene.id === "passenger-seat-row" || scene.id === "inflight-meal-tray"
-    || scene.id === "office-break-room" || scene.id === "office-refrigerator-interior"
+    || scene.id === "office-break-room" || scene.parentId === "office-break-room"
     || scene.id === "radiology-suite" || scene.id === "pathology-lab"
     || scene.id === "hospital-pharmacy" || scene.id === "tablet-counting-bench"
     || scene.id === "office-building" || scene.id === "conference-room" || scene.id === "video-conferencing-console")
@@ -812,7 +814,7 @@ export function SceneViewport({
   }, []);
   const hoveredLabelIdRef = useRef<string | null>(null);
   const labelPaintStateRef = useRef<(LabelPaintState & { camera: Camera }) | null>(null);
-  const stationaryWordFocusViewRef = useRef<LabelView | null>(null);
+  const stationaryWordViewRef = useRef<LabelView | null>(null);
   const tapStartRef = useRef<{ pointerId: number; x: number; y: number } | null>(null);
   const suppressPortalClickRef = useRef(false);
   // Camera frames address labels through their stable authored ids. Keeping
@@ -1463,9 +1465,15 @@ export function SceneViewport({
         const right = snapToDevicePixel(bounds.x + bounds.width);
         const bottom = snapToDevicePixel(bounds.y + bounds.height);
         const markerOffset = portalMarkerOffset(portal, camera.fit * camera.scale, labelViewport);
+        const size = portraitPortalButtonSize(portal, camera.fit * camera.scale, labelViewport);
+        if (portal.portraitMarker?.scaleToObject) {
+          setDatasetValueIfChanged(region, "sizedMarker", String(size !== undefined));
+          setStylePropertyIfChanged(region.style, "--portal-button-size", size === undefined ? "" : `${size}px`);
+        }
         // The button and its label exclusion share the same snapped grid origin.
         const cue = portalCueProtectedRegion(
           (left + right) / 2 + markerOffset.x, (top + bottom) / 2 + markerOffset.y, labelViewport,
+          size === undefined ? undefined : size + 2,
         );
         if (cue) portalCueRegions.push(cue);
         if (portal.portraitMarker && hotspot) {
@@ -1544,16 +1552,20 @@ export function SceneViewport({
       ? activeElement.dataset.labelId
       : null;
     let pendingKeyboardFocusLabelId = pendingKeyboardFocusLabelIdRef.current;
-    const focusView = stationaryWordFocusViewRef.current;
-    if (focusView && (
-      focusView.camera.x !== camera.x || focusView.camera.y !== camera.y
-      || focusView.camera.scale !== camera.scale || focusView.camera.fit !== camera.fit
-      || focusView.viewportWidth !== viewportWidth || focusView.viewportHeight !== viewportHeight
-      || focusView.meaningVisible !== meaningVisibleRef.current
+    const wordView = stationaryWordViewRef.current;
+    if (wordView && (
+      wordView.camera.x !== camera.x || wordView.camera.y !== camera.y
+      || wordView.camera.scale !== camera.scale || wordView.camera.fit !== camera.fit
+      || wordView.viewportWidth !== viewportWidth || wordView.viewportHeight !== viewportHeight
+      || wordView.meaningVisible !== meaningVisibleRef.current
     )) {
-      stationaryWordFocusViewRef.current = null;
+      stationaryWordViewRef.current = null;
     }
-    const retainedFocusLabelId = stationaryWordFocusViewRef.current ? null : focusedLabelId;
+    const retainedFocusLabelId = stationaryWordViewRef.current ? null : focusedLabelId;
+    // Reading a painted word must keep its slot when the card opens and closes.
+    // Index selections and a changed view still get normal placement priority.
+    const selectedForPlacement = stationaryWordViewRef.current?.pointerLabelId === selectedLabelIdRef.current
+      ? null : selectedLabelIdRef.current;
     if (titleRegions?.length) protectedRegions.push(...titleRegions);
     const layout = computeScenePlacements(
       sceneWordCandidates,
@@ -1562,7 +1574,7 @@ export function SceneViewport({
       meaningVisibleRef.current,
       {
         photoSize: usesPortraitPhotoBounds(scene, labelViewport) ? scene : undefined,
-        selectedLabelId: retainedFocusLabelId ?? pendingKeyboardFocusLabelId ?? selectedLabelIdRef.current,
+        selectedLabelId: retainedFocusLabelId ?? pendingKeyboardFocusLabelId ?? selectedForPlacement,
         preserveAtlasAnchors: atlasOverviewMode && !activeFocusedDetailZone,
         priorityLabelIds: activeFocusedDetailZone
           ? new Set(activeFocusedDetailZone.labelIds)
@@ -2873,6 +2885,8 @@ export function SceneViewport({
   }, [focusSceneTarget, onFocusTargetNavigatorReady]);
 
   useEffect(() => {
+    const pointerLabelId = stationaryWordViewRef.current?.pointerLabelId;
+    if (pointerLabelId && pointerLabelId !== selectedLabelId) stationaryWordViewRef.current = null;
     selectedLabelIdRef.current = selectedLabelId && labelsById.has(selectedLabelId)
       ? selectedLabelId
       : null;
@@ -2880,6 +2894,7 @@ export function SceneViewport({
   }, [labelsById, requestCameraFrame, selectedLabelId]);
 
   useEffect(() => {
+    stationaryWordViewRef.current = null;
     selectedLabelIdRef.current = null;
     pendingKeyboardFocusLabelIdRef.current = null;
     pendingKeyboardFocusBatchLabelIdsRef.current = [];
@@ -3101,14 +3116,14 @@ export function SceneViewport({
   }, [labelSemanticStyles]);
 
   const focusWord = useCallback((id: string) => {
-    stationaryWordFocusViewRef.current = null;
+    stationaryWordViewRef.current = null;
     if (atlasOverviewMode) cancelAtlasHover();
     const state = labelPaintStateRef.current;
     if (!pendingKeyboardFocusLabelIdRef.current
       && state?.labels.some((word) => word.id === id && word.interactive)) {
       // Tabbing between words already on the canvas must preserve their spatial
       // layout and tab order. Camera movement resumes normal focus retention.
-      stationaryWordFocusViewRef.current = {
+      stationaryWordViewRef.current = {
         camera: state.camera, viewportWidth: state.width, viewportHeight: state.height,
         meaningVisible: state.meaningVisible,
       };
@@ -3119,8 +3134,8 @@ export function SceneViewport({
   }, [atlasOverviewMode, cancelAtlasHover, paintWordFocus, requestCameraFrame]);
 
   const blurWord = useCallback((event: React.FocusEvent<HTMLButtonElement>) => {
-    const hadStationaryFocus = stationaryWordFocusViewRef.current !== null;
-    stationaryWordFocusViewRef.current = null;
+    const hadStationaryFocus = stationaryWordViewRef.current !== null;
+    if (!stationaryWordViewRef.current?.pointerLabelId) stationaryWordViewRef.current = null;
     const next = event.relatedTarget;
     if (next instanceof HTMLButtonElement && next.dataset.labelId
       && labelElementsRef.current.get(next.dataset.labelId) === next) return;
@@ -3215,17 +3230,23 @@ export function SceneViewport({
   // Canvas words are hit-tested by pointer on release. Keyboard users reach the
   // focusable DOM mirror buttons, whose own click handlers stay in place.
   const activateCanvasLabel = (event: React.PointerEvent<HTMLDivElement>) => {
-    if ((event.target as Element).closest("button, a, input, textarea, select")) return;
     const state = labelPaintStateRef.current;
-    if (!state) return;
+    if (!state) return false;
     const bounds = event.currentTarget.getBoundingClientRect();
     const hit = hitPaintedLabel(state.labels, event.clientX - bounds.left, event.clientY - bounds.top, event.pointerType);
-    if (!hit) return;
+    if (!hit) return false;
     if (atlasOverviewMode) cancelAtlasHover();
+    else {
+      stationaryWordViewRef.current = {
+        camera: state.camera, viewportWidth: state.width, viewportHeight: state.height,
+        meaningVisible: state.meaningVisible, pointerLabelId: hit.id,
+      };
+    }
     selectedLabelIdRef.current = hit.id;
     requestCameraFrame();
     reportClickedLabel(hit.label);
     onSelectWord(hit.label);
+    return true;
   };
 
   const updateAtlasCategoryHover = (event: React.PointerEvent<HTMLDivElement>) => {
@@ -3343,9 +3364,18 @@ export function SceneViewport({
     const isTap = event.type === "pointerup" && start?.pointerId === event.pointerId
       && Math.hypot(event.clientX - start.x, event.clientY - start.y) <= 6
       && viewerInteractive && !committingRef.current && !continuitySettlingRef.current && !event.defaultPrevented;
-    if ((event.target as Element).closest(".scene-hotspot")) {
+    const control = (event.target as Element).closest<HTMLElement>("button, a, input, textarea, select");
+    if (control?.matches(".scene-hotspot")) {
       suppressPortalClickRef.current = !isTap;
-    } else if (isTap) {
+      // Touch target adjustment can send a tap on a painted dot to a nearby
+      // button. Use the actual pointer position while it is still available.
+      if (isTap && event.pointerType === "touch" && control.closest('[data-sized-marker="true"]')) {
+        const { left, top, right, bottom } = control.getBoundingClientRect();
+        if (event.clientX < left || event.clientX > right || event.clientY < top || event.clientY > bottom) {
+          suppressPortalClickRef.current = activateCanvasLabel(event);
+        }
+      }
+    } else if (isTap && !control) {
       activateCanvasLabel(event);
     }
     tapStartRef.current = null;

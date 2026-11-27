@@ -1,0 +1,2585 @@
+{
+  "id": "office-tea-station",
+  "title": "Office tea station",
+  "translation": "办公室泡茶台",
+  "subtitle": "Explore a fresh pot of tea, loose leaves, brewing tools and everything for serving a cup.",
+  "asset": "/scenes/office-tea-station-premium-v1.jpg",
+  "width": 1600,
+  "height": 900,
+  "parentId": "office-break-room",
+  "portals": [],
+  "portraitOverviewLabelIds": [
+    "office-tea-station-glass-teapot"
+  ],
+  "labels": [
+    {
+      "id": "office-tea-station-glass-teapot",
+      "word": "glass teapot",
+      "translation": "玻璃茶壶",
+      "x": 807,
+      "y": 714,
+      "priority": 1,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-office-tea-station-glass-teapot"
+    },
+    {
+      "id": "office-tea-station-tea",
+      "word": "tea",
+      "translation": "茶",
+      "x": 543,
+      "y": 719,
+      "priority": 1.001,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-office-tea-station-tea",
+      "lexemeId": "en-a9f74d1ec36ebdeb"
+    },
+    {
+      "id": "office-tea-station-glass-spout",
+      "word": "glass spout",
+      "translation": "玻璃壶嘴",
+      "x": 418,
+      "y": 539,
+      "priority": 1.002,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-office-tea-station-glass-spout"
+    },
+    {
+      "id": "office-tea-station-teapot-handle",
+      "word": "teapot handle",
+      "translation": "茶壶把手",
+      "x": 995,
+      "y": 551,
+      "priority": 1.003,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-office-tea-station-teapot-handle"
+    },
+    {
+      "id": "office-tea-station-pouring-lip",
+      "word": "pouring lip",
+      "translation": "出水口",
+      "x": 370,
+      "y": 479,
+      "priority": 1.004,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-office-tea-station-pouring-lip"
+    },
+    {
+      "id": "office-tea-station-tea-level",
+      "word": "tea level",
+      "translation": "茶汤液面",
+      "x": 827,
+      "y": 662,
+      "priority": 1.005,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-office-tea-station-tea-level"
+    },
+    {
+      "id": "office-tea-station-amber",
+      "word": "amber",
+      "translation": "琥珀色",
+      "x": 848,
+      "y": 702,
+      "priority": 1.006,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-office-tea-station-amber",
+      "lexemeId": "en-b1601f694b9d336c"
+    },
+    {
+      "id": "office-tea-station-curved-glass",
+      "word": "curved glass",
+      "translation": "弧形玻璃",
+      "x": 486,
+      "y": 589,
+      "priority": 1.007,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-office-tea-station-curved-glass"
+    },
+    {
+      "id": "office-tea-station-condensation",
+      "word": "condensation",
+      "translation": "凝结水珠",
+      "x": 831,
+      "y": 565,
+      "priority": 1.008,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-office-tea-station-condensation"
+    },
+    {
+      "id": "office-tea-station-teapot-base",
+      "word": "teapot base",
+      "translation": "茶壶底部",
+      "x": 674,
+      "y": 801,
+      "priority": 1.009,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-office-tea-station-teapot-base"
+    },
+    {
+      "id": "office-tea-station-spout-joint",
+      "word": "spout joint",
+      "translation": "壶嘴接合处",
+      "x": 461,
+      "y": 638,
+      "priority": 1.01,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-office-tea-station-spout-joint"
+    },
+    {
+      "id": "office-tea-station-handle-joint",
+      "word": "handle joint",
+      "translation": "壶把接合处",
+      "x": 868,
+      "y": 480,
+      "priority": 1.011,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-office-tea-station-handle-joint"
+    },
+    {
+      "id": "office-tea-station-curved",
+      "word": "curved",
+      "translation": "弯曲的",
+      "x": 427,
+      "y": 573,
+      "priority": 1.012,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-office-tea-station-curved",
+      "lexemeId": "en-3f9927ac80c04ef4"
+    },
+    {
+      "id": "office-tea-station-tea-infuser",
+      "word": "tea infuser",
+      "translation": "泡茶滤器",
+      "x": 657,
+      "y": 603,
+      "priority": 1.013,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-office-tea-station-tea-infuser"
+    },
+    {
+      "id": "office-tea-station-mesh",
+      "word": "mesh",
+      "translation": "网眼",
+      "x": 641,
+      "y": 482,
+      "priority": 1.014,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-office-tea-station-mesh"
+    },
+    {
+      "id": "office-tea-station-infuser-rim",
+      "word": "infuser rim",
+      "translation": "滤器上沿",
+      "x": 701,
+      "y": 431,
+      "priority": 1.015,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-office-tea-station-infuser-rim"
+    },
+    {
+      "id": "office-tea-station-basket-opening",
+      "word": "basket opening",
+      "translation": "滤篮开口",
+      "x": 713,
+      "y": 471,
+      "priority": 1.016,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-office-tea-station-basket-opening"
+    },
+    {
+      "id": "office-tea-station-mesh-seam",
+      "word": "mesh seam",
+      "translation": "滤网接缝",
+      "x": 691,
+      "y": 481,
+      "priority": 1.017,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-office-tea-station-mesh-seam"
+    },
+    {
+      "id": "office-tea-station-teapot-mouth",
+      "word": "teapot mouth",
+      "translation": "茶壶口",
+      "x": 775,
+      "y": 516,
+      "priority": 1.018,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-office-tea-station-teapot-mouth"
+    },
+    {
+      "id": "office-tea-station-infuser-bottom",
+      "word": "infuser bottom",
+      "translation": "滤器底部",
+      "x": 664,
+      "y": 740,
+      "priority": 1.019,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-office-tea-station-infuser-bottom"
+    },
+    {
+      "id": "office-tea-station-steel-kettle",
+      "word": "steel kettle",
+      "translation": "不锈钢水壶",
+      "x": 259,
+      "y": 303,
+      "priority": 1.02,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-office-tea-station-steel-kettle"
+    },
+    {
+      "id": "office-tea-station-kettle-water-gauge",
+      "word": "kettle water gauge",
+      "translation": "水壶水位窗",
+      "x": 327,
+      "y": 254,
+      "priority": 1.021,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-office-tea-station-kettle-water-gauge"
+    },
+    {
+      "id": "office-tea-station-kettle-lid-button",
+      "word": "kettle lid button",
+      "translation": "壶盖按钮",
+      "x": 304,
+      "y": 20,
+      "priority": 1.022,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-office-tea-station-kettle-lid-button"
+    },
+    {
+      "id": "office-tea-station-lid-release",
+      "word": "lid release",
+      "translation": "开盖键",
+      "x": 160,
+      "y": 69,
+      "priority": 1.023,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-office-tea-station-lid-release"
+    },
+    {
+      "id": "office-tea-station-insulated-handle",
+      "word": "insulated handle",
+      "translation": "隔热把手",
+      "x": 91,
+      "y": 214,
+      "priority": 1.024,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-office-tea-station-insulated-handle"
+    },
+    {
+      "id": "office-tea-station-handle-opening",
+      "word": "handle opening",
+      "translation": "把手内孔",
+      "x": 145,
+      "y": 228,
+      "priority": 1.025,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-office-tea-station-handle-opening"
+    },
+    {
+      "id": "office-tea-station-kettle-spout-opening",
+      "word": "kettle spout opening",
+      "translation": "壶嘴开口",
+      "x": 438,
+      "y": 82,
+      "priority": 1.026,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-office-tea-station-kettle-spout-opening"
+    },
+    {
+      "id": "office-tea-station-triangular-spout",
+      "word": "triangular spout",
+      "translation": "三角壶嘴",
+      "x": 424,
+      "y": 125,
+      "priority": 1.027,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-office-tea-station-triangular-spout"
+    },
+    {
+      "id": "office-tea-station-steel",
+      "word": "steel",
+      "translation": "钢",
+      "x": 237,
+      "y": 228,
+      "priority": 1.028,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-office-tea-station-steel",
+      "lexemeId": "en-b86262f9bc892590"
+    },
+    {
+      "id": "office-tea-station-water-level",
+      "word": "water level",
+      "translation": "水位",
+      "x": 325,
+      "y": 235,
+      "priority": 1.029,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-office-tea-station-water-level"
+    },
+    {
+      "id": "office-tea-station-gauge-markings",
+      "word": "gauge markings",
+      "translation": "水位刻度",
+      "x": 331,
+      "y": 315,
+      "priority": 1.03,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-office-tea-station-gauge-markings"
+    },
+    {
+      "id": "office-tea-station-kettle-power-base",
+      "word": "kettle power base",
+      "translation": "烧水壶电源底座",
+      "x": 316,
+      "y": 442,
+      "priority": 1.031,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-office-tea-station-kettle-power-base"
+    },
+    {
+      "id": "office-tea-station-kettle-cord",
+      "word": "kettle cord",
+      "translation": "水壶电源线",
+      "x": 142,
+      "y": 373,
+      "priority": 1.032,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-office-tea-station-kettle-cord"
+    },
+    {
+      "id": "office-tea-station-kettle-lid-rim",
+      "word": "kettle lid rim",
+      "translation": "水壶盖边",
+      "x": 335,
+      "y": 75,
+      "priority": 1.033,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-office-tea-station-kettle-lid-rim"
+    },
+    {
+      "id": "office-tea-station-tea-chest",
+      "word": "tea chest",
+      "translation": "茶包收纳盒",
+      "x": 858,
+      "y": 292,
+      "priority": 1.034,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-office-tea-station-tea-chest"
+    },
+    {
+      "id": "office-tea-station-tea-envelope",
+      "word": "tea envelope",
+      "translation": "茶包外袋",
+      "x": 720,
+      "y": 180,
+      "priority": 1.035,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-office-tea-station-tea-envelope"
+    },
+    {
+      "id": "office-tea-station-green-packet",
+      "word": "green packet",
+      "translation": "绿色小袋",
+      "x": 587,
+      "y": 172,
+      "priority": 1.036,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-office-tea-station-green-packet"
+    },
+    {
+      "id": "office-tea-station-yellow-packet",
+      "word": "yellow packet",
+      "translation": "黄色小袋",
+      "x": 852,
+      "y": 199,
+      "priority": 1.037,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-office-tea-station-yellow-packet"
+    },
+    {
+      "id": "office-tea-station-blue-packet",
+      "word": "blue packet",
+      "translation": "蓝色小袋",
+      "x": 972,
+      "y": 214,
+      "priority": 1.038,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-office-tea-station-blue-packet"
+    },
+    {
+      "id": "office-tea-station-pink",
+      "word": "pink",
+      "translation": "粉红色",
+      "x": 741,
+      "y": 157,
+      "priority": 1.039,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-office-tea-station-pink",
+      "lexemeId": "en-a67a41c8bc79d5da"
+    },
+    {
+      "id": "office-tea-station-wooden-divider",
+      "word": "wooden divider",
+      "translation": "木隔板",
+      "x": 781,
+      "y": 194,
+      "priority": 1.04,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-office-tea-station-wooden-divider"
+    },
+    {
+      "id": "office-tea-station-tea-compartment",
+      "word": "tea compartment",
+      "translation": "茶包格",
+      "x": 902,
+      "y": 146,
+      "priority": 1.041,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-office-tea-station-tea-compartment"
+    },
+    {
+      "id": "office-tea-station-packet-seal",
+      "word": "packet seal",
+      "translation": "小袋封边",
+      "x": 581,
+      "y": 138,
+      "priority": 1.042,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-office-tea-station-packet-seal"
+    },
+    {
+      "id": "office-tea-station-wood-grain",
+      "word": "wood grain",
+      "translation": "木纹",
+      "x": 769,
+      "y": 267,
+      "priority": 1.043,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-office-tea-station-wood-grain"
+    },
+    {
+      "id": "office-tea-station-chest-side-panel",
+      "word": "chest side panel",
+      "translation": "收纳盒侧板",
+      "x": 1028,
+      "y": 302,
+      "priority": 1.044,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-office-tea-station-chest-side-panel"
+    },
+    {
+      "id": "office-tea-station-wood",
+      "word": "wood",
+      "translation": "木材",
+      "x": 575,
+      "y": 246,
+      "priority": 1.045,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-office-tea-station-wood",
+      "lexemeId": "en-99f7855eb789dfec"
+    },
+    {
+      "id": "office-tea-station-green",
+      "word": "green",
+      "translation": "绿色",
+      "x": 607,
+      "y": 201,
+      "priority": 1.046,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-office-tea-station-green",
+      "lexemeId": "en-ba4788b226aa8dc2"
+    },
+    {
+      "id": "office-tea-station-tea-bag",
+      "word": "tea bag",
+      "translation": "茶袋",
+      "x": 619,
+      "y": 314,
+      "priority": 1.047,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-office-tea-station-tea-bag"
+    },
+    {
+      "id": "office-tea-station-tea-tag",
+      "word": "tea tag",
+      "translation": "茶包吊牌",
+      "x": 827,
+      "y": 419,
+      "priority": 1.048,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-office-tea-station-tea-tag"
+    },
+    {
+      "id": "office-tea-station-string",
+      "word": "string",
+      "translation": "细绳",
+      "x": 815,
+      "y": 367,
+      "priority": 1.049,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-office-tea-station-string",
+      "lexemeId": "en-473287f8298dba71"
+    },
+    {
+      "id": "office-tea-station-filter-paper",
+      "word": "filter paper",
+      "translation": "滤纸",
+      "x": 733,
+      "y": 327,
+      "priority": 1.05,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-office-tea-station-filter-paper"
+    },
+    {
+      "id": "office-tea-station-loose-tea-inside-a-bag",
+      "word": "loose tea inside a bag",
+      "translation": "袋中茶末",
+      "x": 894,
+      "y": 394,
+      "priority": 1.051,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-office-tea-station-loose-tea-inside-a-bag"
+    },
+    {
+      "id": "office-tea-station-folded-corner",
+      "word": "folded corner",
+      "translation": "折角",
+      "x": 870,
+      "y": 321,
+      "priority": 1.052,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-office-tea-station-folded-corner"
+    },
+    {
+      "id": "office-tea-station-tag-hole",
+      "word": "tag hole",
+      "translation": "吊牌穿孔",
+      "x": 966,
+      "y": 409,
+      "priority": 1.053,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-office-tea-station-tag-hole"
+    },
+    {
+      "id": "office-tea-station-paper-fold",
+      "word": "paper fold",
+      "translation": "纸折痕",
+      "x": 620,
+      "y": 293,
+      "priority": 1.054,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-office-tea-station-paper-fold"
+    },
+    {
+      "id": "office-tea-station-tea-bag-seam",
+      "word": "tea bag seam",
+      "translation": "茶袋接缝",
+      "x": 743,
+      "y": 383,
+      "priority": 1.055,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-office-tea-station-tea-bag-seam"
+    },
+    {
+      "id": "office-tea-station-paper",
+      "word": "paper",
+      "translation": "纸",
+      "x": 984,
+      "y": 426,
+      "priority": 1.056,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-office-tea-station-paper",
+      "lexemeId": "en-382635c9325bf327"
+    },
+    {
+      "id": "office-tea-station-black-tea",
+      "word": "black tea",
+      "translation": "红茶",
+      "x": 1174,
+      "y": 192,
+      "priority": 1.057,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-office-tea-station-black-tea"
+    },
+    {
+      "id": "office-tea-station-green-tea",
+      "word": "green tea",
+      "translation": "绿茶",
+      "x": 1376,
+      "y": 200,
+      "priority": 1.058,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-office-tea-station-green-tea"
+    },
+    {
+      "id": "office-tea-station-tea-tin",
+      "word": "tea tin",
+      "translation": "茶叶罐",
+      "x": 1141,
+      "y": 293,
+      "priority": 1.059,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-office-tea-station-tea-tin"
+    },
+    {
+      "id": "office-tea-station-dried-tea-leaves",
+      "word": "dried tea leaves",
+      "translation": "干茶叶",
+      "x": 1410,
+      "y": 224,
+      "priority": 1.06,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-office-tea-station-dried-tea-leaves"
+    },
+    {
+      "id": "office-tea-station-rolled-tea-leaf",
+      "word": "rolled tea leaf",
+      "translation": "卷曲茶叶",
+      "x": 1194,
+      "y": 214,
+      "priority": 1.061,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-office-tea-station-rolled-tea-leaf"
+    },
+    {
+      "id": "office-tea-station-tin-rim",
+      "word": "tin rim",
+      "translation": "铁罐上沿",
+      "x": 1148,
+      "y": 243,
+      "priority": 1.062,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-office-tea-station-tin-rim"
+    },
+    {
+      "id": "office-tea-station-measuring-scoop",
+      "word": "measuring scoop",
+      "translation": "量勺",
+      "x": 1401,
+      "y": 329,
+      "priority": 1.063,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-office-tea-station-measuring-scoop"
+    },
+    {
+      "id": "office-tea-station-scoop-handle",
+      "word": "scoop handle",
+      "translation": "量勺柄",
+      "x": 1515,
+      "y": 381,
+      "priority": 1.064,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-office-tea-station-scoop-handle"
+    },
+    {
+      "id": "office-tea-station-hanging-hole",
+      "word": "hanging hole",
+      "translation": "挂孔",
+      "x": 1581,
+      "y": 418,
+      "priority": 1.065,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-office-tea-station-hanging-hole"
+    },
+    {
+      "id": "office-tea-station-round-tin-lid",
+      "word": "round tin lid",
+      "translation": "圆形罐盖",
+      "x": 1471,
+      "y": 330,
+      "priority": 1.066,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-office-tea-station-round-tin-lid"
+    },
+    {
+      "id": "office-tea-station-lid-lip",
+      "word": "lid lip",
+      "translation": "盖沿",
+      "x": 1476,
+      "y": 427,
+      "priority": 1.067,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-office-tea-station-lid-lip"
+    },
+    {
+      "id": "office-tea-station-metal",
+      "word": "metal",
+      "translation": "金属",
+      "x": 1324,
+      "y": 268,
+      "priority": 1.068,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-office-tea-station-metal",
+      "lexemeId": "en-03ecab669ba200ba"
+    },
+    {
+      "id": "office-tea-station-honey",
+      "word": "honey",
+      "translation": "蜂蜜",
+      "x": 1196,
+      "y": 535,
+      "priority": 1.069,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-office-tea-station-honey",
+      "lexemeId": "en-a55e2e3846a51f6a"
+    },
+    {
+      "id": "office-tea-station-milk-pitcher",
+      "word": "milk pitcher",
+      "translation": "奶盅",
+      "x": 1356,
+      "y": 534,
+      "priority": 1.07,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-office-tea-station-milk-pitcher"
+    },
+    {
+      "id": "office-tea-station-honey-dipper",
+      "word": "honey dipper",
+      "translation": "蜂蜜棒",
+      "x": 1114,
+      "y": 537,
+      "priority": 1.071,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-office-tea-station-honey-dipper"
+    },
+    {
+      "id": "office-tea-station-honey-jar",
+      "word": "honey jar",
+      "translation": "蜂蜜罐",
+      "x": 1064,
+      "y": 501,
+      "priority": 1.072,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-office-tea-station-honey-jar"
+    },
+    {
+      "id": "office-tea-station-dipper-grooves",
+      "word": "dipper grooves",
+      "translation": "蜂蜜棒凹槽",
+      "x": 1140,
+      "y": 515,
+      "priority": 1.073,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-office-tea-station-dipper-grooves"
+    },
+    {
+      "id": "office-tea-station-wooden-shaft",
+      "word": "wooden shaft",
+      "translation": "木柄",
+      "x": 1200,
+      "y": 375,
+      "priority": 1.074,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-office-tea-station-wooden-shaft"
+    },
+    {
+      "id": "office-tea-station-jar-threads",
+      "word": "jar threads",
+      "translation": "罐口螺纹",
+      "x": 1090,
+      "y": 445,
+      "priority": 1.075,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-office-tea-station-jar-threads"
+    },
+    {
+      "id": "office-tea-station-honey-surface",
+      "word": "honey surface",
+      "translation": "蜂蜜液面",
+      "x": 1192,
+      "y": 488,
+      "priority": 1.076,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-office-tea-station-honey-surface"
+    },
+    {
+      "id": "office-tea-station-milk",
+      "word": "milk",
+      "translation": "牛奶",
+      "x": 1376,
+      "y": 449,
+      "priority": 1.077,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-office-tea-station-milk",
+      "lexemeId": "en-8825e76530f87ff5"
+    },
+    {
+      "id": "office-tea-station-pitcher-spout",
+      "word": "pitcher spout",
+      "translation": "奶盅壶嘴",
+      "x": 1294,
+      "y": 420,
+      "priority": 1.078,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-office-tea-station-pitcher-spout"
+    },
+    {
+      "id": "office-tea-station-pitcher-handle",
+      "word": "pitcher handle",
+      "translation": "奶盅把手",
+      "x": 1478,
+      "y": 484,
+      "priority": 1.079,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-office-tea-station-pitcher-handle"
+    },
+    {
+      "id": "office-tea-station-white-porcelain",
+      "word": "white porcelain",
+      "translation": "白瓷",
+      "x": 1384,
+      "y": 574,
+      "priority": 1.08,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-office-tea-station-white-porcelain"
+    },
+    {
+      "id": "office-tea-station-jar",
+      "word": "jar",
+      "translation": "广口罐",
+      "x": 1211,
+      "y": 473,
+      "priority": 1.081,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-office-tea-station-jar",
+      "lexemeId": "en-0163f1eea7894350"
+    },
+    {
+      "id": "office-tea-station-teacup",
+      "word": "teacup",
+      "translation": "茶杯",
+      "x": 196,
+      "y": 683,
+      "priority": 1.082,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-office-tea-station-teacup"
+    },
+    {
+      "id": "office-tea-station-saucer",
+      "word": "saucer",
+      "translation": "茶碟",
+      "x": 64,
+      "y": 727,
+      "priority": 1.083,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-office-tea-station-saucer"
+    },
+    {
+      "id": "office-tea-station-spoon",
+      "word": "spoon",
+      "translation": "勺子",
+      "x": 332,
+      "y": 714,
+      "priority": 1.084,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-office-tea-station-spoon",
+      "lexemeId": "en-7f480e744a79953e"
+    },
+    {
+      "id": "office-tea-station-sugar-cube",
+      "word": "sugar cube",
+      "translation": "方糖",
+      "x": 167,
+      "y": 772,
+      "priority": 1.085,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-office-tea-station-sugar-cube"
+    },
+    {
+      "id": "office-tea-station-sugar",
+      "word": "sugar",
+      "translation": "糖",
+      "x": 109,
+      "y": 752,
+      "priority": 1.086,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-office-tea-station-sugar",
+      "lexemeId": "en-cc767fb1c6efc232"
+    },
+    {
+      "id": "office-tea-station-cup-handle",
+      "word": "cup handle",
+      "translation": "杯把",
+      "x": 37,
+      "y": 648,
+      "priority": 1.087,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-office-tea-station-cup-handle"
+    },
+    {
+      "id": "office-tea-station-cup-rim",
+      "word": "cup rim",
+      "translation": "杯沿",
+      "x": 186,
+      "y": 504,
+      "priority": 1.088,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-office-tea-station-cup-rim"
+    },
+    {
+      "id": "office-tea-station-brewed-tea",
+      "word": "brewed tea",
+      "translation": "泡好的茶",
+      "x": 192,
+      "y": 575,
+      "priority": 1.089,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-office-tea-station-brewed-tea"
+    },
+    {
+      "id": "office-tea-station-spoon-bowl",
+      "word": "spoon bowl",
+      "translation": "匙头",
+      "x": 346,
+      "y": 693,
+      "priority": 1.09,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-office-tea-station-spoon-bowl"
+    },
+    {
+      "id": "office-tea-station-teaspoon-handle",
+      "word": "teaspoon handle",
+      "translation": "茶匙柄",
+      "x": 215,
+      "y": 792,
+      "priority": 1.091,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-office-tea-station-teaspoon-handle"
+    },
+    {
+      "id": "office-tea-station-saucer-rim",
+      "word": "saucer rim",
+      "translation": "茶碟边沿",
+      "x": 245,
+      "y": 801,
+      "priority": 1.092,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-office-tea-station-saucer-rim"
+    },
+    {
+      "id": "office-tea-station-cup-foot",
+      "word": "cup foot",
+      "translation": "杯底圈",
+      "x": 213,
+      "y": 750,
+      "priority": 1.093,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-office-tea-station-cup-foot"
+    },
+    {
+      "id": "office-tea-station-lemon-slice",
+      "word": "lemon slice",
+      "translation": "柠檬片",
+      "x": 1093,
+      "y": 635,
+      "priority": 1.094,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-office-tea-station-lemon-slice"
+    },
+    {
+      "id": "office-tea-station-lemon-peel",
+      "word": "lemon peel",
+      "translation": "柠檬皮",
+      "x": 1096,
+      "y": 682,
+      "priority": 1.095,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-office-tea-station-lemon-peel"
+    },
+    {
+      "id": "office-tea-station-lemon-pulp",
+      "word": "lemon pulp",
+      "translation": "柠檬果肉",
+      "x": 1182,
+      "y": 633,
+      "priority": 1.096,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-office-tea-station-lemon-pulp"
+    },
+    {
+      "id": "office-tea-station-lemon-pith",
+      "word": "lemon pith",
+      "translation": "柠檬白瓤",
+      "x": 1034,
+      "y": 635,
+      "priority": 1.097,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-office-tea-station-lemon-pith"
+    },
+    {
+      "id": "office-tea-station-lemon-segment",
+      "word": "lemon segment",
+      "translation": "柠檬果瓣",
+      "x": 1071,
+      "y": 620,
+      "priority": 1.098,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-office-tea-station-lemon-segment"
+    },
+    {
+      "id": "office-tea-station-segment-membrane",
+      "word": "segment membrane",
+      "translation": "果瓣隔膜",
+      "x": 1110,
+      "y": 632,
+      "priority": 1.099,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-office-tea-station-segment-membrane"
+    },
+    {
+      "id": "office-tea-station-side-plate",
+      "word": "side plate",
+      "translation": "小碟",
+      "x": 1230,
+      "y": 667,
+      "priority": 1.1,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-office-tea-station-side-plate"
+    },
+    {
+      "id": "office-tea-station-translucent-flesh",
+      "word": "translucent flesh",
+      "translation": "半透明果肉",
+      "x": 1189,
+      "y": 609,
+      "priority": 1.101,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-office-tea-station-translucent-flesh"
+    },
+    {
+      "id": "office-tea-station-mint-sprig",
+      "word": "mint sprig",
+      "translation": "薄荷枝",
+      "x": 1165,
+      "y": 758,
+      "priority": 1.102,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-office-tea-station-mint-sprig"
+    },
+    {
+      "id": "office-tea-station-tea-ball",
+      "word": "tea ball",
+      "translation": "球形滤茶器",
+      "x": 1352,
+      "y": 745,
+      "priority": 1.103,
+      "minLevel": 0,
+      "sourceVisualRegion": "photo-office-tea-station-tea-ball"
+    },
+    {
+      "id": "office-tea-station-mint-leaf",
+      "word": "mint leaf",
+      "translation": "薄荷叶",
+      "x": 1117,
+      "y": 777,
+      "priority": 1.104,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-office-tea-station-mint-leaf"
+    },
+    {
+      "id": "office-tea-station-leaf-veins",
+      "word": "leaf veins",
+      "translation": "叶脉",
+      "x": 1256,
+      "y": 732,
+      "priority": 1.105,
+      "minLevel": 1,
+      "sourceVisualRegion": "photo-office-tea-station-leaf-veins"
+    },
+    {
+      "id": "office-tea-station-serrated-edge",
+      "word": "serrated edge",
+      "translation": "锯齿状叶缘",
+      "x": 1148,
+      "y": 724,
+      "priority": 1.106,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-office-tea-station-serrated-edge"
+    },
+    {
+      "id": "office-tea-station-cloth-napkin",
+      "word": "cloth napkin",
+      "translation": "布餐巾",
+      "x": 1033,
+      "y": 817,
+      "priority": 1.107,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-office-tea-station-cloth-napkin"
+    },
+    {
+      "id": "office-tea-station-stitched-hem",
+      "word": "stitched hem",
+      "translation": "缝边",
+      "x": 997,
+      "y": 819,
+      "priority": 1.108,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-office-tea-station-stitched-hem"
+    },
+    {
+      "id": "office-tea-station-fabric-fold",
+      "word": "fabric fold",
+      "translation": "布褶",
+      "x": 1297,
+      "y": 855,
+      "priority": 1.109,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-office-tea-station-fabric-fold"
+    },
+    {
+      "id": "office-tea-station-tea-ball-clasp",
+      "word": "tea ball clasp",
+      "translation": "茶球搭扣",
+      "x": 1323,
+      "y": 768,
+      "priority": 1.11,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-office-tea-station-tea-ball-clasp"
+    },
+    {
+      "id": "office-tea-station-fine-chain",
+      "word": "fine chain",
+      "translation": "细链",
+      "x": 1467,
+      "y": 806,
+      "priority": 1.111,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-office-tea-station-fine-chain"
+    },
+    {
+      "id": "office-tea-station-chain-ring",
+      "word": "chain ring",
+      "translation": "链环",
+      "x": 1514,
+      "y": 825,
+      "priority": 1.112,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-office-tea-station-chain-ring"
+    },
+    {
+      "id": "office-tea-station-mesh-shell",
+      "word": "mesh shell",
+      "translation": "网状球壳",
+      "x": 1398,
+      "y": 766,
+      "priority": 1.113,
+      "minLevel": 3,
+      "sourceVisualRegion": "photo-office-tea-station-mesh-shell"
+    },
+    {
+      "id": "office-tea-station-fabric",
+      "word": "fabric",
+      "translation": "织物",
+      "x": 1526,
+      "y": 644,
+      "priority": 1.114,
+      "minLevel": 4,
+      "sourceVisualRegion": "photo-office-tea-station-fabric",
+      "lexemeId": "en-ad2a542c84c7060f"
+    },
+    {
+      "id": "office-tea-station-leaf",
+      "word": "leaf",
+      "translation": "叶片",
+      "x": 1184,
+      "y": 811,
+      "priority": 1.115,
+      "minLevel": 2,
+      "sourceVisualRegion": "photo-office-tea-station-leaf",
+      "lexemeId": "en-9f91161f43433e49"
+    }
+  ],
+  "relatedWords": [
+    {
+      "id": "office-tea-station-make-a-pot-of-tea",
+      "word": "make a pot of tea",
+      "translation": "泡一壶茶"
+    },
+    {
+      "id": "office-tea-station-steep",
+      "word": "steep",
+      "translation": "浸泡"
+    },
+    {
+      "id": "office-tea-station-brewing-time",
+      "word": "brewing time",
+      "translation": "浸泡时间"
+    },
+    {
+      "id": "office-tea-station-loose-leaf-tea",
+      "word": "loose-leaf tea",
+      "translation": "散叶茶"
+    },
+    {
+      "id": "office-tea-station-caffeinated",
+      "word": "caffeinated",
+      "translation": "含咖啡因的"
+    },
+    {
+      "id": "office-tea-station-decaffeinated-tea",
+      "word": "decaffeinated tea",
+      "translation": "脱咖啡因茶"
+    },
+    {
+      "id": "office-tea-station-herbal-infusion",
+      "word": "herbal infusion",
+      "translation": "花草茶"
+    },
+    {
+      "id": "office-tea-station-refill-the-kettle",
+      "word": "refill the kettle",
+      "translation": "给水壶加水"
+    },
+    {
+      "id": "office-tea-station-bring-to-a-boil",
+      "word": "bring to a boil",
+      "translation": "烧开"
+    },
+    {
+      "id": "office-tea-station-pour-a-cup",
+      "word": "pour a cup",
+      "translation": "倒一杯"
+    },
+    {
+      "id": "office-tea-station-strong-tea",
+      "word": "strong tea",
+      "translation": "浓茶"
+    },
+    {
+      "id": "office-tea-station-weak-tea",
+      "word": "weak tea",
+      "translation": "淡茶"
+    },
+    {
+      "id": "office-tea-station-a-splash-of-milk",
+      "word": "a splash of milk",
+      "translation": "少量牛奶"
+    },
+    {
+      "id": "office-tea-station-sweeten-to-taste",
+      "word": "sweeten to taste",
+      "translation": "按口味加糖"
+    },
+    {
+      "id": "office-tea-station-serve-hot",
+      "word": "serve hot",
+      "translation": "趁热饮用"
+    },
+    {
+      "id": "office-tea-station-discard-the-tea-bag",
+      "word": "discard the tea bag",
+      "translation": "丢掉茶包"
+    }
+  ],
+  "visualRegions": [
+    {
+      "id": "photo-office-tea-station-glass-teapot",
+      "description": "glass teapot in the glass teapot area",
+      "kind": "part",
+      "x": 791,
+      "y": 702.5,
+      "width": 32,
+      "height": 23
+    },
+    {
+      "id": "photo-office-tea-station-tea",
+      "description": "tea in the glass teapot area",
+      "kind": "part",
+      "x": 528.5,
+      "y": 710,
+      "width": 29,
+      "height": 18
+    },
+    {
+      "id": "photo-office-tea-station-glass-spout",
+      "description": "glass spout in the glass teapot area",
+      "kind": "part",
+      "x": 410.5,
+      "y": 525.5,
+      "width": 15,
+      "height": 27
+    },
+    {
+      "id": "photo-office-tea-station-teapot-handle",
+      "description": "teapot handle in the glass teapot area",
+      "kind": "part",
+      "x": 990,
+      "y": 536.5,
+      "width": 10,
+      "height": 29
+    },
+    {
+      "id": "photo-office-tea-station-pouring-lip",
+      "description": "pouring lip in the glass teapot area",
+      "kind": "part",
+      "x": 359,
+      "y": 476,
+      "width": 22,
+      "height": 6
+    },
+    {
+      "id": "photo-office-tea-station-tea-level",
+      "description": "tea level in the glass teapot area",
+      "kind": "part",
+      "x": 815.5,
+      "y": 660,
+      "width": 23,
+      "height": 4
+    },
+    {
+      "id": "photo-office-tea-station-amber",
+      "description": "amber in the glass teapot area",
+      "kind": "part",
+      "x": 842,
+      "y": 694.5,
+      "width": 12,
+      "height": 15
+    },
+    {
+      "id": "photo-office-tea-station-curved-glass",
+      "description": "curved glass in the glass teapot area",
+      "kind": "part",
+      "x": 480,
+      "y": 579,
+      "width": 12,
+      "height": 20
+    },
+    {
+      "id": "photo-office-tea-station-condensation",
+      "description": "condensation in the glass teapot area",
+      "kind": "part",
+      "x": 821.5,
+      "y": 555.5,
+      "width": 19,
+      "height": 19
+    },
+    {
+      "id": "photo-office-tea-station-teapot-base",
+      "description": "teapot base in the glass teapot area",
+      "kind": "part",
+      "x": 651,
+      "y": 798,
+      "width": 46,
+      "height": 6
+    },
+    {
+      "id": "photo-office-tea-station-spout-joint",
+      "description": "spout joint in the glass teapot area",
+      "kind": "part",
+      "x": 456.5,
+      "y": 630.5,
+      "width": 9,
+      "height": 15
+    },
+    {
+      "id": "photo-office-tea-station-handle-joint",
+      "description": "handle joint in the glass teapot area",
+      "kind": "part",
+      "x": 863.5,
+      "y": 474,
+      "width": 9,
+      "height": 12
+    },
+    {
+      "id": "photo-office-tea-station-curved",
+      "description": "curved in the glass teapot area",
+      "kind": "part",
+      "x": 424,
+      "y": 568,
+      "width": 6,
+      "height": 10
+    },
+    {
+      "id": "photo-office-tea-station-tea-infuser",
+      "description": "tea infuser in the brewing basket area",
+      "kind": "part",
+      "x": 643.5,
+      "y": 590.5,
+      "width": 27,
+      "height": 25
+    },
+    {
+      "id": "photo-office-tea-station-mesh",
+      "description": "mesh in the brewing basket area",
+      "kind": "part",
+      "x": 626.5,
+      "y": 473,
+      "width": 29,
+      "height": 18
+    },
+    {
+      "id": "photo-office-tea-station-infuser-rim",
+      "description": "infuser rim in the brewing basket area",
+      "kind": "part",
+      "x": 688.5,
+      "y": 428.5,
+      "width": 25,
+      "height": 5
+    },
+    {
+      "id": "photo-office-tea-station-basket-opening",
+      "description": "basket opening in the brewing basket area",
+      "kind": "part",
+      "x": 703.5,
+      "y": 463,
+      "width": 19,
+      "height": 16
+    },
+    {
+      "id": "photo-office-tea-station-mesh-seam",
+      "description": "mesh seam in the brewing basket area",
+      "kind": "part",
+      "x": 689.5,
+      "y": 470.5,
+      "width": 3,
+      "height": 21
+    },
+    {
+      "id": "photo-office-tea-station-teapot-mouth",
+      "description": "teapot mouth in the brewing basket area",
+      "kind": "part",
+      "x": 770.5,
+      "y": 512.5,
+      "width": 9,
+      "height": 7
+    },
+    {
+      "id": "photo-office-tea-station-infuser-bottom",
+      "description": "infuser bottom in the brewing basket area",
+      "kind": "part",
+      "x": 650.5,
+      "y": 737.5,
+      "width": 27,
+      "height": 5
+    },
+    {
+      "id": "photo-office-tea-station-steel-kettle",
+      "description": "steel kettle in the water kettle area",
+      "kind": "part",
+      "x": 241.5,
+      "y": 286,
+      "width": 35,
+      "height": 34
+    },
+    {
+      "id": "photo-office-tea-station-kettle-water-gauge",
+      "description": "kettle water gauge in the water kettle area",
+      "kind": "part",
+      "x": 318.5,
+      "y": 243.5,
+      "width": 17,
+      "height": 21
+    },
+    {
+      "id": "photo-office-tea-station-kettle-lid-button",
+      "description": "kettle lid button in the water kettle area",
+      "kind": "part",
+      "x": 292,
+      "y": 15.5,
+      "width": 24,
+      "height": 9
+    },
+    {
+      "id": "photo-office-tea-station-lid-release",
+      "description": "lid release in the water kettle area",
+      "kind": "part",
+      "x": 152.5,
+      "y": 66.5,
+      "width": 15,
+      "height": 5
+    },
+    {
+      "id": "photo-office-tea-station-insulated-handle",
+      "description": "insulated handle in the water kettle area",
+      "kind": "part",
+      "x": 82.5,
+      "y": 192.5,
+      "width": 17,
+      "height": 43
+    },
+    {
+      "id": "photo-office-tea-station-handle-opening",
+      "description": "handle opening in the water kettle area",
+      "kind": "part",
+      "x": 132.5,
+      "y": 209,
+      "width": 25,
+      "height": 38
+    },
+    {
+      "id": "photo-office-tea-station-kettle-spout-opening",
+      "description": "kettle spout opening in the water kettle area",
+      "kind": "part",
+      "x": 429.5,
+      "y": 79,
+      "width": 17,
+      "height": 6
+    },
+    {
+      "id": "photo-office-tea-station-triangular-spout",
+      "description": "triangular spout in the water kettle area",
+      "kind": "part",
+      "x": 418,
+      "y": 113,
+      "width": 12,
+      "height": 24
+    },
+    {
+      "id": "photo-office-tea-station-steel",
+      "description": "steel in the water kettle area",
+      "kind": "part",
+      "x": 226.5,
+      "y": 212.5,
+      "width": 21,
+      "height": 31
+    },
+    {
+      "id": "photo-office-tea-station-water-level",
+      "description": "water level in the water kettle area",
+      "kind": "part",
+      "x": 316.5,
+      "y": 233,
+      "width": 17,
+      "height": 4
+    },
+    {
+      "id": "photo-office-tea-station-gauge-markings",
+      "description": "gauge markings in the water kettle area",
+      "kind": "part",
+      "x": 325.5,
+      "y": 312.5,
+      "width": 11,
+      "height": 5
+    },
+    {
+      "id": "photo-office-tea-station-kettle-power-base",
+      "description": "kettle power base in the water kettle area",
+      "kind": "part",
+      "x": 301.5,
+      "y": 435,
+      "width": 29,
+      "height": 14
+    },
+    {
+      "id": "photo-office-tea-station-kettle-cord",
+      "description": "kettle cord in the water kettle area",
+      "kind": "part",
+      "x": 134,
+      "y": 371,
+      "width": 16,
+      "height": 4
+    },
+    {
+      "id": "photo-office-tea-station-kettle-lid-rim",
+      "description": "kettle lid rim in the water kettle area",
+      "kind": "part",
+      "x": 324,
+      "y": 73.5,
+      "width": 22,
+      "height": 3
+    },
+    {
+      "id": "photo-office-tea-station-tea-chest",
+      "description": "tea chest in the tea chest area",
+      "kind": "part",
+      "x": 842.5,
+      "y": 284.5,
+      "width": 31,
+      "height": 15
+    },
+    {
+      "id": "photo-office-tea-station-tea-envelope",
+      "description": "tea envelope in the tea chest area",
+      "kind": "part",
+      "x": 707,
+      "y": 167.5,
+      "width": 26,
+      "height": 25
+    },
+    {
+      "id": "photo-office-tea-station-green-packet",
+      "description": "green packet in the tea chest area",
+      "kind": "part",
+      "x": 575,
+      "y": 162,
+      "width": 24,
+      "height": 20
+    },
+    {
+      "id": "photo-office-tea-station-yellow-packet",
+      "description": "yellow packet in the tea chest area",
+      "kind": "part",
+      "x": 840,
+      "y": 187,
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "photo-office-tea-station-blue-packet",
+      "description": "blue packet in the tea chest area",
+      "kind": "part",
+      "x": 962,
+      "y": 202.5,
+      "width": 20,
+      "height": 23
+    },
+    {
+      "id": "photo-office-tea-station-pink",
+      "description": "pink in the tea chest area",
+      "kind": "part",
+      "x": 735,
+      "y": 152,
+      "width": 12,
+      "height": 10
+    },
+    {
+      "id": "photo-office-tea-station-wooden-divider",
+      "description": "wooden divider in the tea chest area",
+      "kind": "part",
+      "x": 778.5,
+      "y": 186,
+      "width": 5,
+      "height": 16
+    },
+    {
+      "id": "photo-office-tea-station-tea-compartment",
+      "description": "tea compartment in the tea chest area",
+      "kind": "part",
+      "x": 898.5,
+      "y": 137,
+      "width": 7,
+      "height": 18
+    },
+    {
+      "id": "photo-office-tea-station-packet-seal",
+      "description": "packet seal in the tea chest area",
+      "kind": "part",
+      "x": 572.5,
+      "y": 136,
+      "width": 17,
+      "height": 4
+    },
+    {
+      "id": "photo-office-tea-station-wood-grain",
+      "description": "wood grain in the tea chest area",
+      "kind": "part",
+      "x": 756.5,
+      "y": 263.5,
+      "width": 25,
+      "height": 7
+    },
+    {
+      "id": "photo-office-tea-station-chest-side-panel",
+      "description": "chest side panel in the tea chest area",
+      "kind": "part",
+      "x": 1022,
+      "y": 289,
+      "width": 12,
+      "height": 26
+    },
+    {
+      "id": "photo-office-tea-station-wood",
+      "description": "wood in the tea chest area",
+      "kind": "part",
+      "x": 564.5,
+      "y": 240,
+      "width": 21,
+      "height": 12
+    },
+    {
+      "id": "photo-office-tea-station-green",
+      "description": "green in the tea chest area",
+      "kind": "part",
+      "x": 600.5,
+      "y": 195,
+      "width": 13,
+      "height": 12
+    },
+    {
+      "id": "photo-office-tea-station-tea-bag",
+      "description": "tea bag in the tea bags and tags area",
+      "kind": "part",
+      "x": 608.5,
+      "y": 302.5,
+      "width": 21,
+      "height": 23
+    },
+    {
+      "id": "photo-office-tea-station-tea-tag",
+      "description": "tea tag in the tea bags and tags area",
+      "kind": "part",
+      "x": 816.5,
+      "y": 413.5,
+      "width": 21,
+      "height": 11
+    },
+    {
+      "id": "photo-office-tea-station-string",
+      "description": "string in the tea bags and tags area",
+      "kind": "part",
+      "x": 813.5,
+      "y": 361,
+      "width": 3,
+      "height": 12
+    },
+    {
+      "id": "photo-office-tea-station-filter-paper",
+      "description": "filter paper in the tea bags and tags area",
+      "kind": "part",
+      "x": 726.5,
+      "y": 319,
+      "width": 13,
+      "height": 16
+    },
+    {
+      "id": "photo-office-tea-station-loose-tea-inside-a-bag",
+      "description": "loose tea inside a bag in the tea bags and tags area",
+      "kind": "part",
+      "x": 881,
+      "y": 388.5,
+      "width": 26,
+      "height": 11
+    },
+    {
+      "id": "photo-office-tea-station-folded-corner",
+      "description": "folded corner in the tea bags and tags area",
+      "kind": "part",
+      "x": 866.5,
+      "y": 317.5,
+      "width": 7,
+      "height": 7
+    },
+    {
+      "id": "photo-office-tea-station-tag-hole",
+      "description": "tag hole in the tea bags and tags area",
+      "kind": "part",
+      "x": 964,
+      "y": 407,
+      "width": 4,
+      "height": 4
+    },
+    {
+      "id": "photo-office-tea-station-paper-fold",
+      "description": "paper fold in the tea bags and tags area",
+      "kind": "part",
+      "x": 613,
+      "y": 292,
+      "width": 14,
+      "height": 2
+    },
+    {
+      "id": "photo-office-tea-station-tea-bag-seam",
+      "description": "tea bag seam in the tea bags and tags area",
+      "kind": "part",
+      "x": 733,
+      "y": 381.5,
+      "width": 20,
+      "height": 3
+    },
+    {
+      "id": "photo-office-tea-station-paper",
+      "description": "paper in the tea bags and tags area",
+      "kind": "part",
+      "x": 979,
+      "y": 422.5,
+      "width": 10,
+      "height": 7
+    },
+    {
+      "id": "photo-office-tea-station-black-tea",
+      "description": "black tea in the loose tea and scoop area",
+      "kind": "part",
+      "x": 1158,
+      "y": 183.5,
+      "width": 32,
+      "height": 17
+    },
+    {
+      "id": "photo-office-tea-station-green-tea",
+      "description": "green tea in the loose tea and scoop area",
+      "kind": "part",
+      "x": 1356.5,
+      "y": 188.5,
+      "width": 39,
+      "height": 23
+    },
+    {
+      "id": "photo-office-tea-station-tea-tin",
+      "description": "tea tin in the loose tea and scoop area",
+      "kind": "part",
+      "x": 1128,
+      "y": 278,
+      "width": 26,
+      "height": 30
+    },
+    {
+      "id": "photo-office-tea-station-dried-tea-leaves",
+      "description": "dried tea leaves in the loose tea and scoop area",
+      "kind": "part",
+      "x": 1402,
+      "y": 219.5,
+      "width": 16,
+      "height": 9
+    },
+    {
+      "id": "photo-office-tea-station-rolled-tea-leaf",
+      "description": "rolled tea leaf in the loose tea and scoop area",
+      "kind": "part",
+      "x": 1188,
+      "y": 212,
+      "width": 12,
+      "height": 4
+    },
+    {
+      "id": "photo-office-tea-station-tin-rim",
+      "description": "tin rim in the loose tea and scoop area",
+      "kind": "part",
+      "x": 1139.5,
+      "y": 241.5,
+      "width": 17,
+      "height": 3
+    },
+    {
+      "id": "photo-office-tea-station-measuring-scoop",
+      "description": "measuring scoop in the loose tea and scoop area",
+      "kind": "part",
+      "x": 1389,
+      "y": 321.5,
+      "width": 24,
+      "height": 15
+    },
+    {
+      "id": "photo-office-tea-station-scoop-handle",
+      "description": "scoop handle in the loose tea and scoop area",
+      "kind": "part",
+      "x": 1505,
+      "y": 377.5,
+      "width": 20,
+      "height": 7
+    },
+    {
+      "id": "photo-office-tea-station-hanging-hole",
+      "description": "hanging hole in the loose tea and scoop area",
+      "kind": "part",
+      "x": 1577,
+      "y": 416,
+      "width": 8,
+      "height": 4
+    },
+    {
+      "id": "photo-office-tea-station-round-tin-lid",
+      "description": "round tin lid in the loose tea and scoop area",
+      "kind": "part",
+      "x": 1460.5,
+      "y": 324,
+      "width": 21,
+      "height": 12
+    },
+    {
+      "id": "photo-office-tea-station-lid-lip",
+      "description": "lid lip in the loose tea and scoop area",
+      "kind": "part",
+      "x": 1467,
+      "y": 425.5,
+      "width": 18,
+      "height": 3
+    },
+    {
+      "id": "photo-office-tea-station-metal",
+      "description": "metal in the loose tea and scoop area",
+      "kind": "part",
+      "x": 1318,
+      "y": 263,
+      "width": 12,
+      "height": 10
+    },
+    {
+      "id": "photo-office-tea-station-honey",
+      "description": "honey in the honey and milk area",
+      "kind": "part",
+      "x": 1184,
+      "y": 527.5,
+      "width": 24,
+      "height": 15
+    },
+    {
+      "id": "photo-office-tea-station-milk-pitcher",
+      "description": "milk pitcher in the honey and milk area",
+      "kind": "part",
+      "x": 1342,
+      "y": 520,
+      "width": 28,
+      "height": 28
+    },
+    {
+      "id": "photo-office-tea-station-honey-dipper",
+      "description": "honey dipper in the honey and milk area",
+      "kind": "part",
+      "x": 1107.5,
+      "y": 529,
+      "width": 13,
+      "height": 16
+    },
+    {
+      "id": "photo-office-tea-station-honey-jar",
+      "description": "honey jar in the honey and milk area",
+      "kind": "part",
+      "x": 1059.5,
+      "y": 492,
+      "width": 9,
+      "height": 18
+    },
+    {
+      "id": "photo-office-tea-station-dipper-grooves",
+      "description": "dipper grooves in the honey and milk area",
+      "kind": "part",
+      "x": 1134,
+      "y": 512.5,
+      "width": 12,
+      "height": 5
+    },
+    {
+      "id": "photo-office-tea-station-wooden-shaft",
+      "description": "wooden shaft in the honey and milk area",
+      "kind": "part",
+      "x": 1197,
+      "y": 365.5,
+      "width": 6,
+      "height": 19
+    },
+    {
+      "id": "photo-office-tea-station-jar-threads",
+      "description": "jar threads in the honey and milk area",
+      "kind": "part",
+      "x": 1084,
+      "y": 442.5,
+      "width": 12,
+      "height": 5
+    },
+    {
+      "id": "photo-office-tea-station-honey-surface",
+      "description": "honey surface in the honey and milk area",
+      "kind": "part",
+      "x": 1186,
+      "y": 483,
+      "width": 12,
+      "height": 10
+    },
+    {
+      "id": "photo-office-tea-station-milk",
+      "description": "milk in the honey and milk area",
+      "kind": "part",
+      "x": 1364,
+      "y": 445,
+      "width": 24,
+      "height": 8
+    },
+    {
+      "id": "photo-office-tea-station-pitcher-spout",
+      "description": "pitcher spout in the honey and milk area",
+      "kind": "part",
+      "x": 1287.5,
+      "y": 417,
+      "width": 13,
+      "height": 6
+    },
+    {
+      "id": "photo-office-tea-station-pitcher-handle",
+      "description": "pitcher handle in the honey and milk area",
+      "kind": "part",
+      "x": 1474,
+      "y": 476.5,
+      "width": 8,
+      "height": 15
+    },
+    {
+      "id": "photo-office-tea-station-white-porcelain",
+      "description": "white porcelain in the honey and milk area",
+      "kind": "part",
+      "x": 1373,
+      "y": 567.5,
+      "width": 22,
+      "height": 13
+    },
+    {
+      "id": "photo-office-tea-station-jar",
+      "description": "jar in the honey and milk area",
+      "kind": "part",
+      "x": 1207.5,
+      "y": 467.5,
+      "width": 7,
+      "height": 11
+    },
+    {
+      "id": "photo-office-tea-station-teacup",
+      "description": "teacup in the teacup and sugar area",
+      "kind": "part",
+      "x": 180,
+      "y": 668.5,
+      "width": 32,
+      "height": 29
+    },
+    {
+      "id": "photo-office-tea-station-saucer",
+      "description": "saucer in the teacup and sugar area",
+      "kind": "part",
+      "x": 53,
+      "y": 717.5,
+      "width": 22,
+      "height": 19
+    },
+    {
+      "id": "photo-office-tea-station-spoon",
+      "description": "spoon in the teacup and sugar area",
+      "kind": "part",
+      "x": 319.5,
+      "y": 707,
+      "width": 25,
+      "height": 14
+    },
+    {
+      "id": "photo-office-tea-station-sugar-cube",
+      "description": "sugar cube in the teacup and sugar area",
+      "kind": "part",
+      "x": 158.5,
+      "y": 763,
+      "width": 17,
+      "height": 18
+    },
+    {
+      "id": "photo-office-tea-station-sugar",
+      "description": "sugar in the teacup and sugar area",
+      "kind": "part",
+      "x": 103,
+      "y": 747.5,
+      "width": 12,
+      "height": 9
+    },
+    {
+      "id": "photo-office-tea-station-cup-handle",
+      "description": "cup handle in the teacup and sugar area",
+      "kind": "part",
+      "x": 33.5,
+      "y": 638.5,
+      "width": 7,
+      "height": 19
+    },
+    {
+      "id": "photo-office-tea-station-cup-rim",
+      "description": "cup rim in the teacup and sugar area",
+      "kind": "part",
+      "x": 176.5,
+      "y": 502,
+      "width": 19,
+      "height": 4
+    },
+    {
+      "id": "photo-office-tea-station-brewed-tea",
+      "description": "brewed tea in the teacup and sugar area",
+      "kind": "part",
+      "x": 180.5,
+      "y": 568.5,
+      "width": 23,
+      "height": 13
+    },
+    {
+      "id": "photo-office-tea-station-spoon-bowl",
+      "description": "spoon bowl in the teacup and sugar area",
+      "kind": "part",
+      "x": 340.5,
+      "y": 687,
+      "width": 11,
+      "height": 12
+    },
+    {
+      "id": "photo-office-tea-station-teaspoon-handle",
+      "description": "teaspoon handle in the teacup and sugar area",
+      "kind": "part",
+      "x": 210,
+      "y": 789.5,
+      "width": 10,
+      "height": 5
+    },
+    {
+      "id": "photo-office-tea-station-saucer-rim",
+      "description": "saucer rim in the teacup and sugar area",
+      "kind": "part",
+      "x": 236,
+      "y": 799.5,
+      "width": 18,
+      "height": 3
+    },
+    {
+      "id": "photo-office-tea-station-cup-foot",
+      "description": "cup foot in the teacup and sugar area",
+      "kind": "part",
+      "x": 207.5,
+      "y": 748.5,
+      "width": 11,
+      "height": 3
+    },
+    {
+      "id": "photo-office-tea-station-lemon-slice",
+      "description": "lemon slice in the sliced lemon area",
+      "kind": "part",
+      "x": 1083,
+      "y": 626,
+      "width": 20,
+      "height": 18
+    },
+    {
+      "id": "photo-office-tea-station-lemon-peel",
+      "description": "lemon peel in the sliced lemon area",
+      "kind": "part",
+      "x": 1086.5,
+      "y": 679.5,
+      "width": 19,
+      "height": 5
+    },
+    {
+      "id": "photo-office-tea-station-lemon-pulp",
+      "description": "lemon pulp in the sliced lemon area",
+      "kind": "part",
+      "x": 1174,
+      "y": 627.5,
+      "width": 16,
+      "height": 11
+    },
+    {
+      "id": "photo-office-tea-station-lemon-pith",
+      "description": "lemon pith in the sliced lemon area",
+      "kind": "part",
+      "x": 1032,
+      "y": 629,
+      "width": 4,
+      "height": 12
+    },
+    {
+      "id": "photo-office-tea-station-lemon-segment",
+      "description": "lemon segment in the sliced lemon area",
+      "kind": "part",
+      "x": 1065.5,
+      "y": 616,
+      "width": 11,
+      "height": 8
+    },
+    {
+      "id": "photo-office-tea-station-segment-membrane",
+      "description": "segment membrane in the sliced lemon area",
+      "kind": "part",
+      "x": 1107.5,
+      "y": 631,
+      "width": 5,
+      "height": 2
+    },
+    {
+      "id": "photo-office-tea-station-side-plate",
+      "description": "side plate in the sliced lemon area",
+      "kind": "part",
+      "x": 1226.5,
+      "y": 662,
+      "width": 7,
+      "height": 10
+    },
+    {
+      "id": "photo-office-tea-station-translucent-flesh",
+      "description": "translucent flesh in the sliced lemon area",
+      "kind": "part",
+      "x": 1184,
+      "y": 605.5,
+      "width": 10,
+      "height": 7
+    },
+    {
+      "id": "photo-office-tea-station-mint-sprig",
+      "description": "mint sprig in the mint and tea ball area",
+      "kind": "part",
+      "x": 1158.5,
+      "y": 752.5,
+      "width": 13,
+      "height": 11
+    },
+    {
+      "id": "photo-office-tea-station-tea-ball",
+      "description": "tea ball in the mint and tea ball area",
+      "kind": "part",
+      "x": 1340,
+      "y": 736.5,
+      "width": 24,
+      "height": 17
+    },
+    {
+      "id": "photo-office-tea-station-mint-leaf",
+      "description": "mint leaf in the mint and tea ball area",
+      "kind": "part",
+      "x": 1108.5,
+      "y": 771,
+      "width": 17,
+      "height": 12
+    },
+    {
+      "id": "photo-office-tea-station-leaf-veins",
+      "description": "leaf veins in the mint and tea ball area",
+      "kind": "part",
+      "x": 1251.5,
+      "y": 728.5,
+      "width": 9,
+      "height": 7
+    },
+    {
+      "id": "photo-office-tea-station-serrated-edge",
+      "description": "serrated edge in the mint and tea ball area",
+      "kind": "part",
+      "x": 1144.5,
+      "y": 722,
+      "width": 7,
+      "height": 4
+    },
+    {
+      "id": "photo-office-tea-station-cloth-napkin",
+      "description": "cloth napkin in the mint and tea ball area",
+      "kind": "part",
+      "x": 1019.5,
+      "y": 805.5,
+      "width": 27,
+      "height": 23
+    },
+    {
+      "id": "photo-office-tea-station-stitched-hem",
+      "description": "stitched hem in the mint and tea ball area",
+      "kind": "part",
+      "x": 994.5,
+      "y": 812,
+      "width": 5,
+      "height": 14
+    },
+    {
+      "id": "photo-office-tea-station-fabric-fold",
+      "description": "fabric fold in the mint and tea ball area",
+      "kind": "part",
+      "x": 1288.5,
+      "y": 853,
+      "width": 17,
+      "height": 4
+    },
+    {
+      "id": "photo-office-tea-station-tea-ball-clasp",
+      "description": "tea ball clasp in the mint and tea ball area",
+      "kind": "part",
+      "x": 1320,
+      "y": 766,
+      "width": 6,
+      "height": 4
+    },
+    {
+      "id": "photo-office-tea-station-fine-chain",
+      "description": "fine chain in the mint and tea ball area",
+      "kind": "part",
+      "x": 1461.5,
+      "y": 804.5,
+      "width": 11,
+      "height": 3
+    },
+    {
+      "id": "photo-office-tea-station-chain-ring",
+      "description": "chain ring in the mint and tea ball area",
+      "kind": "part",
+      "x": 1509.5,
+      "y": 822.5,
+      "width": 9,
+      "height": 5
+    },
+    {
+      "id": "photo-office-tea-station-mesh-shell",
+      "description": "mesh shell in the mint and tea ball area",
+      "kind": "part",
+      "x": 1391.5,
+      "y": 759.5,
+      "width": 13,
+      "height": 13
+    },
+    {
+      "id": "photo-office-tea-station-fabric",
+      "description": "fabric in the mint and tea ball area",
+      "kind": "part",
+      "x": 1520,
+      "y": 635.5,
+      "width": 12,
+      "height": 17
+    },
+    {
+      "id": "photo-office-tea-station-leaf",
+      "description": "leaf in the mint and tea ball area",
+      "kind": "part",
+      "x": 1178.5,
+      "y": 806,
+      "width": 11,
+      "height": 10
+    }
+  ],
+  "detailZones": [
+    {
+      "id": "office-tea-station-zone-glass-teapot",
+      "title": "Glass teapot",
+      "translation": "玻璃茶壶",
+      "description": "The clear round pot has a curved handle, a pouring spout and a visible tea line.",
+      "x": 341,
+      "y": 456,
+      "width": 677,
+      "height": 366,
+      "targetScale": 2.8,
+      "labelIds": [
+        "office-tea-station-glass-teapot",
+        "office-tea-station-tea",
+        "office-tea-station-glass-spout",
+        "office-tea-station-teapot-handle",
+        "office-tea-station-pouring-lip",
+        "office-tea-station-tea-level",
+        "office-tea-station-amber",
+        "office-tea-station-curved-glass",
+        "office-tea-station-condensation",
+        "office-tea-station-teapot-base",
+        "office-tea-station-spout-joint",
+        "office-tea-station-handle-joint",
+        "office-tea-station-curved"
+      ]
+    },
+    {
+      "id": "office-tea-station-zone-brewing-basket",
+      "title": "Brewing basket",
+      "translation": "泡茶滤篮",
+      "description": "The metal basket sits inside the teapot opening, with woven mesh visible above and below the tea.",
+      "x": 608,
+      "y": 410,
+      "width": 190,
+      "height": 351,
+      "targetScale": 2.8,
+      "labelIds": [
+        "office-tea-station-tea-infuser",
+        "office-tea-station-mesh",
+        "office-tea-station-infuser-rim",
+        "office-tea-station-basket-opening",
+        "office-tea-station-mesh-seam",
+        "office-tea-station-teapot-mouth",
+        "office-tea-station-infuser-bottom"
+      ]
+    },
+    {
+      "id": "office-tea-station-zone-water-kettle",
+      "title": "Water kettle",
+      "translation": "烧水壶",
+      "description": "The brushed steel kettle shows a dark handle, triangular spout, water gauge and power base.",
+      "x": 64,
+      "y": 0,
+      "width": 401,
+      "height": 467,
+      "targetScale": 2.8,
+      "labelIds": [
+        "office-tea-station-steel-kettle",
+        "office-tea-station-kettle-water-gauge",
+        "office-tea-station-kettle-lid-button",
+        "office-tea-station-lid-release",
+        "office-tea-station-insulated-handle",
+        "office-tea-station-handle-opening",
+        "office-tea-station-kettle-spout-opening",
+        "office-tea-station-triangular-spout",
+        "office-tea-station-steel",
+        "office-tea-station-water-level",
+        "office-tea-station-gauge-markings",
+        "office-tea-station-kettle-power-base",
+        "office-tea-station-kettle-cord",
+        "office-tea-station-kettle-lid-rim"
+      ]
+    },
+    {
+      "id": "office-tea-station-zone-tea-chest",
+      "title": "Tea chest",
+      "translation": "茶包收纳盒",
+      "description": "Rows of colored envelopes stand in the four separate slots of the open wooden organizer.",
+      "x": 546,
+      "y": 118,
+      "width": 506,
+      "height": 215,
+      "targetScale": 2.8,
+      "labelIds": [
+        "office-tea-station-tea-chest",
+        "office-tea-station-tea-envelope",
+        "office-tea-station-green-packet",
+        "office-tea-station-yellow-packet",
+        "office-tea-station-blue-packet",
+        "office-tea-station-pink",
+        "office-tea-station-wooden-divider",
+        "office-tea-station-tea-compartment",
+        "office-tea-station-packet-seal",
+        "office-tea-station-wood-grain",
+        "office-tea-station-chest-side-panel",
+        "office-tea-station-wood",
+        "office-tea-station-green"
+      ]
+    },
+    {
+      "id": "office-tea-station-zone-tea-bags-and-tags",
+      "title": "Tea bags and tags",
+      "translation": "茶袋、棉线与吊牌",
+      "description": "Three paper bags sit in front of the chest, each tied to a separate white paper tag.",
+      "x": 590,
+      "y": 274,
+      "width": 417,
+      "height": 174,
+      "targetScale": 2.8,
+      "labelIds": [
+        "office-tea-station-tea-bag",
+        "office-tea-station-tea-tag",
+        "office-tea-station-string",
+        "office-tea-station-filter-paper",
+        "office-tea-station-loose-tea-inside-a-bag",
+        "office-tea-station-folded-corner",
+        "office-tea-station-tag-hole",
+        "office-tea-station-paper-fold",
+        "office-tea-station-tea-bag-seam",
+        "office-tea-station-paper"
+      ]
+    },
+    {
+      "id": "office-tea-station-zone-loose-tea-and-scoop",
+      "title": "Loose tea and scoop",
+      "translation": "散茶罐与茶勺",
+      "description": "Two open tins display dark and green dried leaves beside a round lid and a measuring scoop.",
+      "x": 1110,
+      "y": 165,
+      "width": 490,
+      "height": 282,
+      "targetScale": 2.8,
+      "labelIds": [
+        "office-tea-station-black-tea",
+        "office-tea-station-green-tea",
+        "office-tea-station-tea-tin",
+        "office-tea-station-dried-tea-leaves",
+        "office-tea-station-rolled-tea-leaf",
+        "office-tea-station-tin-rim",
+        "office-tea-station-measuring-scoop",
+        "office-tea-station-scoop-handle",
+        "office-tea-station-hanging-hole",
+        "office-tea-station-round-tin-lid",
+        "office-tea-station-lid-lip",
+        "office-tea-station-metal"
+      ]
+    },
+    {
+      "id": "office-tea-station-zone-honey-and-milk",
+      "title": "Honey and milk",
+      "translation": "蜂蜜和牛奶",
+      "description": "An open honey jar holds a grooved wooden dipper. Milk sits in a small white pitcher beside it.",
+      "x": 1041,
+      "y": 347,
+      "width": 459,
+      "height": 252,
+      "targetScale": 2.8,
+      "labelIds": [
+        "office-tea-station-honey",
+        "office-tea-station-milk-pitcher",
+        "office-tea-station-honey-dipper",
+        "office-tea-station-honey-jar",
+        "office-tea-station-dipper-grooves",
+        "office-tea-station-wooden-shaft",
+        "office-tea-station-jar-threads",
+        "office-tea-station-honey-surface",
+        "office-tea-station-milk",
+        "office-tea-station-pitcher-spout",
+        "office-tea-station-pitcher-handle",
+        "office-tea-station-white-porcelain",
+        "office-tea-station-jar"
+      ]
+    },
+    {
+      "id": "office-tea-station-zone-teacup-and-sugar",
+      "title": "Teacup and sugar",
+      "translation": "茶杯与方糖",
+      "description": "A white cup of tea sits on a saucer with a teaspoon and two separate sugar cubes.",
+      "x": 15,
+      "y": 484,
+      "width": 355,
+      "height": 337,
+      "targetScale": 2.8,
+      "labelIds": [
+        "office-tea-station-teacup",
+        "office-tea-station-saucer",
+        "office-tea-station-spoon",
+        "office-tea-station-sugar-cube",
+        "office-tea-station-sugar",
+        "office-tea-station-cup-handle",
+        "office-tea-station-cup-rim",
+        "office-tea-station-brewed-tea",
+        "office-tea-station-spoon-bowl",
+        "office-tea-station-teaspoon-handle",
+        "office-tea-station-saucer-rim",
+        "office-tea-station-cup-foot"
+      ]
+    },
+    {
+      "id": "office-tea-station-zone-sliced-lemon",
+      "title": "Sliced lemon",
+      "translation": "柠檬片",
+      "description": "Two overlapping lemon slices expose their rind, white pith and translucent pulp on a small plate.",
+      "x": 1014,
+      "y": 587,
+      "width": 238,
+      "height": 116,
+      "targetScale": 2.8,
+      "labelIds": [
+        "office-tea-station-lemon-slice",
+        "office-tea-station-lemon-peel",
+        "office-tea-station-lemon-pulp",
+        "office-tea-station-lemon-pith",
+        "office-tea-station-lemon-segment",
+        "office-tea-station-segment-membrane",
+        "office-tea-station-side-plate",
+        "office-tea-station-translucent-flesh"
+      ]
+    },
+    {
+      "id": "office-tea-station-zone-mint-and-tea-ball",
+      "title": "Mint and tea ball",
+      "translation": "薄荷与球形滤茶器",
+      "description": "A mint sprig and a metal tea ball with a fine chain lie on a folded cloth napkin.",
+      "x": 976,
+      "y": 617,
+      "width": 574,
+      "height": 258,
+      "targetScale": 2.8,
+      "labelIds": [
+        "office-tea-station-mint-sprig",
+        "office-tea-station-tea-ball",
+        "office-tea-station-mint-leaf",
+        "office-tea-station-leaf-veins",
+        "office-tea-station-serrated-edge",
+        "office-tea-station-cloth-napkin",
+        "office-tea-station-stitched-hem",
+        "office-tea-station-fabric-fold",
+        "office-tea-station-tea-ball-clasp",
+        "office-tea-station-fine-chain",
+        "office-tea-station-chain-ring",
+        "office-tea-station-mesh-shell",
+        "office-tea-station-fabric",
+        "office-tea-station-leaf"
+      ]
+    }
+  ],
+  "anchorAudit": {
+    "status": "image-reviewed",
+    "policy": "visible-object-or-part-only",
+    "reviewedAsset": "/scenes/office-tea-station-premium-v1.jpg",
+    "reviewedAssetSha256": "f4c375d1de6f57b65aa1ceee0dede02e702f60eb5841a8bf086c5130f98358ff",
+    "rationale": "The final photograph was reviewed for visible tea utensils, loose leaves and serving ingredients. Preparation actions, caffeine content and strength belong in the searchable index.",
+    "previousLabelCount": 132,
+    "retainedLabelCount": 116,
+    "removedLabelCount": 16,
+    "removedExamples": [
+      "make a pot of tea",
+      "steep",
+      "brewing time",
+      "loose-leaf tea"
+    ]
+  }
+}

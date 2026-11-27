@@ -144,6 +144,8 @@ test("mature world has six subject branches and fully reachable practical paths"
     ["world-map", "city-street", "transit-hub", "urban-services", "office-building", "office-reception-lobby"],
     ["world-map", "city-street", "transit-hub", "urban-services", "office-building", "office-reception-lobby", "office-elevator-car"],
     ["world-map", "city-street", "transit-hub", "urban-services", "office-building", "office-break-room", "office-refrigerator-interior"],
+    ["world-map", "city-street", "transit-hub", "urban-services", "office-building", "office-break-room", "office-coffee-station"],
+    ["world-map", "city-street", "transit-hub", "urban-services", "office-building", "office-break-room", "office-tea-station"],
     ["world-map", "city-street", "transit-hub", "urban-services", "airport", "baggage-claim", "airport-customs-hall"],
     ["world-map", "city-street", "transit-hub", "urban-services", "airport", "baggage-claim", "airport-customs-hall", "customs-baggage-examination"],
     ["world-map", "city-street", "hotel-exterior", "hotel-lobby-rooms"],
@@ -3180,6 +3182,8 @@ test("urban services adds hospital, airport and office vocabulary without breaki
     ["office-building", 87, 5, "urban-services", ["reception counter", "planter", "monitor", "open plan office", "conference room", "glass wall", "meeting table", "refrigerator", "dining table", "stairwell", "elevator door", "server rack", "air duct"]],
     ["office-break-room", 138, 6, "office-building", ["open refrigerator", "green-skinned apple", "drip coffee maker", "electric kettle", "kitchenette sink", "countertop microwave", "open recycling bin"]],
     ["office-refrigerator-interior", 100, 12, "office-break-room", ["red bell pepper", "cucumber", "egg", "carrot sticks", "grain salad", "pasta", "pickle", "fridge light"]],
+    ["office-coffee-station", 100, 11, "office-break-room", ["coffee pot", "coffee bean", "coffee grinder", "coffee filter", "warming plate", "paper cup"]],
+    ["office-tea-station", 116, 10, "office-break-room", ["glass teapot", "tea infuser", "black tea", "honey dipper", "milk pitcher", "tea ball"]],
     ["service-core", 90, 5, "office-building", ["switchboard door", "breaker handle", "filter pleat", "valve wheel", "utility sink basin", "dock plate", "pallet jack handle", "freight elevator seam"]],
     ["office-network-rack", 150, 6, "service-core", ["Network cabinet shell", "Network upper fiber patch panel", "Network lower Ethernet switch", "Network upper server chassis", "Network vertical power strip", "Network UPS chassis", "Network centre equipment blanking panel", "Network blank-panel right edge"]],
   ] as const) {

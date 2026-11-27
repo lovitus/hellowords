@@ -168,6 +168,42 @@ export const SCENE_CONVERSATIONS: Readonly<Record<string, readonly SceneConversa
       ["Thanks. I'll have a green one.", "谢谢，我拿个青苹果。"],
     ] },
   ],
+  "office-coffee-station": [
+    { title: "冲一壶咖啡", roles: ["同事甲", "同事乙"], lines: [
+      ["Is there enough coffee for two of us?", "壶里的咖啡够我们两个人喝吗？"],
+      ["There's only a little left. I'll make a fresh pot.", "只剩一点了。我再冲一壶。"],
+      ["Shall I grind some beans?", "要我磨点咖啡豆吗？"],
+      ["Yes, please. The grinder is next to the jar.", "好呀。磨豆机就在罐子旁边。"],
+      ["Where do you keep the paper filters?", "你们把滤纸放哪儿了？"],
+      ["Right in front of the grinder. Take one from the stack.", "就在磨豆机前面。从那叠里拿一张就行。"],
+    ] },
+    { title: "带一杯去开会", roles: ["同事甲", "同事乙"], lines: [
+      ["Can I take a coffee to the meeting?", "我能带杯咖啡去开会吗？"],
+      ["Help yourself. There are paper cups behind the mugs.", "自己倒吧。马克杯后面有纸杯。"],
+      ["Could you leave a little room for milk?", "能留点地方加牛奶吗？"],
+      ["Sure. Would you like any sugar?", "行。你要加糖吗？"],
+      ["Just one cube, please.", "请给我一块方糖。"],
+      ["Here's a stirrer and a lid for your cup.", "给你搅拌棒，还有纸杯盖。"],
+    ] },
+  ],
+  "office-tea-station": [
+    { title: "泡一壶散茶", roles: ["同事甲", "同事乙"], lines: [
+      ["Are we using tea bags or loose leaves?", "我们是用茶包还是散茶？"],
+      ["Loose leaves today. Could you pass me the scoop?", "今天用散茶。能把量勺递给我吗？"],
+      ["Do the leaves go straight into the pot?", "茶叶直接放进壶里吗？"],
+      ["Put them in the metal basket first.", "先把茶叶放进金属滤篮里。"],
+      ["How will I know when it's strong enough?", "怎么知道茶泡得够浓了？"],
+      ["Taste a little, then lift the basket out when you like it.", "尝一口，浓淡合适就把滤篮提出来。"],
+    ] },
+    { title: "给同事倒茶", roles: ["同事甲", "同事乙"], lines: [
+      ["Would you like a cup of black tea?", "想来一杯红茶吗？"],
+      ["Yes, with a slice of lemon, please.", "好，麻烦加一片柠檬。"],
+      ["Would you like honey in it too?", "也要在茶里加点蜂蜜吗？"],
+      ["A little would be lovely.", "加一点就好。"],
+      ["I'll put your cup and saucer here.", "我把你的茶杯和茶碟放这儿。"],
+      ["Thanks. I'll take the pot back when we're done.", "谢谢。喝完我把茶壶送回去。"],
+    ] },
+  ],
   "airport-customs-hall": [
     { title: "确认入境通道", roles: ["旅客", "海关工作人员"], lines: [
       ["I am not sure which arrivals channel I should use.", "我不确定应该走哪条入境通道。"],

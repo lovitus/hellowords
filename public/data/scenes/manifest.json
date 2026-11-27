@@ -263,6 +263,16 @@
       "parentId": "office-break-room"
     },
     {
+      "id": "office-coffee-station",
+      "title": "Office coffee station",
+      "parentId": "office-break-room"
+    },
+    {
+      "id": "office-tea-station",
+      "title": "Office tea station",
+      "parentId": "office-break-room"
+    },
+    {
       "id": "desktop-workstation-equipment",
       "title": "Desktop workstation equipment",
       "parentId": "open-plan-workstation"
