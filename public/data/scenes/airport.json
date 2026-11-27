@@ -12,8 +12,8 @@
       "id": "airport",
       "word": "airport",
       "translation": "机场",
-      "x": 30,
-      "y": 278,
+      "x": 570,
+      "y": 175,
       "priority": 1,
       "minLevel": 0,
       "sourceVisualRegion": "check-in-hall",
@@ -23,8 +23,8 @@
       "id": "terminal",
       "word": "terminal",
       "translation": "航站楼",
-      "x": 250,
-      "y": 278,
+      "x": 201,
+      "y": 216,
       "priority": 1.001,
       "minLevel": 0,
       "sourceVisualRegion": "check-in-hall",
@@ -34,8 +34,8 @@
       "id": "check-in-counter",
       "word": "check in counter",
       "translation": "值机柜台",
-      "x": 470,
-      "y": 278,
+      "x": 41,
+      "y": 508,
       "priority": 1.002,
       "minLevel": 0,
       "sourceVisualRegion": "check-in-hall",
@@ -45,8 +45,8 @@
       "id": "self-service-kiosk",
       "word": "self service kiosk",
       "translation": "自助值机机",
-      "x": 30,
-      "y": 663,
+      "x": 161,
+      "y": 774,
       "priority": 1.003,
       "minLevel": 0,
       "sourceVisualRegion": "check-in-hall",
@@ -56,65 +56,10 @@
       "id": "departure-hall",
       "word": "departure hall",
       "translation": "出发大厅",
-      "x": 250,
-      "y": 663,
+      "x": 349,
+      "y": 317,
       "priority": 1.004,
       "minLevel": 0,
-      "sourceVisualRegion": "check-in-hall",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "ticket",
-      "word": "ticket",
-      "translation": "机票",
-      "x": 470,
-      "y": 663,
-      "priority": 1.005,
-      "minLevel": 0,
-      "sourceVisualRegion": "check-in-hall",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "passport",
-      "word": "passport",
-      "translation": "护照",
-      "x": 30,
-      "y": 278,
-      "priority": 1.006,
-      "minLevel": 1,
-      "sourceVisualRegion": "check-in-hall",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "boarding-pass",
-      "word": "boarding pass",
-      "translation": "登机牌",
-      "x": 250,
-      "y": 278,
-      "priority": 1.007,
-      "minLevel": 1,
-      "sourceVisualRegion": "check-in-hall",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "baggage-scale",
-      "word": "baggage scale",
-      "translation": "行李秤",
-      "x": 470,
-      "y": 278,
-      "priority": 1.008,
-      "minLevel": 1,
-      "sourceVisualRegion": "check-in-hall",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "luggage-cart",
-      "word": "luggage cart",
-      "translation": "行李车",
-      "x": 30,
-      "y": 663,
-      "priority": 1.009,
-      "minLevel": 1,
       "sourceVisualRegion": "check-in-hall",
       "semanticRealmId": "objects-technology"
     },
@@ -122,20 +67,9 @@
       "id": "queue-barrier",
       "word": "queue barrier",
       "translation": "排队隔离栏",
-      "x": 250,
-      "y": 663,
+      "x": 218,
+      "y": 532,
       "priority": 1.01,
-      "minLevel": 1,
-      "sourceVisualRegion": "check-in-hall",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "information-desk",
-      "word": "information desk",
-      "translation": "问讯台",
-      "x": 470,
-      "y": 663,
-      "priority": 1.011,
       "minLevel": 1,
       "sourceVisualRegion": "check-in-hall",
       "semanticRealmId": "objects-technology"
@@ -144,76 +78,10 @@
       "id": "check-in-screen",
       "word": "check in screen",
       "translation": "值机屏幕",
-      "x": 30,
-      "y": 278,
+      "x": 167,
+      "y": 371,
       "priority": 1.012,
       "minLevel": 2,
-      "sourceVisualRegion": "check-in-hall",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "counter-number",
-      "word": "counter number",
-      "translation": "柜台编号",
-      "x": 250,
-      "y": 278,
-      "priority": 1.013,
-      "minLevel": 2,
-      "sourceVisualRegion": "check-in-hall",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "baggage-tag",
-      "word": "baggage tag",
-      "translation": "行李标签",
-      "x": 470,
-      "y": 278,
-      "priority": 1.014,
-      "minLevel": 2,
-      "sourceVisualRegion": "check-in-hall",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "conveyor-belt",
-      "word": "conveyor belt",
-      "translation": "传送带",
-      "x": 30,
-      "y": 663,
-      "priority": 1.015,
-      "minLevel": 2,
-      "sourceVisualRegion": "check-in-hall",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "passport-scanner",
-      "word": "passport scanner",
-      "translation": "护照扫描器",
-      "x": 250,
-      "y": 663,
-      "priority": 1.016,
-      "minLevel": 2,
-      "sourceVisualRegion": "check-in-hall",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "carry-on-bag",
-      "word": "carry on bag",
-      "translation": "手提行李",
-      "x": 470,
-      "y": 663,
-      "priority": 1.017,
-      "minLevel": 2,
-      "sourceVisualRegion": "check-in-hall",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "ticket-counter",
-      "word": "ticket counter",
-      "translation": "售票柜台",
-      "x": 30,
-      "y": 278,
-      "priority": 1.018,
-      "minLevel": 3,
       "sourceVisualRegion": "check-in-hall",
       "semanticRealmId": "objects-technology"
     },
@@ -221,42 +89,9 @@
       "id": "kiosk-screen",
       "word": "kiosk screen",
       "translation": "自助机屏幕",
-      "x": 250,
-      "y": 278,
+      "x": 241,
+      "y": 612,
       "priority": 1.019,
-      "minLevel": 3,
-      "sourceVisualRegion": "check-in-hall",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "tag-printer",
-      "word": "tag printer",
-      "translation": "标签打印机",
-      "x": 470,
-      "y": 278,
-      "priority": 1.02,
-      "minLevel": 3,
-      "sourceVisualRegion": "check-in-hall",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "scale-platform",
-      "word": "scale platform",
-      "translation": "秤台",
-      "x": 30,
-      "y": 663,
-      "priority": 1.021,
-      "minLevel": 3,
-      "sourceVisualRegion": "check-in-hall",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "belt-roller",
-      "word": "belt roller",
-      "translation": "传送带滚轮",
-      "x": 250,
-      "y": 663,
-      "priority": 1.022,
       "minLevel": 3,
       "sourceVisualRegion": "check-in-hall",
       "semanticRealmId": "objects-technology"
@@ -265,8 +100,8 @@
       "id": "queue-post",
       "word": "queue post",
       "translation": "隔离柱",
-      "x": 470,
-      "y": 663,
+      "x": 149,
+      "y": 567,
       "priority": 1.023,
       "minLevel": 3,
       "sourceVisualRegion": "check-in-hall",
@@ -276,8 +111,8 @@
       "id": "kiosk-base",
       "word": "kiosk base",
       "translation": "自助机底座",
-      "x": 30,
-      "y": 278,
+      "x": 140,
+      "y": 832,
       "priority": 1.024,
       "minLevel": 4,
       "sourceVisualRegion": "check-in-hall",
@@ -287,42 +122,9 @@
       "id": "counter-edge",
       "word": "counter edge",
       "translation": "柜台边缘",
-      "x": 250,
-      "y": 278,
+      "x": 144,
+      "y": 476,
       "priority": 1.025,
-      "minLevel": 4,
-      "sourceVisualRegion": "check-in-hall",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "barcode-reader",
-      "word": "barcode reader",
-      "translation": "条码读取器",
-      "x": 470,
-      "y": 278,
-      "priority": 1.026,
-      "minLevel": 4,
-      "sourceVisualRegion": "check-in-hall",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "bag-handle",
-      "word": "bag handle",
-      "translation": "行李提手",
-      "x": 30,
-      "y": 663,
-      "priority": 1.027,
-      "minLevel": 4,
-      "sourceVisualRegion": "check-in-hall",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "trolley-wheel",
-      "word": "trolley wheel",
-      "translation": "行李车轮",
-      "x": 250,
-      "y": 663,
-      "priority": 1.028,
       "minLevel": 4,
       "sourceVisualRegion": "check-in-hall",
       "semanticRealmId": "objects-technology"
@@ -331,8 +133,8 @@
       "id": "floor-tile",
       "word": "floor tile",
       "translation": "地砖",
-      "x": 470,
-      "y": 663,
+      "x": 434,
+      "y": 745,
       "priority": 1.029,
       "minLevel": 4,
       "sourceVisualRegion": "check-in-hall",
@@ -342,8 +144,8 @@
       "id": "security-screening",
       "word": "security screening",
       "translation": "安检",
-      "x": 310,
-      "y": 278,
+      "x": 548,
+      "y": 418,
       "priority": 1.03,
       "minLevel": 0,
       "sourceVisualRegion": "security-screening",
@@ -353,8 +155,8 @@
       "id": "security-lane",
       "word": "security lane",
       "translation": "安检通道",
-      "x": 520,
-      "y": 278,
+      "x": 477,
+      "y": 496,
       "priority": 1.031,
       "minLevel": 0,
       "sourceVisualRegion": "security-screening",
@@ -364,8 +166,8 @@
       "id": "conveyor-scanner",
       "word": "conveyor scanner",
       "translation": "传送扫描机",
-      "x": 730,
-      "y": 278,
+      "x": 599,
+      "y": 432,
       "priority": 1.032,
       "minLevel": 0,
       "sourceVisualRegion": "security-screening",
@@ -375,20 +177,9 @@
       "id": "x-ray-machine",
       "word": "x ray machine",
       "translation": "X 光机",
-      "x": 310,
-      "y": 643,
+      "x": 641,
+      "y": 468,
       "priority": 1.033,
-      "minLevel": 0,
-      "sourceVisualRegion": "security-screening",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "tray-table",
-      "word": "tray table",
-      "translation": "托盘台",
-      "x": 520,
-      "y": 643,
-      "priority": 1.034,
       "minLevel": 0,
       "sourceVisualRegion": "security-screening",
       "semanticRealmId": "objects-technology"
@@ -397,8 +188,8 @@
       "id": "metal-detector",
       "word": "metal detector",
       "translation": "金属探测门",
-      "x": 730,
-      "y": 643,
+      "x": 457,
+      "y": 423,
       "priority": 1.035,
       "minLevel": 0,
       "sourceVisualRegion": "security-screening",
@@ -408,42 +199,9 @@
       "id": "screening-gate",
       "word": "screening gate",
       "translation": "安检门",
-      "x": 310,
-      "y": 278,
+      "x": 664,
+      "y": 397,
       "priority": 1.036,
-      "minLevel": 1,
-      "sourceVisualRegion": "security-screening",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "privacy-lane",
-      "word": "privacy lane",
-      "translation": "隐私通道",
-      "x": 520,
-      "y": 278,
-      "priority": 1.037,
-      "minLevel": 1,
-      "sourceVisualRegion": "security-screening",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "tray-stack",
-      "word": "tray stack",
-      "translation": "托盘叠",
-      "x": 730,
-      "y": 278,
-      "priority": 1.038,
-      "minLevel": 1,
-      "sourceVisualRegion": "security-screening",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "inspection-table",
-      "word": "inspection table",
-      "translation": "检查台",
-      "x": 310,
-      "y": 643,
-      "priority": 1.039,
       "minLevel": 1,
       "sourceVisualRegion": "security-screening",
       "semanticRealmId": "objects-technology"
@@ -452,8 +210,8 @@
       "id": "scanner-tunnel",
       "word": "scanner tunnel",
       "translation": "扫描通道",
-      "x": 520,
-      "y": 643,
+      "x": 592,
+      "y": 458,
       "priority": 1.04,
       "minLevel": 1,
       "sourceVisualRegion": "security-screening",
@@ -463,21 +221,10 @@
       "id": "queue-rail",
       "word": "queue rail",
       "translation": "排队栏杆",
-      "x": 730,
-      "y": 643,
+      "x": 479,
+      "y": 505,
       "priority": 1.041,
       "minLevel": 1,
-      "sourceVisualRegion": "security-screening",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "monitor-screen",
-      "word": "monitor screen",
-      "translation": "监视器屏幕",
-      "x": 310,
-      "y": 278,
-      "priority": 1.042,
-      "minLevel": 2,
       "sourceVisualRegion": "security-screening",
       "semanticRealmId": "objects-technology"
     },
@@ -485,20 +232,9 @@
       "id": "belt-entry",
       "word": "belt entry",
       "translation": "传送带入口",
-      "x": 520,
-      "y": 278,
+      "x": 551,
+      "y": 488,
       "priority": 1.043,
-      "minLevel": 2,
-      "sourceVisualRegion": "security-screening",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "tray-handle",
-      "word": "tray handle",
-      "translation": "托盘提手",
-      "x": 730,
-      "y": 278,
-      "priority": 1.044,
       "minLevel": 2,
       "sourceVisualRegion": "security-screening",
       "semanticRealmId": "objects-technology"
@@ -507,8 +243,8 @@
       "id": "detector-arch",
       "word": "detector arch",
       "translation": "探测门拱架",
-      "x": 310,
-      "y": 643,
+      "x": 478,
+      "y": 384,
       "priority": 1.045,
       "minLevel": 2,
       "sourceVisualRegion": "security-screening",
@@ -518,8 +254,8 @@
       "id": "roller-bed",
       "word": "roller bed",
       "translation": "滚轮台",
-      "x": 520,
-      "y": 643,
+      "x": 573,
+      "y": 481,
       "priority": 1.046,
       "minLevel": 2,
       "sourceVisualRegion": "security-screening",
@@ -529,8 +265,8 @@
       "id": "stanchion",
       "word": "stanchion",
       "translation": "隔离立柱",
-      "x": 730,
-      "y": 643,
+      "x": 520,
+      "y": 545,
       "priority": 1.047,
       "minLevel": 2,
       "sourceVisualRegion": "security-screening",
@@ -540,31 +276,9 @@
       "id": "scanner-opening",
       "word": "scanner opening",
       "translation": "扫描口",
-      "x": 310,
-      "y": 278,
+      "x": 566,
+      "y": 452,
       "priority": 1.048,
-      "minLevel": 3,
-      "sourceVisualRegion": "security-screening",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "tray-rim",
-      "word": "tray rim",
-      "translation": "托盘边缘",
-      "x": 520,
-      "y": 278,
-      "priority": 1.049,
-      "minLevel": 3,
-      "sourceVisualRegion": "security-screening",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "belt-seam",
-      "word": "belt seam",
-      "translation": "传送带接缝",
-      "x": 730,
-      "y": 278,
-      "priority": 1.05,
       "minLevel": 3,
       "sourceVisualRegion": "security-screening",
       "semanticRealmId": "objects-technology"
@@ -573,8 +287,8 @@
       "id": "glass-panel",
       "word": "glass panel",
       "translation": "玻璃板",
-      "x": 310,
-      "y": 643,
+      "x": 385,
+      "y": 353,
       "priority": 1.051,
       "minLevel": 3,
       "sourceVisualRegion": "security-screening",
@@ -584,8 +298,8 @@
       "id": "warning-light",
       "word": "warning light",
       "translation": "警示灯",
-      "x": 520,
-      "y": 643,
+      "x": 563,
+      "y": 435,
       "priority": 1.052,
       "minLevel": 3,
       "sourceVisualRegion": "security-screening",
@@ -595,21 +309,10 @@
       "id": "lane-divider",
       "word": "lane divider",
       "translation": "通道隔板",
-      "x": 730,
-      "y": 643,
+      "x": 372,
+      "y": 481,
       "priority": 1.053,
       "minLevel": 3,
-      "sourceVisualRegion": "security-screening",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "x-ray-tunnel",
-      "word": "x ray tunnel",
-      "translation": "X 光通道",
-      "x": 310,
-      "y": 278,
-      "priority": 1.054,
-      "minLevel": 4,
       "sourceVisualRegion": "security-screening",
       "semanticRealmId": "objects-technology"
     },
@@ -617,53 +320,9 @@
       "id": "detector-frame",
       "word": "detector frame",
       "translation": "探测门框",
-      "x": 520,
-      "y": 278,
+      "x": 498,
+      "y": 432,
       "priority": 1.055,
-      "minLevel": 4,
-      "sourceVisualRegion": "security-screening",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "belt-motor",
-      "word": "belt motor",
-      "translation": "传送带电机",
-      "x": 730,
-      "y": 278,
-      "priority": 1.056,
-      "minLevel": 4,
-      "sourceVisualRegion": "security-screening",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "tray-corner",
-      "word": "tray corner",
-      "translation": "托盘角",
-      "x": 310,
-      "y": 643,
-      "priority": 1.057,
-      "minLevel": 4,
-      "sourceVisualRegion": "security-screening",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "floor-guide",
-      "word": "floor guide",
-      "translation": "地面导线",
-      "x": 520,
-      "y": 643,
-      "priority": 1.058,
-      "minLevel": 4,
-      "sourceVisualRegion": "security-screening",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "power-socket",
-      "word": "power socket",
-      "translation": "电源插座",
-      "x": 730,
-      "y": 643,
-      "priority": 1.059,
       "minLevel": 4,
       "sourceVisualRegion": "security-screening",
       "semanticRealmId": "objects-technology"
@@ -672,20 +331,9 @@
       "id": "departure-concourse",
       "word": "departure concourse",
       "translation": "候机大厅",
-      "x": 680,
-      "y": 308,
+      "x": 786,
+      "y": 559,
       "priority": 1.06,
-      "minLevel": 0,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "gate",
-      "word": "gate",
-      "translation": "登机口",
-      "x": 945,
-      "y": 308,
-      "priority": 1.061,
       "minLevel": 0,
       "sourceVisualRegion": "departure-concourse",
       "semanticRealmId": "objects-technology"
@@ -694,20 +342,9 @@
       "id": "gate-lounge",
       "word": "gate lounge",
       "translation": "登机候机区",
-      "x": 1210,
-      "y": 308,
+      "x": 1085,
+      "y": 495,
       "priority": 1.062,
-      "minLevel": 0,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "boarding-area",
-      "word": "boarding area",
-      "translation": "登机区",
-      "x": 680,
-      "y": 673,
-      "priority": 1.063,
       "minLevel": 0,
       "sourceVisualRegion": "departure-concourse",
       "semanticRealmId": "objects-technology"
@@ -716,43 +353,10 @@
       "id": "jet-bridge",
       "word": "jet bridge",
       "translation": "登机桥",
-      "x": 945,
-      "y": 673,
+      "x": 830,
+      "y": 407,
       "priority": 1.064,
       "minLevel": 0,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "aircraft-door",
-      "word": "aircraft door",
-      "translation": "飞机舱门",
-      "x": 1210,
-      "y": 673,
-      "priority": 1.065,
-      "minLevel": 0,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "departure-lounge",
-      "word": "departure lounge",
-      "translation": "出发候机厅",
-      "x": 680,
-      "y": 308,
-      "priority": 1.066,
-      "minLevel": 1,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "boarding-gate",
-      "word": "boarding gate",
-      "translation": "登机闸口",
-      "x": 945,
-      "y": 308,
-      "priority": 1.067,
-      "minLevel": 1,
       "sourceVisualRegion": "departure-concourse",
       "semanticRealmId": "objects-technology"
     },
@@ -760,20 +364,9 @@
       "id": "waiting-seats",
       "word": "waiting seats",
       "translation": "候机座椅",
-      "x": 1210,
-      "y": 308,
+      "x": 848,
+      "y": 486,
       "priority": 1.068,
-      "minLevel": 1,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "flight-display",
-      "word": "flight display",
-      "translation": "航班显示屏",
-      "x": 680,
-      "y": 673,
-      "priority": 1.069,
       "minLevel": 1,
       "sourceVisualRegion": "departure-concourse",
       "semanticRealmId": "objects-technology"
@@ -782,32 +375,10 @@
       "id": "window-wall",
       "word": "window wall",
       "translation": "玻璃幕墙",
-      "x": 945,
-      "y": 673,
+      "x": 1045,
+      "y": 246,
       "priority": 1.07,
       "minLevel": 1,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "charging-table",
-      "word": "charging table",
-      "translation": "充电桌",
-      "x": 1210,
-      "y": 673,
-      "priority": 1.071,
-      "minLevel": 1,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "gate-podium",
-      "word": "gate podium",
-      "translation": "登机台",
-      "x": 680,
-      "y": 308,
-      "priority": 1.072,
-      "minLevel": 2,
       "sourceVisualRegion": "departure-concourse",
       "semanticRealmId": "objects-technology"
     },
@@ -815,20 +386,9 @@
       "id": "seat-armrest",
       "word": "seat armrest",
       "translation": "座椅扶手",
-      "x": 945,
-      "y": 308,
+      "x": 784,
+      "y": 486,
       "priority": 1.073,
-      "minLevel": 2,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "display-frame",
-      "word": "display frame",
-      "translation": "显示屏边框",
-      "x": 1210,
-      "y": 308,
-      "priority": 1.074,
       "minLevel": 2,
       "sourceVisualRegion": "departure-concourse",
       "semanticRealmId": "objects-technology"
@@ -837,8 +397,8 @@
       "id": "jet-bridge-seal",
       "word": "jet bridge seal",
       "translation": "登机桥密封条",
-      "x": 680,
-      "y": 673,
+      "x": 1108,
+      "y": 434,
       "priority": 1.075,
       "minLevel": 2,
       "sourceVisualRegion": "departure-concourse",
@@ -848,20 +408,9 @@
       "id": "window-mullion",
       "word": "window mullion",
       "translation": "窗框竖梃",
-      "x": 945,
-      "y": 673,
+      "x": 1127,
+      "y": 302,
       "priority": 1.076,
-      "minLevel": 2,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "boarding-scanner",
-      "word": "boarding scanner",
-      "translation": "登机扫描器",
-      "x": 1210,
-      "y": 673,
-      "priority": 1.077,
       "minLevel": 2,
       "sourceVisualRegion": "departure-concourse",
       "semanticRealmId": "objects-technology"
@@ -870,64 +419,9 @@
       "id": "seat-cushion",
       "word": "seat cushion",
       "translation": "座椅垫",
-      "x": 680,
-      "y": 308,
+      "x": 1042,
+      "y": 547,
       "priority": 1.078,
-      "minLevel": 3,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "podium-edge",
-      "word": "podium edge",
-      "translation": "登机台边缘",
-      "x": 945,
-      "y": 308,
-      "priority": 1.079,
-      "minLevel": 3,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "display-bezel",
-      "word": "display bezel",
-      "translation": "显示屏边框",
-      "x": 1210,
-      "y": 308,
-      "priority": 1.08,
-      "minLevel": 3,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "bridge-handrail",
-      "word": "bridge handrail",
-      "translation": "登机桥扶手",
-      "x": 680,
-      "y": 673,
-      "priority": 1.081,
-      "minLevel": 3,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "cabin-door",
-      "word": "cabin door",
-      "translation": "客舱门",
-      "x": 945,
-      "y": 673,
-      "priority": 1.082,
-      "minLevel": 3,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "floor-marker",
-      "word": "floor marker",
-      "translation": "地面标记",
-      "x": 1210,
-      "y": 673,
-      "priority": 1.083,
       "minLevel": 3,
       "sourceVisualRegion": "departure-concourse",
       "semanticRealmId": "objects-technology"
@@ -936,20 +430,9 @@
       "id": "seat-leg",
       "word": "seat leg",
       "translation": "座椅椅腿",
-      "x": 680,
-      "y": 308,
+      "x": 950,
+      "y": 568,
       "priority": 1.084,
-      "minLevel": 4,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "scanner-glass",
-      "word": "scanner glass",
-      "translation": "扫描器玻璃",
-      "x": 945,
-      "y": 308,
-      "priority": 1.085,
       "minLevel": 4,
       "sourceVisualRegion": "departure-concourse",
       "semanticRealmId": "objects-technology"
@@ -958,42 +441,9 @@
       "id": "bridge-joint",
       "word": "bridge joint",
       "translation": "登机桥接缝",
-      "x": 1210,
-      "y": 308,
+      "x": 1080,
+      "y": 435,
       "priority": 1.086,
-      "minLevel": 4,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "door-handle",
-      "word": "door handle",
-      "translation": "舱门把手",
-      "x": 680,
-      "y": 673,
-      "priority": 1.087,
-      "minLevel": 4,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "window-latch",
-      "word": "window latch",
-      "translation": "窗扣",
-      "x": 945,
-      "y": 673,
-      "priority": 1.088,
-      "minLevel": 4,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "carpet-seam",
-      "word": "carpet seam",
-      "translation": "地毯接缝",
-      "x": 1210,
-      "y": 673,
-      "priority": 1.089,
       "minLevel": 4,
       "sourceVisualRegion": "departure-concourse",
       "semanticRealmId": "objects-technology"
@@ -1002,8 +452,8 @@
       "id": "baggage-claim",
       "word": "baggage claim",
       "translation": "行李提取",
-      "x": 1000,
-      "y": 498,
+      "x": 1017,
+      "y": 712,
       "priority": 1.09,
       "minLevel": 0,
       "sourceVisualRegion": "baggage-claim",
@@ -1013,8 +463,8 @@
       "id": "baggage-carousel",
       "word": "baggage carousel",
       "translation": "行李转盘",
-      "x": 1275,
-      "y": 498,
+      "x": 982,
+      "y": 623,
       "priority": 1.091,
       "minLevel": 0,
       "sourceVisualRegion": "baggage-claim",
@@ -1024,31 +474,9 @@
       "id": "luggage",
       "word": "luggage",
       "translation": "行李",
-      "x": 1550,
-      "y": 498,
+      "x": 1505,
+      "y": 856,
       "priority": 1.092,
-      "minLevel": 0,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "baggage-cart",
-      "word": "baggage cart",
-      "translation": "行李车",
-      "x": 1000,
-      "y": 833,
-      "priority": 1.093,
-      "minLevel": 0,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "arrival-hall",
-      "word": "arrival hall",
-      "translation": "到达大厅",
-      "x": 1275,
-      "y": 833,
-      "priority": 1.094,
       "minLevel": 0,
       "sourceVisualRegion": "baggage-claim",
       "semanticRealmId": "objects-technology"
@@ -1057,8 +485,8 @@
       "id": "reclaim-belt",
       "word": "reclaim belt",
       "translation": "提取传送带",
-      "x": 1550,
-      "y": 833,
+      "x": 1069,
+      "y": 613,
       "priority": 1.095,
       "minLevel": 0,
       "sourceVisualRegion": "baggage-claim",
@@ -1068,64 +496,9 @@
       "id": "suitcase",
       "word": "suitcase",
       "translation": "行李箱",
-      "x": 1000,
-      "y": 498,
+      "x": 1142,
+      "y": 682,
       "priority": 1.096,
-      "minLevel": 1,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "carousel-rail",
-      "word": "carousel rail",
-      "translation": "转盘护栏",
-      "x": 1275,
-      "y": 498,
-      "priority": 1.097,
-      "minLevel": 1,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "luggage-tag",
-      "word": "luggage tag",
-      "translation": "行李标签",
-      "x": 1550,
-      "y": 498,
-      "priority": 1.098,
-      "minLevel": 1,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "claim-screen",
-      "word": "claim screen",
-      "translation": "提取屏幕",
-      "x": 1000,
-      "y": 833,
-      "priority": 1.099,
-      "minLevel": 1,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "trolley",
-      "word": "trolley",
-      "translation": "手推车",
-      "x": 1275,
-      "y": 833,
-      "priority": 1.1,
-      "minLevel": 1,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "customs-lane",
-      "word": "customs lane",
-      "translation": "海关通道",
-      "x": 1550,
-      "y": 833,
-      "priority": 1.101,
       "minLevel": 1,
       "sourceVisualRegion": "baggage-claim",
       "semanticRealmId": "objects-technology"
@@ -1134,8 +507,8 @@
       "id": "belt-slat",
       "word": "belt slat",
       "translation": "传送带板条",
-      "x": 1000,
-      "y": 498,
+      "x": 1450,
+      "y": 789,
       "priority": 1.102,
       "minLevel": 2,
       "sourceVisualRegion": "baggage-claim",
@@ -1145,120 +518,10 @@
       "id": "suitcase-handle",
       "word": "suitcase handle",
       "translation": "行李箱提手",
-      "x": 1275,
-      "y": 498,
+      "x": 1281,
+      "y": 768,
       "priority": 1.103,
       "minLevel": 2,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "suitcase-wheel",
-      "word": "suitcase wheel",
-      "translation": "行李箱轮",
-      "x": 1550,
-      "y": 498,
-      "priority": 1.104,
-      "minLevel": 2,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "tag-loop",
-      "word": "tag loop",
-      "translation": "标签环",
-      "x": 1000,
-      "y": 833,
-      "priority": 1.105,
-      "minLevel": 2,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "carousel-frame",
-      "word": "carousel frame",
-      "translation": "转盘框架",
-      "x": 1275,
-      "y": 833,
-      "priority": 1.106,
-      "minLevel": 2,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "claim-counter",
-      "word": "claim counter",
-      "translation": "提取柜台",
-      "x": 1550,
-      "y": 833,
-      "priority": 1.107,
-      "minLevel": 2,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "rubber-belt",
-      "word": "rubber belt",
-      "translation": "橡胶传送带",
-      "x": 1000,
-      "y": 498,
-      "priority": 1.108,
-      "minLevel": 3,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "roller",
-      "word": "roller",
-      "translation": "滚轮",
-      "x": 1275,
-      "y": 498,
-      "priority": 1.109,
-      "minLevel": 3,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "cart-handle",
-      "word": "cart handle",
-      "translation": "行李车把手",
-      "x": 1550,
-      "y": 498,
-      "priority": 1.11,
-      "minLevel": 3,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "screen-bezel",
-      "word": "screen bezel",
-      "translation": "屏幕边框",
-      "x": 1000,
-      "y": 833,
-      "priority": 1.111,
-      "minLevel": 3,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "floor-stripe",
-      "word": "floor stripe",
-      "translation": "地面条带",
-      "x": 1275,
-      "y": 833,
-      "priority": 1.112,
-      "minLevel": 3,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "barrier-post",
-      "word": "barrier post",
-      "translation": "隔离柱",
-      "x": 1550,
-      "y": 833,
-      "priority": 1.113,
-      "minLevel": 3,
       "sourceVisualRegion": "baggage-claim",
       "semanticRealmId": "objects-technology"
     },
@@ -1266,31 +529,9 @@
       "id": "baggage-label",
       "word": "baggage label",
       "translation": "行李标签纸",
-      "x": 1000,
-      "y": 498,
+      "x": 1061,
+      "y": 636,
       "priority": 1.114,
-      "minLevel": 4,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "wheel-housing",
-      "word": "wheel housing",
-      "translation": "轮罩",
-      "x": 1275,
-      "y": 498,
-      "priority": 1.115,
-      "minLevel": 4,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "rail-joint",
-      "word": "rail joint",
-      "translation": "护栏接缝",
-      "x": 1550,
-      "y": 498,
-      "priority": 1.116,
       "minLevel": 4,
       "sourceVisualRegion": "baggage-claim",
       "semanticRealmId": "objects-technology"
@@ -1299,31 +540,9 @@
       "id": "carousel-seam",
       "word": "carousel seam",
       "translation": "传送带接缝",
-      "x": 1000,
-      "y": 833,
+      "x": 1340,
+      "y": 790,
       "priority": 1.117,
-      "minLevel": 4,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "cart-caster",
-      "word": "cart caster",
-      "translation": "手推车脚轮",
-      "x": 1275,
-      "y": 833,
-      "priority": 1.118,
-      "minLevel": 4,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "floor-drain",
-      "word": "floor drain",
-      "translation": "地漏",
-      "x": 1550,
-      "y": 833,
-      "priority": 1.119,
       "minLevel": 4,
       "sourceVisualRegion": "baggage-claim",
       "semanticRealmId": "objects-technology"
@@ -1332,8 +551,8 @@
       "id": "aircraft",
       "word": "aircraft",
       "translation": "飞机",
-      "x": 930,
-      "y": 108,
+      "x": 1164,
+      "y": 423,
       "priority": 1.12,
       "minLevel": 0,
       "sourceVisualRegion": "airside-apron",
@@ -1343,8 +562,8 @@
       "id": "apron",
       "word": "apron",
       "translation": "机坪",
-      "x": 1240,
-      "y": 108,
+      "x": 1457,
+      "y": 467,
       "priority": 1.121,
       "minLevel": 0,
       "sourceVisualRegion": "airside-apron",
@@ -1354,8 +573,8 @@
       "id": "runway",
       "word": "runway",
       "translation": "跑道",
-      "x": 1550,
-      "y": 108,
+      "x": 1470,
+      "y": 373,
       "priority": 1.122,
       "minLevel": 0,
       "sourceVisualRegion": "airside-apron",
@@ -1365,8 +584,8 @@
       "id": "taxiway",
       "word": "taxiway",
       "translation": "滑行道",
-      "x": 930,
-      "y": 473,
+      "x": 1452,
+      "y": 411,
       "priority": 1.123,
       "minLevel": 0,
       "sourceVisualRegion": "airside-apron",
@@ -1376,8 +595,8 @@
       "id": "control-tower",
       "word": "control tower",
       "translation": "控制塔",
-      "x": 1240,
-      "y": 473,
+      "x": 1181,
+      "y": 321,
       "priority": 1.124,
       "minLevel": 0,
       "sourceVisualRegion": "airside-apron",
@@ -1387,8 +606,8 @@
       "id": "hangar",
       "word": "hangar",
       "translation": "机库",
-      "x": 1550,
-      "y": 473,
+      "x": 1402,
+      "y": 353,
       "priority": 1.125,
       "minLevel": 0,
       "sourceVisualRegion": "airside-apron",
@@ -1398,8 +617,8 @@
       "id": "aircraft-wing",
       "word": "aircraft wing",
       "translation": "机翼",
-      "x": 930,
-      "y": 108,
+      "x": 1326,
+      "y": 431,
       "priority": 1.126,
       "minLevel": 1,
       "sourceVisualRegion": "airside-apron",
@@ -1409,8 +628,8 @@
       "id": "aircraft-nose",
       "word": "aircraft nose",
       "translation": "机头",
-      "x": 1240,
-      "y": 108,
+      "x": 1188,
+      "y": 476,
       "priority": 1.127,
       "minLevel": 1,
       "sourceVisualRegion": "airside-apron",
@@ -1420,8 +639,8 @@
       "id": "engine",
       "word": "engine",
       "translation": "发动机",
-      "x": 1550,
-      "y": 108,
+      "x": 1269,
+      "y": 459,
       "priority": 1.128,
       "minLevel": 1,
       "sourceVisualRegion": "airside-apron",
@@ -1431,20 +650,9 @@
       "id": "parking-stand",
       "word": "parking stand",
       "translation": "停机位",
-      "x": 930,
-      "y": 473,
+      "x": 1197,
+      "y": 499,
       "priority": 1.129,
-      "minLevel": 1,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "runway-marking",
-      "word": "runway marking",
-      "translation": "跑道标线",
-      "x": 1240,
-      "y": 473,
-      "priority": 1.13,
       "minLevel": 1,
       "sourceVisualRegion": "airside-apron",
       "semanticRealmId": "objects-technology"
@@ -1453,21 +661,10 @@
       "id": "tower-cab",
       "word": "tower cab",
       "translation": "塔台舱",
-      "x": 1550,
-      "y": 473,
+      "x": 1182,
+      "y": 293,
       "priority": 1.131,
       "minLevel": 1,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "air-bridge",
-      "word": "air bridge",
-      "translation": "登机桥",
-      "x": 930,
-      "y": 108,
-      "priority": 1.132,
-      "minLevel": 2,
       "sourceVisualRegion": "airside-apron",
       "semanticRealmId": "objects-technology"
     },
@@ -1475,8 +672,8 @@
       "id": "landing-gear",
       "word": "landing gear",
       "translation": "起落架",
-      "x": 1240,
-      "y": 108,
+      "x": 1178,
+      "y": 498,
       "priority": 1.133,
       "minLevel": 2,
       "sourceVisualRegion": "airside-apron",
@@ -1486,8 +683,8 @@
       "id": "engine-nacelle",
       "word": "engine nacelle",
       "translation": "发动机短舱",
-      "x": 1550,
-      "y": 108,
+      "x": 1277,
+      "y": 477,
       "priority": 1.134,
       "minLevel": 2,
       "sourceVisualRegion": "airside-apron",
@@ -1497,8 +694,8 @@
       "id": "wingtip",
       "word": "wingtip",
       "translation": "翼尖",
-      "x": 930,
-      "y": 473,
+      "x": 1384,
+      "y": 418,
       "priority": 1.135,
       "minLevel": 2,
       "sourceVisualRegion": "airside-apron",
@@ -1508,20 +705,9 @@
       "id": "taxiway-centerline",
       "word": "taxiway centerline",
       "translation": "滑行道中心线",
-      "x": 1240,
-      "y": 473,
+      "x": 1490,
+      "y": 418,
       "priority": 1.136,
-      "minLevel": 2,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "apron-light",
-      "word": "apron light",
-      "translation": "机坪灯",
-      "x": 1550,
-      "y": 473,
-      "priority": 1.137,
       "minLevel": 2,
       "sourceVisualRegion": "airside-apron",
       "semanticRealmId": "objects-technology"
@@ -1530,8 +716,8 @@
       "id": "cockpit-window",
       "word": "cockpit window",
       "translation": "驾驶舱窗",
-      "x": 930,
-      "y": 108,
+      "x": 1178,
+      "y": 441,
       "priority": 1.138,
       "minLevel": 3,
       "sourceVisualRegion": "airside-apron",
@@ -1541,42 +727,9 @@
       "id": "turbine-fan",
       "word": "turbine fan",
       "translation": "涡轮风扇",
-      "x": 1240,
-      "y": 108,
+      "x": 1267,
+      "y": 475,
       "priority": 1.139,
-      "minLevel": 3,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "wheel-assembly",
-      "word": "wheel assembly",
-      "translation": "轮组",
-      "x": 1550,
-      "y": 108,
-      "priority": 1.14,
-      "minLevel": 3,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "gate-stand",
-      "word": "gate stand",
-      "translation": "机位",
-      "x": 930,
-      "y": 473,
-      "priority": 1.141,
-      "minLevel": 3,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "runway-edge",
-      "word": "runway edge",
-      "translation": "跑道边缘",
-      "x": 1240,
-      "y": 473,
-      "priority": 1.142,
       "minLevel": 3,
       "sourceVisualRegion": "airside-apron",
       "semanticRealmId": "objects-technology"
@@ -1585,32 +738,10 @@
       "id": "tower-mast",
       "word": "tower mast",
       "translation": "塔台桅杆",
-      "x": 1550,
-      "y": 473,
+      "x": 1177,
+      "y": 275,
       "priority": 1.143,
       "minLevel": 3,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "tail-fin",
-      "word": "tail fin",
-      "translation": "垂直尾翼",
-      "x": 930,
-      "y": 108,
-      "priority": 1.144,
-      "minLevel": 4,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "wing-flap",
-      "word": "wing flap",
-      "translation": "襟翼",
-      "x": 1240,
-      "y": 108,
-      "priority": 1.145,
-      "minLevel": 4,
       "sourceVisualRegion": "airside-apron",
       "semanticRealmId": "objects-technology"
     },
@@ -1618,31 +749,9 @@
       "id": "engine-inlet",
       "word": "engine inlet",
       "translation": "发动机进气口",
-      "x": 1550,
-      "y": 108,
+      "x": 1276,
+      "y": 466,
       "priority": 1.146,
-      "minLevel": 4,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "tire-tread",
-      "word": "tire tread",
-      "translation": "轮胎花纹",
-      "x": 930,
-      "y": 473,
-      "priority": 1.147,
-      "minLevel": 4,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "centerline-dash",
-      "word": "centerline dash",
-      "translation": "中心线虚线",
-      "x": 1240,
-      "y": 473,
-      "priority": 1.148,
       "minLevel": 4,
       "sourceVisualRegion": "airside-apron",
       "semanticRealmId": "objects-technology"
@@ -1651,142 +760,21 @@
       "id": "ground-vehicle",
       "word": "ground vehicle",
       "translation": "地面车辆",
-      "x": 1550,
-      "y": 473,
+      "x": 1029,
+      "y": 479,
       "priority": 1.149,
       "minLevel": 4,
       "sourceVisualRegion": "airside-apron",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "passport-gate-pro-1",
-      "word": "passport gate",
-      "translation": "护照闸机",
-      "x": 43.33,
-      "y": 295,
-      "priority": 1.15,
-      "minLevel": 2,
-      "sourceVisualRegion": "check-in-hall",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "bag-drop-pro-1",
-      "word": "bag drop",
-      "translation": "行李托运台",
-      "x": 130,
-      "y": 295,
-      "priority": 1.151,
-      "minLevel": 2,
-      "sourceVisualRegion": "check-in-hall",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "bag-drop-counter-pro-1",
-      "word": "bag drop counter",
-      "translation": "行李托运柜台",
-      "x": 216.67,
-      "y": 295,
-      "priority": 1.152,
-      "minLevel": 2,
-      "sourceVisualRegion": "check-in-hall",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "boarding-pass-printer-pro-1",
-      "word": "boarding pass printer",
-      "translation": "登机牌打印机",
-      "x": 303.33,
-      "y": 295,
-      "priority": 1.153,
-      "minLevel": 2,
-      "sourceVisualRegion": "check-in-hall",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "passport-reader-pro-1",
-      "word": "passport reader",
-      "translation": "护照读取器",
-      "x": 390,
-      "y": 295,
-      "priority": 1.154,
-      "minLevel": 2,
-      "sourceVisualRegion": "check-in-hall",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "luggage-tag-printer-pro-1",
-      "word": "luggage tag printer",
-      "translation": "行李牌打印机",
-      "x": 476.67,
-      "y": 295,
-      "priority": 1.155,
-      "minLevel": 2,
-      "sourceVisualRegion": "check-in-hall",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "travel-document-pro-1",
-      "word": "travel document",
-      "translation": "旅行证件",
-      "x": 43.33,
-      "y": 385,
-      "priority": 1.156,
-      "minLevel": 2,
-      "sourceVisualRegion": "check-in-hall",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "security-seal-pro-1",
-      "word": "security seal",
-      "translation": "安全封条",
-      "x": 130,
-      "y": 385,
-      "priority": 1.157,
-      "minLevel": 2,
-      "sourceVisualRegion": "check-in-hall",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "baggage-receipt-pro-1",
-      "word": "baggage receipt",
-      "translation": "行李收据",
-      "x": 216.67,
-      "y": 385,
-      "priority": 1.158,
-      "minLevel": 2,
-      "sourceVisualRegion": "check-in-hall",
-      "semanticRealmId": "objects-technology"
-    },
-    {
       "id": "queue-stanchion-pro-1",
       "word": "queue stanchion",
       "translation": "排队立柱",
-      "x": 303.33,
-      "y": 385,
+      "x": 238,
+      "y": 558,
       "priority": 1.159,
       "minLevel": 2,
-      "sourceVisualRegion": "check-in-hall",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "queue-rope-pro-1",
-      "word": "queue rope",
-      "translation": "排队绳",
-      "x": 390,
-      "y": 385,
-      "priority": 1.16,
-      "minLevel": 3,
-      "sourceVisualRegion": "check-in-hall",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "lane-sign-pro-1",
-      "word": "lane sign",
-      "translation": "通道标牌",
-      "x": 476.67,
-      "y": 385,
-      "priority": 1.161,
-      "minLevel": 3,
       "sourceVisualRegion": "check-in-hall",
       "semanticRealmId": "objects-technology"
     },
@@ -1794,98 +782,10 @@
       "id": "counter-monitor-pro-1",
       "word": "counter monitor",
       "translation": "柜台显示器",
-      "x": 43.33,
-      "y": 475,
+      "x": 121,
+      "y": 452,
       "priority": 1.162,
       "minLevel": 3,
-      "sourceVisualRegion": "check-in-hall",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "document-tray-pro-1",
-      "word": "document tray",
-      "translation": "证件托盘",
-      "x": 130,
-      "y": 475,
-      "priority": 1.163,
-      "minLevel": 3,
-      "sourceVisualRegion": "check-in-hall",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "scale-display-pro-1",
-      "word": "scale display",
-      "translation": "秤显示屏",
-      "x": 216.67,
-      "y": 475,
-      "priority": 1.164,
-      "minLevel": 3,
-      "sourceVisualRegion": "check-in-hall",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "luggage-bin-pro-1",
-      "word": "luggage bin",
-      "translation": "行李箱",
-      "x": 303.33,
-      "y": 475,
-      "priority": 1.165,
-      "minLevel": 3,
-      "sourceVisualRegion": "check-in-hall",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "oversize-baggage-pro-1",
-      "word": "oversize baggage",
-      "translation": "超规行李",
-      "x": 390,
-      "y": 475,
-      "priority": 1.166,
-      "minLevel": 3,
-      "sourceVisualRegion": "check-in-hall",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "baggage-chute-pro-1",
-      "word": "baggage chute",
-      "translation": "行李滑道",
-      "x": 476.67,
-      "y": 475,
-      "priority": 1.167,
-      "minLevel": 3,
-      "sourceVisualRegion": "check-in-hall",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "counter-partition-pro-1",
-      "word": "counter partition",
-      "translation": "柜台隔板",
-      "x": 43.33,
-      "y": 565,
-      "priority": 1.168,
-      "minLevel": 3,
-      "sourceVisualRegion": "check-in-hall",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "ticket-scanner-pro-1",
-      "word": "ticket scanner",
-      "translation": "票据扫描器",
-      "x": 130,
-      "y": 565,
-      "priority": 1.169,
-      "minLevel": 3,
-      "sourceVisualRegion": "check-in-hall",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "passport-tray-pro-1",
-      "word": "passport tray",
-      "translation": "护照托盘",
-      "x": 216.67,
-      "y": 565,
-      "priority": 1.17,
-      "minLevel": 4,
       "sourceVisualRegion": "check-in-hall",
       "semanticRealmId": "objects-technology"
     },
@@ -1893,8 +793,8 @@
       "id": "kiosk-pedestal-pro-1",
       "word": "kiosk pedestal",
       "translation": "自助机底座",
-      "x": 303.33,
-      "y": 565,
+      "x": 322,
+      "y": 664,
       "priority": 1.171,
       "minLevel": 4,
       "sourceVisualRegion": "check-in-hall",
@@ -1904,8 +804,8 @@
       "id": "touchscreen-bezel-pro-1",
       "word": "touchscreen bezel",
       "translation": "触摸屏边框",
-      "x": 390,
-      "y": 565,
+      "x": 126,
+      "y": 632,
       "priority": 1.172,
       "minLevel": 4,
       "sourceVisualRegion": "check-in-hall",
@@ -1915,241 +815,21 @@
       "id": "paper-slot-pro-1",
       "word": "paper slot",
       "translation": "纸张插槽",
-      "x": 476.67,
-      "y": 565,
+      "x": 172,
+      "y": 718,
       "priority": 1.173,
       "minLevel": 4,
       "sourceVisualRegion": "check-in-hall",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "bag-belt-pro-1",
-      "word": "bag belt",
-      "translation": "行李带",
-      "x": 43.33,
-      "y": 655,
-      "priority": 1.174,
-      "minLevel": 4,
-      "sourceVisualRegion": "check-in-hall",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "belt-guide-pro-1",
-      "word": "belt guide",
-      "translation": "传送带导轨",
-      "x": 130,
-      "y": 655,
-      "priority": 1.175,
-      "minLevel": 4,
-      "sourceVisualRegion": "check-in-hall",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "trolley-handle-pro-1",
-      "word": "trolley handle",
-      "translation": "行李车把手",
-      "x": 216.67,
-      "y": 655,
-      "priority": 1.176,
-      "minLevel": 4,
-      "sourceVisualRegion": "check-in-hall",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "wheel-brake-pro-1",
-      "word": "wheel brake",
-      "translation": "车轮制动器",
-      "x": 303.33,
-      "y": 655,
-      "priority": 1.177,
-      "minLevel": 4,
-      "sourceVisualRegion": "check-in-hall",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "document-pocket-pro-1",
-      "word": "document pocket",
-      "translation": "证件袋",
-      "x": 390,
-      "y": 655,
-      "priority": 1.178,
-      "minLevel": 4,
-      "sourceVisualRegion": "check-in-hall",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "bag-strap-pro-1",
-      "word": "bag strap",
-      "translation": "行李带",
-      "x": 476.67,
-      "y": 655,
-      "priority": 1.179,
-      "minLevel": 4,
-      "sourceVisualRegion": "check-in-hall",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "security-tray-pro-2",
-      "word": "security tray",
-      "translation": "安检托盘",
-      "x": 321.67,
-      "y": 293,
-      "priority": 1.18,
-      "minLevel": 2,
-      "sourceVisualRegion": "security-screening",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "body-scanner-pro-2",
-      "word": "body scanner",
-      "translation": "人体扫描仪",
-      "x": 405,
-      "y": 293,
-      "priority": 1.181,
-      "minLevel": 2,
-      "sourceVisualRegion": "security-screening",
-      "semanticRealmId": "objects-technology"
-    },
-    {
       "id": "walk-through-scanner-pro-2",
       "word": "walk through scanner",
       "translation": "通道式扫描仪",
-      "x": 488.33,
-      "y": 293,
+      "x": 568,
+      "y": 374,
       "priority": 1.182,
       "minLevel": 2,
-      "sourceVisualRegion": "security-screening",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "hand-scanner-pro-2",
-      "word": "hand scanner",
-      "translation": "手持扫描仪",
-      "x": 571.67,
-      "y": 293,
-      "priority": 1.183,
-      "minLevel": 2,
-      "sourceVisualRegion": "security-screening",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "security-monitor-pro-2",
-      "word": "security monitor",
-      "translation": "安检显示器",
-      "x": 655,
-      "y": 293,
-      "priority": 1.184,
-      "minLevel": 2,
-      "sourceVisualRegion": "security-screening",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "x-ray-console-pro-2",
-      "word": "x ray console",
-      "translation": "X射线控制台",
-      "x": 738.33,
-      "y": 293,
-      "priority": 1.185,
-      "minLevel": 2,
-      "sourceVisualRegion": "security-screening",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "image-screen-pro-2",
-      "word": "image screen",
-      "translation": "成像屏幕",
-      "x": 321.67,
-      "y": 379,
-      "priority": 1.186,
-      "minLevel": 2,
-      "sourceVisualRegion": "security-screening",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "tray-return-pro-2",
-      "word": "tray return",
-      "translation": "托盘回收台",
-      "x": 405,
-      "y": 379,
-      "priority": 1.187,
-      "minLevel": 2,
-      "sourceVisualRegion": "security-screening",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "roller-conveyor-pro-2",
-      "word": "roller conveyor",
-      "translation": "滚筒传送带",
-      "x": 488.33,
-      "y": 379,
-      "priority": 1.188,
-      "minLevel": 2,
-      "sourceVisualRegion": "security-screening",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "inspection-bench-pro-2",
-      "word": "inspection bench",
-      "translation": "检查工作台",
-      "x": 571.67,
-      "y": 379,
-      "priority": 1.189,
-      "minLevel": 2,
-      "sourceVisualRegion": "security-screening",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "liquid-bag-pro-2",
-      "word": "liquid bag",
-      "translation": "液体袋",
-      "x": 655,
-      "y": 379,
-      "priority": 1.19,
-      "minLevel": 3,
-      "sourceVisualRegion": "security-screening",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "electronics-tray-pro-2",
-      "word": "electronics tray",
-      "translation": "电子设备托盘",
-      "x": 738.33,
-      "y": 379,
-      "priority": 1.191,
-      "minLevel": 3,
-      "sourceVisualRegion": "security-screening",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "shoe-tray-pro-2",
-      "word": "shoe tray",
-      "translation": "鞋物托盘",
-      "x": 321.67,
-      "y": 465,
-      "priority": 1.192,
-      "minLevel": 3,
-      "sourceVisualRegion": "security-screening",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "coat-bin-pro-2",
-      "word": "coat bin",
-      "translation": "外套箱",
-      "x": 405,
-      "y": 465,
-      "priority": 1.193,
-      "minLevel": 3,
-      "sourceVisualRegion": "security-screening",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "security-belt-pro-2",
-      "word": "security belt",
-      "translation": "安检传送带",
-      "x": 488.33,
-      "y": 465,
-      "priority": 1.194,
-      "minLevel": 3,
       "sourceVisualRegion": "security-screening",
       "semanticRealmId": "objects-technology"
     },
@@ -2157,20 +837,9 @@
       "id": "belt-guard-pro-2",
       "word": "belt guard",
       "translation": "传送带护板",
-      "x": 571.67,
-      "y": 465,
+      "x": 595,
+      "y": 490,
       "priority": 1.195,
-      "minLevel": 3,
-      "sourceVisualRegion": "security-screening",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "warning-beacon-pro-2",
-      "word": "warning beacon",
-      "translation": "警示信标",
-      "x": 655,
-      "y": 465,
-      "priority": 1.196,
       "minLevel": 3,
       "sourceVisualRegion": "security-screening",
       "semanticRealmId": "objects-technology"
@@ -2179,8 +848,8 @@
       "id": "lane-post-pro-2",
       "word": "lane post",
       "translation": "通道立柱",
-      "x": 738.33,
-      "y": 465,
+      "x": 690,
+      "y": 480,
       "priority": 1.197,
       "minLevel": 3,
       "sourceVisualRegion": "security-screening",
@@ -2190,20 +859,9 @@
       "id": "glass-divider-pro-2",
       "word": "glass divider",
       "translation": "玻璃隔板",
-      "x": 321.67,
-      "y": 551,
+      "x": 420,
+      "y": 370,
       "priority": 1.198,
-      "minLevel": 3,
-      "sourceVisualRegion": "security-screening",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "access-door-pro-2",
-      "word": "access door",
-      "translation": "通行门",
-      "x": 405,
-      "y": 551,
-      "priority": 1.199,
       "minLevel": 3,
       "sourceVisualRegion": "security-screening",
       "semanticRealmId": "objects-technology"
@@ -2212,241 +870,21 @@
       "id": "scanner-panel-pro-2",
       "word": "scanner panel",
       "translation": "扫描面板",
-      "x": 488.33,
-      "y": 551,
+      "x": 631,
+      "y": 477,
       "priority": 1.2,
       "minLevel": 4,
       "sourceVisualRegion": "security-screening",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "tunnel-light-pro-2",
-      "word": "tunnel light",
-      "translation": "通道灯",
-      "x": 571.67,
-      "y": 551,
-      "priority": 1.201,
-      "minLevel": 4,
-      "sourceVisualRegion": "security-screening",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "detector-mat-pro-2",
-      "word": "detector mat",
-      "translation": "探测垫",
-      "x": 655,
-      "y": 551,
-      "priority": 1.202,
-      "minLevel": 4,
-      "sourceVisualRegion": "security-screening",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "scanner-floor-marker-pro-2",
-      "word": "scanner floor marker",
-      "translation": "扫描区地面标记",
-      "x": 738.33,
-      "y": 551,
-      "priority": 1.203,
-      "minLevel": 4,
-      "sourceVisualRegion": "security-screening",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "power-cabinet-pro-2",
-      "word": "power cabinet",
-      "translation": "电源柜",
-      "x": 321.67,
-      "y": 637,
-      "priority": 1.204,
-      "minLevel": 4,
-      "sourceVisualRegion": "security-screening",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "cable-cover-pro-2",
-      "word": "cable cover",
-      "translation": "线缆护盖",
-      "x": 405,
-      "y": 637,
-      "priority": 1.205,
-      "minLevel": 4,
-      "sourceVisualRegion": "security-screening",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "tray-stacker-pro-2",
-      "word": "tray stacker",
-      "translation": "托盘堆叠架",
-      "x": 488.33,
-      "y": 637,
-      "priority": 1.206,
-      "minLevel": 4,
-      "sourceVisualRegion": "security-screening",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "tray-shelf-pro-2",
-      "word": "tray shelf",
-      "translation": "托盘架",
-      "x": 571.67,
-      "y": 637,
-      "priority": 1.207,
-      "minLevel": 4,
-      "sourceVisualRegion": "security-screening",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "bin-handle-pro-2",
-      "word": "bin handle",
-      "translation": "箱体把手",
-      "x": 655,
-      "y": 637,
-      "priority": 1.208,
-      "minLevel": 4,
-      "sourceVisualRegion": "security-screening",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "inspection-lamp-pro-2",
-      "word": "inspection lamp",
-      "translation": "检查灯",
-      "x": 738.33,
-      "y": 637,
-      "priority": 1.209,
-      "minLevel": 4,
-      "sourceVisualRegion": "security-screening",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "boarding-queue-pro-3",
-      "word": "boarding queue",
-      "translation": "登机队列",
-      "x": 700.83,
-      "y": 323,
-      "priority": 1.21,
-      "minLevel": 2,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "airport-lounge-pro-3",
-      "word": "airport lounge",
-      "translation": "机场休息区",
-      "x": 802.5,
-      "y": 323,
-      "priority": 1.211,
-      "minLevel": 2,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "travelator-pro-3",
-      "word": "travelator",
-      "translation": "自动人行道",
-      "x": 904.17,
-      "y": 323,
-      "priority": 1.212,
-      "minLevel": 2,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "moving-walkway-pro-3",
-      "word": "moving walkway",
-      "translation": "移动步道",
-      "x": 1005.83,
-      "y": 323,
-      "priority": 1.213,
-      "minLevel": 2,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "escalator-pro-3",
-      "word": "escalator",
-      "translation": "自动扶梯",
-      "x": 1107.5,
-      "y": 323,
-      "priority": 1.214,
-      "minLevel": 2,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "lift-lobby-pro-3",
-      "word": "lift lobby",
-      "translation": "电梯厅",
-      "x": 1209.17,
-      "y": 323,
-      "priority": 1.215,
-      "minLevel": 2,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
       "id": "seat-row-pro-3",
       "word": "seat row",
       "translation": "座椅排",
-      "x": 700.83,
-      "y": 409,
+      "x": 1199,
+      "y": 533,
       "priority": 1.216,
       "minLevel": 2,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "side-table-pro-3",
-      "word": "side table",
-      "translation": "边桌",
-      "x": 802.5,
-      "y": 409,
-      "priority": 1.217,
-      "minLevel": 2,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "charging-locker-pro-3",
-      "word": "charging locker",
-      "translation": "充电柜",
-      "x": 904.17,
-      "y": 409,
-      "priority": 1.218,
-      "minLevel": 2,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "water-fountain-pro-3",
-      "word": "water fountain",
-      "translation": "饮水台",
-      "x": 1005.83,
-      "y": 409,
-      "priority": 1.219,
-      "minLevel": 2,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "window-sill-pro-3",
-      "word": "window sill",
-      "translation": "窗台",
-      "x": 1107.5,
-      "y": 409,
-      "priority": 1.22,
-      "minLevel": 3,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "concourse-light-pro-3",
-      "word": "concourse light",
-      "translation": "大厅灯",
-      "x": 1209.17,
-      "y": 409,
-      "priority": 1.221,
-      "minLevel": 3,
       "sourceVisualRegion": "departure-concourse",
       "semanticRealmId": "objects-technology"
     },
@@ -2454,186 +892,10 @@
       "id": "wayfinding-panel-pro-3",
       "word": "wayfinding panel",
       "translation": "导向面板",
-      "x": 700.83,
-      "y": 495,
+      "x": 633,
+      "y": 176,
       "priority": 1.222,
       "minLevel": 3,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "gate-barrier-pro-3",
-      "word": "gate barrier",
-      "translation": "登机口隔栏",
-      "x": 802.5,
-      "y": 495,
-      "priority": 1.223,
-      "minLevel": 3,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "queue-belt-pro-3",
-      "word": "queue belt",
-      "translation": "排队带",
-      "x": 904.17,
-      "y": 495,
-      "priority": 1.224,
-      "minLevel": 3,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "qr-reader-pro-3",
-      "word": "qr reader",
-      "translation": "二维码读取器",
-      "x": 1005.83,
-      "y": 495,
-      "priority": 1.225,
-      "minLevel": 3,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "gate-monitor-pro-3",
-      "word": "gate monitor",
-      "translation": "登机口显示器",
-      "x": 1107.5,
-      "y": 495,
-      "priority": 1.226,
-      "minLevel": 3,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "boarding-desk-pro-3",
-      "word": "boarding desk",
-      "translation": "登机服务台",
-      "x": 1209.17,
-      "y": 495,
-      "priority": 1.227,
-      "minLevel": 3,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "service-counter-pro-3",
-      "word": "service counter",
-      "translation": "服务柜台",
-      "x": 700.83,
-      "y": 581,
-      "priority": 1.228,
-      "minLevel": 3,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "lounge-table-pro-3",
-      "word": "lounge table",
-      "translation": "休息区桌",
-      "x": 802.5,
-      "y": 581,
-      "priority": 1.229,
-      "minLevel": 3,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "seat-divider-pro-3",
-      "word": "seat divider",
-      "translation": "座椅隔板",
-      "x": 904.17,
-      "y": 581,
-      "priority": 1.23,
-      "minLevel": 4,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "seat-number-pro-3",
-      "word": "seat number",
-      "translation": "座位号",
-      "x": 1005.83,
-      "y": 581,
-      "priority": 1.231,
-      "minLevel": 4,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "terminal-clock-pro-3",
-      "word": "terminal clock",
-      "translation": "航站楼时钟",
-      "x": 1107.5,
-      "y": 581,
-      "priority": 1.232,
-      "minLevel": 4,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "bridge-corridor-pro-3",
-      "word": "bridge corridor",
-      "translation": "廊桥通道",
-      "x": 1209.17,
-      "y": 581,
-      "priority": 1.233,
-      "minLevel": 4,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "jet-bridge-floor-pro-3",
-      "word": "jet bridge floor",
-      "translation": "登机桥地面",
-      "x": 700.83,
-      "y": 667,
-      "priority": 1.234,
-      "minLevel": 4,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "bridge-door-pro-3",
-      "word": "bridge door",
-      "translation": "廊桥门",
-      "x": 802.5,
-      "y": 667,
-      "priority": 1.235,
-      "minLevel": 4,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "aircraft-stairs-pro-3",
-      "word": "aircraft stairs",
-      "translation": "登机梯",
-      "x": 904.17,
-      "y": 667,
-      "priority": 1.236,
-      "minLevel": 4,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "baggage-door-pro-3",
-      "word": "baggage door",
-      "translation": "行李舱门",
-      "x": 1005.83,
-      "y": 667,
-      "priority": 1.237,
-      "minLevel": 4,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "departure-board-pro-3",
-      "word": "departure board",
-      "translation": "出发信息板",
-      "x": 1107.5,
-      "y": 667,
-      "priority": 1.238,
-      "minLevel": 4,
       "sourceVisualRegion": "departure-concourse",
       "semanticRealmId": "objects-technology"
     },
@@ -2641,42 +903,20 @@
       "id": "concourse-column-pro-3",
       "word": "concourse column",
       "translation": "大厅立柱",
-      "x": 1209.17,
-      "y": 667,
+      "x": 769,
+      "y": 320,
       "priority": 1.239,
       "minLevel": 4,
       "sourceVisualRegion": "departure-concourse",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "apron-stand-pro-4",
-      "word": "apron stand",
-      "translation": "机坪机位",
-      "x": 958.33,
-      "y": 123,
-      "priority": 1.24,
-      "minLevel": 2,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
       "id": "aircraft-fuselage-pro-4",
       "word": "aircraft fuselage",
       "translation": "飞机机身",
-      "x": 1075,
-      "y": 123,
+      "x": 1149,
+      "y": 403,
       "priority": 1.241,
-      "minLevel": 2,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "cockpit-door-pro-4",
-      "word": "cockpit door",
-      "translation": "驾驶舱门",
-      "x": 1191.67,
-      "y": 123,
-      "priority": 1.242,
       "minLevel": 2,
       "sourceVisualRegion": "airside-apron",
       "semanticRealmId": "objects-technology"
@@ -2685,20 +925,9 @@
       "id": "windscreen-pro-4",
       "word": "windscreen",
       "translation": "挡风玻璃",
-      "x": 1308.33,
-      "y": 123,
+      "x": 1194,
+      "y": 441,
       "priority": 1.243,
-      "minLevel": 2,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "landing-light-pro-4",
-      "word": "landing light",
-      "translation": "着陆灯",
-      "x": 1425,
-      "y": 123,
-      "priority": 1.244,
       "minLevel": 2,
       "sourceVisualRegion": "airside-apron",
       "semanticRealmId": "objects-technology"
@@ -2707,164 +936,10 @@
       "id": "wing-root-pro-4",
       "word": "wing root",
       "translation": "机翼根部",
-      "x": 1541.67,
-      "y": 123,
+      "x": 1222,
+      "y": 448,
       "priority": 1.245,
       "minLevel": 2,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "flap-track-pro-4",
-      "word": "flap track",
-      "translation": "襟翼滑轨",
-      "x": 958.33,
-      "y": 209,
-      "priority": 1.246,
-      "minLevel": 2,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "spoiler-pro-4",
-      "word": "spoiler",
-      "translation": "扰流板",
-      "x": 1075,
-      "y": 209,
-      "priority": 1.247,
-      "minLevel": 2,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "aileron-pro-4",
-      "word": "aileron",
-      "translation": "副翼",
-      "x": 1191.67,
-      "y": 209,
-      "priority": 1.248,
-      "minLevel": 2,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "rudder-pro-4",
-      "word": "rudder",
-      "translation": "方向舵",
-      "x": 1308.33,
-      "y": 209,
-      "priority": 1.249,
-      "minLevel": 2,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "elevator-pro-4",
-      "word": "elevator",
-      "translation": "升降舵",
-      "x": 1425,
-      "y": 209,
-      "priority": 1.25,
-      "minLevel": 3,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "vertical-stabilizer-pro-4",
-      "word": "vertical stabilizer",
-      "translation": "垂直安定面",
-      "x": 1541.67,
-      "y": 209,
-      "priority": 1.251,
-      "minLevel": 3,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "horizontal-stabilizer-pro-4",
-      "word": "horizontal stabilizer",
-      "translation": "水平安定面",
-      "x": 958.33,
-      "y": 295,
-      "priority": 1.252,
-      "minLevel": 3,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "nose-gear-pro-4",
-      "word": "nose gear",
-      "translation": "前起落架",
-      "x": 1075,
-      "y": 295,
-      "priority": 1.253,
-      "minLevel": 3,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "main-gear-pro-4",
-      "word": "main gear",
-      "translation": "主起落架",
-      "x": 1191.67,
-      "y": 295,
-      "priority": 1.254,
-      "minLevel": 3,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "gear-strut-pro-4",
-      "word": "gear strut",
-      "translation": "起落架支柱",
-      "x": 1308.33,
-      "y": 295,
-      "priority": 1.255,
-      "minLevel": 3,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "wheel-hub-pro-4",
-      "word": "wheel hub",
-      "translation": "轮毂",
-      "x": 1425,
-      "y": 295,
-      "priority": 1.256,
-      "minLevel": 3,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "brake-disc-pro-4",
-      "word": "brake disc",
-      "translation": "刹车盘",
-      "x": 1541.67,
-      "y": 295,
-      "priority": 1.257,
-      "minLevel": 3,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "cargo-hold-pro-4",
-      "word": "cargo hold",
-      "translation": "货舱",
-      "x": 958.33,
-      "y": 381,
-      "priority": 1.258,
-      "minLevel": 3,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "cargo-door-pro-4",
-      "word": "cargo door",
-      "translation": "货舱门",
-      "x": 1075,
-      "y": 381,
-      "priority": 1.259,
-      "minLevel": 3,
       "sourceVisualRegion": "airside-apron",
       "semanticRealmId": "objects-technology"
     },
@@ -2872,86 +947,9 @@
       "id": "service-vehicle-pro-4",
       "word": "service vehicle",
       "translation": "服务车辆",
-      "x": 1191.67,
-      "y": 381,
+      "x": 1228,
+      "y": 502,
       "priority": 1.26,
-      "minLevel": 4,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "baggage-loader-pro-4",
-      "word": "baggage loader",
-      "translation": "行李装卸车",
-      "x": 1308.33,
-      "y": 381,
-      "priority": 1.261,
-      "minLevel": 4,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "fuel-truck-pro-4",
-      "word": "fuel truck",
-      "translation": "加油车",
-      "x": 1425,
-      "y": 381,
-      "priority": 1.262,
-      "minLevel": 4,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "tow-tractor-pro-4",
-      "word": "tow tractor",
-      "translation": "牵引车",
-      "x": 1541.67,
-      "y": 381,
-      "priority": 1.263,
-      "minLevel": 4,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "pushback-tug-pro-4",
-      "word": "pushback tug",
-      "translation": "推出牵引车",
-      "x": 958.33,
-      "y": 467,
-      "priority": 1.264,
-      "minLevel": 4,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "ground-cone-pro-4",
-      "word": "ground cone",
-      "translation": "地面锥桶",
-      "x": 1075,
-      "y": 467,
-      "priority": 1.265,
-      "minLevel": 4,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "safety-chock-pro-4",
-      "word": "safety chock",
-      "translation": "安全轮挡",
-      "x": 1191.67,
-      "y": 467,
-      "priority": 1.266,
-      "minLevel": 4,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "marshaller-wand-pro-4",
-      "word": "marshaller wand",
-      "translation": "指挥棒",
-      "x": 1308.33,
-      "y": 467,
-      "priority": 1.267,
       "minLevel": 4,
       "sourceVisualRegion": "airside-apron",
       "semanticRealmId": "objects-technology"
@@ -2960,482 +958,31 @@
       "id": "apron-marking-pro-4",
       "word": "apron marking",
       "translation": "机坪标线",
-      "x": 1425,
-      "y": 467,
+      "x": 1353,
+      "y": 411,
       "priority": 1.268,
       "minLevel": 4,
       "sourceVisualRegion": "airside-apron",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "jet-blast-fence-pro-4",
-      "word": "jet blast fence",
-      "translation": "喷流防护栏",
-      "x": 1541.67,
-      "y": 467,
-      "priority": 1.269,
-      "minLevel": 4,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "claim-chute-pro-5",
-      "word": "claim chute",
-      "translation": "行李滑槽",
-      "x": 1022.5,
-      "y": 510,
-      "priority": 1.27,
-      "minLevel": 2,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "chute-door-pro-5",
-      "word": "chute door",
-      "translation": "滑槽门",
-      "x": 1127.5,
-      "y": 510,
-      "priority": 1.271,
-      "minLevel": 2,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "oversize-belt-pro-5",
-      "word": "oversize belt",
-      "translation": "超规行李带",
-      "x": 1232.5,
-      "y": 510,
-      "priority": 1.272,
-      "minLevel": 2,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "claim-monitor-pro-5",
-      "word": "claim monitor",
-      "translation": "提取显示器",
-      "x": 1337.5,
-      "y": 510,
-      "priority": 1.273,
-      "minLevel": 2,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
       "id": "carousel-island-pro-5",
       "word": "carousel island",
       "translation": "转盘岛台",
-      "x": 1442.5,
-      "y": 510,
+      "x": 1192,
+      "y": 568,
       "priority": 1.274,
       "minLevel": 2,
       "sourceVisualRegion": "baggage-claim",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "luggage-trolley-bay-pro-5",
-      "word": "luggage trolley bay",
-      "translation": "行李车位",
-      "x": 1547.5,
-      "y": 510,
-      "priority": 1.275,
-      "minLevel": 2,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "lost-baggage-desk-pro-5",
-      "word": "lost baggage desk",
-      "translation": "失物行李台",
-      "x": 1022.5,
-      "y": 590,
-      "priority": 1.276,
-      "minLevel": 2,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "arrival-door-pro-5",
-      "word": "arrival door",
-      "translation": "到达门",
-      "x": 1127.5,
-      "y": 590,
-      "priority": 1.277,
-      "minLevel": 2,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "customs-barrier-pro-5",
-      "word": "customs barrier",
-      "translation": "海关隔栏",
-      "x": 1232.5,
-      "y": 590,
-      "priority": 1.278,
-      "minLevel": 2,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "claim-inspection-table-pro-5",
-      "word": "claim inspection table",
-      "translation": "提取检查台",
-      "x": 1337.5,
-      "y": 590,
-      "priority": 1.279,
-      "minLevel": 2,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "trolley-queue-pro-5",
-      "word": "trolley queue",
-      "translation": "行李车队列",
-      "x": 1442.5,
-      "y": 590,
-      "priority": 1.28,
-      "minLevel": 3,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "carousel-motor-pro-5",
-      "word": "carousel motor",
-      "translation": "转盘电机",
-      "x": 1547.5,
-      "y": 590,
-      "priority": 1.281,
-      "minLevel": 3,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "roller-housing-pro-5",
-      "word": "roller housing",
-      "translation": "滚筒护罩",
-      "x": 1022.5,
-      "y": 670,
-      "priority": 1.282,
-      "minLevel": 3,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "carousel-guide-pro-5",
-      "word": "carousel guide",
-      "translation": "转盘导轨",
-      "x": 1127.5,
-      "y": 670,
-      "priority": 1.283,
-      "minLevel": 3,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "carousel-hub-pro-5",
-      "word": "carousel hub",
-      "translation": "转盘中心",
-      "x": 1232.5,
-      "y": 670,
-      "priority": 1.284,
-      "minLevel": 3,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "carousel-cover-pro-5",
-      "word": "carousel cover",
-      "translation": "转盘护罩",
-      "x": 1337.5,
-      "y": 670,
-      "priority": 1.285,
-      "minLevel": 3,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "slat-hinge-pro-5",
-      "word": "slat hinge",
-      "translation": "板条铰链",
-      "x": 1442.5,
-      "y": 670,
-      "priority": 1.286,
-      "minLevel": 3,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "rubber-skirt-pro-5",
-      "word": "rubber skirt",
-      "translation": "橡胶裙边",
-      "x": 1547.5,
-      "y": 670,
-      "priority": 1.287,
-      "minLevel": 3,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "baggage-tub-pro-5",
-      "word": "baggage tub",
-      "translation": "行李槽",
-      "x": 1022.5,
-      "y": 750,
-      "priority": 1.288,
-      "minLevel": 3,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "bag-wheel-pro-5",
-      "word": "bag wheel",
-      "translation": "行李轮",
-      "x": 1127.5,
-      "y": 750,
-      "priority": 1.289,
-      "minLevel": 3,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "bag-corner-pro-5",
-      "word": "bag corner",
-      "translation": "行李角",
-      "x": 1232.5,
-      "y": 750,
-      "priority": 1.29,
-      "minLevel": 4,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "tag-pocket-pro-5",
-      "word": "tag pocket",
-      "translation": "行李牌袋",
-      "x": 1337.5,
-      "y": 750,
-      "priority": 1.291,
-      "minLevel": 4,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "claim-ticket-pro-5",
-      "word": "claim ticket",
-      "translation": "提取票",
-      "x": 1442.5,
-      "y": 750,
-      "priority": 1.292,
-      "minLevel": 4,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "counter-tray-pro-5",
-      "word": "counter tray",
-      "translation": "柜台托盘",
-      "x": 1547.5,
-      "y": 750,
-      "priority": 1.293,
-      "minLevel": 4,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "arrival-gate-pro-5",
-      "word": "arrival gate",
-      "translation": "到达闸门",
-      "x": 1022.5,
-      "y": 830,
-      "priority": 1.294,
-      "minLevel": 4,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "floor-bollard-pro-5",
-      "word": "floor bollard",
-      "translation": "地面护柱",
-      "x": 1127.5,
-      "y": 830,
-      "priority": 1.295,
-      "minLevel": 4,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "claim-barrier-pro-5",
-      "word": "claim barrier",
-      "translation": "提取隔栏",
-      "x": 1232.5,
-      "y": 830,
-      "priority": 1.296,
-      "minLevel": 4,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "cart-rail-pro-5",
-      "word": "cart rail",
-      "translation": "行李车栏",
-      "x": 1337.5,
-      "y": 830,
-      "priority": 1.297,
-      "minLevel": 4,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "trolley-deck-pro-5",
-      "word": "trolley deck",
-      "translation": "行李车底板",
-      "x": 1442.5,
-      "y": 830,
-      "priority": 1.298,
-      "minLevel": 4,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "carousel-edge-pro-5",
-      "word": "carousel edge",
-      "translation": "转盘边缘",
-      "x": 1547.5,
-      "y": 830,
-      "priority": 1.299,
-      "minLevel": 4,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "runway-threshold-pro-6",
-      "word": "runway threshold",
-      "translation": "跑道入口",
-      "x": 958.33,
-      "y": 123,
-      "priority": 1.3,
-      "minLevel": 2,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "runway-shoulder-pro-6",
-      "word": "runway shoulder",
-      "translation": "跑道道肩",
-      "x": 1075,
-      "y": 123,
-      "priority": 1.301,
-      "minLevel": 2,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "taxiway-edge-pro-6",
-      "word": "taxiway edge",
-      "translation": "滑行道边缘",
-      "x": 1191.67,
-      "y": 123,
-      "priority": 1.302,
-      "minLevel": 2,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "holding-bay-pro-6",
-      "word": "holding bay",
-      "translation": "等待位",
-      "x": 1308.33,
-      "y": 123,
-      "priority": 1.303,
-      "minLevel": 2,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "apron-joint-pro-6",
-      "word": "apron joint",
-      "translation": "机坪接缝",
-      "x": 1425,
-      "y": 123,
-      "priority": 1.304,
-      "minLevel": 2,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "stand-marking-pro-6",
-      "word": "stand marking",
-      "translation": "机位标线",
-      "x": 1541.67,
-      "y": 123,
-      "priority": 1.305,
-      "minLevel": 2,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "aircraft-beacon-pro-6",
-      "word": "aircraft beacon",
-      "translation": "航空器信标灯",
-      "x": 958.33,
-      "y": 209,
-      "priority": 1.306,
-      "minLevel": 2,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "navigation-light-pro-6",
-      "word": "navigation light",
-      "translation": "航行灯",
-      "x": 1075,
-      "y": 209,
-      "priority": 1.307,
-      "minLevel": 2,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "wing-root-fairing-pro-6",
-      "word": "wing root fairing",
-      "translation": "翼根整流罩",
-      "x": 1191.67,
-      "y": 209,
-      "priority": 1.308,
-      "minLevel": 2,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "flap-hinge-pro-6",
-      "word": "flap hinge",
-      "translation": "襟翼铰链",
-      "x": 1308.33,
-      "y": 209,
-      "priority": 1.309,
-      "minLevel": 2,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
       "id": "engine-pylon-pro-6",
       "word": "engine pylon",
       "translation": "发动机挂架",
-      "x": 1425,
-      "y": 209,
+      "x": 1257,
+      "y": 446,
       "priority": 1.31,
-      "minLevel": 3,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "exhaust-nozzle-pro-6",
-      "word": "exhaust nozzle",
-      "translation": "排气喷口",
-      "x": 1541.67,
-      "y": 209,
-      "priority": 1.311,
       "minLevel": 3,
       "sourceVisualRegion": "airside-apron",
       "semanticRealmId": "objects-technology"
@@ -3444,175 +991,10 @@
       "id": "fan-spinner-pro-6",
       "word": "fan spinner",
       "translation": "风扇锥体",
-      "x": 958.33,
-      "y": 295,
+      "x": 1262,
+      "y": 469,
       "priority": 1.312,
       "minLevel": 3,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "landing-gear-door-pro-6",
-      "word": "landing gear door",
-      "translation": "起落架舱门",
-      "x": 1075,
-      "y": 295,
-      "priority": 1.313,
-      "minLevel": 3,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "wheel-chock-pro-6",
-      "word": "wheel chock",
-      "translation": "轮挡",
-      "x": 1191.67,
-      "y": 295,
-      "priority": 1.314,
-      "minLevel": 3,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "cargo-loader-pro-6",
-      "word": "cargo loader",
-      "translation": "货物装卸车",
-      "x": 1308.33,
-      "y": 295,
-      "priority": 1.315,
-      "minLevel": 3,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "belt-loader-pro-6",
-      "word": "belt loader",
-      "translation": "皮带装卸车",
-      "x": 1425,
-      "y": 295,
-      "priority": 1.316,
-      "minLevel": 3,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "catering-truck-pro-6",
-      "word": "catering truck",
-      "translation": "配餐车",
-      "x": 1541.67,
-      "y": 295,
-      "priority": 1.317,
-      "minLevel": 3,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "deicing-truck-pro-6",
-      "word": "deicing truck",
-      "translation": "除冰车",
-      "x": 958.33,
-      "y": 381,
-      "priority": 1.318,
-      "minLevel": 3,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "ground-power-unit-pro-6",
-      "word": "ground power unit",
-      "translation": "地面电源车",
-      "x": 1075,
-      "y": 381,
-      "priority": 1.319,
-      "minLevel": 3,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "tow-bar-pro-6",
-      "word": "tow bar",
-      "translation": "牵引杆",
-      "x": 1191.67,
-      "y": 381,
-      "priority": 1.32,
-      "minLevel": 4,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "pushback-bar-pro-6",
-      "word": "pushback bar",
-      "translation": "推出杆",
-      "x": 1308.33,
-      "y": 381,
-      "priority": 1.321,
-      "minLevel": 4,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "marshaller-paddle-pro-6",
-      "word": "marshaller paddle",
-      "translation": "引导员指挥板",
-      "x": 1425,
-      "y": 381,
-      "priority": 1.322,
-      "minLevel": 4,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "safety-cone-pro-6",
-      "word": "safety cone",
-      "translation": "安全锥",
-      "x": 1541.67,
-      "y": 381,
-      "priority": 1.323,
-      "minLevel": 4,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "blast-pad-pro-6",
-      "word": "blast pad",
-      "translation": "喷流防护坪",
-      "x": 958.33,
-      "y": 467,
-      "priority": 1.324,
-      "minLevel": 4,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "runway-shoulder-light-pro-6",
-      "word": "runway shoulder light",
-      "translation": "道肩灯",
-      "x": 1075,
-      "y": 467,
-      "priority": 1.325,
-      "minLevel": 4,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "taxiway-sign-pro-6",
-      "word": "taxiway sign",
-      "translation": "滑行道标志",
-      "x": 1191.67,
-      "y": 467,
-      "priority": 1.326,
-      "minLevel": 4,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "perimeter-fence-pro-6",
-      "word": "perimeter fence",
-      "translation": "周界围栏",
-      "x": 1308.33,
-      "y": 467,
-      "priority": 1.327,
-      "minLevel": 4,
       "sourceVisualRegion": "airside-apron",
       "semanticRealmId": "objects-technology"
     },
@@ -3620,119 +1002,20 @@
       "id": "tower-window-pro-6",
       "word": "tower window",
       "translation": "塔台窗",
-      "x": 1425,
-      "y": 467,
+      "x": 1180,
+      "y": 285,
       "priority": 1.328,
       "minLevel": 4,
       "sourceVisualRegion": "airside-apron",
       "semanticRealmId": "objects-technology"
     },
     {
-      "id": "jet-bridge-canopy-pro-6",
-      "word": "jet bridge canopy",
-      "translation": "登机桥顶棚",
-      "x": 1541.67,
-      "y": 467,
-      "priority": 1.329,
-      "minLevel": 4,
-      "sourceVisualRegion": "airside-apron",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "gate-sign-frame-pro-7",
-      "word": "gate sign frame",
-      "translation": "登机口标牌框",
-      "x": 700.83,
-      "y": 323,
-      "priority": 1.33,
-      "minLevel": 2,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "boarding-podium-base-pro-7",
-      "word": "boarding podium base",
-      "translation": "登机台底座",
-      "x": 802.5,
-      "y": 323,
-      "priority": 1.331,
-      "minLevel": 2,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "boarding-pass-slot-pro-7",
-      "word": "boarding pass slot",
-      "translation": "登机牌插槽",
-      "x": 904.17,
-      "y": 323,
-      "priority": 1.332,
-      "minLevel": 2,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "gate-scanner-lens-pro-7",
-      "word": "gate scanner lens",
-      "translation": "登机口扫描镜头",
-      "x": 1005.83,
-      "y": 323,
-      "priority": 1.333,
-      "minLevel": 2,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "queue-barrier-foot-pro-7",
-      "word": "queue barrier foot",
-      "translation": "排队隔离柱底座",
-      "x": 1107.5,
-      "y": 323,
-      "priority": 1.334,
-      "minLevel": 2,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "queue-belt-clip-pro-7",
-      "word": "queue belt clip",
-      "translation": "排队带夹",
-      "x": 1209.17,
-      "y": 323,
-      "priority": 1.335,
-      "minLevel": 2,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "seat-support-pro-7",
-      "word": "seat support",
-      "translation": "座椅支撑",
-      "x": 700.83,
-      "y": 409,
-      "priority": 1.336,
-      "minLevel": 2,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
       "id": "lounge-chair-back-pro-7",
       "word": "lounge chair back",
       "translation": "候机椅靠背",
-      "x": 802.5,
-      "y": 409,
+      "x": 977,
+      "y": 525,
       "priority": 1.337,
-      "minLevel": 2,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "seat-cushion-seam-pro-7",
-      "word": "seat cushion seam",
-      "translation": "座垫接缝",
-      "x": 904.17,
-      "y": 409,
-      "priority": 1.338,
       "minLevel": 2,
       "sourceVisualRegion": "departure-concourse",
       "semanticRealmId": "objects-technology"
@@ -3741,54 +1024,10 @@
       "id": "seat-frame-pro-7",
       "word": "seat frame",
       "translation": "座椅框架",
-      "x": 1005.83,
-      "y": 409,
+      "x": 887,
+      "y": 512,
       "priority": 1.339,
       "minLevel": 2,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "row-divider-pro-7",
-      "word": "row divider",
-      "translation": "座椅排隔板",
-      "x": 1107.5,
-      "y": 409,
-      "priority": 1.34,
-      "minLevel": 3,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "armrest-hinge-pro-7",
-      "word": "armrest hinge",
-      "translation": "扶手铰链",
-      "x": 1209.17,
-      "y": 409,
-      "priority": 1.341,
-      "minLevel": 3,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "gate-reader-pro-7",
-      "word": "gate reader",
-      "translation": "登机口读卡器",
-      "x": 700.83,
-      "y": 495,
-      "priority": 1.342,
-      "minLevel": 3,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "gate-barrier-foot-pro-7",
-      "word": "gate barrier foot",
-      "translation": "登机口隔离柱底座",
-      "x": 802.5,
-      "y": 495,
-      "priority": 1.343,
-      "minLevel": 3,
       "sourceVisualRegion": "departure-concourse",
       "semanticRealmId": "objects-technology"
     },
@@ -3796,31 +1035,9 @@
       "id": "window-frame-joint-pro-7",
       "word": "window frame joint",
       "translation": "窗框接头",
-      "x": 904.17,
-      "y": 495,
+      "x": 979,
+      "y": 248,
       "priority": 1.344,
-      "minLevel": 3,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "concourse-handrail-pro-7",
-      "word": "concourse handrail",
-      "translation": "大厅扶手",
-      "x": 1005.83,
-      "y": 495,
-      "priority": 1.345,
-      "minLevel": 3,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "jet-bridge-joint-pro-7",
-      "word": "jet bridge joint",
-      "translation": "登机桥接头",
-      "x": 1107.5,
-      "y": 495,
-      "priority": 1.346,
       "minLevel": 3,
       "sourceVisualRegion": "departure-concourse",
       "semanticRealmId": "objects-technology"
@@ -3829,76 +1046,10 @@
       "id": "jet-bridge-window-pro-7",
       "word": "jet bridge window",
       "translation": "登机桥窗",
-      "x": 1209.17,
-      "y": 495,
+      "x": 939,
+      "y": 423,
       "priority": 1.347,
       "minLevel": 3,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "jet-bridge-floor-mat-pro-7",
-      "word": "jet bridge floor mat",
-      "translation": "登机桥地垫",
-      "x": 700.83,
-      "y": 581,
-      "priority": 1.348,
-      "minLevel": 3,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "bridge-door-seal-pro-7",
-      "word": "bridge door seal",
-      "translation": "廊桥门密封",
-      "x": 802.5,
-      "y": 581,
-      "priority": 1.349,
-      "minLevel": 3,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "aircraft-stair-rail-pro-7",
-      "word": "aircraft stair rail",
-      "translation": "登机梯扶手",
-      "x": 904.17,
-      "y": 581,
-      "priority": 1.35,
-      "minLevel": 4,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "boarding-desk-drawer-pro-7",
-      "word": "boarding desk drawer",
-      "translation": "登机台抽屉",
-      "x": 1005.83,
-      "y": 581,
-      "priority": 1.351,
-      "minLevel": 4,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "departure-board-frame-pro-7",
-      "word": "departure board frame",
-      "translation": "出发牌框",
-      "x": 1107.5,
-      "y": 581,
-      "priority": 1.352,
-      "minLevel": 4,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "concourse-column-base-pro-7",
-      "word": "concourse column base",
-      "translation": "大厅柱基",
-      "x": 1209.17,
-      "y": 581,
-      "priority": 1.353,
-      "minLevel": 4,
       "sourceVisualRegion": "departure-concourse",
       "semanticRealmId": "objects-technology"
     },
@@ -3906,8 +1057,8 @@
       "id": "ceiling-panel-pro-7",
       "word": "ceiling panel",
       "translation": "天花板",
-      "x": 700.83,
-      "y": 667,
+      "x": 853,
+      "y": 48,
       "priority": 1.354,
       "minLevel": 4,
       "sourceVisualRegion": "departure-concourse",
@@ -3917,8 +1068,8 @@
       "id": "ceiling-light-pro-7",
       "word": "ceiling light",
       "translation": "天花灯",
-      "x": 802.5,
-      "y": 667,
+      "x": 552,
+      "y": 115,
       "priority": 1.355,
       "minLevel": 4,
       "sourceVisualRegion": "departure-concourse",
@@ -3928,42 +1079,9 @@
       "id": "floor-tile-joint-pro-7",
       "word": "floor tile joint",
       "translation": "地砖接缝",
-      "x": 904.17,
-      "y": 667,
+      "x": 858,
+      "y": 688,
       "priority": 1.356,
-      "minLevel": 4,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "gate-counter-edge-pro-7",
-      "word": "gate counter edge",
-      "translation": "登机柜台边",
-      "x": 1005.83,
-      "y": 667,
-      "priority": 1.357,
-      "minLevel": 4,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "lounge-plant-pot-pro-7",
-      "word": "lounge plant pot",
-      "translation": "候机区花盆",
-      "x": 1107.5,
-      "y": 667,
-      "priority": 1.358,
-      "minLevel": 4,
-      "sourceVisualRegion": "departure-concourse",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "water-fountain-spout-pro-7",
-      "word": "water fountain spout",
-      "translation": "饮水机出水嘴",
-      "x": 1209.17,
-      "y": 667,
-      "priority": 1.359,
       "minLevel": 4,
       "sourceVisualRegion": "departure-concourse",
       "semanticRealmId": "objects-technology"
@@ -3972,8 +1090,8 @@
       "id": "luggage-wheel-pro-8",
       "word": "luggage wheel",
       "translation": "行李轮",
-      "x": 1022.5,
-      "y": 510,
+      "x": 1055,
+      "y": 682,
       "priority": 1.36,
       "minLevel": 2,
       "sourceVisualRegion": "baggage-claim",
@@ -3983,31 +1101,9 @@
       "id": "handle-grip-pro-8",
       "word": "handle grip",
       "translation": "把手握柄",
-      "x": 1127.5,
-      "y": 510,
+      "x": 1172,
+      "y": 719,
       "priority": 1.361,
-      "minLevel": 2,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "zipper-pull-pro-8",
-      "word": "zipper pull",
-      "translation": "拉链头",
-      "x": 1232.5,
-      "y": 510,
-      "priority": 1.362,
-      "minLevel": 2,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "tag-barcode-pro-8",
-      "word": "tag barcode",
-      "translation": "标签条码",
-      "x": 1337.5,
-      "y": 510,
-      "priority": 1.363,
       "minLevel": 2,
       "sourceVisualRegion": "baggage-claim",
       "semanticRealmId": "objects-technology"
@@ -4016,8 +1112,8 @@
       "id": "luggage-shell-pro-8",
       "word": "luggage shell",
       "translation": "行李箱壳",
-      "x": 1442.5,
-      "y": 510,
+      "x": 1216,
+      "y": 739,
       "priority": 1.364,
       "minLevel": 2,
       "sourceVisualRegion": "baggage-claim",
@@ -4027,42 +1123,9 @@
       "id": "suitcase-corner-pro-8",
       "word": "suitcase corner",
       "translation": "行李箱角",
-      "x": 1547.5,
-      "y": 510,
+      "x": 1132,
+      "y": 718,
       "priority": 1.365,
-      "minLevel": 2,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "suitcase-lining-pro-8",
-      "word": "suitcase lining",
-      "translation": "行李箱内衬",
-      "x": 1022.5,
-      "y": 590,
-      "priority": 1.366,
-      "minLevel": 2,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "suitcase-strap-pro-8",
-      "word": "suitcase strap",
-      "translation": "行李箱绑带",
-      "x": 1127.5,
-      "y": 590,
-      "priority": 1.367,
-      "minLevel": 2,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "spinner-caster-pro-8",
-      "word": "spinner caster",
-      "translation": "万向脚轮",
-      "x": 1232.5,
-      "y": 590,
-      "priority": 1.368,
       "minLevel": 2,
       "sourceVisualRegion": "baggage-claim",
       "semanticRealmId": "objects-technology"
@@ -4071,8 +1134,8 @@
       "id": "carousel-belt-edge-pro-8",
       "word": "carousel belt edge",
       "translation": "转盘带边",
-      "x": 1337.5,
-      "y": 590,
+      "x": 1294,
+      "y": 829,
       "priority": 1.369,
       "minLevel": 2,
       "sourceVisualRegion": "baggage-claim",
@@ -4082,186 +1145,10 @@
       "id": "carousel-side-panel-pro-8",
       "word": "carousel side panel",
       "translation": "转盘侧板",
-      "x": 1442.5,
-      "y": 590,
+      "x": 1243,
+      "y": 844,
       "priority": 1.37,
       "minLevel": 3,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "carousel-support-leg-pro-8",
-      "word": "carousel support leg",
-      "translation": "转盘支腿",
-      "x": 1547.5,
-      "y": 590,
-      "priority": 1.371,
-      "minLevel": 3,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "carousel-drive-cover-pro-8",
-      "word": "carousel drive cover",
-      "translation": "转盘驱动罩",
-      "x": 1022.5,
-      "y": 670,
-      "priority": 1.372,
-      "minLevel": 3,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "drive-roller-pro-8",
-      "word": "drive roller",
-      "translation": "驱动滚筒",
-      "x": 1127.5,
-      "y": 670,
-      "priority": 1.373,
-      "minLevel": 3,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "return-roller-pro-8",
-      "word": "return roller",
-      "translation": "回程滚筒",
-      "x": 1232.5,
-      "y": 670,
-      "priority": 1.374,
-      "minLevel": 3,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "guide-rail-pro-8",
-      "word": "guide rail",
-      "translation": "导向轨",
-      "x": 1337.5,
-      "y": 670,
-      "priority": 1.375,
-      "minLevel": 3,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "belt-tensioner-pro-8",
-      "word": "belt tensioner",
-      "translation": "皮带张紧器",
-      "x": 1442.5,
-      "y": 670,
-      "priority": 1.376,
-      "minLevel": 3,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "motor-housing-pro-8",
-      "word": "motor housing",
-      "translation": "电机外壳",
-      "x": 1547.5,
-      "y": 670,
-      "priority": 1.377,
-      "minLevel": 3,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "claim-number-display-pro-8",
-      "word": "claim number display",
-      "translation": "提取编号显示屏",
-      "x": 1022.5,
-      "y": 750,
-      "priority": 1.378,
-      "minLevel": 3,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "baggage-information-screen-pro-8",
-      "word": "baggage information screen",
-      "translation": "行李信息屏",
-      "x": 1127.5,
-      "y": 750,
-      "priority": 1.379,
-      "minLevel": 3,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "oversize-gate-pro-8",
-      "word": "oversize gate",
-      "translation": "超大行李闸口",
-      "x": 1232.5,
-      "y": 750,
-      "priority": 1.38,
-      "minLevel": 4,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "bag-inspection-tray-pro-8",
-      "word": "bag inspection tray",
-      "translation": "行李检查托盘",
-      "x": 1337.5,
-      "y": 750,
-      "priority": 1.381,
-      "minLevel": 4,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "customs-desk-pro-8",
-      "word": "customs desk",
-      "translation": "海关柜台",
-      "x": 1442.5,
-      "y": 750,
-      "priority": 1.382,
-      "minLevel": 4,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "claim-counter-shelf-pro-8",
-      "word": "claim counter shelf",
-      "translation": "提取柜台搁板",
-      "x": 1547.5,
-      "y": 750,
-      "priority": 1.383,
-      "minLevel": 4,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "queue-sign-pro-8",
-      "word": "queue sign",
-      "translation": "排队标牌",
-      "x": 1022.5,
-      "y": 830,
-      "priority": 1.384,
-      "minLevel": 4,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "stanchion-base-pro-8",
-      "word": "stanchion base",
-      "translation": "隔离柱底座",
-      "x": 1127.5,
-      "y": 830,
-      "priority": 1.385,
-      "minLevel": 4,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "barrier-strap-pro-8",
-      "word": "barrier strap",
-      "translation": "隔离带",
-      "x": 1232.5,
-      "y": 830,
-      "priority": 1.386,
-      "minLevel": 4,
       "sourceVisualRegion": "baggage-claim",
       "semanticRealmId": "objects-technology"
     },
@@ -4269,31 +1156,9 @@
       "id": "floor-tile-seam-pro-8",
       "word": "floor tile seam",
       "translation": "地砖接缝",
-      "x": 1337.5,
-      "y": 830,
+      "x": 979,
+      "y": 846,
       "priority": 1.387,
-      "minLevel": 4,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "tactile-strip-pro-8",
-      "word": "tactile strip",
-      "translation": "触感条",
-      "x": 1442.5,
-      "y": 830,
-      "priority": 1.388,
-      "minLevel": 4,
-      "sourceVisualRegion": "baggage-claim",
-      "semanticRealmId": "objects-technology"
-    },
-    {
-      "id": "drain-cover-pro-8",
-      "word": "drain cover",
-      "translation": "排水盖",
-      "x": 1547.5,
-      "y": 830,
-      "priority": 1.389,
       "minLevel": 4,
       "sourceVisualRegion": "baggage-claim",
       "semanticRealmId": "objects-technology"
@@ -4338,14 +1203,14 @@
     }
   ],
   "anchorAudit": {
-    "status": "human-verified",
+    "status": "image-reviewed",
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/airport-terminal-premium-v1.jpg",
     "reviewedAssetSha256": "428e5f9dbcca0f19e8fcedc540a9715362bc55b9b2e51e31d39a4659133f31e1",
-    "rationale": "The airport raster clearly resolves check in counters and kiosks, security screening hardware, a gate lounge with jet bridge, a baggage carousel and the airside aircraft, apron, runway and tower; labels stay within those visible passenger and aircraft structures. The professional vocabulary pass adds 120 additional region-grounded nouns across the reviewed facilities, equipment, diagnostic, disease, medicine or building-system crops. The professional vocabulary pass adds 30 additional region-grounded nouns across the reviewed facilities, equipment, diagnostic, disease, medicine or building-system crops. The professional vocabulary pass adds 30 additional region-grounded nouns across the reviewed facilities, equipment, diagnostic, disease, medicine or building-system crops. The professional vocabulary pass adds 30 additional region-grounded nouns across the reviewed facilities, equipment, diagnostic, disease, medicine or building-system crops. The professional vocabulary pass adds 30 additional region-grounded nouns across the reviewed facilities, equipment, diagnostic, disease, medicine or building-system crops.",
+    "rationale": "All 390 terminal terms were checked against the 1600 × 900 photograph. Separate anchors now identify the check-in screens, kiosks, screening arches, boarding bridge, aircraft, control tower, suitcases and the reclaim island. Hidden machinery, documents, unreadable signs and unidentifiable equipment remain available in the scene index. The same photograph and its three entrances are retained. Human review of the revised points is pending.",
     "previousLabelCount": 400,
-    "retainedLabelCount": 390,
-    "removedLabelCount": 10,
+    "retainedLabelCount": 105,
+    "removedLabelCount": 295,
     "removedExamples": [
       "flight number",
       "airline brand",
@@ -4356,7 +1221,12 @@
       "pilot announcement",
       "ticket price",
       "customs officer",
-      "weather forecast"
+      "weather forecast",
+      "carousel motor",
+      "suitcase lining",
+      "tag barcode",
+      "body scanner",
+      "ground power unit"
     ]
   },
   "visualRegions": [
@@ -4371,16 +1241,16 @@
     },
     {
       "id": "check-in-hall",
-      "description": "Terminal check-in hall with counters, kiosks, baggage scales and queue barriers at the left",
+      "description": "The departure hall sign, bank of check-in desks, queue barriers and full-height foreground kiosks.",
       "kind": "object",
       "x": 0,
-      "y": 250,
-      "width": 520,
-      "height": 450
+      "y": 128,
+      "width": 612,
+      "height": 724
     },
     {
       "id": "security-screening",
-      "description": "Security screening lanes with x ray conveyor, trays, detector arch and inspection table",
+      "description": "Walk-through metal detectors and the X-ray scanner with its exposed roller bed and indicator lights.",
       "kind": "object",
       "x": 280,
       "y": 250,
@@ -4389,16 +1259,16 @@
     },
     {
       "id": "departure-concourse",
-      "description": "Departure concourse with gate seating, flight display, boarding podium and jet bridge at centre",
+      "description": "Terminal direction sign and ceiling above the gate seating and the glass boarding bridge.",
       "kind": "object",
-      "x": 650,
-      "y": 280,
-      "width": 610,
-      "height": 430
+      "x": 530,
+      "y": 25,
+      "width": 750,
+      "height": 705
     },
     {
       "id": "baggage-claim",
-      "description": "Arrival seating and the complete baggage carousel with suitcases at the right foreground",
+      "description": "The right-hand arrivals carousel, visible suitcases and silver centre island with greenery.",
       "kind": "object",
       "x": 940,
       "y": 350,
@@ -4407,12 +1277,12 @@
     },
     {
       "id": "airside-apron",
-      "description": "Airside view through terminal glazing with aircraft, jet bridge, apron, taxiway, runway and control tower",
+      "description": "Parked airliner and ground vehicles in front of the distant tower, runway and yellow taxiway markings.",
       "kind": "object",
       "x": 900,
-      "y": 80,
+      "y": 235,
       "width": 700,
-      "height": 430
+      "height": 280
     },
     {
       "id": "portal-check-in-counter-left-counter-bank",
@@ -4429,11 +1299,11 @@
       "id": "check-in-detail",
       "title": "Check in hall",
       "translation": "值机大厅",
-      "description": "Counters, kiosks, tickets, baggage scales and queue hardware across the terminal entrance.",
+      "description": "Check-in counters, wall monitors, queuing posts and the four self-service kiosks in the left foreground.",
       "x": 0,
-      "y": 230,
-      "width": 540,
-      "height": 470,
+      "y": 128,
+      "width": 612,
+      "height": 724,
       "targetScale": 1.8,
       "labelIds": [
         "airport",
@@ -4441,68 +1311,25 @@
         "check-in-counter",
         "self-service-kiosk",
         "departure-hall",
-        "ticket",
-        "passport",
-        "boarding-pass",
-        "baggage-scale",
-        "luggage-cart",
         "queue-barrier",
-        "information-desk",
         "check-in-screen",
-        "counter-number",
-        "baggage-tag",
-        "conveyor-belt",
-        "passport-scanner",
-        "carry-on-bag",
-        "ticket-counter",
         "kiosk-screen",
-        "tag-printer",
-        "scale-platform",
-        "belt-roller",
         "queue-post",
         "kiosk-base",
         "counter-edge",
-        "barcode-reader",
-        "bag-handle",
-        "trolley-wheel",
         "floor-tile",
-        "passport-gate-pro-1",
-        "bag-drop-pro-1",
-        "bag-drop-counter-pro-1",
-        "boarding-pass-printer-pro-1",
-        "passport-reader-pro-1",
-        "luggage-tag-printer-pro-1",
-        "travel-document-pro-1",
-        "security-seal-pro-1",
-        "baggage-receipt-pro-1",
         "queue-stanchion-pro-1",
-        "queue-rope-pro-1",
-        "lane-sign-pro-1",
         "counter-monitor-pro-1",
-        "document-tray-pro-1",
-        "scale-display-pro-1",
-        "luggage-bin-pro-1",
-        "oversize-baggage-pro-1",
-        "baggage-chute-pro-1",
-        "counter-partition-pro-1",
-        "ticket-scanner-pro-1",
-        "passport-tray-pro-1",
         "kiosk-pedestal-pro-1",
         "touchscreen-bezel-pro-1",
-        "paper-slot-pro-1",
-        "bag-belt-pro-1",
-        "belt-guide-pro-1",
-        "trolley-handle-pro-1",
-        "wheel-brake-pro-1",
-        "document-pocket-pro-1",
-        "bag-strap-pro-1"
+        "paper-slot-pro-1"
       ]
     },
     {
       "id": "security-detail",
       "title": "Security screening",
       "translation": "安检区",
-      "description": "Screening lanes, x ray conveyor, trays, detector arch and inspection surfaces.",
+      "description": "Walk-through arches, the X-ray tunnel and its roller table behind the queue barriers.",
       "x": 250,
       "y": 230,
       "width": 560,
@@ -4513,172 +1340,65 @@
         "security-lane",
         "conveyor-scanner",
         "x-ray-machine",
-        "tray-table",
         "metal-detector",
         "screening-gate",
-        "privacy-lane",
-        "tray-stack",
-        "inspection-table",
         "scanner-tunnel",
         "queue-rail",
-        "monitor-screen",
         "belt-entry",
-        "tray-handle",
         "detector-arch",
         "roller-bed",
         "stanchion",
         "scanner-opening",
-        "tray-rim",
-        "belt-seam",
         "glass-panel",
         "warning-light",
         "lane-divider",
-        "x-ray-tunnel",
         "detector-frame",
-        "belt-motor",
-        "tray-corner",
-        "floor-guide",
-        "power-socket",
-        "security-tray-pro-2",
-        "body-scanner-pro-2",
         "walk-through-scanner-pro-2",
-        "hand-scanner-pro-2",
-        "security-monitor-pro-2",
-        "x-ray-console-pro-2",
-        "image-screen-pro-2",
-        "tray-return-pro-2",
-        "roller-conveyor-pro-2",
-        "inspection-bench-pro-2",
-        "liquid-bag-pro-2",
-        "electronics-tray-pro-2",
-        "shoe-tray-pro-2",
-        "coat-bin-pro-2",
-        "security-belt-pro-2",
         "belt-guard-pro-2",
-        "warning-beacon-pro-2",
         "lane-post-pro-2",
         "glass-divider-pro-2",
-        "access-door-pro-2",
-        "scanner-panel-pro-2",
-        "tunnel-light-pro-2",
-        "detector-mat-pro-2",
-        "scanner-floor-marker-pro-2",
-        "power-cabinet-pro-2",
-        "cable-cover-pro-2",
-        "tray-stacker-pro-2",
-        "tray-shelf-pro-2",
-        "bin-handle-pro-2",
-        "inspection-lamp-pro-2"
+        "scanner-panel-pro-2"
       ]
     },
     {
       "id": "departure-concourse-detail",
       "title": "Departure concourse",
       "translation": "出发候机厅",
-      "description": "Gate lounge, seating, display, boarding podium and jet bridge connection.",
-      "x": 620,
-      "y": 260,
-      "width": 660,
-      "height": 470,
+      "description": "The suspended direction sign, window wall, banks of waiting seats and glazed passenger boarding bridge.",
+      "x": 530,
+      "y": 25,
+      "width": 750,
+      "height": 705,
       "targetScale": 1.8,
       "labelIds": [
         "departure-concourse",
-        "gate",
         "gate-lounge",
-        "boarding-area",
         "jet-bridge",
-        "aircraft-door",
-        "departure-lounge",
-        "boarding-gate",
         "waiting-seats",
-        "flight-display",
         "window-wall",
-        "charging-table",
-        "gate-podium",
         "seat-armrest",
-        "display-frame",
         "jet-bridge-seal",
         "window-mullion",
-        "boarding-scanner",
         "seat-cushion",
-        "podium-edge",
-        "display-bezel",
-        "bridge-handrail",
-        "cabin-door",
-        "floor-marker",
         "seat-leg",
-        "scanner-glass",
         "bridge-joint",
-        "door-handle",
-        "window-latch",
-        "carpet-seam",
-        "boarding-queue-pro-3",
-        "airport-lounge-pro-3",
-        "travelator-pro-3",
-        "moving-walkway-pro-3",
-        "escalator-pro-3",
-        "lift-lobby-pro-3",
         "seat-row-pro-3",
-        "side-table-pro-3",
-        "charging-locker-pro-3",
-        "water-fountain-pro-3",
-        "window-sill-pro-3",
-        "concourse-light-pro-3",
         "wayfinding-panel-pro-3",
-        "gate-barrier-pro-3",
-        "queue-belt-pro-3",
-        "qr-reader-pro-3",
-        "gate-monitor-pro-3",
-        "boarding-desk-pro-3",
-        "service-counter-pro-3",
-        "lounge-table-pro-3",
-        "seat-divider-pro-3",
-        "seat-number-pro-3",
-        "terminal-clock-pro-3",
-        "bridge-corridor-pro-3",
-        "jet-bridge-floor-pro-3",
-        "bridge-door-pro-3",
-        "aircraft-stairs-pro-3",
-        "baggage-door-pro-3",
-        "departure-board-pro-3",
         "concourse-column-pro-3",
-        "gate-sign-frame-pro-7",
-        "boarding-podium-base-pro-7",
-        "boarding-pass-slot-pro-7",
-        "gate-scanner-lens-pro-7",
-        "queue-barrier-foot-pro-7",
-        "queue-belt-clip-pro-7",
-        "seat-support-pro-7",
         "lounge-chair-back-pro-7",
-        "seat-cushion-seam-pro-7",
         "seat-frame-pro-7",
-        "row-divider-pro-7",
-        "armrest-hinge-pro-7",
-        "gate-reader-pro-7",
-        "gate-barrier-foot-pro-7",
         "window-frame-joint-pro-7",
-        "concourse-handrail-pro-7",
-        "jet-bridge-joint-pro-7",
         "jet-bridge-window-pro-7",
-        "jet-bridge-floor-mat-pro-7",
-        "bridge-door-seal-pro-7",
-        "aircraft-stair-rail-pro-7",
-        "boarding-desk-drawer-pro-7",
-        "departure-board-frame-pro-7",
-        "concourse-column-base-pro-7",
         "ceiling-panel-pro-7",
         "ceiling-light-pro-7",
-        "floor-tile-joint-pro-7",
-        "gate-counter-edge-pro-7",
-        "lounge-plant-pot-pro-7",
-        "water-fountain-spout-pro-7"
+        "floor-tile-joint-pro-7"
       ]
     },
     {
       "id": "baggage-claim-detail",
       "title": "Baggage claim",
       "translation": "行李提取区",
-      "description": "Carousel, suitcases, carts, claim screens and customs lane in the arrivals hall.",
+      "description": "Hard-shell suitcases travel around the planted island on a slatted belt with a brushed metal outer panel.",
       "x": 940,
       "y": 440,
       "width": 660,
@@ -4688,104 +1408,31 @@
         "baggage-claim",
         "baggage-carousel",
         "luggage",
-        "baggage-cart",
-        "arrival-hall",
         "reclaim-belt",
         "suitcase",
-        "carousel-rail",
-        "luggage-tag",
-        "claim-screen",
-        "trolley",
-        "customs-lane",
         "belt-slat",
         "suitcase-handle",
-        "suitcase-wheel",
-        "tag-loop",
-        "carousel-frame",
-        "claim-counter",
-        "rubber-belt",
-        "roller",
-        "cart-handle",
-        "screen-bezel",
-        "floor-stripe",
-        "barrier-post",
         "baggage-label",
-        "wheel-housing",
-        "rail-joint",
         "carousel-seam",
-        "cart-caster",
-        "floor-drain",
-        "claim-chute-pro-5",
-        "chute-door-pro-5",
-        "oversize-belt-pro-5",
-        "claim-monitor-pro-5",
         "carousel-island-pro-5",
-        "luggage-trolley-bay-pro-5",
-        "lost-baggage-desk-pro-5",
-        "arrival-door-pro-5",
-        "customs-barrier-pro-5",
-        "claim-inspection-table-pro-5",
-        "trolley-queue-pro-5",
-        "carousel-motor-pro-5",
-        "roller-housing-pro-5",
-        "carousel-guide-pro-5",
-        "carousel-hub-pro-5",
-        "carousel-cover-pro-5",
-        "slat-hinge-pro-5",
-        "rubber-skirt-pro-5",
-        "baggage-tub-pro-5",
-        "bag-wheel-pro-5",
-        "bag-corner-pro-5",
-        "tag-pocket-pro-5",
-        "claim-ticket-pro-5",
-        "counter-tray-pro-5",
-        "arrival-gate-pro-5",
-        "floor-bollard-pro-5",
-        "claim-barrier-pro-5",
-        "cart-rail-pro-5",
-        "trolley-deck-pro-5",
-        "carousel-edge-pro-5",
         "luggage-wheel-pro-8",
         "handle-grip-pro-8",
-        "zipper-pull-pro-8",
-        "tag-barcode-pro-8",
         "luggage-shell-pro-8",
         "suitcase-corner-pro-8",
-        "suitcase-lining-pro-8",
-        "suitcase-strap-pro-8",
-        "spinner-caster-pro-8",
         "carousel-belt-edge-pro-8",
         "carousel-side-panel-pro-8",
-        "carousel-support-leg-pro-8",
-        "carousel-drive-cover-pro-8",
-        "drive-roller-pro-8",
-        "return-roller-pro-8",
-        "guide-rail-pro-8",
-        "belt-tensioner-pro-8",
-        "motor-housing-pro-8",
-        "claim-number-display-pro-8",
-        "baggage-information-screen-pro-8",
-        "oversize-gate-pro-8",
-        "bag-inspection-tray-pro-8",
-        "customs-desk-pro-8",
-        "claim-counter-shelf-pro-8",
-        "queue-sign-pro-8",
-        "stanchion-base-pro-8",
-        "barrier-strap-pro-8",
-        "floor-tile-seam-pro-8",
-        "tactile-strip-pro-8",
-        "drain-cover-pro-8"
+        "floor-tile-seam-pro-8"
       ]
     },
     {
       "id": "airside-detail",
       "title": "Airside",
       "translation": "空侧",
-      "description": "Aircraft, apron, taxiway, runway and control tower visible beyond the terminal glass.",
+      "description": "The airliner, ground vehicles, taxiway markings and distant control tower seen through the terminal windows.",
       "x": 870,
-      "y": 50,
+      "y": 235,
       "width": 730,
-      "height": 480,
+      "height": 295,
       "targetScale": 1.8,
       "labelIds": [
         "aircraft",
@@ -4798,87 +1445,1452 @@
         "aircraft-nose",
         "engine",
         "parking-stand",
-        "runway-marking",
         "tower-cab",
-        "air-bridge",
         "landing-gear",
         "engine-nacelle",
         "wingtip",
         "taxiway-centerline",
-        "apron-light",
         "cockpit-window",
         "turbine-fan",
-        "wheel-assembly",
-        "gate-stand",
-        "runway-edge",
         "tower-mast",
-        "tail-fin",
-        "wing-flap",
         "engine-inlet",
-        "tire-tread",
-        "centerline-dash",
         "ground-vehicle",
-        "apron-stand-pro-4",
         "aircraft-fuselage-pro-4",
-        "cockpit-door-pro-4",
         "windscreen-pro-4",
-        "landing-light-pro-4",
         "wing-root-pro-4",
-        "flap-track-pro-4",
-        "spoiler-pro-4",
-        "aileron-pro-4",
-        "rudder-pro-4",
-        "elevator-pro-4",
-        "vertical-stabilizer-pro-4",
-        "horizontal-stabilizer-pro-4",
-        "nose-gear-pro-4",
-        "main-gear-pro-4",
-        "gear-strut-pro-4",
-        "wheel-hub-pro-4",
-        "brake-disc-pro-4",
-        "cargo-hold-pro-4",
-        "cargo-door-pro-4",
         "service-vehicle-pro-4",
-        "baggage-loader-pro-4",
-        "fuel-truck-pro-4",
-        "tow-tractor-pro-4",
-        "pushback-tug-pro-4",
-        "ground-cone-pro-4",
-        "safety-chock-pro-4",
-        "marshaller-wand-pro-4",
         "apron-marking-pro-4",
-        "jet-blast-fence-pro-4",
-        "runway-threshold-pro-6",
-        "runway-shoulder-pro-6",
-        "taxiway-edge-pro-6",
-        "holding-bay-pro-6",
-        "apron-joint-pro-6",
-        "stand-marking-pro-6",
-        "aircraft-beacon-pro-6",
-        "navigation-light-pro-6",
-        "wing-root-fairing-pro-6",
-        "flap-hinge-pro-6",
         "engine-pylon-pro-6",
-        "exhaust-nozzle-pro-6",
         "fan-spinner-pro-6",
-        "landing-gear-door-pro-6",
-        "wheel-chock-pro-6",
-        "cargo-loader-pro-6",
-        "belt-loader-pro-6",
-        "catering-truck-pro-6",
-        "deicing-truck-pro-6",
-        "ground-power-unit-pro-6",
-        "tow-bar-pro-6",
-        "pushback-bar-pro-6",
-        "marshaller-paddle-pro-6",
-        "safety-cone-pro-6",
-        "blast-pad-pro-6",
-        "runway-shoulder-light-pro-6",
-        "taxiway-sign-pro-6",
-        "perimeter-fence-pro-6",
-        "tower-window-pro-6",
-        "jet-bridge-canopy-pro-6"
+        "tower-window-pro-6"
       ]
+    }
+  ],
+  "relatedWords": [
+    {
+      "id": "ticket",
+      "word": "ticket",
+      "translation": "机票"
+    },
+    {
+      "id": "passport",
+      "word": "passport",
+      "translation": "护照"
+    },
+    {
+      "id": "boarding-pass",
+      "word": "boarding pass",
+      "translation": "登机牌"
+    },
+    {
+      "id": "baggage-scale",
+      "word": "baggage scale",
+      "translation": "行李秤"
+    },
+    {
+      "id": "luggage-cart",
+      "word": "luggage cart",
+      "translation": "行李车"
+    },
+    {
+      "id": "information-desk",
+      "word": "information desk",
+      "translation": "问讯台"
+    },
+    {
+      "id": "counter-number",
+      "word": "counter number",
+      "translation": "柜台编号"
+    },
+    {
+      "id": "baggage-tag",
+      "word": "baggage tag",
+      "translation": "行李标签"
+    },
+    {
+      "id": "conveyor-belt",
+      "word": "conveyor belt",
+      "translation": "传送带"
+    },
+    {
+      "id": "passport-scanner",
+      "word": "passport scanner",
+      "translation": "护照扫描器"
+    },
+    {
+      "id": "carry-on-bag",
+      "word": "carry on bag",
+      "translation": "手提行李"
+    },
+    {
+      "id": "ticket-counter",
+      "word": "ticket counter",
+      "translation": "售票柜台"
+    },
+    {
+      "id": "tag-printer",
+      "word": "tag printer",
+      "translation": "标签打印机"
+    },
+    {
+      "id": "scale-platform",
+      "word": "scale platform",
+      "translation": "秤台"
+    },
+    {
+      "id": "belt-roller",
+      "word": "belt roller",
+      "translation": "传送带滚轮"
+    },
+    {
+      "id": "barcode-reader",
+      "word": "barcode reader",
+      "translation": "条码读取器"
+    },
+    {
+      "id": "bag-handle",
+      "word": "bag handle",
+      "translation": "行李提手"
+    },
+    {
+      "id": "trolley-wheel",
+      "word": "trolley wheel",
+      "translation": "行李车轮"
+    },
+    {
+      "id": "tray-table",
+      "word": "tray table",
+      "translation": "托盘台"
+    },
+    {
+      "id": "privacy-lane",
+      "word": "privacy lane",
+      "translation": "隐私通道"
+    },
+    {
+      "id": "tray-stack",
+      "word": "tray stack",
+      "translation": "托盘叠"
+    },
+    {
+      "id": "inspection-table",
+      "word": "inspection table",
+      "translation": "检查台"
+    },
+    {
+      "id": "monitor-screen",
+      "word": "monitor screen",
+      "translation": "监视器屏幕"
+    },
+    {
+      "id": "tray-handle",
+      "word": "tray handle",
+      "translation": "托盘提手"
+    },
+    {
+      "id": "tray-rim",
+      "word": "tray rim",
+      "translation": "托盘边缘"
+    },
+    {
+      "id": "belt-seam",
+      "word": "belt seam",
+      "translation": "传送带接缝"
+    },
+    {
+      "id": "x-ray-tunnel",
+      "word": "x ray tunnel",
+      "translation": "X 光通道"
+    },
+    {
+      "id": "belt-motor",
+      "word": "belt motor",
+      "translation": "传送带电机"
+    },
+    {
+      "id": "tray-corner",
+      "word": "tray corner",
+      "translation": "托盘角"
+    },
+    {
+      "id": "floor-guide",
+      "word": "floor guide",
+      "translation": "地面导线"
+    },
+    {
+      "id": "power-socket",
+      "word": "power socket",
+      "translation": "电源插座"
+    },
+    {
+      "id": "gate",
+      "word": "gate",
+      "translation": "登机口"
+    },
+    {
+      "id": "boarding-area",
+      "word": "boarding area",
+      "translation": "登机区"
+    },
+    {
+      "id": "aircraft-door",
+      "word": "aircraft door",
+      "translation": "飞机舱门"
+    },
+    {
+      "id": "departure-lounge",
+      "word": "departure lounge",
+      "translation": "出发候机厅"
+    },
+    {
+      "id": "boarding-gate",
+      "word": "boarding gate",
+      "translation": "登机闸口"
+    },
+    {
+      "id": "flight-display",
+      "word": "flight display",
+      "translation": "航班显示屏"
+    },
+    {
+      "id": "charging-table",
+      "word": "charging table",
+      "translation": "充电桌"
+    },
+    {
+      "id": "gate-podium",
+      "word": "gate podium",
+      "translation": "登机台"
+    },
+    {
+      "id": "display-frame",
+      "word": "display frame",
+      "translation": "显示屏边框"
+    },
+    {
+      "id": "boarding-scanner",
+      "word": "boarding scanner",
+      "translation": "登机扫描器"
+    },
+    {
+      "id": "podium-edge",
+      "word": "podium edge",
+      "translation": "登机台边缘"
+    },
+    {
+      "id": "display-bezel",
+      "word": "display bezel",
+      "translation": "显示屏边框"
+    },
+    {
+      "id": "bridge-handrail",
+      "word": "bridge handrail",
+      "translation": "登机桥扶手"
+    },
+    {
+      "id": "cabin-door",
+      "word": "cabin door",
+      "translation": "客舱门"
+    },
+    {
+      "id": "floor-marker",
+      "word": "floor marker",
+      "translation": "地面标记"
+    },
+    {
+      "id": "scanner-glass",
+      "word": "scanner glass",
+      "translation": "扫描器玻璃"
+    },
+    {
+      "id": "door-handle",
+      "word": "door handle",
+      "translation": "舱门把手"
+    },
+    {
+      "id": "window-latch",
+      "word": "window latch",
+      "translation": "窗扣"
+    },
+    {
+      "id": "carpet-seam",
+      "word": "carpet seam",
+      "translation": "地毯接缝"
+    },
+    {
+      "id": "baggage-cart",
+      "word": "baggage cart",
+      "translation": "行李车"
+    },
+    {
+      "id": "arrival-hall",
+      "word": "arrival hall",
+      "translation": "到达大厅"
+    },
+    {
+      "id": "carousel-rail",
+      "word": "carousel rail",
+      "translation": "转盘护栏"
+    },
+    {
+      "id": "luggage-tag",
+      "word": "luggage tag",
+      "translation": "行李标签"
+    },
+    {
+      "id": "claim-screen",
+      "word": "claim screen",
+      "translation": "提取屏幕"
+    },
+    {
+      "id": "trolley",
+      "word": "trolley",
+      "translation": "手推车"
+    },
+    {
+      "id": "customs-lane",
+      "word": "customs lane",
+      "translation": "海关通道"
+    },
+    {
+      "id": "suitcase-wheel",
+      "word": "suitcase wheel",
+      "translation": "行李箱轮"
+    },
+    {
+      "id": "tag-loop",
+      "word": "tag loop",
+      "translation": "标签环"
+    },
+    {
+      "id": "carousel-frame",
+      "word": "carousel frame",
+      "translation": "转盘框架"
+    },
+    {
+      "id": "claim-counter",
+      "word": "claim counter",
+      "translation": "提取柜台"
+    },
+    {
+      "id": "rubber-belt",
+      "word": "rubber belt",
+      "translation": "橡胶传送带"
+    },
+    {
+      "id": "roller",
+      "word": "roller",
+      "translation": "滚轮"
+    },
+    {
+      "id": "cart-handle",
+      "word": "cart handle",
+      "translation": "行李车把手"
+    },
+    {
+      "id": "screen-bezel",
+      "word": "screen bezel",
+      "translation": "屏幕边框"
+    },
+    {
+      "id": "floor-stripe",
+      "word": "floor stripe",
+      "translation": "地面条带"
+    },
+    {
+      "id": "barrier-post",
+      "word": "barrier post",
+      "translation": "隔离柱"
+    },
+    {
+      "id": "wheel-housing",
+      "word": "wheel housing",
+      "translation": "轮罩"
+    },
+    {
+      "id": "rail-joint",
+      "word": "rail joint",
+      "translation": "护栏接缝"
+    },
+    {
+      "id": "cart-caster",
+      "word": "cart caster",
+      "translation": "手推车脚轮"
+    },
+    {
+      "id": "floor-drain",
+      "word": "floor drain",
+      "translation": "地漏"
+    },
+    {
+      "id": "runway-marking",
+      "word": "runway marking",
+      "translation": "跑道标线"
+    },
+    {
+      "id": "air-bridge",
+      "word": "air bridge",
+      "translation": "登机桥"
+    },
+    {
+      "id": "apron-light",
+      "word": "apron light",
+      "translation": "机坪灯"
+    },
+    {
+      "id": "wheel-assembly",
+      "word": "wheel assembly",
+      "translation": "轮组"
+    },
+    {
+      "id": "gate-stand",
+      "word": "gate stand",
+      "translation": "机位"
+    },
+    {
+      "id": "runway-edge",
+      "word": "runway edge",
+      "translation": "跑道边缘"
+    },
+    {
+      "id": "tail-fin",
+      "word": "tail fin",
+      "translation": "垂直尾翼"
+    },
+    {
+      "id": "wing-flap",
+      "word": "wing flap",
+      "translation": "襟翼"
+    },
+    {
+      "id": "tire-tread",
+      "word": "tire tread",
+      "translation": "轮胎花纹"
+    },
+    {
+      "id": "centerline-dash",
+      "word": "centerline dash",
+      "translation": "中心线虚线"
+    },
+    {
+      "id": "passport-gate-pro-1",
+      "word": "passport gate",
+      "translation": "护照闸机"
+    },
+    {
+      "id": "bag-drop-pro-1",
+      "word": "bag drop",
+      "translation": "行李托运台"
+    },
+    {
+      "id": "bag-drop-counter-pro-1",
+      "word": "bag drop counter",
+      "translation": "行李托运柜台"
+    },
+    {
+      "id": "boarding-pass-printer-pro-1",
+      "word": "boarding pass printer",
+      "translation": "登机牌打印机"
+    },
+    {
+      "id": "passport-reader-pro-1",
+      "word": "passport reader",
+      "translation": "护照读取器"
+    },
+    {
+      "id": "luggage-tag-printer-pro-1",
+      "word": "luggage tag printer",
+      "translation": "行李牌打印机"
+    },
+    {
+      "id": "travel-document-pro-1",
+      "word": "travel document",
+      "translation": "旅行证件"
+    },
+    {
+      "id": "security-seal-pro-1",
+      "word": "security seal",
+      "translation": "安全封条"
+    },
+    {
+      "id": "baggage-receipt-pro-1",
+      "word": "baggage receipt",
+      "translation": "行李收据"
+    },
+    {
+      "id": "queue-rope-pro-1",
+      "word": "queue rope",
+      "translation": "排队绳"
+    },
+    {
+      "id": "lane-sign-pro-1",
+      "word": "lane sign",
+      "translation": "通道标牌"
+    },
+    {
+      "id": "document-tray-pro-1",
+      "word": "document tray",
+      "translation": "证件托盘"
+    },
+    {
+      "id": "scale-display-pro-1",
+      "word": "scale display",
+      "translation": "秤显示屏"
+    },
+    {
+      "id": "luggage-bin-pro-1",
+      "word": "luggage bin",
+      "translation": "行李箱"
+    },
+    {
+      "id": "oversize-baggage-pro-1",
+      "word": "oversize baggage",
+      "translation": "超规行李"
+    },
+    {
+      "id": "baggage-chute-pro-1",
+      "word": "baggage chute",
+      "translation": "行李滑道"
+    },
+    {
+      "id": "counter-partition-pro-1",
+      "word": "counter partition",
+      "translation": "柜台隔板"
+    },
+    {
+      "id": "ticket-scanner-pro-1",
+      "word": "ticket scanner",
+      "translation": "票据扫描器"
+    },
+    {
+      "id": "passport-tray-pro-1",
+      "word": "passport tray",
+      "translation": "护照托盘"
+    },
+    {
+      "id": "bag-belt-pro-1",
+      "word": "bag belt",
+      "translation": "行李带"
+    },
+    {
+      "id": "belt-guide-pro-1",
+      "word": "belt guide",
+      "translation": "传送带导轨"
+    },
+    {
+      "id": "trolley-handle-pro-1",
+      "word": "trolley handle",
+      "translation": "行李车把手"
+    },
+    {
+      "id": "wheel-brake-pro-1",
+      "word": "wheel brake",
+      "translation": "车轮制动器"
+    },
+    {
+      "id": "document-pocket-pro-1",
+      "word": "document pocket",
+      "translation": "证件袋"
+    },
+    {
+      "id": "bag-strap-pro-1",
+      "word": "bag strap",
+      "translation": "行李带"
+    },
+    {
+      "id": "security-tray-pro-2",
+      "word": "security tray",
+      "translation": "安检托盘"
+    },
+    {
+      "id": "body-scanner-pro-2",
+      "word": "body scanner",
+      "translation": "人体扫描仪"
+    },
+    {
+      "id": "hand-scanner-pro-2",
+      "word": "hand scanner",
+      "translation": "手持扫描仪"
+    },
+    {
+      "id": "security-monitor-pro-2",
+      "word": "security monitor",
+      "translation": "安检显示器"
+    },
+    {
+      "id": "x-ray-console-pro-2",
+      "word": "x ray console",
+      "translation": "X射线控制台"
+    },
+    {
+      "id": "image-screen-pro-2",
+      "word": "image screen",
+      "translation": "成像屏幕"
+    },
+    {
+      "id": "tray-return-pro-2",
+      "word": "tray return",
+      "translation": "托盘回收台"
+    },
+    {
+      "id": "roller-conveyor-pro-2",
+      "word": "roller conveyor",
+      "translation": "滚筒传送带"
+    },
+    {
+      "id": "inspection-bench-pro-2",
+      "word": "inspection bench",
+      "translation": "检查工作台"
+    },
+    {
+      "id": "liquid-bag-pro-2",
+      "word": "liquid bag",
+      "translation": "液体袋"
+    },
+    {
+      "id": "electronics-tray-pro-2",
+      "word": "electronics tray",
+      "translation": "电子设备托盘"
+    },
+    {
+      "id": "shoe-tray-pro-2",
+      "word": "shoe tray",
+      "translation": "鞋物托盘"
+    },
+    {
+      "id": "coat-bin-pro-2",
+      "word": "coat bin",
+      "translation": "外套箱"
+    },
+    {
+      "id": "security-belt-pro-2",
+      "word": "security belt",
+      "translation": "安检传送带"
+    },
+    {
+      "id": "warning-beacon-pro-2",
+      "word": "warning beacon",
+      "translation": "警示信标"
+    },
+    {
+      "id": "access-door-pro-2",
+      "word": "access door",
+      "translation": "通行门"
+    },
+    {
+      "id": "tunnel-light-pro-2",
+      "word": "tunnel light",
+      "translation": "通道灯"
+    },
+    {
+      "id": "detector-mat-pro-2",
+      "word": "detector mat",
+      "translation": "探测垫"
+    },
+    {
+      "id": "scanner-floor-marker-pro-2",
+      "word": "scanner floor marker",
+      "translation": "扫描区地面标记"
+    },
+    {
+      "id": "power-cabinet-pro-2",
+      "word": "power cabinet",
+      "translation": "电源柜"
+    },
+    {
+      "id": "cable-cover-pro-2",
+      "word": "cable cover",
+      "translation": "线缆护盖"
+    },
+    {
+      "id": "tray-stacker-pro-2",
+      "word": "tray stacker",
+      "translation": "托盘堆叠架"
+    },
+    {
+      "id": "tray-shelf-pro-2",
+      "word": "tray shelf",
+      "translation": "托盘架"
+    },
+    {
+      "id": "bin-handle-pro-2",
+      "word": "bin handle",
+      "translation": "箱体把手"
+    },
+    {
+      "id": "inspection-lamp-pro-2",
+      "word": "inspection lamp",
+      "translation": "检查灯"
+    },
+    {
+      "id": "boarding-queue-pro-3",
+      "word": "boarding queue",
+      "translation": "登机队列"
+    },
+    {
+      "id": "airport-lounge-pro-3",
+      "word": "airport lounge",
+      "translation": "机场休息区"
+    },
+    {
+      "id": "travelator-pro-3",
+      "word": "travelator",
+      "translation": "自动人行道"
+    },
+    {
+      "id": "moving-walkway-pro-3",
+      "word": "moving walkway",
+      "translation": "移动步道"
+    },
+    {
+      "id": "escalator-pro-3",
+      "word": "escalator",
+      "translation": "自动扶梯"
+    },
+    {
+      "id": "lift-lobby-pro-3",
+      "word": "lift lobby",
+      "translation": "电梯厅"
+    },
+    {
+      "id": "side-table-pro-3",
+      "word": "side table",
+      "translation": "边桌"
+    },
+    {
+      "id": "charging-locker-pro-3",
+      "word": "charging locker",
+      "translation": "充电柜"
+    },
+    {
+      "id": "water-fountain-pro-3",
+      "word": "water fountain",
+      "translation": "饮水台"
+    },
+    {
+      "id": "window-sill-pro-3",
+      "word": "window sill",
+      "translation": "窗台"
+    },
+    {
+      "id": "concourse-light-pro-3",
+      "word": "concourse light",
+      "translation": "大厅灯"
+    },
+    {
+      "id": "gate-barrier-pro-3",
+      "word": "gate barrier",
+      "translation": "登机口隔栏"
+    },
+    {
+      "id": "queue-belt-pro-3",
+      "word": "queue belt",
+      "translation": "排队带"
+    },
+    {
+      "id": "qr-reader-pro-3",
+      "word": "qr reader",
+      "translation": "二维码读取器"
+    },
+    {
+      "id": "gate-monitor-pro-3",
+      "word": "gate monitor",
+      "translation": "登机口显示器"
+    },
+    {
+      "id": "boarding-desk-pro-3",
+      "word": "boarding desk",
+      "translation": "登机服务台"
+    },
+    {
+      "id": "service-counter-pro-3",
+      "word": "service counter",
+      "translation": "服务柜台"
+    },
+    {
+      "id": "lounge-table-pro-3",
+      "word": "lounge table",
+      "translation": "休息区桌"
+    },
+    {
+      "id": "seat-divider-pro-3",
+      "word": "seat divider",
+      "translation": "座椅隔板"
+    },
+    {
+      "id": "seat-number-pro-3",
+      "word": "seat number",
+      "translation": "座位号"
+    },
+    {
+      "id": "terminal-clock-pro-3",
+      "word": "terminal clock",
+      "translation": "航站楼时钟"
+    },
+    {
+      "id": "bridge-corridor-pro-3",
+      "word": "bridge corridor",
+      "translation": "廊桥通道"
+    },
+    {
+      "id": "jet-bridge-floor-pro-3",
+      "word": "jet bridge floor",
+      "translation": "登机桥地面"
+    },
+    {
+      "id": "bridge-door-pro-3",
+      "word": "bridge door",
+      "translation": "廊桥门"
+    },
+    {
+      "id": "aircraft-stairs-pro-3",
+      "word": "aircraft stairs",
+      "translation": "登机梯"
+    },
+    {
+      "id": "baggage-door-pro-3",
+      "word": "baggage door",
+      "translation": "行李舱门"
+    },
+    {
+      "id": "departure-board-pro-3",
+      "word": "departure board",
+      "translation": "出发信息板"
+    },
+    {
+      "id": "apron-stand-pro-4",
+      "word": "apron stand",
+      "translation": "机坪机位"
+    },
+    {
+      "id": "cockpit-door-pro-4",
+      "word": "cockpit door",
+      "translation": "驾驶舱门"
+    },
+    {
+      "id": "landing-light-pro-4",
+      "word": "landing light",
+      "translation": "着陆灯"
+    },
+    {
+      "id": "flap-track-pro-4",
+      "word": "flap track",
+      "translation": "襟翼滑轨"
+    },
+    {
+      "id": "spoiler-pro-4",
+      "word": "spoiler",
+      "translation": "扰流板"
+    },
+    {
+      "id": "aileron-pro-4",
+      "word": "aileron",
+      "translation": "副翼"
+    },
+    {
+      "id": "rudder-pro-4",
+      "word": "rudder",
+      "translation": "方向舵"
+    },
+    {
+      "id": "elevator-pro-4",
+      "word": "elevator",
+      "translation": "升降舵"
+    },
+    {
+      "id": "vertical-stabilizer-pro-4",
+      "word": "vertical stabilizer",
+      "translation": "垂直安定面"
+    },
+    {
+      "id": "horizontal-stabilizer-pro-4",
+      "word": "horizontal stabilizer",
+      "translation": "水平安定面"
+    },
+    {
+      "id": "nose-gear-pro-4",
+      "word": "nose gear",
+      "translation": "前起落架"
+    },
+    {
+      "id": "main-gear-pro-4",
+      "word": "main gear",
+      "translation": "主起落架"
+    },
+    {
+      "id": "gear-strut-pro-4",
+      "word": "gear strut",
+      "translation": "起落架支柱"
+    },
+    {
+      "id": "wheel-hub-pro-4",
+      "word": "wheel hub",
+      "translation": "轮毂"
+    },
+    {
+      "id": "brake-disc-pro-4",
+      "word": "brake disc",
+      "translation": "刹车盘"
+    },
+    {
+      "id": "cargo-hold-pro-4",
+      "word": "cargo hold",
+      "translation": "货舱"
+    },
+    {
+      "id": "cargo-door-pro-4",
+      "word": "cargo door",
+      "translation": "货舱门"
+    },
+    {
+      "id": "baggage-loader-pro-4",
+      "word": "baggage loader",
+      "translation": "行李装卸车"
+    },
+    {
+      "id": "fuel-truck-pro-4",
+      "word": "fuel truck",
+      "translation": "加油车"
+    },
+    {
+      "id": "tow-tractor-pro-4",
+      "word": "tow tractor",
+      "translation": "牵引车"
+    },
+    {
+      "id": "pushback-tug-pro-4",
+      "word": "pushback tug",
+      "translation": "推出牵引车"
+    },
+    {
+      "id": "ground-cone-pro-4",
+      "word": "ground cone",
+      "translation": "地面锥桶"
+    },
+    {
+      "id": "safety-chock-pro-4",
+      "word": "safety chock",
+      "translation": "安全轮挡"
+    },
+    {
+      "id": "marshaller-wand-pro-4",
+      "word": "marshaller wand",
+      "translation": "指挥棒"
+    },
+    {
+      "id": "jet-blast-fence-pro-4",
+      "word": "jet blast fence",
+      "translation": "喷流防护栏"
+    },
+    {
+      "id": "claim-chute-pro-5",
+      "word": "claim chute",
+      "translation": "行李滑槽"
+    },
+    {
+      "id": "chute-door-pro-5",
+      "word": "chute door",
+      "translation": "滑槽门"
+    },
+    {
+      "id": "oversize-belt-pro-5",
+      "word": "oversize belt",
+      "translation": "超规行李带"
+    },
+    {
+      "id": "claim-monitor-pro-5",
+      "word": "claim monitor",
+      "translation": "提取显示器"
+    },
+    {
+      "id": "luggage-trolley-bay-pro-5",
+      "word": "luggage trolley bay",
+      "translation": "行李车位"
+    },
+    {
+      "id": "lost-baggage-desk-pro-5",
+      "word": "lost baggage desk",
+      "translation": "失物行李台"
+    },
+    {
+      "id": "arrival-door-pro-5",
+      "word": "arrival door",
+      "translation": "到达门"
+    },
+    {
+      "id": "customs-barrier-pro-5",
+      "word": "customs barrier",
+      "translation": "海关隔栏"
+    },
+    {
+      "id": "claim-inspection-table-pro-5",
+      "word": "claim inspection table",
+      "translation": "提取检查台"
+    },
+    {
+      "id": "trolley-queue-pro-5",
+      "word": "trolley queue",
+      "translation": "行李车队列"
+    },
+    {
+      "id": "carousel-motor-pro-5",
+      "word": "carousel motor",
+      "translation": "转盘电机"
+    },
+    {
+      "id": "roller-housing-pro-5",
+      "word": "roller housing",
+      "translation": "滚筒护罩"
+    },
+    {
+      "id": "carousel-guide-pro-5",
+      "word": "carousel guide",
+      "translation": "转盘导轨"
+    },
+    {
+      "id": "carousel-hub-pro-5",
+      "word": "carousel hub",
+      "translation": "转盘中心"
+    },
+    {
+      "id": "carousel-cover-pro-5",
+      "word": "carousel cover",
+      "translation": "转盘护罩"
+    },
+    {
+      "id": "slat-hinge-pro-5",
+      "word": "slat hinge",
+      "translation": "板条铰链"
+    },
+    {
+      "id": "rubber-skirt-pro-5",
+      "word": "rubber skirt",
+      "translation": "橡胶裙边"
+    },
+    {
+      "id": "baggage-tub-pro-5",
+      "word": "baggage tub",
+      "translation": "行李槽"
+    },
+    {
+      "id": "bag-wheel-pro-5",
+      "word": "bag wheel",
+      "translation": "行李轮"
+    },
+    {
+      "id": "bag-corner-pro-5",
+      "word": "bag corner",
+      "translation": "行李角"
+    },
+    {
+      "id": "tag-pocket-pro-5",
+      "word": "tag pocket",
+      "translation": "行李牌袋"
+    },
+    {
+      "id": "claim-ticket-pro-5",
+      "word": "claim ticket",
+      "translation": "提取票"
+    },
+    {
+      "id": "counter-tray-pro-5",
+      "word": "counter tray",
+      "translation": "柜台托盘"
+    },
+    {
+      "id": "arrival-gate-pro-5",
+      "word": "arrival gate",
+      "translation": "到达闸门"
+    },
+    {
+      "id": "floor-bollard-pro-5",
+      "word": "floor bollard",
+      "translation": "地面护柱"
+    },
+    {
+      "id": "claim-barrier-pro-5",
+      "word": "claim barrier",
+      "translation": "提取隔栏"
+    },
+    {
+      "id": "cart-rail-pro-5",
+      "word": "cart rail",
+      "translation": "行李车栏"
+    },
+    {
+      "id": "trolley-deck-pro-5",
+      "word": "trolley deck",
+      "translation": "行李车底板"
+    },
+    {
+      "id": "carousel-edge-pro-5",
+      "word": "carousel edge",
+      "translation": "转盘边缘"
+    },
+    {
+      "id": "runway-threshold-pro-6",
+      "word": "runway threshold",
+      "translation": "跑道入口"
+    },
+    {
+      "id": "runway-shoulder-pro-6",
+      "word": "runway shoulder",
+      "translation": "跑道道肩"
+    },
+    {
+      "id": "taxiway-edge-pro-6",
+      "word": "taxiway edge",
+      "translation": "滑行道边缘"
+    },
+    {
+      "id": "holding-bay-pro-6",
+      "word": "holding bay",
+      "translation": "等待位"
+    },
+    {
+      "id": "apron-joint-pro-6",
+      "word": "apron joint",
+      "translation": "机坪接缝"
+    },
+    {
+      "id": "stand-marking-pro-6",
+      "word": "stand marking",
+      "translation": "机位标线"
+    },
+    {
+      "id": "aircraft-beacon-pro-6",
+      "word": "aircraft beacon",
+      "translation": "航空器信标灯"
+    },
+    {
+      "id": "navigation-light-pro-6",
+      "word": "navigation light",
+      "translation": "航行灯"
+    },
+    {
+      "id": "wing-root-fairing-pro-6",
+      "word": "wing root fairing",
+      "translation": "翼根整流罩"
+    },
+    {
+      "id": "flap-hinge-pro-6",
+      "word": "flap hinge",
+      "translation": "襟翼铰链"
+    },
+    {
+      "id": "exhaust-nozzle-pro-6",
+      "word": "exhaust nozzle",
+      "translation": "排气喷口"
+    },
+    {
+      "id": "landing-gear-door-pro-6",
+      "word": "landing gear door",
+      "translation": "起落架舱门"
+    },
+    {
+      "id": "wheel-chock-pro-6",
+      "word": "wheel chock",
+      "translation": "轮挡"
+    },
+    {
+      "id": "cargo-loader-pro-6",
+      "word": "cargo loader",
+      "translation": "货物装卸车"
+    },
+    {
+      "id": "belt-loader-pro-6",
+      "word": "belt loader",
+      "translation": "皮带装卸车"
+    },
+    {
+      "id": "catering-truck-pro-6",
+      "word": "catering truck",
+      "translation": "配餐车"
+    },
+    {
+      "id": "deicing-truck-pro-6",
+      "word": "deicing truck",
+      "translation": "除冰车"
+    },
+    {
+      "id": "ground-power-unit-pro-6",
+      "word": "ground power unit",
+      "translation": "地面电源车"
+    },
+    {
+      "id": "tow-bar-pro-6",
+      "word": "tow bar",
+      "translation": "牵引杆"
+    },
+    {
+      "id": "pushback-bar-pro-6",
+      "word": "pushback bar",
+      "translation": "推出杆"
+    },
+    {
+      "id": "marshaller-paddle-pro-6",
+      "word": "marshaller paddle",
+      "translation": "引导员指挥板"
+    },
+    {
+      "id": "safety-cone-pro-6",
+      "word": "safety cone",
+      "translation": "安全锥"
+    },
+    {
+      "id": "blast-pad-pro-6",
+      "word": "blast pad",
+      "translation": "喷流防护坪"
+    },
+    {
+      "id": "runway-shoulder-light-pro-6",
+      "word": "runway shoulder light",
+      "translation": "道肩灯"
+    },
+    {
+      "id": "taxiway-sign-pro-6",
+      "word": "taxiway sign",
+      "translation": "滑行道标志"
+    },
+    {
+      "id": "perimeter-fence-pro-6",
+      "word": "perimeter fence",
+      "translation": "周界围栏"
+    },
+    {
+      "id": "jet-bridge-canopy-pro-6",
+      "word": "jet bridge canopy",
+      "translation": "登机桥顶棚"
+    },
+    {
+      "id": "gate-sign-frame-pro-7",
+      "word": "gate sign frame",
+      "translation": "登机口标牌框"
+    },
+    {
+      "id": "boarding-podium-base-pro-7",
+      "word": "boarding podium base",
+      "translation": "登机台底座"
+    },
+    {
+      "id": "boarding-pass-slot-pro-7",
+      "word": "boarding pass slot",
+      "translation": "登机牌插槽"
+    },
+    {
+      "id": "gate-scanner-lens-pro-7",
+      "word": "gate scanner lens",
+      "translation": "登机口扫描镜头"
+    },
+    {
+      "id": "queue-barrier-foot-pro-7",
+      "word": "queue barrier foot",
+      "translation": "排队隔离柱底座"
+    },
+    {
+      "id": "queue-belt-clip-pro-7",
+      "word": "queue belt clip",
+      "translation": "排队带夹"
+    },
+    {
+      "id": "seat-support-pro-7",
+      "word": "seat support",
+      "translation": "座椅支撑"
+    },
+    {
+      "id": "seat-cushion-seam-pro-7",
+      "word": "seat cushion seam",
+      "translation": "座垫接缝"
+    },
+    {
+      "id": "row-divider-pro-7",
+      "word": "row divider",
+      "translation": "座椅排隔板"
+    },
+    {
+      "id": "armrest-hinge-pro-7",
+      "word": "armrest hinge",
+      "translation": "扶手铰链"
+    },
+    {
+      "id": "gate-reader-pro-7",
+      "word": "gate reader",
+      "translation": "登机口读卡器"
+    },
+    {
+      "id": "gate-barrier-foot-pro-7",
+      "word": "gate barrier foot",
+      "translation": "登机口隔离柱底座"
+    },
+    {
+      "id": "concourse-handrail-pro-7",
+      "word": "concourse handrail",
+      "translation": "大厅扶手"
+    },
+    {
+      "id": "jet-bridge-joint-pro-7",
+      "word": "jet bridge joint",
+      "translation": "登机桥接头"
+    },
+    {
+      "id": "jet-bridge-floor-mat-pro-7",
+      "word": "jet bridge floor mat",
+      "translation": "登机桥地垫"
+    },
+    {
+      "id": "bridge-door-seal-pro-7",
+      "word": "bridge door seal",
+      "translation": "廊桥门密封"
+    },
+    {
+      "id": "aircraft-stair-rail-pro-7",
+      "word": "aircraft stair rail",
+      "translation": "登机梯扶手"
+    },
+    {
+      "id": "boarding-desk-drawer-pro-7",
+      "word": "boarding desk drawer",
+      "translation": "登机台抽屉"
+    },
+    {
+      "id": "departure-board-frame-pro-7",
+      "word": "departure board frame",
+      "translation": "出发牌框"
+    },
+    {
+      "id": "concourse-column-base-pro-7",
+      "word": "concourse column base",
+      "translation": "大厅柱基"
+    },
+    {
+      "id": "gate-counter-edge-pro-7",
+      "word": "gate counter edge",
+      "translation": "登机柜台边"
+    },
+    {
+      "id": "lounge-plant-pot-pro-7",
+      "word": "lounge plant pot",
+      "translation": "候机区花盆"
+    },
+    {
+      "id": "water-fountain-spout-pro-7",
+      "word": "water fountain spout",
+      "translation": "饮水机出水嘴"
+    },
+    {
+      "id": "zipper-pull-pro-8",
+      "word": "zipper pull",
+      "translation": "拉链头"
+    },
+    {
+      "id": "tag-barcode-pro-8",
+      "word": "tag barcode",
+      "translation": "标签条码"
+    },
+    {
+      "id": "suitcase-lining-pro-8",
+      "word": "suitcase lining",
+      "translation": "行李箱内衬"
+    },
+    {
+      "id": "suitcase-strap-pro-8",
+      "word": "suitcase strap",
+      "translation": "行李箱绑带"
+    },
+    {
+      "id": "spinner-caster-pro-8",
+      "word": "spinner caster",
+      "translation": "万向脚轮"
+    },
+    {
+      "id": "carousel-support-leg-pro-8",
+      "word": "carousel support leg",
+      "translation": "转盘支腿"
+    },
+    {
+      "id": "carousel-drive-cover-pro-8",
+      "word": "carousel drive cover",
+      "translation": "转盘驱动罩"
+    },
+    {
+      "id": "drive-roller-pro-8",
+      "word": "drive roller",
+      "translation": "驱动滚筒"
+    },
+    {
+      "id": "return-roller-pro-8",
+      "word": "return roller",
+      "translation": "回程滚筒"
+    },
+    {
+      "id": "guide-rail-pro-8",
+      "word": "guide rail",
+      "translation": "导向轨"
+    },
+    {
+      "id": "belt-tensioner-pro-8",
+      "word": "belt tensioner",
+      "translation": "皮带张紧器"
+    },
+    {
+      "id": "motor-housing-pro-8",
+      "word": "motor housing",
+      "translation": "电机外壳"
+    },
+    {
+      "id": "claim-number-display-pro-8",
+      "word": "claim number display",
+      "translation": "提取编号显示屏"
+    },
+    {
+      "id": "baggage-information-screen-pro-8",
+      "word": "baggage information screen",
+      "translation": "行李信息屏"
+    },
+    {
+      "id": "oversize-gate-pro-8",
+      "word": "oversize gate",
+      "translation": "超大行李闸口"
+    },
+    {
+      "id": "bag-inspection-tray-pro-8",
+      "word": "bag inspection tray",
+      "translation": "行李检查托盘"
+    },
+    {
+      "id": "customs-desk-pro-8",
+      "word": "customs desk",
+      "translation": "海关柜台"
+    },
+    {
+      "id": "claim-counter-shelf-pro-8",
+      "word": "claim counter shelf",
+      "translation": "提取柜台搁板"
+    },
+    {
+      "id": "queue-sign-pro-8",
+      "word": "queue sign",
+      "translation": "排队标牌"
+    },
+    {
+      "id": "stanchion-base-pro-8",
+      "word": "stanchion base",
+      "translation": "隔离柱底座"
+    },
+    {
+      "id": "barrier-strap-pro-8",
+      "word": "barrier strap",
+      "translation": "隔离带"
+    },
+    {
+      "id": "tactile-strip-pro-8",
+      "word": "tactile strip",
+      "translation": "触感条"
+    },
+    {
+      "id": "drain-cover-pro-8",
+      "word": "drain cover",
+      "translation": "排水盖"
     }
   ]
 }

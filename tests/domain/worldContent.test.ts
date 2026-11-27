@@ -3176,7 +3176,7 @@ test("urban services adds hospital, airport and office vocabulary without breaki
     ["histology-sectioning-workstation", 108, 6, "pathology-lab", ["rotary microtome", "rotary handwheel", "microtome specimen head", "visible cutting blade", "section catch tray", "slide water bath", "sectioning tools", "cassette basket", "microtome control panel"]],
     ["hospital-pharmacy", 86, 7, "hospital", ["medicine shelf", "dispensing counter", "tablet", "automated dispensing cabinet", "rolling cart", "computer terminal", "pill counting tray", "mortar bowl", "graduated cylinder", "medicine bin", "pump dispenser"]],
     ["tablet-counting-bench", 57, 6, "hospital-pharmacy", ["pill counting tray", "tablet", "counting spatula", "blister pack", "paper bag", "mortar", "pestle", "measuring cup", "label roll", "cardboard core", "bin", "fold", "shiny"]],
-    ["airport", 390, 5, "urban-services", ["check in counter", "security screening", "jet bridge", "baggage carousel", "runway", "control tower", "aircraft fuselage", "body scanner", "claim chute", "carousel motor", "runway threshold", "ground power unit", "gate sign frame", "departure board frame", "luggage shell"]],
+    ["airport", 105, 5, "urban-services", ["check in counter", "kiosk screen", "security screening", "detector arch", "jet bridge", "baggage carousel", "runway", "control tower", "aircraft fuselage", "carousel island", "luggage shell"]],
     ["baggage-claim", 76, 5, "airport", ["reclaim carousel", "hard-shell suitcase", "claim tag", "arrival foyer", "cart bay", "customs booth", "inspection tray", "arrivals reception counter", "arrival wall clock", "security camera dome"]],
     ["baggage-service-desk", 106, 7, "baggage-claim", ["desk bell", "clipboard", "luggage tag", "open suitcase", "wooden counter"]],
     ["suitcase-packing-table", 90, 8, "baggage-service-desk", ["T-shirt", "scarf", "socks", "travel adapter", "sunglasses", "toothbrush"]],
@@ -3204,6 +3204,14 @@ test("urban services adds hospital, airport and office vocabulary without breaki
     for (const term of required) {
       assert.ok(words.has(term.toLocaleLowerCase()), `${sceneId} visibly grounds ${term}`);
     }
+  }
+  const airport = byId.get("airport")!;
+  const airportIndex = airport.relatedWords ?? [];
+  assert.equal(airportIndex.length, 285);
+  assert.equal(new Set([...airport.labels, ...airportIndex].map(word => word.id)).size, 390);
+  const terminalReference = new Set(airportIndex.map(word => word.word));
+  for (const term of ["body scanner", "claim chute", "carousel motor", "runway threshold", "ground power unit", "gate sign frame", "departure board frame", "suitcase lining", "tag barcode"]) {
+    assert.ok(terminalReference.has(term), `${term} remains in the terminal index`);
   }
   const hospital = byId.get("hospital")!;
   const hospitalIndex = hospital.relatedWords ?? [];

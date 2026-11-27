@@ -249,7 +249,9 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   "hospital-pharmacy": 86,
   "tablet-counting-bench": 57,
   "automated-dispensing-cabinet": 150,
-  airport: 390,
+  // The terminal photo resolves 105 points, including the kiosk screens and luggage shells.
+  // Concealed mechanisms and unreadable documents belong in the scene index.
+  airport: 105,
   // Hidden conveyor mechanisms and unidentifiable small parts stay in the index.
   "baggage-claim": 76,
   "baggage-service-desk": 106,
