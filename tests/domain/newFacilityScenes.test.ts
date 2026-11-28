@@ -61,8 +61,10 @@ const contracts = [
     parentId: "security-checkpoint",
     asset: "/scenes/carry-on-baggage-scanner-premium-v1.jpg",
     sha256: "b9bb1a4985763405fab88538574a621cf9c6679653747f1babc3ab4d0511c49f",
-    labels: 147,
-    zoneSizes: [25, 25, 25, 25, 25, 22],
+    labels: 61,
+    related: 96,
+    audit: "image-reviewed",
+    zoneSizes: [7, 13, 10, 7, 12, 12],
   },
   {
     id: "desktop-workstation-equipment",
@@ -344,7 +346,7 @@ test("security checkpoint and open-plan office expose bounded equipment entrance
   const boarding = checkpoint.portals.find(({ childSceneId }: { childSceneId: string }) => childSceneId === "boarding-gate");
   assert.ok(scanner);
   assert.ok(boarding);
-  assert.deepEqual([scanner.x, scanner.y, scanner.width, scanner.height], [618, 239, 93, 47]);
+  assert.deepEqual([scanner.x, scanner.y, scanner.width, scanner.height], [667, 263, 38, 32]);
   assert.ok(scanner.x + scanner.width <= boarding.x, "scanner and boarding-gate crops must not overlap");
 
   const office = await readJson("open-plan-workstation.json");

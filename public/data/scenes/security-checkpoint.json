@@ -174,7 +174,7 @@
       "id": "security-checkpoint-region-monitor-housing",
       "description": "Pixel-audited “monitor housing” inside the Document check podium crop of the airport photograph",
       "kind": "part",
-      "x": 465,
+      "x": 467,
       "y": 332,
       "width": 3,
       "height": 16
@@ -288,15 +288,6 @@
       "height": 11
     },
     {
-      "id": "security-checkpoint-region-divestiture-table",
-      "description": "Pixel-audited “divestiture table” inside the Baggage screening and conveyors crop of the airport photograph",
-      "kind": "part",
-      "x": 1130,
-      "y": 371,
-      "width": 21,
-      "height": 6
-    },
-    {
       "id": "security-checkpoint-region-gray-tray",
       "description": "Pixel-audited “gray tray” inside the Baggage screening and conveyors crop of the airport photograph",
       "kind": "part",
@@ -363,8 +354,8 @@
       "id": "security-checkpoint-region-scanner-vent",
       "description": "Pixel-audited “scanner vent” inside the Baggage screening and conveyors crop of the airport photograph",
       "kind": "part",
-      "x": 684,
-      "y": 237,
+      "x": 620,
+      "y": 226,
       "width": 12,
       "height": 4
     },
@@ -381,10 +372,10 @@
       "id": "security-checkpoint-region-roller-track",
       "description": "Pixel-audited “roller track” inside the Baggage screening and conveyors crop of the airport photograph",
       "kind": "part",
-      "x": 792,
-      "y": 304,
-      "width": 18,
-      "height": 5
+      "x": 771,
+      "y": 302,
+      "width": 8,
+      "height": 3
     },
     {
       "id": "security-checkpoint-region-secondary-inspection-table",
@@ -453,10 +444,10 @@
       "id": "security-checkpoint-region-secondary-counter-drawer",
       "description": "Pixel-audited “secondary counter drawer” inside the Secondary inspection crop of the airport photograph",
       "kind": "part",
-      "x": 830,
-      "y": 641,
-      "width": 16,
-      "height": 6
+      "x": 831,
+      "y": 626,
+      "width": 15,
+      "height": 7
     },
     {
       "id": "security-checkpoint-region-pump-bottle",
@@ -642,10 +633,10 @@
       "id": "security-checkpoint-region-sliding-glass-door",
       "description": "Pixel-audited “sliding glass door” inside the Sterile departure exit crop of the airport photograph",
       "kind": "part",
-      "x": 1297,
-      "y": 193,
-      "width": 25,
-      "height": 31
+      "x": 1335,
+      "y": 211,
+      "width": 4,
+      "height": 26
     },
     {
       "id": "security-checkpoint-region-exit-door",
@@ -687,19 +678,19 @@
       "id": "portal-carry-on-baggage-scanner",
       "description": "Dark side panel of the baggage scanner between the two tall screening arches",
       "kind": "object",
-      "x": 618,
-      "y": 239,
-      "width": 93,
-      "height": 47
+      "x": 667,
+      "y": 263,
+      "width": 38,
+      "height": 32
     },
     {
       "id": "portal-boarding-gate",
       "description": "Large unobstructed sterile departure doorway leading from checkpoint to the boarding gate",
       "kind": "object",
-      "x": 1360,
-      "y": 156,
-      "width": 130,
-      "height": 131
+      "x": 1366,
+      "y": 338,
+      "width": 56,
+      "height": 30
     }
   ],
   "detailZones": [
@@ -771,7 +762,6 @@
         "security-checkpoint-conveyor-side-guard",
         "security-checkpoint-operator-console",
         "security-checkpoint-tunnel-curtain",
-        "security-checkpoint-divestiture-table",
         "security-checkpoint-gray-tray",
         "security-checkpoint-blue-tray",
         "security-checkpoint-baggage-scanner-housing",
@@ -849,17 +839,16 @@
     "policy": "visible-object-or-part-only",
     "reviewedAsset": "/scenes/airport-security-checkpoint-premium-v1.jpg",
     "reviewedAssetSha256": "8a12c6f335b1107d676112bf52033cc30d51aa352e9fbacf0bde609a3ef85e20",
-    "rationale": "The queue fittings, trays, desk furniture, scanner shell, inspection table and departure seats were matched to the final checkpoint photograph. The nearest post has a visible shaft and cap. An independent collar, document reader functions and scanner modality cannot be identified, so those words remain available in the index.",
+    "rationale": "Points were rechecked on the final checkpoint photograph. The monitor rim, scanner grille, rollers, drawer face and sliding door have distinct targets. The scanner entrance uses a clear patch of its housing and the boarding entrance uses the open doorway floor. The unloading function of the far conveyor is unconfirmed, so divestiture table remains in the index.",
     "previousLabelCount": 140,
-    "retainedLabelCount": 75,
-    "removedLabelCount": 65,
+    "retainedLabelCount": 74,
+    "removedLabelCount": 66,
     "removedExamples": [
+      "divestiture table",
       "queue post collar",
       "checkpoint passport scanner",
-      "boarding-pass scanner",
       "swab kit",
-      "checkpoint ct scanner",
-      "passenger identity"
+      "checkpoint ct scanner"
     ]
   },
   "labels": [
@@ -1049,7 +1038,7 @@
       "id": "security-checkpoint-monitor-housing",
       "word": "monitor housing",
       "translation": "显示器外壳",
-      "x": 466,
+      "x": 468,
       "y": 340,
       "priority": 1.018,
       "minLevel": 0,
@@ -1177,23 +1166,13 @@
       "sourceVisualRegion": "security-checkpoint-region-tunnel-curtain"
     },
     {
-      "id": "security-checkpoint-divestiture-table",
-      "word": "divestiture table",
-      "translation": "置物台",
-      "x": 1140,
-      "y": 374,
-      "priority": 1.031,
-      "minLevel": 1,
-      "sourceVisualRegion": "security-checkpoint-region-divestiture-table"
-    },
-    {
       "id": "security-checkpoint-gray-tray",
       "word": "gray tray",
       "translation": "灰色托盘",
       "x": 744,
       "y": 372,
-      "priority": 1.032,
-      "minLevel": 2,
+      "priority": 1.031,
+      "minLevel": 1,
       "sourceVisualRegion": "security-checkpoint-region-gray-tray"
     },
     {
@@ -1202,8 +1181,8 @@
       "translation": "蓝色托盘",
       "x": 713,
       "y": 357,
-      "priority": 1.033,
-      "minLevel": 3,
+      "priority": 1.032,
+      "minLevel": 2,
       "sourceVisualRegion": "security-checkpoint-region-blue-tray"
     },
     {
@@ -1212,8 +1191,8 @@
       "translation": "行李扫描仪外壳",
       "x": 653,
       "y": 265,
-      "priority": 1.034,
-      "minLevel": 4,
+      "priority": 1.033,
+      "minLevel": 3,
       "sourceVisualRegion": "security-checkpoint-region-baggage-scanner-housing"
     },
     {
@@ -1222,8 +1201,8 @@
       "translation": "步行探测门框",
       "x": 925,
       "y": 338,
-      "priority": 1.035,
-      "minLevel": 2,
+      "priority": 1.034,
+      "minLevel": 4,
       "sourceVisualRegion": "security-checkpoint-region-walk-through-detector-arch"
     },
     {
@@ -1232,8 +1211,8 @@
       "translation": "探测门门槛",
       "x": 875,
       "y": 436,
-      "priority": 1.036,
-      "minLevel": 3,
+      "priority": 1.035,
+      "minLevel": 2,
       "sourceVisualRegion": "security-checkpoint-region-detector-threshold"
     },
     {
@@ -1242,8 +1221,8 @@
       "translation": "扫描传送带",
       "x": 611,
       "y": 390,
-      "priority": 1.037,
-      "minLevel": 4,
+      "priority": 1.036,
+      "minLevel": 3,
       "sourceVisualRegion": "security-checkpoint-region-scanner-belt"
     },
     {
@@ -1252,18 +1231,18 @@
       "translation": "扫描传送带滚轮",
       "x": 625,
       "y": 411,
-      "priority": 1.038,
-      "minLevel": 2,
+      "priority": 1.037,
+      "minLevel": 4,
       "sourceVisualRegion": "security-checkpoint-region-scanner-belt-roller"
     },
     {
       "id": "security-checkpoint-scanner-vent",
       "word": "scanner vent",
       "translation": "扫描器通风口",
-      "x": 690,
-      "y": 239,
-      "priority": 1.039,
-      "minLevel": 3,
+      "x": 626,
+      "y": 228,
+      "priority": 1.038,
+      "minLevel": 2,
       "sourceVisualRegion": "security-checkpoint-region-scanner-vent"
     },
     {
@@ -1272,18 +1251,18 @@
       "translation": "行李扫描仪",
       "x": 739,
       "y": 238,
-      "priority": 1.04,
-      "minLevel": 4,
+      "priority": 1.039,
+      "minLevel": 3,
       "sourceVisualRegion": "security-checkpoint-region-baggage-scanner"
     },
     {
       "id": "security-checkpoint-roller-track",
       "word": "roller track",
       "translation": "滚筒输送轨道",
-      "x": 801,
-      "y": 306,
-      "priority": 1.041,
-      "minLevel": 2,
+      "x": 775,
+      "y": 303,
+      "priority": 1.04,
+      "minLevel": 4,
       "sourceVisualRegion": "security-checkpoint-region-roller-track"
     },
     {
@@ -1292,7 +1271,7 @@
       "translation": "复检台",
       "x": 847,
       "y": 573,
-      "priority": 1.042,
+      "priority": 1.041,
       "minLevel": 0,
       "sourceVisualRegion": "security-checkpoint-region-secondary-inspection-table"
     },
@@ -1302,7 +1281,7 @@
       "translation": "放大镜支臂",
       "x": 988,
       "y": 529,
-      "priority": 1.043,
+      "priority": 1.042,
       "minLevel": 0,
       "sourceVisualRegion": "security-checkpoint-region-magnifier-arm"
     },
@@ -1312,7 +1291,7 @@
       "translation": "人工检查托盘",
       "x": 882,
       "y": 557,
-      "priority": 1.044,
+      "priority": 1.043,
       "minLevel": 1,
       "sourceVisualRegion": "security-checkpoint-region-hand-search-tray"
     },
@@ -1322,7 +1301,7 @@
       "translation": "隐私屏风面板",
       "x": 1090,
       "y": 518,
-      "priority": 1.045,
+      "priority": 1.044,
       "minLevel": 1,
       "sourceVisualRegion": "security-checkpoint-region-privacy-screen-panel"
     },
@@ -1332,8 +1311,8 @@
       "translation": "复检凳",
       "x": 909,
       "y": 686,
-      "priority": 1.046,
-      "minLevel": 4,
+      "priority": 1.045,
+      "minLevel": 3,
       "sourceVisualRegion": "security-checkpoint-region-inspection-stool"
     },
     {
@@ -1342,8 +1321,8 @@
       "translation": "地垫边",
       "x": 757,
       "y": 586,
-      "priority": 1.047,
-      "minLevel": 2,
+      "priority": 1.046,
+      "minLevel": 4,
       "sourceVisualRegion": "security-checkpoint-region-floor-mat-edge"
     },
     {
@@ -1352,8 +1331,8 @@
       "translation": "复检柜",
       "x": 838,
       "y": 685,
-      "priority": 1.048,
-      "minLevel": 3,
+      "priority": 1.047,
+      "minLevel": 2,
       "sourceVisualRegion": "security-checkpoint-region-inspection-cabinet"
     },
     {
@@ -1361,9 +1340,9 @@
       "word": "secondary counter drawer",
       "translation": "复检柜台抽屉",
       "x": 838,
-      "y": 644,
-      "priority": 1.049,
-      "minLevel": 4,
+      "y": 629,
+      "priority": 1.048,
+      "minLevel": 3,
       "sourceVisualRegion": "security-checkpoint-region-secondary-counter-drawer"
     },
     {
@@ -1372,8 +1351,8 @@
       "translation": "按压瓶",
       "x": 977,
       "y": 583,
-      "priority": 1.05,
-      "minLevel": 2,
+      "priority": 1.049,
+      "minLevel": 4,
       "sourceVisualRegion": "security-checkpoint-region-pump-bottle"
     },
     {
@@ -1382,8 +1361,8 @@
       "translation": "放大镜",
       "x": 961,
       "y": 490,
-      "priority": 1.051,
-      "minLevel": 3,
+      "priority": 1.05,
+      "minLevel": 2,
       "sourceVisualRegion": "security-checkpoint-region-magnifier"
     },
     {
@@ -1392,8 +1371,8 @@
       "translation": "废纸篓",
       "x": 1008,
       "y": 766,
-      "priority": 1.052,
-      "minLevel": 4,
+      "priority": 1.051,
+      "minLevel": 3,
       "sourceVisualRegion": "security-checkpoint-region-wastebasket"
     },
     {
@@ -1402,8 +1381,8 @@
       "translation": "凳轮",
       "x": 918,
       "y": 804,
-      "priority": 1.053,
-      "minLevel": 2,
+      "priority": 1.052,
+      "minLevel": 4,
       "sourceVisualRegion": "security-checkpoint-region-stool-wheel"
     },
     {
@@ -1412,8 +1391,8 @@
       "translation": "橡胶垫",
       "x": 770,
       "y": 556,
-      "priority": 1.054,
-      "minLevel": 3,
+      "priority": 1.053,
+      "minLevel": 2,
       "sourceVisualRegion": "security-checkpoint-region-rubber-mat"
     },
     {
@@ -1422,8 +1401,8 @@
       "translation": "垫子",
       "x": 782,
       "y": 672,
-      "priority": 1.055,
-      "minLevel": 4,
+      "priority": 1.054,
+      "minLevel": 3,
       "sourceVisualRegion": "security-checkpoint-region-mat",
       "lexemeId": "en-0c1c541af9cc252a"
     },
@@ -1433,8 +1412,8 @@
       "translation": "边沿",
       "x": 1010,
       "y": 727,
-      "priority": 1.056,
-      "minLevel": 2,
+      "priority": 1.055,
+      "minLevel": 4,
       "sourceVisualRegion": "security-checkpoint-region-rim",
       "lexemeId": "en-1569ec5b93084cc1"
     },
@@ -1444,7 +1423,7 @@
       "translation": "门禁立柱",
       "x": 1203,
       "y": 563,
-      "priority": 1.057,
+      "priority": 1.056,
       "minLevel": 0,
       "sourceVisualRegion": "security-checkpoint-region-access-control-pedestal"
     },
@@ -1454,7 +1433,7 @@
       "translation": "玻璃摆闸",
       "x": 1271,
       "y": 520,
-      "priority": 1.058,
+      "priority": 1.057,
       "minLevel": 0,
       "sourceVisualRegion": "security-checkpoint-region-glass-swing-gate"
     },
@@ -1464,7 +1443,7 @@
       "translation": "出口隔离栏",
       "x": 1400,
       "y": 561,
-      "priority": 1.059,
+      "priority": 1.058,
       "minLevel": 1,
       "sourceVisualRegion": "security-checkpoint-region-exit-barrier"
     },
@@ -1474,7 +1453,7 @@
       "translation": "出发侧走廊",
       "x": 1433,
       "y": 325,
-      "priority": 1.06,
+      "priority": 1.059,
       "minLevel": 1,
       "sourceVisualRegion": "security-checkpoint-region-departure-side-corridor"
     },
@@ -1484,8 +1463,8 @@
       "translation": "登机区座椅",
       "x": 1122,
       "y": 310,
-      "priority": 1.061,
-      "minLevel": 4,
+      "priority": 1.06,
+      "minLevel": 3,
       "sourceVisualRegion": "security-checkpoint-region-gate-seating"
     },
     {
@@ -1494,8 +1473,8 @@
       "translation": "座椅扶手",
       "x": 1161,
       "y": 305,
-      "priority": 1.062,
-      "minLevel": 2,
+      "priority": 1.061,
+      "minLevel": 4,
       "sourceVisualRegion": "security-checkpoint-region-seating-armrest"
     },
     {
@@ -1504,8 +1483,8 @@
       "translation": "充电搁板",
       "x": 1563,
       "y": 359,
-      "priority": 1.063,
-      "minLevel": 3,
+      "priority": 1.062,
+      "minLevel": 2,
       "sourceVisualRegion": "security-checkpoint-region-charging-shelf"
     },
     {
@@ -1514,8 +1493,8 @@
       "translation": "安检区挂钟",
       "x": 1563,
       "y": 201,
-      "priority": 1.064,
-      "minLevel": 4,
+      "priority": 1.063,
+      "minLevel": 3,
       "sourceVisualRegion": "security-checkpoint-region-checkpoint-wall-clock"
     },
     {
@@ -1524,8 +1503,8 @@
       "translation": "盲道条",
       "x": 1388,
       "y": 793,
-      "priority": 1.065,
-      "minLevel": 2,
+      "priority": 1.064,
+      "minLevel": 4,
       "sourceVisualRegion": "security-checkpoint-region-tactile-floor-strip"
     },
     {
@@ -1534,8 +1513,8 @@
       "translation": "灭火器柜",
       "x": 1038,
       "y": 264,
-      "priority": 1.066,
-      "minLevel": 3,
+      "priority": 1.065,
+      "minLevel": 2,
       "sourceVisualRegion": "security-checkpoint-region-extinguisher-cabinet"
     },
     {
@@ -1544,8 +1523,8 @@
       "translation": "摄像机穹顶",
       "x": 1185,
       "y": 117,
-      "priority": 1.067,
-      "minLevel": 4,
+      "priority": 1.066,
+      "minLevel": 3,
       "sourceVisualRegion": "security-checkpoint-region-camera-dome"
     },
     {
@@ -1554,8 +1533,8 @@
       "translation": "电源插座",
       "x": 1579,
       "y": 349,
-      "priority": 1.068,
-      "minLevel": 2,
+      "priority": 1.067,
+      "minLevel": 4,
       "sourceVisualRegion": "security-checkpoint-region-power-outlet"
     },
     {
@@ -1564,18 +1543,18 @@
       "translation": "一排座椅",
       "x": 1273,
       "y": 293,
-      "priority": 1.069,
-      "minLevel": 3,
+      "priority": 1.068,
+      "minLevel": 2,
       "sourceVisualRegion": "security-checkpoint-region-row-of-seats"
     },
     {
       "id": "security-checkpoint-sliding-glass-door",
       "word": "sliding glass door",
       "translation": "玻璃移门",
-      "x": 1309,
-      "y": 208,
-      "priority": 1.07,
-      "minLevel": 4,
+      "x": 1337,
+      "y": 224,
+      "priority": 1.069,
+      "minLevel": 3,
       "sourceVisualRegion": "security-checkpoint-region-sliding-glass-door"
     },
     {
@@ -1584,8 +1563,8 @@
       "translation": "出口门",
       "x": 1102,
       "y": 187,
-      "priority": 1.071,
-      "minLevel": 2,
+      "priority": 1.07,
+      "minLevel": 4,
       "sourceVisualRegion": "security-checkpoint-region-exit-door"
     },
     {
@@ -1594,8 +1573,8 @@
       "translation": "门框",
       "x": 1505,
       "y": 163,
-      "priority": 1.072,
-      "minLevel": 3,
+      "priority": 1.071,
+      "minLevel": 2,
       "sourceVisualRegion": "security-checkpoint-region-frame",
       "lexemeId": "en-9dff50df08c63581"
     },
@@ -1605,8 +1584,8 @@
       "translation": "玻璃",
       "x": 1381,
       "y": 532,
-      "priority": 1.073,
-      "minLevel": 4,
+      "priority": 1.072,
+      "minLevel": 3,
       "sourceVisualRegion": "security-checkpoint-region-glass",
       "lexemeId": "en-132a1a391cce181c"
     },
@@ -1616,8 +1595,8 @@
       "translation": "蓝色",
       "x": 1530,
       "y": 646,
-      "priority": 1.074,
-      "minLevel": 2,
+      "priority": 1.073,
+      "minLevel": 4,
       "sourceVisualRegion": "security-checkpoint-region-blue",
       "lexemeId": "en-16477688c0e00699"
     }
@@ -1762,6 +1741,11 @@
       "id": "security-checkpoint-entrance-conveyor",
       "word": "entrance conveyor",
       "translation": "入口传送带"
+    },
+    {
+      "id": "security-checkpoint-divestiture-table",
+      "word": "divestiture table",
+      "translation": "置物台"
     },
     {
       "id": "security-checkpoint-tray-nest",
@@ -1916,10 +1900,10 @@
       "translation": "查看随身行李扫描器",
       "childSceneId": "carry-on-baggage-scanner",
       "sourceVisualRegion": "portal-carry-on-baggage-scanner",
-      "x": 618,
-      "y": 239,
-      "width": 93,
-      "height": 47,
+      "x": 667,
+      "y": 263,
+      "width": 38,
+      "height": 32,
       "portraitMarker": {
         "x": 704,
         "y": 284
@@ -1932,10 +1916,10 @@
       "translation": "进入登机口",
       "childSceneId": "boarding-gate",
       "sourceVisualRegion": "portal-boarding-gate",
-      "x": 1360,
-      "y": 156,
-      "width": 130,
-      "height": 131,
+      "x": 1366,
+      "y": 338,
+      "width": 56,
+      "height": 30,
       "enterScale": 3.4
     }
   ]

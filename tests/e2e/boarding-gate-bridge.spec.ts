@@ -119,7 +119,7 @@ test("the boarding gate clock and bridge handset stay readable on the route to t
   await activate(page.getByRole("button", { name: "收起小地图", exact: true }));
   await activate(viewer.getByRole("button", { name: "Fit scene", exact: true }));
   await enter(security, 530, 465);
-  await enter(gate, 1425, 221);
+  await enter(gate, 1394, 353);
   await read("gate-clock", clock);
   await enter(bridge, 915, 536);
   await read("bridge-handset", handset);

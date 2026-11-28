@@ -91,7 +91,7 @@ const securityZones = [
       ["boarding-pass scanner", "登机牌扫描器"],
       ["document scanner bed", "证件扫描台面"],
       ["checkpoint scanner glass", "安检扫描玻璃"],
-      ["monitor housing", "显示器外壳", 466, 340, 3, 16],
+      ["monitor housing", "显示器外壳", 468, 340, 3, 16],
       ["keyboard deck", "键盘台面", 449, 412, 16, 3],
       ["inspection counter shelf", "检查柜台搁板", 486, 373, 15, 4],
       ["privacy glass", "隐私玻璃"],
@@ -132,7 +132,7 @@ const securityZones = [
       ["tunnel curtain", "通道软帘", 748, 278, 18, 11],
       ["exit conveyor", "出口传送带"],
       ["entrance conveyor", "入口传送带"],
-      ["divestiture table", "置物台", 1140, 374, 21, 6],
+      ["divestiture table", "置物台"],
       ["gray tray", "灰色托盘", 744, 372, 18, 5],
       ["blue tray", "蓝色托盘", 713, 357, 20, 6],
       ["tray nest", "托盘嵌套架"],
@@ -148,10 +148,10 @@ const securityZones = [
       ["scanner belt", "扫描传送带", 611, 390, 20, 9],
       ["scanner belt roller", "扫描传送带滚轮", 625, 411, 2, 2],
       ["ct scanner panel", "CT 扫描器面板"],
-      ["scanner vent", "扫描器通风口", 690, 239, 12, 4],
+      ["scanner vent", "扫描器通风口", 626, 228, 12, 4],
       ["scanner foot", "扫描器脚座"],
       ["baggage scanner", "行李扫描仪", 739, 238, 23, 8],
-      ["roller track", "滚筒输送轨道", 801, 306, 18, 5],
+      ["roller track", "滚筒输送轨道", 775, 303, 8, 3],
     ],
   },
   {
@@ -179,7 +179,7 @@ const securityZones = [
       ["floor mat edge", "地垫边", 757, 586, 4, 3],
       ["inspection cabinet", "复检柜", 838, 685, 18, 25],
       ["tray support", "托盘支撑"],
-      ["secondary counter drawer", "复检柜台抽屉", 838, 644, 16, 6],
+      ["secondary counter drawer", "复检柜台抽屉", 838, 629, 15, 7],
       ["bin liner", "箱内衬"],
       ["search light", "检查灯"],
       ["pump bottle", "按压瓶", 977, 583, 7, 13],
@@ -224,7 +224,7 @@ const securityZones = [
       ["camera dome", "摄像机穹顶", 1185, 117, 11, 8],
       ["power outlet", "电源插座", 1579, 349, 6, 5],
       ["row of seats", "一排座椅", 1273, 293, 22, 12],
-      ["sliding glass door", "玻璃移门", 1309, 208, 25, 31],
+      ["sliding glass door", "玻璃移门", 1337, 224, 4, 26],
       ["exit door", "出口门", 1102, 187, 39, 41],
       ["frame", "门框", 1505, 163, 3, 22, "en-9dff50df08c63581"],
       ["glass", "玻璃", 1381, 532, 23, 17, "en-132a1a391cce181c"],
@@ -434,10 +434,10 @@ const securityPortal = {
   translation: "进入登机口",
   childSceneId: "boarding-gate",
   sourceVisualRegion: "portal-boarding-gate",
-  x: 1360,
-  y: 156,
-  width: 130,
-  height: 131,
+  x: 1366,
+  y: 338,
+  width: 56,
+  height: 30,
   enterScale: 3.4,
 };
 
@@ -626,10 +626,8 @@ async function updateManifest() {
   return writeIfChanged(manifestPath, manifest);
 }
 
-export async function buildAirportSecurityAndGateScenes() {
-  const securityAssetChanged = await ensureAsset("security");
-  const gateAssetChanged = await ensureAsset("gate");
-  const security = makeScene(
+export function makeSecurityCheckpointScene() {
+  return makeScene(
     "security-checkpoint",
     "Security checkpoint",
     "机场安检区",
@@ -642,10 +640,16 @@ export async function buildAirportSecurityAndGateScenes() {
       portals: [scannerEntrance, securityPortal],
       portalRegions: [scannerEntranceRegion, securityPortalRegion],
       reviewStatus: "image-reviewed",
-      rationale: "The queue fittings, trays, desk furniture, scanner shell, inspection table and departure seats were matched to the final checkpoint photograph. The nearest post has a visible shaft and cap. An independent collar, document reader functions and scanner modality cannot be identified, so those words remain available in the index.",
-      removedExamples: ["queue post collar", "checkpoint passport scanner", "boarding-pass scanner", "swab kit", "checkpoint ct scanner", "passenger identity"],
+      rationale: "Points were rechecked on the final checkpoint photograph. The monitor rim, scanner grille, rollers, drawer face and sliding door have distinct targets. The scanner entrance uses a clear patch of its housing and the boarding entrance uses the open doorway floor. The unloading function of the far conveyor is unconfirmed, so divestiture table remains in the index.",
+      removedExamples: ["divestiture table", "queue post collar", "checkpoint passport scanner", "swab kit", "checkpoint ct scanner"],
     },
   );
+}
+
+export async function buildAirportSecurityAndGateScenes() {
+  const securityAssetChanged = await ensureAsset("security");
+  const gateAssetChanged = await ensureAsset("gate");
+  const security = makeSecurityCheckpointScene();
   const gate = makeScene(
     "boarding-gate",
     "Boarding gate",

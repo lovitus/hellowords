@@ -133,9 +133,9 @@ const PREMIUM_DENSITY_MINIMUMS: Readonly<Record<string, number>> = {
   // The photo resolves 71 objects and parts. The other 84 terms are searchable.
   "baggage-drop-station": 71,
   "airport-conveyor-drive-unit": 145,
-  // The five checkpoint areas have 75 photographed labels and 57 index-only terms.
-  "security-checkpoint": 75,
-  "carry-on-baggage-scanner": 145,
+  // The checkpoint and close-up index equipment functions that the photo cannot establish.
+  "security-checkpoint": 74,
+  "carry-on-baggage-scanner": 61,
   "boarding-gate": 79,
   "passenger-boarding-bridge": 110,
   // Distant or hidden cabin fittings are searchable from the scene index.
@@ -275,8 +275,8 @@ const PREMIUM_DENSITY_MAXIMUMS: Readonly<Record<string, number>> = {
   "check-in-counter": 60,
   "baggage-drop-station": 71,
   "airport-conveyor-drive-unit": 155,
-  "security-checkpoint": 75,
-  "carry-on-baggage-scanner": 150,
+  "security-checkpoint": 74,
+  "carry-on-baggage-scanner": 61,
   "boarding-gate": 79,
   "passenger-boarding-bridge": 110,
   "aircraft-cabin": 83,

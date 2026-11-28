@@ -309,6 +309,96 @@ test("airport security checkpoint reads the front stanchion pole, looks up its c
   }
 });
 
+test("the checkpoint and carry-on scanner read their photographed equipment and keep the drawer handle in the index", async ({ page, isMobile }, testInfo) => {
+  if (isMobile) await page.setViewportSize({ width: 385, height: 705 });
+  const viewer = page.locator(".viewer-shell:not([data-phase])");
+  const image = viewer.locator("img.scene-art");
+  const surface = viewer.locator(".scene-surface");
+  const cards = page.getByRole("complementary", { name: / word details$/ });
+  const activate = (control: Locator) => isMobile ? control.tap() : control.click();
+  const camera = () => surface.evaluate(el => getComputedStyle(el).transform);
+  const settledCamera = async () => {
+    let previous: string | undefined;
+    await expect.poll(async () => {
+      const current = await camera();
+      const unchanged = previous === current;
+      previous = current;
+      return unchanged;
+    }, { intervals: [300], message: "the photograph has finished moving to the searched object" }).toBe(true);
+  };
+  const save = async (name: string, evidence: object) => {
+    await testInfo.attach(`${name}-result`, { body: JSON.stringify(evidence), contentType: "application/json" });
+    await testInfo.attach(name, { body: await page.screenshot({ animations: "disabled" }), contentType: "image/png" });
+  };
+  const close = async () => {
+    await activate(cards.getByRole("button", { name: "关闭单词卡" }));
+    await expect(cards).toBeHidden();
+  };
+  const openScene = async (name: RegExp, id: string, photo: string) => {
+    await activate(viewer.getByRole("button", { name: "Fit scene", exact: true }));
+    await settledCamera();
+    await activate(viewer.getByRole("button", { name }));
+    await expectScene(page, id);
+    await expect(image).toHaveAttribute("src", photo);
+  };
+  const readObject = async (stage: string, word: string, meaning: string, point: Point, outline: Outline) => {
+    const detail = await focusFromIndex(image, activate, word);
+    await expect(detail.locator("p").first()).toHaveText(meaning);
+    await settledCamera();
+    await close();
+    await settledCamera();
+    await expect.poll(() => paintedPoint(viewer, word)).toMatchObject({ anchorVisible: true });
+    const dot = (await paintedPoint(viewer, word))!;
+    const inside = containsPoint(outline, dot.photoX, dot.photoY);
+    await save(`${stage}-anchor`, { word, meaning, outline, dot, inside });
+    expect.soft(inside, `${stage}: the painted dot is on the photographed ${word}`).toBe(true);
+
+    const pixel = await photoPoint(image, ...point);
+    expect(pixel.visible, `the photographed ${word} is in view`).toBe(true);
+    if (isMobile) await page.touchscreen.tap(pixel.x, pixel.y);
+    else await page.mouse.click(pixel.x, pixel.y);
+    const actualCards = () => cards.evaluateAll(elements => elements.map(node => ({
+      word: node.querySelector("strong")?.textContent, meaning: node.querySelector("p")?.textContent,
+    })));
+    await expect.soft.poll(actualCards, { timeout: 2500, message: `${stage}: a tap on the photograph opens ${word}` })
+      .toEqual([{ word, meaning }]);
+    const scene = await page.getByTestId("world-app").getAttribute("data-scene-id");
+    await save(`${stage}-photo`, { point, pixel, scene, expected: { word, meaning }, actual: await actualCards() });
+    if (await cards.isVisible()) await close();
+  };
+
+  await openAirportRoute(page, isMobile, "airport");
+  const meaning = page.getByTestId("meaning-toggle");
+  if (await meaning.getAttribute("aria-pressed") !== "true") await activate(meaning);
+  await activate(page.getByTestId("scene-minimap").getByRole("button", { name: "收起小地图" }));
+  await openScene(/^进入 Security checkpoint\b/, "security-checkpoint", "/scenes/airport-security-checkpoint-premium-v1.jpg");
+  await openScene(/^进入 Carry-on baggage scanner\b/, "carry-on-baggage-scanner", "/scenes/carry-on-baggage-scanner-premium-v1.jpg");
+  // The screen's four inner corners exclude the pale workstation behind it.
+  await readObject("scanner-operator-monitor", "operator monitor", "操作员显示器", [232, 438],
+    [[185, 401], [329, 385], [333, 478], [190, 499]]);
+
+  const before = await camera();
+  const handle = "viewing drawer handle";
+  const related = await focusFromIndex(image, activate, handle);
+  await expect(related.locator("p").first()).toHaveText("观察台抽屉把手");
+  await settledCamera();
+  const indexOnly = {
+    note: await related.getByText("相关词 · 图中未标注", { exact: true }).isVisible(),
+    painted: await paintedWordCount(page, handle), sameCamera: await camera() === before,
+  };
+  await save("scanner-drawer-handle-index", indexOnly);
+  expect.soft(indexOnly, "the drawer handle is available from the index without a photographic anchor")
+    .toEqual({ note: true, painted: 0, sameCamera: true });
+  await close();
+  await activate(page.getByRole("button", { name: /返回上一层/ }));
+  await expectScene(page, "security-checkpoint");
+  await expect(image).toHaveAttribute("src", "/scenes/airport-security-checkpoint-premium-v1.jpg");
+  // The left grille sits below the silver lip and above a narrow trim strip.
+  await readObject("checkpoint-scanner-vent", "scanner vent", "扫描器通风口", [626, 228],
+    [[618, 222], [635, 225], [635, 233], [618, 230]]);
+  await expect(page.getByTestId("world-app")).toHaveAttribute("data-scene-id", "security-checkpoint");
+});
+
 test("airport bag drop keeps photographed scale, platform and suitcase words on their objects and zooms back to check-in", async ({ page, isMobile }, testInfo) => {
   test.setTimeout(90_000);
   const app = page.getByTestId("world-app");
