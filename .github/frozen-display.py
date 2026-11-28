@@ -26,6 +26,53 @@ def save(name, body):
     (OUT / name).write_text(json.dumps(body, indent=2) + "\n")
 
 
+def checkpoint_changes(original, current, count):
+    scene_id = original["id"]
+    previous = original["labels"] + original.get("relatedWords", [])
+    entries = current["labels"] + current.get("relatedWords", [])
+    ids = {entry["id"] for entry in previous}
+    current_by_id = {entry["id"]: entry for entry in entries}
+    added_ids = sorted(current_by_id.keys() - ids)
+    if (len(ids) != count or len(entries) != len(current_by_id) or not ids <= current_by_id.keys()
+            or (scene_id == "security-checkpoint" and added_ids)):
+        raise ValueError(f"{scene_id} must retain all {count} original vocabulary IDs exactly once")
+    if scene_id == "carry-on-baggage-scanner" and any(
+            (old["word"], old["translation"]) != (current_by_id[old["id"]]["word"], current_by_id[old["id"]]["translation"])
+            for old in previous):
+        raise ValueError("The scanner must retain its original bilingual vocabulary")
+    links = {entry["id"]: entry["lexemeId"] for entry in previous if entry.get("lexemeId")}
+    current_links = {entry["id"]: entry["lexemeId"] for entry in entries if entry.get("lexemeId")}
+    if not links.items() <= current_links.items():
+        raise ValueError(f"{scene_id} must retain each vocabulary ID's dictionary mapping")
+    old_zones = {zone["id"]: zone for zone in original["detailZones"]}
+    zones = {zone["id"]: zone for zone in current["detailZones"]}
+    if old_zones.keys() != zones.keys() or len(zones) != len(current["detailZones"]):
+        raise ValueError(f"{scene_id} must retain its original navigation zones")
+    if ((original["parentId"], original["width"], original["height"], original["asset"]) !=
+            (current["parentId"], current["width"], current["height"], current["asset"]) or
+            sorted(portal["childSceneId"] for portal in original["portals"]) !=
+            sorted(portal["childSceneId"] for portal in current["portals"])):
+        raise ValueError(f"{scene_id} lost its original photograph dimensions or connected scenes")
+    old_labels = {entry["id"]: entry for entry in original["labels"]}
+    labels = {entry["id"]: entry for entry in current["labels"]}
+    expected_density = (74, 58) if scene_id == "security-checkpoint" else (61, 96)
+    if ((len(labels), len(entries) - len(labels)) != expected_density or
+            not set(added_ids) <= labels.keys()):
+        raise ValueError(f"{scene_id} must retain its calibrated photo and index counts and place all new words on the photograph")
+    moves = {key: {"from": [old_labels[key]["x"], old_labels[key]["y"]], "to": [label["x"], label["y"]]}
+             for key, label in labels.items() if key in old_labels and
+             (old_labels[key]["x"], old_labels[key]["y"]) != (label["x"], label["y"])}
+    moved_to_index = sorted(old_labels.keys() - labels.keys())
+    moved_to_photo = sorted((labels.keys() - old_labels.keys()) & ids)
+    if not (moves or moved_to_index or moved_to_photo):
+        raise ValueError(f"{scene_id} contains no corrections to the existing photograph anchors")
+    return {"originalIds": count, "ids": len(entries), "addedIds": added_ids,
+            "photoWords": len(labels), "indexWords": len(entries) - len(labels), "coordinates": moves,
+            "photo": current["asset"], "zones": sorted(zones), "dictionary": current_links,
+            "priorAudit": original["anchorAudit"]["status"], "audit": current["anchorAudit"]["status"],
+            "movedToIndex": moved_to_index, "movedToPhoto": moved_to_photo}
+
+
 def integrity(baseline):
     if baseline:
         # Both builds use the very same sampler, real navigation route and budgets.
@@ -65,6 +112,15 @@ def integrity(baseline):
         old_files = {e["path"]: e["sha256"] for e in old_manifest["files"] if e["path"].startswith("client/scenes/")}
         if len(old_ids) != 115 or scene_ids != old_ids or scene_images != old_images or image_files != old_files:
             raise ValueError("The 115 scenes must retain their original photograph assets and bytes")
+        changed = {"security-checkpoint": 132, "carry-on-baggage-scanner": 147}
+        for scene_id in old_ids - changed.keys():
+            name = f"{scene_id}.json"
+            if (scene_root / name).read_bytes() != (old_root / name).read_bytes():
+                raise ValueError(f"An unrelated scene has changed: {scene_id}")
+        scenes = {scene: checkpoint_changes(json.loads((old_root / f"{scene}.json").read_bytes()),
+                                            json.loads((scene_root / f"{scene}.json").read_bytes()), count)
+                  for scene, count in changed.items()}
+        save("checkpoint-changes.json", {"sha": PRODUCT, "scenes": scenes})
         route = [json.loads((scene_root / f"{scene}.json").read_bytes()) for scene in
                  ("airport", "security-checkpoint", "boarding-gate", "passenger-boarding-bridge", "aircraft-cabin")]
         for parent, child in zip(route, route[1:]):
@@ -131,13 +187,13 @@ def spatial():
     def references(public):
         root = public / "data/scenes"
         scenes = json.loads((root / "manifest.json").read_bytes())["scenes"]
-        return {(scene["id"], label["id"], label["word"], label["lexemeId"])
+        return {(scene["id"], label["id"], label["lexemeId"])
                 for scene in scenes for label in json.loads((root / f"{scene['id']}.json").read_bytes())["labels"]
                 if label.get("lexemeId")}
 
     old_refs = references(old_public)
     current_refs = references(Path("public"))
-    old_ids = {entry[3] for entry in old_refs}
+    old_ids = {entry[2] for entry in old_refs}
     added = sorted(current_refs - old_refs)
     # Read the exported constant through the same TS runtime as the project's domain tests.
     exported = int(subprocess.check_output(
@@ -154,9 +210,9 @@ def spatial():
     save("spatial-index.json", {"baseline": {**baseline, "authored": len(old_refs), "indexed": exported},
                                 "candidate": {**candidate, "authored": len(current_refs),
                                               "addedReferences": added, "removedReferences": sorted(old_refs - current_refs)}})
-    current_ids = {entry[3] for entry in current_refs}
+    current_ids = {entry[2] for entry in current_refs}
     return 0 if (old_code == 0 and green == 0 and len(old_refs) == exported == 404 and len(old_ids) == 239
-                 and current_refs == old_refs
+                 and old_refs <= current_refs
                  and all(result["report"].get("status") == "current"
                          and result["report"].get("linkedLabelCount") == len(refs)
                          and result["report"].get("uniqueLexemeCount") == len(ids)
@@ -166,14 +222,15 @@ def spatial():
 def baseline_performance():
     root = TEMP / "original-evidence"
     digests = {
-        "summary.json": "2e6efde87e1e40fdf029a7cbad7c3d4e66c69a6f208c2f27281a7750bd13f91f",
-        "navigation-result.json": "13477539117962ec0931ca8f978a42bccc1ba744b1a623860e8d35eab1b8b599",
-        "domain.json": "ca18acbb0b7c54b168cab705e37eb1b7c2abdcb242e83963dae28235bc54f208",
-        "domain.out.cms": "e2bfe7fa8092b972daa2dfb0ca4c913398c909db6ce0db3acb5994fb78a645e2",
+        "summary.json": "dae253d4fe99dabe0eb03173501c658cd85dd4c3a78c1816fb68759331dd6d4f",
+        "navigation-result.json": "bf873717661ed8e088c42cdd5515e944dd38dbf81bf7044ab836abbced38242b",
+        "unit.json": "7b45bc6e26ad417694bb94d4443997941c316b1545283317c770ff06a68fb90d",
+        "result.json": "7decb868119d04d38c1b10623108b02c4d1c766409337c016a0e41eed23b545f",
+        "candidate/result.json": "31a47fefe8ac62d2417785cd8dd5446e3ee93e307c72b52b8e24024f14f7d279",
     }
     for name, expected in digests.items():
         if hashlib.sha256((root / name).read_bytes()).hexdigest() != expected:
-            raise ValueError("The original navigation evidence differs")
+            raise ValueError("The archived acceptance evidence differs")
     summary = json.loads((root / "summary.json").read_bytes())
     report = json.loads((root / "navigation-result.json").read_bytes())
     metrics = summary["result"]
@@ -182,24 +239,19 @@ def baseline_performance():
                 "retainedPssDeltaMiB": metrics["memory"]["pssDeltaMiB"]}
     exceeded = sorted(name for name, value in readings.items() if value > summary["budgets"][name])
     if (summary["gitSha"] != os.environ["BASELINE"] or summary["scenario"]["cycles"] != 20
-            or metrics["transitions"] != 40 or report["exit"] != 1 or len(report["cases"]) != 1
-            or report["cases"][0]["status"] != "failed" or report["cases"][0]["retry"] != 0
-            or exceeded != ["peakPssMiB", "rendererTaskMsPerTransition", "retainedPssDeltaMiB"]):
-        raise ValueError("The frozen measurements do not match the original renderer and memory budget failures")
-    domain = json.loads((root / "domain.json").read_bytes())
-    scenes = TEMP / "frozen/dist/client/data/scenes"
-    counter = json.loads((scenes / "check-in-counter.json").read_bytes())
-    words = {row["word"].lower() for row in counter["labels"] + counter["relatedWords"]}
-    scene_ids = json.loads((scenes / "manifest.json").read_bytes())["scenes"]
-    conflicts = [(s["id"], w["id"], w["word"].lower()) for s in scene_ids if s["id"] != "check-in-counter"
-                 for w in json.loads((scenes / (s["id"] + ".json")).read_bytes())["labels"] if w["word"].lower() in words]
-    expected_conflict = ("passenger-boarding-bridge", "passenger-boarding-bridge-jet-bridge-ceiling-lamp-housing-41",
-                         "ceiling light housing")
-    if domain["exit"] != 1 or domain["counts"]["fail"] != 1 or domain["counts"]["tests"] != 164 or conflicts != [expected_conflict]:
-        raise ValueError("The original check-in counter conflict does not match the archived domain failure")
-    save("baseline-domain.json", {"gitSha": summary["gitSha"], "run": os.environ["ARTIFACT_RUN"],
-                                  "counts": domain["counts"], "conflicts": conflicts,
-                                  "streamSha256": domain["streamSha256"]["out"]})
+            or metrics["transitions"] != 40 or report["exit"] != 0 or len(report["cases"]) != 1
+            or report["cases"][0]["status"] != "passed" or report["cases"][0]["retry"] != 0 or exceeded):
+        raise ValueError("The archived 40-transition measurements did not pass their original budgets")
+    unit = json.loads((root / "unit.json").read_bytes())
+    browser = json.loads((root / "candidate/result.json").read_bytes())
+    overall = json.loads((root / "result.json").read_bytes())
+    exceptions = {g: outcome for g, outcome in overall["outcomes"].items() if outcome != "success"}
+    if (overall["gitSha"] != os.environ["BASELINE"] or exceptions != {"quality/strict": "failure"}
+            or not browser["accepted"] or len(browser["cases"]) != 46 or not unit["passed"]
+            or [unit["suites"][s]["pass"] for s in ("domain", "semantic-lexical")] != [353, 28]):
+        raise ValueError("The archived unit and browser results do not match this baseline")
+    save("baseline-acceptance.json", {"gitSha": summary["gitSha"], "run": os.environ["ARTIFACT_RUN"],
+                                      "unit": unit, "browserCases": len(browser["cases"]), "outstanding": exceptions})
     save("baseline-performance.json", {"gitSha": summary["gitSha"], "run": os.environ["ARTIFACT_RUN"],
                                       "cycles": 20, "transitions": 40, "measurements": readings,
                                       "budgets": summary["budgets"], "exceeded": exceeded, "sourceDigests": digests})
@@ -351,7 +403,7 @@ def record():
         passed = all(gates[f"reports/{phase}/{d}"] == "success" for d in DEVICES)
         scene_data = devices[DEVICES[0]].get("scenes", {})
         same_scenes = bool(scene_data) and all(d.get("scenes") == scene_data for d in devices.values())
-        inventory_expected = 2 if phase == "baseline" else 46
+        inventory_expected = 2 if phase == "baseline" else 48
         inventory_ok = same_scenes and len(cases) == inventory_expected
         gates[f"reports/{phase}/inventory"] = "success" if inventory_ok else "failure"
         (phase_dir / "result.json").write_text(json.dumps({
@@ -361,7 +413,7 @@ def record():
         }, indent=2) + "\n")
     save("result.json", {"gitSha": PRODUCT, "sourceRun": os.environ["ARTIFACT_RUN"],
                          "run": os.environ["GITHUB_RUN_ID"], "controlSha": os.environ["GITHUB_SHA"],
-                         "scope": "bilingual-photo-labels", "outcomes": gates,
+                         "scope": "security-checkpoint-photo-recheck", "outcomes": gates,
                          "passed": all(v == "success" for v in gates.values())})
     with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as summary:
         summary.write("| Check | Outcome |\n|---|---|\n")

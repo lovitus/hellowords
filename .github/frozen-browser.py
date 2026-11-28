@@ -1,4 +1,4 @@
-"""Verify composited bilingual labels and retain the photographed journeys."""
+"""Verify checkpoint photograph coordinates and retain the existing journeys."""
 import base64
 from collections import Counter
 import hashlib
@@ -22,6 +22,8 @@ CHECKIN = ("e2e/airport-bag-drop.spec.ts",
            "airport check-in opens the nearest self-service kiosk from its dot and reads the card reader without moving the photograph")
 SECURITY = ("e2e/airport-bag-drop.spec.ts",
             "airport security checkpoint reads the front stanchion pole, looks up its collar and returns from both child scenes")
+SECURITY_RECHECK = ("e2e/airport-bag-drop.spec.ts",
+                    "the checkpoint and carry-on scanner read their photographed equipment and keep the drawer handle in the index")
 TERMINAL = ("e2e/airport-terminal.spec.ts",
             "the airport terminal reads the suitcase shell and carousel island and restores its words after baggage claim")
 OVERVIEW = ("e2e/urban-services-overview.spec.ts",
@@ -64,8 +66,9 @@ out = Path(os.environ["RUNNER_TEMP"]) / "frozen-display-evidence" / phase
 out.mkdir(parents=True)
 temp = Path(os.environ["RUNNER_TEMP"]) / f"browser-{phase}"
 temp.mkdir()
-cases = [(project, *ELEVATOR) for project in PROJECTS]
+cases = [(project, *SECURITY_RECHECK) for project in PROJECTS]
 if phase == "candidate":
+    cases.extend((project, *ELEVATOR) for project in PROJECTS)
     cases.extend((project, *GATE_BRIDGE) for project in PROJECTS)
     cases.extend((project, *APRON) for project in PROJECTS)
     cases.extend((project, *RECEPTION) for project in PROJECTS)
@@ -130,11 +133,7 @@ def inventory(scene_id, asset, photo_sha, source_sha, count, *, revised_density=
         raise ValueError(f"The calibrated photograph and index counts differ in {scene_id}")
     renamed = {key: {"original": originals[key][:2], "current": value[:2]}
                for key, value in current.items() if originals[key][:2] != value[:2]}
-    expected_renames = {}
-    if phase == "candidate" and scene_id == "passenger-boarding-bridge":
-        expected_renames["passenger-boarding-bridge-jet-bridge-ceiling-lamp-housing-41"] = {
-            "original": ("ceiling light housing", "顶灯外壳"), "current": ("recessed light housing", "嵌入式顶灯外壳")}
-    if renamed != expected_renames or any(current[key][2] != value[2] for key, value in originals.items()):
+    if renamed or any(current[key][2] != value[2] for key, value in originals.items()):
         raise ValueError(f"Unexpected change to bilingual vocabulary or lexeme links in {scene_id}")
     coordinates = Counter((entry["x"], entry["y"]) for entry in labels)
     shared = sum(count > 1 for count in coordinates.values())
@@ -492,7 +491,8 @@ def gate_bridge_journey(observed, images, result, project):
                 and 0 <= row["inkLeft"] < row["inkRight"] <= row["pillWidth"]
                 and 0 <= row["pillLeft"] + row["inkLeft"] < row["pillLeft"] + row["inkRight"] <= row["canvasWidth"])
 
-    if not entered(airport, security, (530, 465)) or not entered(security, gate, (1425, 221)):
+    gate_entrance = (1425, 221) if phase == "baseline" else (1394, 353)
+    if not entered(airport, security, (530, 465)) or not entered(security, gate, gate_entrance):
         return False
     first = reading("gate-clock", gate, (315, 213), clock)
     return (result["status"] == "passed" and not result["errors"] and first == [clock]
@@ -523,15 +523,6 @@ def elevator_readings(observed, images, result, project):
         chinese = "".join(row["text"] for row in runs if re.search("[\u3400-\u9fff]", row["text"]))
         return english, chinese
 
-    first = stage("long-button")
-    if phase == "baseline":
-        right = first.get("pill", {}).get("right")
-        return (result["status"] == "failed" and len(result["errors"]) == 1
-                and words(first) == (long_word, long_meaning) and first.get("readable") is False
-                and isinstance(right, (float, int)) and math.isfinite(right)
-                and any(run.get("clipped") is True and run["text"] == long_meaning and run["ink"]["right"] > right
-                        for run in first.get("runs", []))
-                and "short-button-result" not in observed)
     for name, text, meaning, count in (
             ("long-button", long_word, long_meaning, 2), ("long-button-english", long_word, "", 1),
             ("long-button-restored", long_word, long_meaning, 2), ("short-button", short_word, short_meaning, 1)):
@@ -547,6 +538,45 @@ def elevator_readings(observed, images, result, project):
         if tapped.get("point", {}).get("visible") is not True or tapped.get("actual") != [{"word": word, "meaning": meaning}]:
             return False
     return result["status"] == "passed" and not result["errors"]
+
+
+def checkpoint_readings(observed, images, result, project):
+    screenshot = (1011, 1851) if project == "mobile-chromium" else (1440, 900)
+    viewport = (385, 705) if project == "mobile-chromium" else screenshot
+    baseline = phase == "baseline"
+
+    def stage(name):
+        records = observed.get(name + "-result", [])
+        return records[0] if len(records) == 1 and images.get(name) == screenshot else {}
+
+    wrong_taps = 0
+    for prefix, scene, word, meaning, previous, corrected in (
+            ("scanner-operator-monitor", "carry-on-baggage-scanner", "operator monitor", "操作员显示器", (230, 370), (232, 438)),
+            ("checkpoint-scanner-vent", "security-checkpoint", "scanner vent", "扫描器通风口", (690, 239), (626, 228))):
+        anchor = stage(prefix + "-anchor")
+        dot = anchor.get("dot", {})
+        position = previous if baseline else corrected
+        if (anchor.get("word") != word or anchor.get("meaning") != meaning or anchor.get("inside") is not (not baseline)
+                or dot.get("anchorVisible") is not True
+                or not all(isinstance(value := dot.get(axis), (float, int)) and abs(value - expected) < 1
+                           for axis, expected in zip(("photoX", "photoY"), position))):
+            return False
+        photo = stage(prefix + "-photo")
+        pixel = photo.get("pixel", {})
+        expected_card = {"word": word, "meaning": meaning}
+        if (photo.get("scene") != scene or photo.get("expected") != expected_card or photo.get("point") != list(corrected)
+                or pixel.get("visible") is not True or not isinstance(photo.get("actual"), list)
+                or not all(isinstance(value := pixel.get(axis), (int, float)) and 0 <= value < bound
+                           for axis, bound in zip(("x", "y"), viewport))):
+            return False
+        if photo["actual"] != [expected_card]:
+            wrong_taps += 1
+    handle = stage("scanner-drawer-handle-index")
+    if baseline:
+        return (result["status"] == "failed" and bool(result["errors"]) and wrong_taps > 0 and handle.get("note") is False
+                and isinstance(handle.get("painted"), int) and handle["painted"] > 0)
+    return (result["status"] == "passed" and not result["errors"] and wrong_taps == 0
+            and handle == {"note": True, "painted": 0, "sameCamera": True})
 
 
 scenes = {
@@ -567,7 +597,7 @@ scenes = {
                                "4e877e4aff08185eb75a2d26d37d903679068c0574efa30f0e9fe4d4cd5a00c8", 120, revised_density=(79, 41)),
     "passenger-boarding-bridge": inventory("passenger-boarding-bridge", "/scenes/airport-boarding-bridge-premium-v1.jpg",
                                           "f2d8b7c4fde68f8c8abf1b05d708536bd956a64e892ffa620dd9732b80d52835",
-                                          "4fb2753473a220845fe11a3d18b8a471fe963981fbc76e6f581f97a01c4675c4", 150, revised_density=(110, 40)),
+                                          "699890eb7e8dd367811346d5b4bbf08c5b16ba10c88d3acc18c3abf400cc9d91", 150, revised_density=(110, 40)),
 }
 selection = temp / "cases.txt"
 selection.write_text("".join(f"[{p}] > {f} > {title}\n" for p, f, title in cases))
@@ -602,6 +632,9 @@ for spec in visit(report):
         row.update(status=result["status"], errorCount=len(errors),
                    assertionLocations=source_lines, attachments=names, imageSizes=images)
         passed = result["status"] == "passed" and not errors
+        if title == SECURITY_RECHECK[1]:
+            row["accepted"] = checkpoint_readings(observed, images, result, project)
+            continue
         if title == ELEVATOR[1]:
             row["accepted"] = elevator_readings(observed, images, result, project)
             continue

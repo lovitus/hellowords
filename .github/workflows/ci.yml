@@ -1,4 +1,4 @@
-name: Verify bilingual photograph labels
+name: Verify airport security checkpoint photograph coordinates
 on:
   workflow_dispatch:
     inputs:
@@ -11,10 +11,10 @@ permissions:
   contents: read
 env:
   CI: "true"
-  BASELINE: 58d3ccaf703d347e3a8326915d8f4563cc2f746d
+  BASELINE: d6b335a7e4407067941f693f62718cd6239cb1d8
   PRODUCT: ${{ inputs.candidate }}
-  MANIFEST_SHA256: 4820769ca8a924039a2b01153e374460b1eeb2b9e024b47d196dc74349476190
-  ARTIFACT_RUN: "46055404253"
+  MANIFEST_SHA256: 0bf71665a8e88b54890482d9977ad6c62820c00703637a516bab36b7af60b9fe
+  ARTIFACT_RUN: "46059178518"
 jobs:
   build:
     runs-on: ubuntu-24.04
@@ -50,7 +50,7 @@ jobs:
           run-id: ${{ env.ARTIFACT_RUN }}
           github-token: ${{ github.token }}
           path: ${{ runner.temp }}/original-evidence
-      - name: Verify the original performance failures and the check-in counter word collision
+      - name: Verify the original navigation budgets, full unit results and photographed journeys
         id: baseline
         if: ${{ !cancelled() && steps.integrity.outcome == 'success' && steps.original_evidence.outcome == 'success' }}
         continue-on-error: true
@@ -152,7 +152,7 @@ jobs:
         name: Install the locked Chromium
         id: browser
         run: ./node_modules/.bin/playwright install --with-deps chromium > "$RUNNER_TEMP/browser.log" 2>&1
-      - name: Read the long elevator button in the archived build
+      - name: Reproduce the misplaced checkpoint word from the airport in the archived build
         id: misplaced
         continue-on-error: true
         run: |
@@ -166,7 +166,7 @@ jobs:
         with:
           name: production-dist-${{ env.PRODUCT }}
           path: product
-      - name: Read the elevator and existing photographed journeys
+      - name: Read the corrected checkpoint objects and retain the other photographed journeys
         id: journeys
         continue-on-error: true
         run: python ../.github/frozen-browser.py candidate
